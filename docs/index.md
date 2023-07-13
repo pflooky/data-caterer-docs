@@ -22,8 +22,8 @@ It can also be manually altered to produce data or scenarios the way you want.
 
 ### Manually create Plan and Task(s)
 
-1. Create plan like [here](../sample/plan/simple-json-plan.yaml)
-2. Create tasks like [here](../sample/task)
-3. Create application configuration like [here](../sample/conf/application.conf)
+1. Create plan like [here](tech/sample/plan/simple-json-plan.yaml)
+2. Create tasks like [here](tech/sample/task)
+3. Create application configuration like [here](tech/sample/conf/application.conf)
 4. Run via docker `docker run -e PLAN_FILE_PATH= -e TASK_FOLDER_PATH= pflookyy/data-caterer-basic:0.1`
 

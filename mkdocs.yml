@@ -2,6 +2,8 @@ site_name: Data Caterer Documentation
 theme:
   name: material
   features:
+    - navigation.tabs
+    - navigation.sections
     - navigation.instant
     - navigation.tracking
     - navigation.top
@@ -10,3 +12,8 @@ theme:
     Generators: tech/generators.md
     Connections: tech/connections.md
     Advanced: tech/advanced.md
+  palette:
+    scheme: slate
+plugins:
+  - search
+
