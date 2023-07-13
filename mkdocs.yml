@@ -8,14 +8,14 @@ theme:
     - navigation.tracking
     - navigation.top
     - content.code.copy
-  nav:
-    - Home: 'index.md'
-    - 'Get Started': 'get-started/docker.md'
-    - Generators: 'generators/generators.md'
-    - Connections: 'connections/connections.md'
-    - Advanced: 'advanced/advanced.md'
   palette:
     scheme: slate
+nav:
+  - Home: 'index.md'
+  - 'Get Started': 'get-started/docker.md'
+  - Generators: 'generators/generators.md'
+  - Connections: 'connections/connections.md'
+  - Advanced: 'advanced/advanced.md'
 markdown_extensions:
   - def_list
   - pymdownx.tasklist:
