@@ -5,3 +5,8 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.top
+  nav:
+    Home: index.md
+    Generators: tech/generators.md
+    Connections: tech/connections.md
+    Advanced: tech/advanced.md
