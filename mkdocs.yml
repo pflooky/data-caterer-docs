@@ -7,13 +7,20 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.top
+    - content.code.copy
   nav:
-    Home: index.md
-    Generators: tech/generators.md
-    Connections: tech/connections.md
-    Advanced: tech/advanced.md
+    - Home: index.md
+    - Get Started: tech/docker.md
+    - Docs:
+      - Generators: tech/generators.md
+      - Connections: tech/connections.md
+      - Advanced: tech/advanced.md
   palette:
     scheme: slate
+markdown_extensions:
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
 plugins:
   - search
 

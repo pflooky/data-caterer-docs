@@ -89,8 +89,7 @@ NaN)
 | enableNull | false            | enableNull: "true" | Enable/disable null values being generated                           |
 
 **Edge cases**: (0001-01-01, 1582-10-15, 1970-01-01, 9999-12-31)
-(
-Reference: https://github.com/apache/spark/blob/master/sql/catalyst/src/test/scala/org/apache/spark/sql/RandomDataGenerator.scala#L206)
+([reference](https://github.com/apache/spark/blob/master/sql/catalyst/src/test/scala/org/apache/spark/sql/RandomDataGenerator.scala#L206))
 
 ### Timestamp
 

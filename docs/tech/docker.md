@@ -2,13 +2,31 @@
 
 ## Quick start
 
-1. `mkdir /tmp/datagen`
-2. `docker run -v /tmp/datagen:/opt/app/data-caterer pflookyy/data-caterer:0.1`
-3. `head /tmp/datagen/sample/json/account-gen/part-0000*`
+```shell
+mkdir /tmp/datagen
+docker run -v /tmp/datagen:/opt/app/data-caterer pflookyy/data-caterer:0.1
+head /tmp/datagen/sample/json/account-gen/part-0000*
+```
 
 ## Run with custom data connections
 
-1. Use sample `application.conf` from [here](sample/conf/application.conf) and put under folder `/tmp/datagen`
-   1. `cp app/src/main/resources/application.conf /tmp/datagen`
-2. Fill in details of data connections as found [here](connections.md)
-3. `docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf pflookyy/data-caterer:0.1`
+```shell
+cp sample/conf/application.conf /tmp/datagen
+vi /tmp/datagen/application.conf
+docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf pflookyy/data-caterer:0.1
+```
+
+
+## Run with custom plan and task(s)
+
+```shell
+cp sample/conf/application.conf /tmp/datagen
+cp sample/plan/simple-json-plan.yaml /tmp/datagen
+cp -R sample/task/ /tmp/datagen
+#alter plan and task file(s) as required
+docker run -v /tmp/datagen:/opt/app/data-caterer \
+  -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf \
+  -e PLAN_FILE_PATH=/opt/app/datagen/plan/simple-json-plan.yaml \
+  -e TASK_FOLDER_PATH=/opt/app/datagen/task \
+  pflookyy/data-caterer:0.1
+```
