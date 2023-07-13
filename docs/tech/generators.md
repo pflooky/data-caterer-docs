@@ -41,15 +41,18 @@ descriptions:
 |------------|---------|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | minLen     | 1       | minLen: "2"                                                                               | Ensures that all generated strings have at least length `minLen`                                                                                                                                                           |
 | maxLen     | 10      | maxLen: "15"                                                                              | Ensures that all generated strings have at most length `maxLen`                                                                                                                                                            |
-| expression | <empty> | expression: "#{Name.name}"<br/> expression:"#{Address.city}/#{Demographic.maritalStatus}" | Will generate a string based on the faker expression provided. All possible faker expressions can be found [here](tech/sample/datafaker/expressions.txt)<br/> Expression has to be in format `#{<faker expression name>}` |
+| expression | <empty> | expression: "#{Name.name}"<br/> expression:"#{Address.city}/#{Demographic.maritalStatus}" | Will generate a string based on the faker expression provided. All possible faker expressions can be found [here](sample/datafaker/expressions.txt)<br/> Expression has to be in format `#{<faker expression name>}`       |
 | enableNull | false   | enableNull: "true"                                                                        | Enable/disable null values being generated                                                                                                                                                                                 |
 
 **Edge cases**: ("", "\n", "\r", "\t", " ", "\\u0000", "\\ufff")
 
 ### Numeric
+
 For all the numeric data types, there are 4 options to choose from: min, minValue, max and maxValue.
 Generally speaking, you only need to define one of min or minValue, similarly with max or maxValue.  
-The reason why there are 2 options for each is because of when metadata is automatically gathered, we gather the statistics of the observed min and max values. Also, it will attempt to gather any restriction on the min or max value as defined by the data source (i.e. max value as per database type).
+The reason why there are 2 options for each is because of when metadata is automatically gathered, we gather the
+statistics of the observed min and max values. Also, it will attempt to gather any restriction on the min or max value
+as defined by the data source (i.e. max value as per database type).
 
 #### Integer/Long/Short/Decimal
 
@@ -62,7 +65,7 @@ The reason why there are 2 options for each is because of when metadata is autom
 
 **Edge cases Integer**: (2147483647, -2147483648, 0)  
 **Edge cases Long/Decimal**: (9223372036854775807, -9223372036854775808, 0)  
-**Edge cases Short**: (32767, -32768, 0)  
+**Edge cases Short**: (32767, -32768, 0)
 
 #### Double/Float
 
@@ -73,7 +76,8 @@ The reason why there are 2 options for each is because of when metadata is autom
 | maxValue | 1000.0  | maxValue: "25.9" | Ensures that all generated values are less than or equal to `maxValue`                                                                                        |
 | max      | 1000.0  | max: "25.9"      | Ensures that all generated values are less than or equal to `maxValue`. If `maxValue` is defined, `maxValue` will define the largest possible generated value |
 
-**Edge cases Double**: (+infinity, 1.7976931348623157e+308, 4.9e-324, 0.0, -0.0, -1.7976931348623157e+308, -infinity, NaN)  
+**Edge cases Double**: (+infinity, 1.7976931348623157e+308, 4.9e-324, 0.0, -0.0, -1.7976931348623157e+308, -infinity,
+NaN)  
 **Edge cases Float**: (+infinity, 3.4028235e+38, 1.4e-45, 0.0, -0.0, -3.4028235e+38, -infinity, NaN)
 
 ### Date
@@ -85,7 +89,8 @@ The reason why there are 2 options for each is because of when metadata is autom
 | enableNull | false            | enableNull: "true" | Enable/disable null values being generated                           |
 
 **Edge cases**: (0001-01-01, 1582-10-15, 1970-01-01, 9999-12-31)
-(Reference: https://github.com/apache/spark/blob/master/sql/catalyst/src/test/scala/org/apache/spark/sql/RandomDataGenerator.scala#L206)
+(
+Reference: https://github.com/apache/spark/blob/master/sql/catalyst/src/test/scala/org/apache/spark/sql/RandomDataGenerator.scala#L206)
 
 ### Timestamp
 

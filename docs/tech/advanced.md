@@ -6,7 +6,7 @@ There are many options available for you to use when you have a scenario when da
 
 1. Create expression [datafaker](https://www.datafaker.net/documentation/expressions/)
    1. Can be used to create names, addresses, or anything that can be found
-      under [here](tech/sample/datafaker/expressions.txt)
+      under [here](sample/datafaker/expressions.txt)
 2. Create regex
 
 ## Foreign keys across data sets
@@ -27,7 +27,7 @@ sinkOptions:
       - "transaction-cassandra.transactions.account_id"
 ```
 
-[Sample can be found here.](tech/sample/plan/foreign-key-example-plan.yaml)
+[Sample can be found here.](sample/plan/foreign-key-example-plan.yaml)
 You can define any number of foreign key relationships as you want.
 
 ## Edge cases
@@ -57,8 +57,8 @@ You can alter the `status` column in the account data to only generate `open` ac
 and define a foreign key between Postgres and parquet to ensure the same `account_id` is being used.  
 Then in the parquet task, define 1 to 10 transactions per `account_id` to be generated.
 
-[Postgres account generation example task](tech/sample/task/jdbc/postgres/postgres-account-task.yaml)  
-[Parquet transaction generation example task](tech/sample/task/file/parquet/parquet-transaction-task.yaml)  
-[Plan](tech/sample/plan/scenario-based-plan.yaml)
+[Postgres account generation example task](sample/task/jdbc/postgres/postgres-account-task.yaml)  
+[Parquet transaction generation example task](sample/task/file/parquet/parquet-transaction-task.yaml)  
+[Plan](sample/plan/scenario-based-plan.yaml)
 
 ## Generating JSON data

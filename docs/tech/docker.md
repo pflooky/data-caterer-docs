@@ -8,7 +8,7 @@
 
 ## Run with custom data connections
 
-1. Use sample `application.conf` from [here](../../app/src/main/resources/application.conf) and put under folder `/tmp/datagen`
+1. Use sample `application.conf` from [here](sample/conf/application.conf) and put under folder `/tmp/datagen`
    1. `cp app/src/main/resources/application.conf /tmp/datagen`
 2. Fill in details of data connections as found [here](connections.md)
 3. `docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf pflookyy/data-caterer:0.1`
