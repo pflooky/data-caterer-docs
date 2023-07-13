@@ -19,6 +19,10 @@ docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt
 
 ## Run with custom plan and task(s)
 
+1. Create plan like [here](../sample/plan/simple-json-plan.yaml)
+2. Create tasks like [here](../sample/task/file/json/json-account-task.yaml)
+3. Create application configuration like [here](../sample/conf/application.conf)
+
 ```shell
 cp sample/conf/application.conf /tmp/datagen
 cp sample/plan/simple-json-plan.yaml /tmp/datagen

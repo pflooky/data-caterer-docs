@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../advanced/">
+        <link rel="prev" href="../..">
       
       
-        <link rel="next" href="../docker/">
+        <link rel="next" href="../../connections/connections/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Data Source Connections - Data Caterer Documentation</title>
+        <title>Advanced use cases - Data Caterer Documentation</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#data-source-connections" class="md-skip">
+        <a href="#advanced-use-cases" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Data Source Connections
+              Advanced use cases
             
           </span>
         </div>
@@ -182,8 +182,56 @@
   
   
     <li class="md-tabs__item">
-      <a href="../advanced/" class="md-tabs__link md-tabs__link--active">
-        Tech
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Advanced
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../connections/connections/" class="md-tabs__link">
+        Connections
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../generators/generators/" class="md-tabs__link">
+        Generators
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../get-started/docker/" class="md-tabs__link">
+        Get started
       </a>
     </li>
   
@@ -256,30 +304,16 @@
       
       
         <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-          Tech
+          Advanced
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Tech
+          Advanced
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../advanced/" class="md-nav__link">
-        Advanced use cases
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -297,12 +331,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Data Source Connections
+          Advanced use cases
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Data Source Connections
+        Advanced use cases
       </a>
       
         
@@ -321,103 +355,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contents" class="md-nav__link">
-    Contents
+  <a href="#special-data-formats" class="md-nav__link">
+    Special data formats
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-data-connections" class="md-nav__link">
-    Supported Data Connections
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported Data Connections">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#file-system" class="md-nav__link">
-    File System
+  <a href="#foreign-keys-across-data-sets" class="md-nav__link">
+    Foreign keys across data sets
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#jdbc" class="md-nav__link">
-    JDBC
-  </a>
-  
-    <nav class="md-nav" aria-label="JDBC">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#postgres" class="md-nav__link">
-    Postgres
-  </a>
-  
-    <nav class="md-nav" aria-label="Postgres">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#permissions" class="md-nav__link">
-    Permissions
+      
+        <li class="md-nav__item">
+  <a href="#edge-cases" class="md-nav__link">
+    Edge cases
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
-    MySQL
-  </a>
-  
-    <nav class="md-nav" aria-label="MySQL">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#permissions_1" class="md-nav__link">
-    Permissions
+      
+        <li class="md-nav__item">
+  <a href="#scenario-testing" class="md-nav__link">
+    Scenario testing
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cassandra" class="md-nav__link">
-    Cassandra
+      
+        <li class="md-nav__item">
+  <a href="#generating-json-data" class="md-nav__link">
+    Generating JSON data
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jms" class="md-nav__link">
-    JMS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#http" class="md-nav__link">
-    HTTP
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -430,19 +398,40 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../docker/" class="md-nav__link">
-        Docker
-      </a>
+        </ul>
+      </nav>
     </li>
   
 
-            
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Connections
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Connections
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
             
               
@@ -450,8 +439,106 @@
   
   
     <li class="md-nav__item">
-      <a href="../generators/" class="md-nav__link">
+      <a href="../../connections/connections/" class="md-nav__link">
+        Data Source Connections
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Generators
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Generators
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generators/generators/" class="md-nav__link">
         Data Generators
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Get started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Get started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../get-started/docker/" class="md-nav__link">
+        Docker
       </a>
     </li>
   
@@ -491,103 +578,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contents" class="md-nav__link">
-    Contents
+  <a href="#special-data-formats" class="md-nav__link">
+    Special data formats
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#supported-data-connections" class="md-nav__link">
-    Supported Data Connections
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported Data Connections">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#file-system" class="md-nav__link">
-    File System
+  <a href="#foreign-keys-across-data-sets" class="md-nav__link">
+    Foreign keys across data sets
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#jdbc" class="md-nav__link">
-    JDBC
-  </a>
-  
-    <nav class="md-nav" aria-label="JDBC">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#postgres" class="md-nav__link">
-    Postgres
-  </a>
-  
-    <nav class="md-nav" aria-label="Postgres">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#permissions" class="md-nav__link">
-    Permissions
+      
+        <li class="md-nav__item">
+  <a href="#edge-cases" class="md-nav__link">
+    Edge cases
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mysql" class="md-nav__link">
-    MySQL
-  </a>
-  
-    <nav class="md-nav" aria-label="MySQL">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#permissions_1" class="md-nav__link">
-    Permissions
+      
+        <li class="md-nav__item">
+  <a href="#scenario-testing" class="md-nav__link">
+    Scenario testing
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cassandra" class="md-nav__link">
-    Cassandra
+      
+        <li class="md-nav__item">
+  <a href="#generating-json-data" class="md-nav__link">
+    Generating JSON data
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jms" class="md-nav__link">
-    JMS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#http" class="md-nav__link">
-    HTTP
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -606,145 +627,54 @@
                   
 
 
-<h1 id="data-source-connections">Data Source Connections</h1>
-<h2 id="contents">Contents</h2>
-<ul>
-<li><a href="#supported-data-connections">Supported Data Connections</a></li>
-<li><a href="#file-system">File System</a></li>
-<li><a href="#jdbc">JDBC</a><ul>
-<li><a href="#postgres">Postgres</a></li>
-<li><a href="#mysql">MySQL</a></li>
-</ul>
-</li>
-<li><a href="#cassandra">Cassandra</a></li>
-<li><a href="#jms">JMS</a></li>
-<li><a href="#http">HTTP</a></li>
-</ul>
-<p>Details of all the connection configuration supported can be found in the below subsections for each type of connection.</p>
-<h2 id="supported-data-connections">Supported Data Connections</h2>
-<ul>
-<li>S3</li>
-<li>Postgres</li>
-<li>MySQL</li>
-<li>Cassandra</li>
-<li>Solace</li>
-<li>HTTP</li>
-</ul>
-<p>All connection details follow the same pattern.</p>
-<pre><code>&lt;connection format&gt; {
-    &lt;connection name&gt; {
-        &lt;key&gt; = &lt;value&gt;
-    }
-}
+<h1 id="advanced-use-cases">Advanced use cases</h1>
+<h2 id="special-data-formats">Special data formats</h2>
+<p>There are many options available for you to use when you have a scenario when data has to be a certain format.</p>
+<ol>
+<li>Create expression <a href="https://www.datafaker.net/documentation/expressions/">datafaker</a></li>
+<li>Can be used to create names, addresses, or anything that can be found
+      under <a href="../../sample/datafaker/expressions.txt">here</a></li>
+<li>Create regex</li>
+</ol>
+<h2 id="foreign-keys-across-data-sets">Foreign keys across data sets</h2>
+<p><img alt="Multiple data source foreign key example" src="../../diagrams/foreign_keys.drawio.png" title="Multiple data source foreign keys" /></p>
+<p>If you have a use case where you require a columns value to match in another data set, this can be achieved in the plan
+definition.
+For example, if I have the column <code>account_number</code> in a data source named <code>customer-postgres</code> and column <code>account_id</code>
+in <code>transaction-cassandra</code>,</p>
+<pre><code class="language-yaml">sinkOptions:
+  foreignKeys:
+    #The foreign key name with naming convention [dataSourceName].[taskName].[columnName]
+    &quot;customer-postgres.accounts.account_number&quot;:
+      #List of columns to match with same naming convention
+      - &quot;transaction-cassandra.transactions.account_id&quot;
 </code></pre>
-<p>When defining a configuration value that can be defined by a system property or environment variable at runtime, you can define that via the following:</p>
-<pre><code>url = &quot;localhost&quot;
-url = ${?POSTGRES_URL}
+<p><a href="../../sample/plan/foreign-key-example-plan.yaml">Sample can be found here.</a>
+You can define any number of foreign key relationships as you want.</p>
+<h2 id="edge-cases">Edge cases</h2>
+<p>For each given data type, there are edge cases which can cause issues when your application processes the data.
+This can be controlled at a column level by including the following flag in the generator options:</p>
+<pre><code class="language-yaml">fields:
+  - name: &quot;amount&quot;
+    type: &quot;double&quot;
+    generator:
+      type: &quot;random&quot;
+      options:
+        enableEdgeCases: &quot;true&quot; 
 </code></pre>
-<p>The above defines that if there is a system property or environment variable named <code>POSTGRES_URL</code>, then that value will be used for the <code>url</code>, otherwise,
-it will default to <code>localhost</code>.</p>
-<h3 id="file-system">File System</h3>
-<h3 id="jdbc">JDBC</h3>
-<p>Follows the same configuration used by Spark as found <a href="https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html">here</a>.<br />
-Sample can be found below</p>
-<pre><code>jdbc {
-    postgres {
-        url = &quot;jdbc:postgresql://localhost:5432/customer&quot;
-        url = ${?POSTGRES_URL}
-        user = &quot;postgres&quot;
-        user = ${?POSTGRES_USERNAME}
-        password = &quot;postgres&quot;
-        password = ${?POSTGRES_PASSWORD}
-        driver = &quot;org.postgresql.Driver&quot;
-    }
-}
-</code></pre>
-<p>Ensure that the user has write permission so it is able to save the table to the target tables.</p>
-<details>
-
-
-<pre><code class="language-sql">GRANT INSERT ON &lt;schema&gt;.&lt;table&gt; TO &lt;user&gt;;
-</code></pre>
-
-</details>
-
-<h4 id="postgres">Postgres</h4>
-<h5 id="permissions">Permissions</h5>
-<p>Following permissions are required when generating plan and tasks:</p>
-<details>
-
-
-<pre><code class="language-sql">GRANT SELECT ON information_schema.tables TO &lt;user&gt;;
-GRANT SELECT ON information_schema.columns TO &lt;user&gt;;
-GRANT SELECT ON information_schema.key_column_usage TO &lt;user&gt;;
-GRANT SELECT ON information_schema.table_constraints TO &lt;user&gt;;
-GRANT SELECT ON information_schema.constraint_column_usage TO &lt;user&gt;;
-</code></pre>
-
-</details>
-
-<h4 id="mysql">MySQL</h4>
-<h5 id="permissions_1">Permissions</h5>
-<p>Following permissions are required when generating plan and tasks:</p>
-<details>
-
-
-<pre><code class="language-sql">GRANT SELECT ON information_schema.columns TO &lt;user&gt;;
-GRANT SELECT ON information_schema.statistics TO &lt;user&gt;;
-GRANT SELECT ON information_schema.key_column_usage TO &lt;user&gt;;
-</code></pre>
-
-</details>
-
-<h3 id="cassandra">Cassandra</h3>
-<p>Follows same configuration as defined by the Spark Cassandra Connector as found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md">here</a>  </p>
-<pre><code>org.apache.spark.sql.cassandra {
-    cassandra {
-        spark.cassandra.connection.host = &quot;localhost&quot;
-        spark.cassandra.connection.host = ${?CASSANDRA_HOST}
-        spark.cassandra.connection.port = &quot;9042&quot;
-        spark.cassandra.connection.port = ${?CASSANDRA_PORT}
-        spark.cassandra.auth.username = &quot;cassandra&quot;
-        spark.cassandra.auth.username = ${?CASSANDRA_USERNAME}
-        spark.cassandra.auth.password = &quot;cassandra&quot;
-        spark.cassandra.auth.password = ${?CASSANDRA_PASSWORD}
-    }
-}
-</code></pre>
-<p>Ensure that the user has write permission so it is able to save the table to the target tables.</p>
-<details>
-
-
-<pre><code class="language-sql">GRANT INSERT ON &lt;schema&gt;.&lt;table&gt; TO &lt;user&gt;;
-</code></pre>
-
-</details>
-
-<h3 id="jms">JMS</h3>
-<p>Uses JNDI lookup to send messages to JMS queue. Ensure that the messaging system you are using has your queue/topic registered 
-via JNDI otherwise a connection cannot be created.</p>
-<pre><code>jms {
-    solace {
-        initialContextFactory = &quot;com.solacesystems.jndi.SolJNDIInitialContextFactory&quot;
-        connectionFactory = &quot;/jms/cf/default&quot;
-        url = &quot;smf://localhost:55555&quot;
-        vpnName = &quot;default&quot;
-        user = &quot;admin&quot;
-        password = &quot;admin&quot;  
-    }
-}
-</code></pre>
-<h3 id="http">HTTP</h3>
-<p>Define a URL to connect to when sending HTTP requests.<br />
-Later, can have the ability to define generated data as part of the URL.</p>
-<pre><code>http {
-    customer_api {
-        url = &quot;http://localhost:80/get&quot;
-        user = &quot;admin&quot;      #optional
-        password = &quot;admin&quot;  #optional
-    }
-}
-</code></pre>
+<p>If you want to know all the possible edge cases for each data
+type, <a href="../../generators/generators/">can check the documentation here</a>.</p>
+<h2 id="scenario-testing">Scenario testing</h2>
+<p>You can create specific scenarios by adjusting the metadata found in the plan and tasks to your liking.<br />
+For example, if you had two data sources, a Postgres database and a parquet file, and you wanted to save account data
+into Postgres and transactions related to those accounts into a parquet file.
+You can alter the <code>status</code> column in the account data to only generate <code>open</code> accounts
+and define a foreign key between Postgres and parquet to ensure the same <code>account_id</code> is being used.<br />
+Then in the parquet task, define 1 to 10 transactions per <code>account_id</code> to be generated.</p>
+<p><a href="../../sample/task/jdbc/postgres/postgres-account-task.yaml">Postgres account generation example task</a><br />
+<a href="../../sample/task/file/parquet/parquet-transaction-task.yaml">Parquet transaction generation example task</a><br />
+<a href="../../sample/plan/scenario-based-plan.yaml">Plan</a></p>
+<h2 id="generating-json-data">Generating JSON data</h2>
 
 
 

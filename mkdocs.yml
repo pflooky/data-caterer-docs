@@ -9,12 +9,12 @@ theme:
     - navigation.top
     - content.code.copy
   nav:
-    - Home: index.md
-    - Get Started: tech/docker.md
+    - Home: 'index.md'
+    - 'Get Started': 'get-started/docker.md'
     - Docs:
-      - Generators: tech/generators.md
-      - Connections: tech/connections.md
-      - Advanced: tech/advanced.md
+      - Generators: 'generators/generators.md'
+      - Connections: 'connections/connections.md'
+      - Advanced: 'advanced/advanced.md'
   palette:
     scheme: slate
 markdown_extensions:
