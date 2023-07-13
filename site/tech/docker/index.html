@@ -166,7 +166,7 @@
 
   <li class="md-tabs__item">
     <a href="../.." class="md-tabs__link">
-      Data Caterer - Data Generator
+      Home
     </a>
   </li>
 
@@ -230,7 +230,7 @@
   
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-        Data Caterer - Data Generator
+        Home
       </a>
     </li>
   
@@ -348,6 +348,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#run-with-custom-plan-and-tasks" class="md-nav__link">
+    Run with custom plan and task(s)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -417,6 +424,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#run-with-custom-plan-and-tasks" class="md-nav__link">
+    Run with custom plan and task(s)
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -434,18 +448,26 @@
 
 <h1 id="docker">Docker</h1>
 <h2 id="quick-start">Quick start</h2>
-<ol>
-<li><code>mkdir /tmp/datagen</code></li>
-<li><code>docker run -v /tmp/datagen:/opt/app/data-caterer pflookyy/data-caterer:0.1</code></li>
-<li><code>head /tmp/datagen/sample/json/account-gen/part-0000*</code></li>
-</ol>
+<pre><code class="language-shell">mkdir /tmp/datagen
+docker run -v /tmp/datagen:/opt/app/data-caterer pflookyy/data-caterer:0.1
+head /tmp/datagen/sample/json/account-gen/part-0000*
+</code></pre>
 <h2 id="run-with-custom-data-connections">Run with custom data connections</h2>
-<ol>
-<li>Use sample <code>application.conf</code> from <a href="../sample/conf/application.conf">here</a> and put under folder <code>/tmp/datagen</code></li>
-<li><code>cp app/src/main/resources/application.conf /tmp/datagen</code></li>
-<li>Fill in details of data connections as found <a href="../connections/">here</a></li>
-<li><code>docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf pflookyy/data-caterer:0.1</code></li>
-</ol>
+<pre><code class="language-shell">cp sample/conf/application.conf /tmp/datagen
+vi /tmp/datagen/application.conf
+docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf pflookyy/data-caterer:0.1
+</code></pre>
+<h2 id="run-with-custom-plan-and-tasks">Run with custom plan and task(s)</h2>
+<pre><code class="language-shell">cp sample/conf/application.conf /tmp/datagen
+cp sample/plan/simple-json-plan.yaml /tmp/datagen
+cp -R sample/task/ /tmp/datagen
+#alter plan and task file(s) as required
+docker run -v /tmp/datagen:/opt/app/data-caterer \
+  -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf \
+  -e PLAN_FILE_PATH=/opt/app/datagen/plan/simple-json-plan.yaml \
+  -e TASK_FOLDER_PATH=/opt/app/datagen/task \
+  pflookyy/data-caterer:0.1
+</code></pre>
 
 
 
@@ -488,7 +510,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.tracking", "navigation.top"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.tracking", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
