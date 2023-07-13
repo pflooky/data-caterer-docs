@@ -11,10 +11,9 @@ theme:
   nav:
     - Home: 'index.md'
     - 'Get Started': 'get-started/docker.md'
-    - Docs:
-      - Generators: 'generators/generators.md'
-      - Connections: 'connections/connections.md'
-      - Advanced: 'advanced/advanced.md'
+    - Generators: 'generators/generators.md'
+    - Connections: 'connections/connections.md'
+    - Advanced: 'advanced/advanced.md'
   palette:
     scheme: slate
 markdown_extensions:
