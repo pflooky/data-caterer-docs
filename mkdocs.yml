@@ -23,4 +23,5 @@ markdown_extensions:
       custom_checkbox: true
 plugins:
   - search
+  - open-in-new-tab
 
