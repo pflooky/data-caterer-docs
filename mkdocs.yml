@@ -15,6 +15,7 @@ nav:
   - 'Get Started': 'get-started/docker.md'
   - Generators: 'generators/generators.md'
   - Connections: 'connections/connections.md'
+  - Samples: 'sample/index.md'
   - Advanced: 'advanced/advanced.md'
 markdown_extensions:
   - def_list

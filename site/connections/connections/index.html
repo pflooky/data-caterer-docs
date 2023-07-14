@@ -12,7 +12,7 @@
         <link rel="prev" href="../../generators/generators/">
       
       
-        <link rel="next" href="../../advanced/advanced/">
+        <link rel="next" href="../../sample/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
@@ -215,6 +215,18 @@
 
 
   <li class="md-tabs__item">
+    <a href="../../sample/" class="md-tabs__link">
+      Samples
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
     <a href="../../advanced/advanced/" class="md-tabs__link">
       Advanced
     </a>
@@ -340,13 +352,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contents" class="md-nav__link">
-    Contents
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#supported-data-connections" class="md-nav__link">
     Supported Data Connections
   </a>
@@ -355,9 +360,50 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#file-system" class="md-nav__link">
-    File System
+  <a href="#file" class="md-nav__link">
+    File
   </a>
+  
+    <nav class="md-nav" aria-label="File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csv" class="md-nav__link">
+    CSV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    JSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orc" class="md-nav__link">
+    ORC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parquet" class="md-nav__link">
+    Parquet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delta" class="md-nav__link">
+    Delta
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -456,6 +502,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../../sample/" class="md-nav__link">
+        Samples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../advanced/advanced/" class="md-nav__link">
         Advanced
       </a>
@@ -490,13 +551,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#contents" class="md-nav__link">
-    Contents
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#supported-data-connections" class="md-nav__link">
     Supported Data Connections
   </a>
@@ -505,9 +559,50 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#file-system" class="md-nav__link">
-    File System
+  <a href="#file" class="md-nav__link">
+    File
   </a>
+  
+    <nav class="md-nav" aria-label="File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#csv" class="md-nav__link">
+    CSV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    JSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orc" class="md-nav__link">
+    ORC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parquet" class="md-nav__link">
+    Parquet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delta" class="md-nav__link">
+    Delta
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -606,29 +701,34 @@
 
 
 <h1 id="data-source-connections">Data Source Connections</h1>
-<h2 id="contents">Contents</h2>
-<ul>
-<li><a href="#supported-data-connections">Supported Data Connections</a></li>
-<li><a href="#file-system">File System</a></li>
-<li><a href="#jdbc">JDBC</a><ul>
-<li><a href="#postgres">Postgres</a></li>
-<li><a href="#mysql">MySQL</a></li>
-</ul>
-</li>
-<li><a href="#cassandra">Cassandra</a></li>
-<li><a href="#jms">JMS</a></li>
-<li><a href="#http">HTTP</a></li>
-</ul>
 <p>Details of all the connection configuration supported can be found in the below subsections for each type of connection.</p>
 <h2 id="supported-data-connections">Supported Data Connections</h2>
-<ul>
-<li>S3</li>
-<li>Postgres</li>
-<li>MySQL</li>
-<li>Cassandra</li>
-<li>Solace</li>
-<li>HTTP</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Data Source Type</th>
+<th>Data Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database</td>
+<td>Postgres, MySQL, Cassandra</td>
+</tr>
+<tr>
+<td>File</td>
+<td>CSV, JSON, ORC, Parquet, Delta</td>
+</tr>
+<tr>
+<td>JMS</td>
+<td>Solace</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>GET, PUT, POST</td>
+</tr>
+</tbody>
+</table>
 <p>All connection details follow the same pattern.</p>
 <pre><code>&lt;connection format&gt; {
     &lt;connection name&gt; {
@@ -636,15 +736,59 @@
     }
 }
 </code></pre>
-<p>When defining a configuration value that can be defined by a system property or environment variable at runtime, you can define that via the following:</p>
+<p>When defining a configuration value that can be defined by a system property or environment variable at runtime, you can
+define that via the following:</p>
 <pre><code>url = &quot;localhost&quot;
 url = ${?POSTGRES_URL}
 </code></pre>
-<p>The above defines that if there is a system property or environment variable named <code>POSTGRES_URL</code>, then that value will be used for the <code>url</code>, otherwise,
-it will default to <code>localhost</code>.</p>
-<h3 id="file-system">File System</h3>
+<p>The above defines that if there is a system property or environment variable named <code>POSTGRES_URL</code>, then that value will
+be used for the <code>url</code>, otherwise, it will default to <code>localhost</code>.</p>
+<h3 id="file">File</h3>
+<p>Linked <a href="https://spark.apache.org/docs/latest/sql-data-sources-generic-options.html">here</a> is a list of generic options
+that can be included as part of your file data source configuration if required. Links to specific file type
+configurations can be found below.</p>
+<h4 id="csv">CSV</h4>
+<pre><code>csv {
+  customer_transactions {
+    path = &quot;/data/customer/transaction&quot;
+  }
+}
+</code></pre>
+<p><a href="https://spark.apache.org/docs/latest/sql-data-sources-csv.html#data-source-option">Other available configuration for CSV can be found here</a></p>
+<h4 id="json">JSON</h4>
+<pre><code>json {
+  customer_transactions {
+    path = &quot;/data/customer/transaction&quot;
+  }
+}
+</code></pre>
+<p><a href="https://spark.apache.org/docs/latest/sql-data-sources-json.html#data-source-option">Other available configuration for JSON can be found here</a></p>
+<h4 id="orc">ORC</h4>
+<pre><code>orc {
+  customer_transactions {
+    path = &quot;/data/customer/transaction&quot;
+  }
+}
+</code></pre>
+<p><a href="https://spark.apache.org/docs/latest/sql-data-sources-orc.html#configuration">Other available configuration for ORC can be found here</a></p>
+<h4 id="parquet">Parquet</h4>
+<pre><code>parquet {
+  customer_transactions {
+    path = &quot;/data/customer/transaction&quot;
+  }
+}
+</code></pre>
+<p><a href="https://spark.apache.org/docs/latest/sql-data-sources-parquet.html#data-source-option">Other available configuration for Parquet can be found here</a></p>
+<h4 id="delta">Delta</h4>
+<pre><code>delta {
+  customer_transactions {
+    path = &quot;/data/customer/transaction&quot;
+  }
+}
+</code></pre>
 <h3 id="jdbc">JDBC</h3>
-<p>Follows the same configuration used by Spark as found <a href="https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html">here</a>.<br />
+<p>Follows the same configuration used by Spark as
+found <a href="https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html#data-source-option">here</a>.<br />
 Sample can be found below</p>
 <pre><code>jdbc {
     postgres {
@@ -665,6 +809,7 @@ Sample can be found below</p>
 <pre><code class="language-sql">GRANT INSERT ON &lt;schema&gt;.&lt;table&gt; TO &lt;user&gt;;
 </code></pre>
 
+
 </details>
 
 <h4 id="postgres">Postgres</h4>
@@ -673,12 +818,13 @@ Sample can be found below</p>
 <details>
 
 
-<pre><code class="language-sql">GRANT SELECT ON information_schema.tables TO &lt;user&gt;;
-GRANT SELECT ON information_schema.columns TO &lt;user&gt;;
-GRANT SELECT ON information_schema.key_column_usage TO &lt;user&gt;;
-GRANT SELECT ON information_schema.table_constraints TO &lt;user&gt;;
-GRANT SELECT ON information_schema.constraint_column_usage TO &lt;user&gt;;
+<pre><code class="language-sql">GRANT SELECT ON information_schema.tables TO &lt; user &gt;;
+GRANT SELECT ON information_schema.columns TO &lt; user &gt;;
+GRANT SELECT ON information_schema.key_column_usage TO &lt; user &gt;;
+GRANT SELECT ON information_schema.table_constraints TO &lt; user &gt;;
+GRANT SELECT ON information_schema.constraint_column_usage TO &lt; user &gt;;
 </code></pre>
+
 
 </details>
 
@@ -688,15 +834,17 @@ GRANT SELECT ON information_schema.constraint_column_usage TO &lt;user&gt;;
 <details>
 
 
-<pre><code class="language-sql">GRANT SELECT ON information_schema.columns TO &lt;user&gt;;
-GRANT SELECT ON information_schema.statistics TO &lt;user&gt;;
-GRANT SELECT ON information_schema.key_column_usage TO &lt;user&gt;;
+<pre><code class="language-sql">GRANT SELECT ON information_schema.columns TO &lt; user &gt;;
+GRANT SELECT ON information_schema.statistics TO &lt; user &gt;;
+GRANT SELECT ON information_schema.key_column_usage TO &lt; user &gt;;
 </code></pre>
+
 
 </details>
 
 <h3 id="cassandra">Cassandra</h3>
-<p>Follows same configuration as defined by the Spark Cassandra Connector as found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md">here</a>  </p>
+<p>Follows same configuration as defined by the Spark Cassandra Connector as
+found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md">here</a></p>
 <pre><code>org.apache.spark.sql.cassandra {
     cassandra {
         spark.cassandra.connection.host = &quot;localhost&quot;
@@ -717,10 +865,12 @@ GRANT SELECT ON information_schema.key_column_usage TO &lt;user&gt;;
 <pre><code class="language-sql">GRANT INSERT ON &lt;schema&gt;.&lt;table&gt; TO &lt;user&gt;;
 </code></pre>
 
+
 </details>
 
 <h3 id="jms">JMS</h3>
-<p>Uses JNDI lookup to send messages to JMS queue. Ensure that the messaging system you are using has your queue/topic registered 
+<p>Uses JNDI lookup to send messages to JMS queue. Ensure that the messaging system you are using has your queue/topic
+registered
 via JNDI otherwise a connection cannot be created.</p>
 <pre><code>jms {
     solace {

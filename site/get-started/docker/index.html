@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker" class="md-skip">
+        <a href="#run-data-caterer" class="md-skip">
           Skip to content
         </a>
       
@@ -215,6 +215,18 @@
 
 
   <li class="md-tabs__item">
+    <a href="../../sample/" class="md-tabs__link">
+      Samples
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
     <a href="../../advanced/advanced/" class="md-tabs__link">
       Advanced
     </a>
@@ -310,22 +322,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#quick-start" class="md-nav__link">
     Quick start
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#run-with-custom-data-connections" class="md-nav__link">
     Run with custom data connections
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#run-with-plan-and-task-auto-generation" class="md-nav__link">
+    Run with plan and task auto generation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#run-with-custom-plan-and-tasks" class="md-nav__link">
     Run with custom plan and task(s)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm" class="md-nav__link">
+    Helm
   </a>
   
 </li>
@@ -376,6 +415,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../../sample/" class="md-nav__link">
+        Samples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../advanced/advanced/" class="md-nav__link">
         Advanced
       </a>
@@ -410,22 +464,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#quick-start" class="md-nav__link">
     Quick start
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#run-with-custom-data-connections" class="md-nav__link">
     Run with custom data connections
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#run-with-plan-and-task-auto-generation" class="md-nav__link">
+    Run with plan and task auto generation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#run-with-custom-plan-and-tasks" class="md-nav__link">
     Run with custom plan and task(s)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#helm" class="md-nav__link">
+    Helm
   </a>
   
 </li>
@@ -445,18 +526,21 @@
                   
 
 
-<h1 id="docker">Docker</h1>
-<h2 id="quick-start">Quick start</h2>
+<h1 id="run-data-caterer">Run Data Caterer</h1>
+<h2 id="docker">Docker</h2>
+<h3 id="quick-start">Quick start</h3>
+<p>Generate 1000 records of JSON data in local file system.</p>
 <pre><code class="language-shell">mkdir /tmp/datagen
 docker run -v /tmp/datagen:/opt/app/data-caterer pflookyy/data-caterer:0.1
 head /tmp/datagen/sample/json/account-gen/part-0000*
 </code></pre>
-<h2 id="run-with-custom-data-connections">Run with custom data connections</h2>
+<h3 id="run-with-custom-data-connections">Run with custom data connections</h3>
 <pre><code class="language-shell">cp sample/conf/application.conf /tmp/datagen
 vi /tmp/datagen/application.conf
 docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf pflookyy/data-caterer:0.1
 </code></pre>
-<h2 id="run-with-custom-plan-and-tasks">Run with custom plan and task(s)</h2>
+<h3 id="run-with-plan-and-task-auto-generation">Run with plan and task auto generation</h3>
+<h3 id="run-with-custom-plan-and-tasks">Run with custom plan and task(s)</h3>
 <ol>
 <li>Create plan like <a href="../../sample/plan/simple-json-plan.yaml">here</a></li>
 <li>Create tasks like <a href="../../sample/task/file/json/json-account-task.yaml">here</a></li>
@@ -472,6 +556,8 @@ docker run -v /tmp/datagen:/opt/app/data-caterer \
   -e TASK_FOLDER_PATH=/opt/app/datagen/task \
   pflookyy/data-caterer:0.1
 </code></pre>
+<h2 id="helm">Helm</h2>
+<p><a href="">Link to sample helm on Github here</a></p>
 
 
 
