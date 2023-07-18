@@ -13,7 +13,9 @@ theme:
 nav:
   - Home: 'index.md'
   - 'Get Started': 'get-started/docker.md'
-  - Generators: 'generators/generators.md'
+  - Generators:
+    - Data Generators: 'generators/generators.md'
+    - Record Count: 'generators/count.md'
   - Connections: 'connections/connections.md'
   - Samples: 'sample/index.md'
   - Advanced: 'advanced/advanced.md'
