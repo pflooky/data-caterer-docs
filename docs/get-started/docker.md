@@ -8,7 +8,7 @@ Generate 1000 records of JSON data in local file system.
 
 ```shell
 mkdir /tmp/datagen
-docker run -v /tmp/datagen:/opt/app/data-caterer pflookyy/data-caterer:0.1
+docker run -v /tmp/datagen:/opt/app/data-caterer datacatering/data-caterer:0.1
 head /tmp/datagen/sample/json/account-gen/part-0000*
 ```
 
@@ -17,7 +17,7 @@ head /tmp/datagen/sample/json/account-gen/part-0000*
 ```shell
 cp sample/conf/application.conf /tmp/datagen
 vi /tmp/datagen/application.conf
-docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf pflookyy/data-caterer:0.1
+docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf datacatering/data-caterer:0.1
 ```
 
 
@@ -40,7 +40,7 @@ docker run -v /tmp/datagen:/opt/app/data-caterer \
   -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf \
   -e PLAN_FILE_PATH=/opt/app/datagen/plan/simple-json-plan.yaml \
   -e TASK_FOLDER_PATH=/opt/app/datagen/task \
-  pflookyy/data-caterer:0.1
+  datacatering/data-caterer:0.1
 ```
 
 ## Helm

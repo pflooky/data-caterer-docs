@@ -583,13 +583,13 @@
 <h3 id="quick-start">Quick start</h3>
 <p>Generate 1000 records of JSON data in local file system.</p>
 <pre><code class="language-shell">mkdir /tmp/datagen
-docker run -v /tmp/datagen:/opt/app/data-caterer pflookyy/data-caterer:0.1
+docker run -v /tmp/datagen:/opt/app/data-caterer datacatering/data-caterer:0.1
 head /tmp/datagen/sample/json/account-gen/part-0000*
 </code></pre>
 <h3 id="run-with-custom-data-connections">Run with custom data connections</h3>
 <pre><code class="language-shell">cp sample/conf/application.conf /tmp/datagen
 vi /tmp/datagen/application.conf
-docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf pflookyy/data-caterer:0.1
+docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf datacatering/data-caterer:0.1
 </code></pre>
 <h3 id="run-with-plan-and-task-auto-generation">Run with plan and task auto generation</h3>
 <h3 id="run-with-custom-plan-and-tasks">Run with custom plan and task(s)</h3>
@@ -606,7 +606,7 @@ docker run -v /tmp/datagen:/opt/app/data-caterer \
   -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf \
   -e PLAN_FILE_PATH=/opt/app/datagen/plan/simple-json-plan.yaml \
   -e TASK_FOLDER_PATH=/opt/app/datagen/task \
-  pflookyy/data-caterer:0.1
+  datacatering/data-caterer:0.1
 </code></pre>
 <h2 id="helm">Helm</h2>
 <p><a href="">Link to sample helm on Github here</a></p>

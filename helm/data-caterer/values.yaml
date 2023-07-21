@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: "pflookyy/data-caterer"
+  repository: "datacatering/data-caterer"
   pullPolicy: "IfNotPresent"
   # Overrides the image tag whose default is the chart appVersion.
   tag: "0.1"
