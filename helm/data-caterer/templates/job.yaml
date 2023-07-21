@@ -2,58 +2,52 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ template "common.fullname" . }}
+  name: {{ template "data-caterer.fullname" . }}
 spec:
   template:
     spec:
-    {{- if .Values.imagePullSecrets }}
-    imagePullSecrets:
-      - name: {{ .Values.imagePullSecrets }}
-    {{- end }}
-    {{- if .Values.securityContext.runAsUser }}
-    securityContext:
-      runAsUser: {{ .Values.securityContext.runAsUser }}
-      {{- if .Values.securityContext.runAsGroup }}
-      runAsGroup: {{ .Values.securityContext.runAsGroup }}
+      {{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecrets }}
       {{- end }}
-      {{- if .Values.securityContext.fsGroup }}
-      fsGroup: {{ .Values.securityContext.fsGroup }}
+      {{- if .Values.securityContext }}
+      securityContext:
+      {{- range $k, $v := .Values.securityContext }}
+        {{ $k }}: {{ $v }}
       {{- end }}
-    {{- end }}
-    containers:
-      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.imagePullPolicy }}
-        name: {{ template "common.fullname" . }}
-        env:
-        {{- range concat (.Values.global.environment) (.Values.environment | default list)}}
-        - name: {{ .name | quote}}
-          value: {{ .value | quote }}
-        {{- end }}
-        {{- if .Values.command }}
-        command: {{ .Values.command }}
-        {{- end }}
-        {{- if .Values.args }}
-        args: {{ .Values.args }}
-        {{- end }}
-        {{- with .Values.resources }}
-        resources:
+      {{- end }}
+      containers:
+        - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+          name: "datagen"
+          env:
+          {{- range $k, $v := .Values.environment }}
+          - name: {{ $k | quote }}
+            value: {{ $v | quote }}
+          {{- end }}
+          {{- with .Values.resources }}
+          resources:
 {{ toYaml . | indent 10 }}
-        {{- end }}
-        {{- with .Values.volumeMounts }}
-        volumeMounts:
+          {{- end }}
+          {{- with .Values.volumeMounts }}
+          volumeMounts:
+{{ toYaml . | indent 10 }}
+          {{- end }}
+        {{- with .Values.nodeSelector }}
+        nodeSelector:
 {{ toYaml . | indent 8 }}
         {{- end }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-{{ toYaml . | indent 8 }}
-      {{- end }}
 {{- with .Values.affinity }}
-      affinity:
+        affinity:
 {{ toYaml . | indent 8 }}
-      {{- end }}
+        {{- end }}
 {{- with .Values.tolerations }}
-      tolerations:
+        tolerations:
 {{ toYaml . | indent 8 }}
-      {{- end }}
+        {{- end }}
       restartPolicy: {{ .Values.restartPolicy }}
-  backoffLimit: {{ .Values.backoffLimit }}
+      {{- with .Values.volumes }}
+      volumes:
+{{ toYaml . | indent 10 }}
+      {{- end }}
+    backoffLimit: {{ .Values.backoffLimit }}

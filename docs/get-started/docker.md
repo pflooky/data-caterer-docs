@@ -17,13 +17,20 @@ head /tmp/datagen/sample/json/account-gen/part-0000*
 ```shell
 cp sample/conf/application.conf /tmp/datagen
 vi /tmp/datagen/application.conf
-docker run -v /tmp/datagen:/opt/app/data-caterer -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf datacatering/data-caterer:0.1
+docker run -v /tmp/datagen:/opt/app/data-caterer \
+  -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf \
+  datacatering/data-caterer-basic:0.1
 ```
 
 
-### Run with plan and task auto generation
+### Run with plan and task auto generation (paid version)
 
-
+```shell
+docker run -v /tmp/datagen:/opt/app/data-caterer \
+  -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf \
+  -e ENABLE_GENERATE_PLAN_AND_TASKS=true \
+  datacatering/data-caterer:0.1
+```
 
 ### Run with custom plan and task(s)
 
@@ -40,9 +47,17 @@ docker run -v /tmp/datagen:/opt/app/data-caterer \
   -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf \
   -e PLAN_FILE_PATH=/opt/app/datagen/plan/simple-json-plan.yaml \
   -e TASK_FOLDER_PATH=/opt/app/datagen/task \
-  datacatering/data-caterer:0.1
+  datacatering/data-caterer-basic:0.1
 ```
 
 ## Helm
 
-[Link to sample helm on Github here]()
+[Link to sample helm on GitHub here](https://github.com/pflooky/data-caterer-docs/tree/main/helm/data-caterer)
+
+Update the [configuration](https://github.com/pflooky/data-caterer-docs/blob/main/helm/data-caterer/templates/configuration.yaml)
+to your own data connections and configuration.
+
+```shell
+git clone git@github.com:pflooky/data-caterer-docs.git
+helm install data-caterer ./data-caterer-docs/helm/data-caterer
+```

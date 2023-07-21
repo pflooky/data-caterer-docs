@@ -803,6 +803,7 @@ configurations can be found below.</p>
 <pre><code>csv {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
+    path = ${?CSV_PATH}
   }
 }
 </code></pre>
@@ -811,6 +812,7 @@ configurations can be found below.</p>
 <pre><code>json {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
+    path = ${?JSON_PATH}
   }
 }
 </code></pre>
@@ -819,6 +821,7 @@ configurations can be found below.</p>
 <pre><code>orc {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
+    path = ${?ORC_PATH}
   }
 }
 </code></pre>
@@ -827,6 +830,7 @@ configurations can be found below.</p>
 <pre><code>parquet {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
+    path = ${?PARQUET_PATH}
   }
 }
 </code></pre>
@@ -835,6 +839,7 @@ configurations can be found below.</p>
 <pre><code>delta {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
+    path = ${?DELTA_PATH}
   }
 }
 </code></pre>
@@ -929,9 +934,13 @@ via JNDI otherwise a connection cannot be created.</p>
         initialContextFactory = &quot;com.solacesystems.jndi.SolJNDIInitialContextFactory&quot;
         connectionFactory = &quot;/jms/cf/default&quot;
         url = &quot;smf://localhost:55555&quot;
-        vpnName = &quot;default&quot;
+        url = ${?SOLACE_URL}
         user = &quot;admin&quot;
-        password = &quot;admin&quot;  
+        user = ${?SOLACE_USER}
+        password = &quot;admin&quot;
+        password = ${?SOLACE_PASSWORD}
+        vpnName = &quot;default&quot;
+        vpnName = ${?SOLACE_VPN}
     }
 }
 </code></pre>
@@ -941,8 +950,11 @@ Later, can have the ability to define generated data as part of the URL.</p>
 <pre><code>http {
     customer_api {
         url = &quot;http://localhost:80/get&quot;
+        url = ${?HTTP_URL}
         user = &quot;admin&quot;      #optional
+        user = ${?HTTP_USER}
         password = &quot;admin&quot;  #optional
+        password = ${?HTTP_PASSWORD}
     }
 }
 </code></pre>

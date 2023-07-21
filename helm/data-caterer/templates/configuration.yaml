@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: configuration-secret
-data:
+stringData:
   .application.conf: |-
     flags {
         enableCount = false
@@ -18,13 +18,13 @@ data:
     }
 
     folders {
-        generatedPlanAndTaskFolderPath = "/tmp"
+        generatedPlanAndTaskFolderPath = "/opt/app/data-caterer"
         generatedPlanAndTaskFolderPath = ${?GENERATED_PLAN_AND_TASK_FOLDER_PATH}
-        planFilePath = "/plan/customer-create-plan.yaml"
+        planFilePath = "/opt/app/plan/customer-create-plan.yaml"
         planFilePath = ${?PLAN_FILE_PATH}
-        taskFolderPath = "/task"
+        taskFolderPath = "/opt/app/task"
         taskFolderPath = ${?TASK_FOLDER_PATH}
-        recordTrackingFolderPath = "/data/generated/recordTracking"
+        recordTrackingFolderPath = "/opt/app/data-caterer/recordTracking"
         recordTrackingFolderPath = ${?RECORD_TRACKING_FOLDER_PATH}
     }
 
@@ -54,11 +54,11 @@ data:
         }
         postgresDvd {
             url = "jdbc:postgresql://localhost:5432/dvdrental"
-            url = ${?POSTGRES_URL}
+            url = ${?POSTGRES_DVD_URL}
             user = "postgres"
-            user = ${?POSTGRES_USERNAME}
+            user = ${?POSTGRES_DVD_USERNAME}
             password = "postgres"
-            password = ${?POSTGRES_PASSWORD}
+            password = ${?POSTGRES_DVD_PASSWORD}
             driver = "org.postgresql.Driver"
         }
         mysql {
@@ -96,26 +96,33 @@ data:
             initialContextFactory = "com.solacesystems.jndi.SolJNDIInitialContextFactory"
             connectionFactory = "/jms/cf/default"
             url = "smf://localhost:55554"
+            url = ${?SOLACE_URL}
             user = "admin"
+            user = ${?SOLACE_USER}
             password = "admin"
+            password = ${?SOLACE_PASSWORD}
             vpnName = "default"
+            vpnName = ${?SOLACE_VPN}
         }
     }
 
     parquet {
         parquet {
-            path = "app/src/test/resources/sample"
+            path = "/opt/app/sample/parquet"
+            path = ${?PARQUET_PATH}
         }
     }
 
     json {
         json {
-            path = "app/src/test/resources/sample"
+            path = "/opt/app/sample/json"
+            path = ${?JSON_PATH}
         }
     }
 
     csv {
         csv {
-            path = "app/src/test/resources/sample"
+            path = "/opt/app/sample/csv"
+            path = ${?CSV_PATH}
         }
     }

@@ -13,6 +13,7 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+restartPolicy: "Never"
 
 serviceAccount:
   name: ""
@@ -22,13 +23,10 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
+securityContext:
+#  readOnlyRootFilesystem: true
+  runAsNonRoot: true
+  runAsUser: 1001
 
 environment:
   APPLICATION_CONF_PATH: "/opt/app/data-caterer/conf/.application.conf"
@@ -37,6 +35,11 @@ volumeMounts:
   - name: configuration-secret-volume
     readOnly: true
     mountPath: "/opt/app/data-caterer/conf"
+
+volumes:
+  - name: configuration-secret-volume
+    secret:
+      secretName: configuration-secret
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

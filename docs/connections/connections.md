@@ -44,6 +44,7 @@ configurations can be found below.
 csv {
   customer_transactions {
     path = "/data/customer/transaction"
+    path = ${?CSV_PATH}
   }
 }
 ```
@@ -56,6 +57,7 @@ csv {
 json {
   customer_transactions {
     path = "/data/customer/transaction"
+    path = ${?JSON_PATH}
   }
 }
 ```
@@ -68,6 +70,7 @@ json {
 orc {
   customer_transactions {
     path = "/data/customer/transaction"
+    path = ${?ORC_PATH}
   }
 }
 ```
@@ -80,6 +83,7 @@ orc {
 parquet {
   customer_transactions {
     path = "/data/customer/transaction"
+    path = ${?PARQUET_PATH}
   }
 }
 ```
@@ -92,6 +96,7 @@ parquet {
 delta {
   customer_transactions {
     path = "/data/customer/transaction"
+    path = ${?DELTA_PATH}
   }
 }
 ```
@@ -198,9 +203,13 @@ jms {
         initialContextFactory = "com.solacesystems.jndi.SolJNDIInitialContextFactory"
         connectionFactory = "/jms/cf/default"
         url = "smf://localhost:55555"
-        vpnName = "default"
+        url = ${?SOLACE_URL}
         user = "admin"
-        password = "admin"  
+        user = ${?SOLACE_USER}
+        password = "admin"
+        password = ${?SOLACE_PASSWORD}
+        vpnName = "default"
+        vpnName = ${?SOLACE_VPN}
     }
 }
 ```
@@ -214,8 +223,11 @@ Later, can have the ability to define generated data as part of the URL.
 http {
     customer_api {
         url = "http://localhost:80/get"
+        url = ${?HTTP_URL}
         user = "admin"      #optional
+        user = ${?HTTP_USER}
         password = "admin"  #optional
+        password = ${?HTTP_PASSWORD}
     }
 }
 ```
