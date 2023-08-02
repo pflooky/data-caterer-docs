@@ -341,22 +341,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-with-custom-data-connections" class="md-nav__link">
-    Run with custom data connections
+  <a href="#run-with-multiple-data-sources-postgres-and-csv-file" class="md-nav__link">
+    Run with multiple data sources (Postgres and CSV File)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-with-plan-and-task-auto-generation-paid-version" class="md-nav__link">
-    Run with plan and task auto generation (paid version)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-with-custom-plan-and-tasks" class="md-nav__link">
-    Run with custom plan and task(s)
+  <a href="#run-with-custom-plantasks" class="md-nav__link">
+    Run with custom plan/task(s)
   </a>
   
 </li>
@@ -531,22 +524,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-with-custom-data-connections" class="md-nav__link">
-    Run with custom data connections
+  <a href="#run-with-multiple-data-sources-postgres-and-csv-file" class="md-nav__link">
+    Run with multiple data sources (Postgres and CSV File)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-with-plan-and-task-auto-generation-paid-version" class="md-nav__link">
-    Run with plan and task auto generation (paid version)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-with-custom-plan-and-tasks" class="md-nav__link">
-    Run with custom plan and task(s)
+  <a href="#run-with-custom-plantasks" class="md-nav__link">
+    Run with custom plan/task(s)
   </a>
   
 </li>
@@ -581,39 +567,32 @@
 <h1 id="run-data-caterer">Run Data Caterer</h1>
 <h2 id="docker">Docker</h2>
 <h3 id="quick-start">Quick start</h3>
-<p>Generate 1000 records of JSON data in local file system.</p>
-<pre><code class="language-shell">mkdir /tmp/datagen
-docker run -v /tmp/datagen:/opt/app/data-caterer datacatering/data-caterer:0.1
-head /tmp/datagen/sample/json/account-gen/part-0000*
+<pre><code class="language-shell">git clone git@github.com:pflooky/data-caterer-docs.git
+cd docs/sample/docker
+DATA_SOURCE=postgres docker-compose up -d datacaterer
 </code></pre>
-<h3 id="run-with-custom-data-connections">Run with custom data connections</h3>
-<pre><code class="language-shell">cp sample/conf/application.conf /tmp/datagen
-vi /tmp/datagen/application.conf
-docker run -v /tmp/datagen:/opt/app/data-caterer \
-  -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf \
-  datacatering/data-caterer-basic:0.1
+<p>You can change <code>DATA_SOURCE</code> to one of the following:
+- postgres
+- mysql
+- cassandra
+- solace
+- kafka</p>
+<p>If you want to test it out with your own setup, you can alter the corresponding files under <a href="../sample/docker/data">docs/sample/docker/data</a></p>
+<h3 id="run-with-multiple-data-sources-postgres-and-csv-file">Run with multiple data sources (Postgres and CSV File)</h3>
+<pre><code class="language-shell">PLAN=scenario-based DATA_SOURCE=postgres docker-compose up -d datacaterer
+head data/custom/csv/transactions/part-00000*
+sample_account=$(head -1 data/custom/csv/transactions/part-00000* | awk -F &quot;,&quot; '{print $1}')
+docker exec docker-postgres-1 psql -Upostgres -d customer -c &quot;SELECT * FROM account.accounts WHERE account_number='$sample_account'&quot;
 </code></pre>
-<h3 id="run-with-plan-and-task-auto-generation-paid-version">Run with plan and task auto generation (paid version)</h3>
-<pre><code class="language-shell">docker run -v /tmp/datagen:/opt/app/data-caterer \
-  -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf \
-  -e ENABLE_GENERATE_PLAN_AND_TASKS=true \
-  datacatering/data-caterer:0.1
-</code></pre>
-<h3 id="run-with-custom-plan-and-tasks">Run with custom plan and task(s)</h3>
+<p>You should be able to see the linked data between Postgres and the CSV file created along with 1 to 10 records per
+account_id, name combination in the CSV file.</p>
+<h3 id="run-with-custom-plantasks">Run with custom plan/task(s)</h3>
 <ol>
-<li>Create plan like <a href="../../sample/plan/simple-json-plan.yaml">here</a></li>
-<li>Create tasks like <a href="../../sample/task/file/json/json-account-task.yaml">here</a></li>
-<li>Create application configuration like <a href="../../sample/conf/application.conf">here</a></li>
+<li>Create/alter plan under <a href="../../sample/docker/data/custom/plan/simple-json-plan.yaml"><code>data/custom/plan</code></a></li>
+<li>Create/alter tasks under <a href="../../sample/docker/data/custom/task/file/json/json-account-task.yaml"><code>data/custom/task</code></a></li>
+<li>Create/alter application configuration <a href="../../sample/docker/data/custom/application.conf"><code>data/custom/application.conf</code></a></li>
 </ol>
-<pre><code class="language-shell">cp sample/conf/application.conf /tmp/datagen
-cp sample/plan/simple-json-plan.yaml /tmp/datagen
-cp -R sample/task/ /tmp/datagen
-#alter plan and task file(s) as required
-docker run -v /tmp/datagen:/opt/app/data-caterer \
-  -e APPLICATION_CONFIG_PATH=/opt/app/datagen/application.conf \
-  -e PLAN_FILE_PATH=/opt/app/datagen/plan/simple-json-plan.yaml \
-  -e TASK_FOLDER_PATH=/opt/app/datagen/task \
-  datacatering/data-caterer-basic:0.1
+<pre><code class="language-shell">DATA_SOURCE=&lt;data source name&gt; docker-compose up -d datacaterer
 </code></pre>
 <h2 id="helm">Helm</h2>
 <p><a href="https://github.com/pflooky/data-caterer-docs/tree/main/helm/data-caterer">Link to sample helm on GitHub here</a></p>

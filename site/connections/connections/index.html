@@ -412,6 +412,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#example-task-per-data-source" class="md-nav__link">
+    Example task per data source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#file" class="md-nav__link">
     File
   </a>
@@ -448,8 +455,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#delta" class="md-nav__link">
-    Delta
+  <a href="#delta-not-supported-yet" class="md-nav__link">
+    Delta (not supported yet)
   </a>
   
 </li>
@@ -515,6 +522,13 @@
           <li class="md-nav__item">
   <a href="#cassandra" class="md-nav__link">
     Cassandra
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kafka" class="md-nav__link">
+    Kafka
   </a>
   
 </li>
@@ -611,6 +625,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#example-task-per-data-source" class="md-nav__link">
+    Example task per data source
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#file" class="md-nav__link">
     File
   </a>
@@ -647,8 +668,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#delta" class="md-nav__link">
-    Delta
+  <a href="#delta-not-supported-yet" class="md-nav__link">
+    Delta (not supported yet)
   </a>
   
 </li>
@@ -719,6 +740,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#kafka" class="md-nav__link">
+    Kafka
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#jms" class="md-nav__link">
     JMS
   </a>
@@ -769,7 +797,11 @@
 </tr>
 <tr>
 <td>File</td>
-<td>CSV, JSON, ORC, Parquet, Delta</td>
+<td>CSV, JSON, ORC, Parquet</td>
+</tr>
+<tr>
+<td>Kafka</td>
+<td>Kafka</td>
 </tr>
 <tr>
 <td>JMS</td>
@@ -795,6 +827,8 @@ url = ${?POSTGRES_URL}
 </code></pre>
 <p>The above defines that if there is a system property or environment variable named <code>POSTGRES_URL</code>, then that value will
 be used for the <code>url</code>, otherwise, it will default to <code>localhost</code>.</p>
+<h3 id="example-task-per-data-source">Example task per data source</h3>
+<p>To find examples of a task for each type of data source, please check out <a href="../../sample/">this page</a>.</p>
 <h3 id="file">File</h3>
 <p>Linked <a href="https://spark.apache.org/docs/latest/sql-data-sources-generic-options.html">here</a> is a list of generic options
 that can be included as part of your file data source configuration if required. Links to specific file type
@@ -835,7 +869,7 @@ configurations can be found below.</p>
 }
 </code></pre>
 <p><a href="https://spark.apache.org/docs/latest/sql-data-sources-parquet.html#data-source-option">Other available configuration for Parquet can be found here</a></p>
-<h4 id="delta">Delta</h4>
+<h4 id="delta-not-supported-yet">Delta (not supported yet)</h4>
 <pre><code>delta {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
@@ -925,6 +959,19 @@ found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master
 
 </details>
 
+<h3 id="kafka">Kafka</h3>
+<p>Define your Kafka bootstrap server to connect and send generated data to corresponding topics. Topic gets set at a step level.<br />
+Further details can be found <a href="https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka">here</a></p>
+<pre><code>kafka {
+    kafka {
+        kafka.bootstrap.servers = &quot;localhost:9092&quot;
+        kafka.bootstrap.servers = ${?KAFKA_BOOTSTRAP_SERVERS}
+    }
+}
+</code></pre>
+<p>When defining your schema for pushing data to Kafka, it follows a specific top level schema.<br />
+An example can be found <a href="../../sample/docker/data/custom/task/kafka/kafka-account-task.yaml">here</a>.<br />
+You can define the key, value, headers, partition or topic by following the linked schema.</p>
 <h3 id="jms">JMS</h3>
 <p>Uses JNDI lookup to send messages to JMS queue. Ensure that the messaging system you are using has your queue/topic
 registered

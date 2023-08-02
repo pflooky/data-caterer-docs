@@ -27,7 +27,7 @@ sinkOptions:
       - "transaction-cassandra.transactions.account_id"
 ```
 
-[Sample can be found here.](../sample/plan/foreign-key-example-plan.yaml)
+[Sample can be found here.](../sample/docker/data/custom/plan/foreign-key-example-plan.yaml)
 You can define any number of foreign key relationships as you want.
 
 ## Edge cases
@@ -57,8 +57,34 @@ You can alter the `status` column in the account data to only generate `open` ac
 and define a foreign key between Postgres and parquet to ensure the same `account_id` is being used.  
 Then in the parquet task, define 1 to 10 transactions per `account_id` to be generated.
 
-[Postgres account generation example task](../sample/task/jdbc/postgres/postgres-account-task.yaml)  
-[Parquet transaction generation example task](../sample/task/file/parquet/parquet-transaction-task.yaml)  
-[Plan](../sample/plan/scenario-based-plan.yaml)
+[Postgres account generation example task](../sample/docker/data/custom/task/jdbc/postgres/postgres-account-task.yaml)  
+[Parquet transaction generation example task](../sample/docker/data/custom/task/file/parquet/parquet-transaction-task.yaml)  
+[Plan](../sample/docker/data/custom/plan/scenario-based-plan.yaml)
 
-## Generating JSON data
+## Storing plan/task(s) in cloud storage
+
+You can generate and store the plan/task files inside either AWS S3, Azure Blob Storage or Google GCS.
+This can be controlled via configuration set in the `application.conf` file where you can set something like the below:
+
+```yaml
+folders {
+   generatedPlanAndTaskFolderPath = "s3a://my-bucket/data-caterer/generated"
+   planFilePath = "s3a://my-bucket/data-caterer/generated/plan/customer-create-plan.yaml"
+   taskFolderPath = "s3a://my-bucket/data-caterer/generated/task"
+}
+   
+spark {
+    config {
+        ...
+        #S3
+        "spark.hadoop.fs.s3a.directory.marker.retention" = "keep"
+        "spark.hadoop.fs.s3a.bucket.all.committer.magic.enabled" = "true"
+        "spark.hadoop.fs.defaultFS" = "s3a://my-bucket"
+        #can change to other credential providers as shown here
+        #https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/index.html#Changing_Authentication_Providers
+        "spark.hadoop.fs.s3a.aws.credentials.provider" = "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider"
+        "spark.hadoop.fs.s3a.access.key" = "access_key"
+        "spark.hadoop.fs.s3a.secret.key" = "secret_key"
+   }
+}
+```

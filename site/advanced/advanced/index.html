@@ -460,8 +460,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#generating-json-data" class="md-nav__link">
-    Generating JSON data
+  <a href="#storing-plantasks-in-cloud-storage" class="md-nav__link">
+    Storing plan/task(s) in cloud storage
   </a>
   
 </li>
@@ -529,8 +529,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#generating-json-data" class="md-nav__link">
-    Generating JSON data
+  <a href="#storing-plantasks-in-cloud-storage" class="md-nav__link">
+    Storing plan/task(s) in cloud storage
   </a>
   
 </li>
@@ -572,7 +572,7 @@ in <code>transaction-cassandra</code>,</p>
       #List of columns to match with same naming convention
       - &quot;transaction-cassandra.transactions.account_id&quot;
 </code></pre>
-<p><a href="../../sample/plan/foreign-key-example-plan.yaml">Sample can be found here.</a>
+<p><a href="../../sample/docker/data/custom/plan/foreign-key-example-plan.yaml">Sample can be found here.</a>
 You can define any number of foreign key relationships as you want.</p>
 <h2 id="edge-cases">Edge cases</h2>
 <p>For each given data type, there are edge cases which can cause issues when your application processes the data.
@@ -594,10 +594,33 @@ into Postgres and transactions related to those accounts into a parquet file.
 You can alter the <code>status</code> column in the account data to only generate <code>open</code> accounts
 and define a foreign key between Postgres and parquet to ensure the same <code>account_id</code> is being used.<br />
 Then in the parquet task, define 1 to 10 transactions per <code>account_id</code> to be generated.</p>
-<p><a href="../../sample/task/jdbc/postgres/postgres-account-task.yaml">Postgres account generation example task</a><br />
-<a href="../../sample/task/file/parquet/parquet-transaction-task.yaml">Parquet transaction generation example task</a><br />
-<a href="../../sample/plan/scenario-based-plan.yaml">Plan</a></p>
-<h2 id="generating-json-data">Generating JSON data</h2>
+<p><a href="../../sample/docker/data/custom/task/jdbc/postgres/postgres-account-task.yaml">Postgres account generation example task</a><br />
+<a href="../../sample/docker/data/custom/task/file/parquet/parquet-transaction-task.yaml">Parquet transaction generation example task</a><br />
+<a href="../../sample/docker/data/custom/plan/scenario-based-plan.yaml">Plan</a></p>
+<h2 id="storing-plantasks-in-cloud-storage">Storing plan/task(s) in cloud storage</h2>
+<p>You can generate and store the plan/task files inside either AWS S3, Azure Blob Storage or Google GCS.
+This can be controlled via configuration set in the <code>application.conf</code> file where you can set something like the below:</p>
+<pre><code class="language-yaml">folders {
+   generatedPlanAndTaskFolderPath = &quot;s3a://my-bucket/data-caterer/generated&quot;
+   planFilePath = &quot;s3a://my-bucket/data-caterer/generated/plan/customer-create-plan.yaml&quot;
+   taskFolderPath = &quot;s3a://my-bucket/data-caterer/generated/task&quot;
+}
+
+spark {
+    config {
+        ...
+        #S3
+        &quot;spark.hadoop.fs.s3a.directory.marker.retention&quot; = &quot;keep&quot;
+        &quot;spark.hadoop.fs.s3a.bucket.all.committer.magic.enabled&quot; = &quot;true&quot;
+        &quot;spark.hadoop.fs.defaultFS&quot; = &quot;s3a://my-bucket&quot;
+        #can change to other credential providers as shown here
+        #https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/index.html#Changing_Authentication_Providers
+        &quot;spark.hadoop.fs.s3a.aws.credentials.provider&quot; = &quot;org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider&quot;
+        &quot;spark.hadoop.fs.s3a.access.key&quot; = &quot;access_key&quot;
+        &quot;spark.hadoop.fs.s3a.secret.key&quot; = &quot;secret_key&quot;
+   }
+}
+</code></pre>
 
 
 

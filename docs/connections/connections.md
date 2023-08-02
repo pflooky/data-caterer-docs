@@ -4,12 +4,13 @@ Details of all the connection configuration supported can be found in the below 
 
 ## Supported Data Connections
 
-| Data Source Type | Data Source                    |
-|------------------|--------------------------------|
-| Database         | Postgres, MySQL, Cassandra     |
-| File             | CSV, JSON, ORC, Parquet, Delta |
-| JMS              | Solace                         |
-| HTTP             | GET, PUT, POST                 |
+| Data Source Type | Data Source                |
+|------------------|----------------------------|
+| Database         | Postgres, MySQL, Cassandra |
+| File             | CSV, JSON, ORC, Parquet    |
+| Kafka            | Kafka                      |
+| JMS              | Solace                     |
+| HTTP             | GET, PUT, POST             |
 
 All connection details follow the same pattern.
 
@@ -31,6 +32,10 @@ url = ${?POSTGRES_URL}
 
 The above defines that if there is a system property or environment variable named `POSTGRES_URL`, then that value will
 be used for the `url`, otherwise, it will default to `localhost`.
+
+### Example task per data source
+
+To find examples of a task for each type of data source, please check out [this page](../sample/index.md).
 
 ### File
 
@@ -90,7 +95,7 @@ parquet {
 
 [Other available configuration for Parquet can be found here](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html#data-source-option)
 
-#### Delta
+#### Delta (not supported yet)
 
 ```
 delta {
@@ -190,6 +195,25 @@ GRANT INSERT ON <schema>.<table> TO <user>;
 ```
 
 </details>
+
+### Kafka
+
+Define your Kafka bootstrap server to connect and send generated data to corresponding topics. Topic gets set at a step level.  
+Further details can be found [here](https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka)
+
+```
+kafka {
+    kafka {
+        kafka.bootstrap.servers = "localhost:9092"
+        kafka.bootstrap.servers = ${?KAFKA_BOOTSTRAP_SERVERS}
+    }
+}
+```
+  
+When defining your schema for pushing data to Kafka, it follows a specific top level schema.  
+An example can be found [here](../sample/docker/data/custom/task/kafka/kafka-account-task.yaml).  
+You can define the key, value, headers, partition or topic by following the linked schema.
+
 
 ### JMS
 
