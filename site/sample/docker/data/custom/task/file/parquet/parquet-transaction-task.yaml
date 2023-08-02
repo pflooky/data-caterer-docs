@@ -3,7 +3,7 @@ steps:
   - name: "transactions"
     type: "parquet"
     options:
-      path: "/opt/app/sample/parquet/transactions"
+      path: "/opt/app/custom/parquet/transactions"
       partitionBy: "year"
     count:
       total: 1000

@@ -17,7 +17,7 @@ You can change `DATA_SOURCE` to one of the following:
 - solace
 - kafka
 
-If you want to test it out with your own setup, you can alter the corresponding files under [docs/sample/docker/data](../sample/docker/data)
+If you want to test it out with your own setup, you can alter the corresponding files under [docs/sample/docker/data](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data)
 
 
 ### Run with multiple data sources (Postgres and CSV File)
@@ -34,9 +34,9 @@ account_id, name combination in the CSV file.
 
 ### Run with custom plan/task(s)
 
-1. Create/alter plan under [`data/custom/plan`](../sample/docker/data/custom/plan/simple-json-plan.yaml)
-2. Create/alter tasks under [`data/custom/task`](../sample/docker/data/custom/task/file/json/json-account-task.yaml)
-3. Create/alter application configuration [`data/custom/application.conf`](../sample/docker/data/custom/application.conf)
+1. Create/alter plan under [`data/custom/plan`](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/plan)
+2. Create/alter tasks under [`data/custom/task`](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/task)
+3. Create/alter application configuration [`data/custom/application.conf`](https://github.com/pflooky/data-caterer-docs/blob/main/docs/sample/docker/data/custom/application.conf)
 
 ```shell
 DATA_SOURCE=<data source name> docker-compose up -d datacaterer

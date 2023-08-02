@@ -5,7 +5,7 @@ steps:
     count:
       total: 1000
     options:
-      path: "/opt/app/sample/json/account"
+      path: "/opt/app/custom/json/account"
     schema:
       fields:
         - name: "account_id"

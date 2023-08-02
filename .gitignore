@@ -1,1 +1,4 @@
 .idea
+docs/sample/docker/data/custom/csv
+docs/sample/docker/data/custom/json
+docs/sample/docker/data/custom/parquet

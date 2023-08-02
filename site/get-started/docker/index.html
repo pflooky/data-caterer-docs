@@ -577,7 +577,7 @@ DATA_SOURCE=postgres docker-compose up -d datacaterer
 - cassandra
 - solace
 - kafka</p>
-<p>If you want to test it out with your own setup, you can alter the corresponding files under <a href="../sample/docker/data">docs/sample/docker/data</a></p>
+<p>If you want to test it out with your own setup, you can alter the corresponding files under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data">docs/sample/docker/data</a></p>
 <h3 id="run-with-multiple-data-sources-postgres-and-csv-file">Run with multiple data sources (Postgres and CSV File)</h3>
 <pre><code class="language-shell">PLAN=scenario-based DATA_SOURCE=postgres docker-compose up -d datacaterer
 head data/custom/csv/transactions/part-00000*
@@ -588,9 +588,9 @@ docker exec docker-postgres-1 psql -Upostgres -d customer -c &quot;SELECT * FROM
 account_id, name combination in the CSV file.</p>
 <h3 id="run-with-custom-plantasks">Run with custom plan/task(s)</h3>
 <ol>
-<li>Create/alter plan under <a href="../../sample/docker/data/custom/plan/simple-json-plan.yaml"><code>data/custom/plan</code></a></li>
-<li>Create/alter tasks under <a href="../../sample/docker/data/custom/task/file/json/json-account-task.yaml"><code>data/custom/task</code></a></li>
-<li>Create/alter application configuration <a href="../../sample/docker/data/custom/application.conf"><code>data/custom/application.conf</code></a></li>
+<li>Create/alter plan under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/plan"><code>data/custom/plan</code></a></li>
+<li>Create/alter tasks under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/task"><code>data/custom/task</code></a></li>
+<li>Create/alter application configuration <a href="https://github.com/pflooky/data-caterer-docs/blob/main/docs/sample/docker/data/custom/application.conf"><code>data/custom/application.conf</code></a></li>
 </ol>
 <pre><code class="language-shell">DATA_SOURCE=&lt;data source name&gt; docker-compose up -d datacaterer
 </code></pre>
