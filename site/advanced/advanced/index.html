@@ -572,7 +572,7 @@ in <code>transaction-cassandra</code>,</p>
       #List of columns to match with same naming convention
       - &quot;transaction-cassandra.transactions.account_id&quot;
 </code></pre>
-<p><a href="../../sample/docker/data/custom/plan/foreign-key-example-plan.yaml">Sample can be found here.</a>
+<p><a href="../../sample/docker/data/custom/plan/foreign-key-example.yaml">Sample can be found here.</a>
 You can define any number of foreign key relationships as you want.</p>
 <h2 id="edge-cases">Edge cases</h2>
 <p>For each given data type, there are edge cases which can cause issues when your application processes the data.
@@ -596,7 +596,7 @@ and define a foreign key between Postgres and parquet to ensure the same <code>a
 Then in the parquet task, define 1 to 10 transactions per <code>account_id</code> to be generated.</p>
 <p><a href="../../sample/docker/data/custom/task/jdbc/postgres/postgres-account-task.yaml">Postgres account generation example task</a><br />
 <a href="../../sample/docker/data/custom/task/file/parquet/parquet-transaction-task.yaml">Parquet transaction generation example task</a><br />
-<a href="../../sample/docker/data/custom/plan/scenario-based-plan.yaml">Plan</a></p>
+<a href="../../sample/docker/data/custom/plan/scenario-based.yaml">Plan</a></p>
 <h2 id="storing-plantasks-in-cloud-storage">Storing plan/task(s) in cloud storage</h2>
 <p>You can generate and store the plan/task files inside either AWS S3, Azure Blob Storage or Google GCS.
 This can be controlled via configuration set in the <code>application.conf</code> file where you can set something like the below:</p>

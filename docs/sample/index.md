@@ -14,7 +14,7 @@ and how many steps (sub data sources) there are (i.e. tables in a database, topi
 
 ### Foreign Keys
 
-[Define foreign keys across data sources in your plan to ensure generated data can match](docker/data/custom/plan/foreign-key-example-plan.yaml)  
+[Define foreign keys across data sources in your plan to ensure generated data can match](docker/data/custom/plan/foreign-key-example.yaml)  
 [Link to associated task 1](docker/data/custom/task/file/json/json-account-task.yaml)  
 [Link to associated task 2](docker/data/custom/task/jdbc/postgres/postgres-account-task.yaml)
 

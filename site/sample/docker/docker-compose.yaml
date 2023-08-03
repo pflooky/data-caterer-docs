@@ -2,10 +2,14 @@ version: "3.5"
 services:
   datacaterer:
     image: "datacatering/data-caterer-basic:0.1.1"
-    #image: "datacatering/data-caterer:0.1.1"
+#    image: "datacatering/data-caterer:0.1.1"
     environment:
-      - "APPLICATION_CONFIG_PATH=/opt/app/custom/application.conf"
-      - "PLAN_FILE_PATH=/opt/app/custom/plan/${PLAN:-${DATA_SOURCE:-postgres}}-plan.yaml"
+      - "APPLICATION_CONFIG_PATH=${APPLICATION_CONFIG_PATH:-/opt/app/custom/application.conf}"
+      - "PLAN_FILE_PATH=/opt/app/custom/${PLAN:-plan/${DATA_SOURCE:-postgres}}.yaml"
+      - "ENABLE_GENERATE_DATA=${ENABLE_GENERATE_DATA:-true}"
+      - "ENABLE_RECORD_TRACKING=${ENABLED_RECORD_TRACKING:-false}"
+      - "ENABLE_GENERATE_PLAN_AND_TASKS=${ENABLE_GENERATE_PLAN_AND_TASKS:-false}"
+      - "ENABLE_DELETE_GENERATED_RECORDS=${ENABLE_DELETE_GENERATED_RECORDS:-false}"
     volumes:
       - "./data/custom:/opt/app/custom"
     depends_on:
@@ -20,6 +24,17 @@ services:
     volumes:
       - "${HOME}/data/postgres:/data/postgres"
       - "./data/sql/postgres/customer.sql:/docker-entrypoint-initdb.d/customer.sql"
+    ports:
+      - "5432:5432"
+
+  postgresdvd:
+    image: "pflookyy/postgres-dvdrental:11.2"
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=postgres"
+      - "PGDATA=/data/postgres"
+    volumes:
+      - "${HOME}/data/postgresDvd:/data/postgres"
     ports:
       - "5432:5432"
 

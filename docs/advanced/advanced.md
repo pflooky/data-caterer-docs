@@ -27,7 +27,7 @@ sinkOptions:
       - "transaction-cassandra.transactions.account_id"
 ```
 
-[Sample can be found here.](../sample/docker/data/custom/plan/foreign-key-example-plan.yaml)
+[Sample can be found here.](../sample/docker/data/custom/plan/foreign-key-example.yaml)
 You can define any number of foreign key relationships as you want.
 
 ## Edge cases
@@ -59,7 +59,7 @@ Then in the parquet task, define 1 to 10 transactions per `account_id` to be gen
 
 [Postgres account generation example task](../sample/docker/data/custom/task/jdbc/postgres/postgres-account-task.yaml)  
 [Parquet transaction generation example task](../sample/docker/data/custom/task/file/parquet/parquet-transaction-task.yaml)  
-[Plan](../sample/docker/data/custom/plan/scenario-based-plan.yaml)
+[Plan](../sample/docker/data/custom/plan/scenario-based.yaml)
 
 ## Storing plan/task(s) in cloud storage
 
