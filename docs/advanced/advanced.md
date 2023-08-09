@@ -5,8 +5,8 @@
 There are many options available for you to use when you have a scenario when data has to be a certain format.
 
 1. Create expression [datafaker](https://www.datafaker.net/documentation/expressions/)
-   1. Can be used to create names, addresses, or anything that can be found
-      under [here](../sample/datafaker/expressions.txt)
+    1. Can be used to create names, addresses, or anything that can be found
+       under [here](../sample/datafaker/expressions.txt)
 2. Create regex
 
 ## Foreign keys across data sets

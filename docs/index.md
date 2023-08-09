@@ -7,6 +7,7 @@ Just define your data source connections and data will be generated.
 It can also be manually altered to produce data or scenarios the way you want.
   
 Main features of the data generator include:
+  
 - Ability to gather metadata about data sources
 - Generate data in either batch or real-time
 - Maintain referential integrity across generated data
