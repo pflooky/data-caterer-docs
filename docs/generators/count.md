@@ -53,7 +53,7 @@ You can also use a combination of the above two methods to generate the number o
 When defining a total count within the `perColumn` configuration, it translates to only creating `(count.total * count.perColumn.total)` records.  
 This is a fixed number of records that will be generated each time, with no variation between runs.
 
-In the example below, we have `count.total=1000` and `count.perColumn.total=2`. Which means that `1000 * 2=2000` records will be generated
+In the example below, we have `count.total = 1000` and `count.perColumn.total = 2`. Which means that `1000 * 2 = 2000` records will be generated
 for this CSV file every time data gets generated.
 
 ```yaml

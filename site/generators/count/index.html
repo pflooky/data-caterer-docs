@@ -605,7 +605,7 @@ A number of transactions would be generated per <code>account_id,name</code>.  <
 <h3 id="total">Total</h3>
 <p>When defining a total count within the <code>perColumn</code> configuration, it translates to only creating <code>(count.total * count.perColumn.total)</code> records.<br />
 This is a fixed number of records that will be generated each time, with no variation between runs.</p>
-<p>In the example below, we have <code>count.total=1000</code> and <code>count.perColumn.total=2</code>. Which means that <code>1000 * 2=2000</code> records will be generated
+<p>In the example below, we have <code>count.total = 1000</code> and <code>count.perColumn.total = 2</code>. Which means that <code>1000 * 2 = 2000</code> records will be generated
 for this CSV file every time data gets generated.</p>
 <pre><code class="language-yaml">name: &quot;csv_file&quot;
 steps:

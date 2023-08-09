@@ -1,3 +1,9 @@
+delete from payment where payment_id > 27502;
+delete from rental where rental_id > 10005;
+delete from customer where customer_id > 599;
+delete from store where store_id > 2;
+delete from staff where staff_id > 2;
+delete from address where address_id > 605;
 delete from film_category where category_id > 16;
 delete from inventory where film_id > 1000;
 delete from film where language_id > 16;

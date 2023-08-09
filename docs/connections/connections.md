@@ -4,13 +4,13 @@ Details of all the connection configuration supported can be found in the below 
 
 ## Supported Data Connections
 
-| Data Source Type | Data Source                |
-|------------------|----------------------------|
-| Database         | Postgres, MySQL, Cassandra |
-| File             | CSV, JSON, ORC, Parquet    |
-| Kafka            | Kafka                      |
-| JMS              | Solace                     |
-| HTTP             | GET, PUT, POST             |
+| Data Source Type | Data Source                                         |
+|------------------|-----------------------------------------------------|
+| Database         | Postgres, MySQL, Cassandra                          |
+| File             | CSV, JSON, ORC, Parquet                             |
+| Kafka            | Kafka                                               |
+| JMS              | Solace                                              |
+| HTTP             | GET, PUT, POST, DELETE, PATCH, HEAD, TRACE, OPTIONS |
 
 All connection details follow the same pattern.
 
@@ -198,8 +198,10 @@ GRANT INSERT ON <schema>.<table> TO <user>;
 
 ### Kafka
 
-Define your Kafka bootstrap server to connect and send generated data to corresponding topics. Topic gets set at a step level.  
-Further details can be found [here](https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka)
+Define your Kafka bootstrap server to connect and send generated data to corresponding topics. Topic gets set at a step
+level.  
+Further details can be
+found [here](https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka)
 
 ```
 kafka {
@@ -209,11 +211,10 @@ kafka {
     }
 }
 ```
-  
+
 When defining your schema for pushing data to Kafka, it follows a specific top level schema.  
 An example can be found [here](../sample/docker/data/custom/task/kafka/kafka-account-task.yaml).  
 You can define the key, value, headers, partition or topic by following the linked schema.
-
 
 ### JMS
 
@@ -240,17 +241,15 @@ jms {
 
 ### HTTP
 
-Define a URL to connect to when sending HTTP requests.  
-Later, can have the ability to define generated data as part of the URL.
+Define any username and/or password needed for the HTTP requests.  
+The url is defined in the tasks to allow for generated data to be populated in the url.
 
 ```
 http {
     customer_api {
-        url = "http://localhost:80/get"
-        url = ${?HTTP_URL}
-        user = "admin"      #optional
+        user = "admin"
         user = ${?HTTP_USER}
-        password = "admin"  #optional
+        password = "admin"
         password = ${?HTTP_PASSWORD}
     }
 }

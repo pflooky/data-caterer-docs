@@ -55,7 +55,7 @@ cat data/custom/generated/plan/plan_*
 #### Generate data with record tracking
 
 ```shell
-APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=true ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_RECORD_TRACKING=true DATA_SOURCE=postgresdvd PLAN=generated/plan/plan_20230803T040203Z docker-compose up -d datacaterer
+APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=true ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_RECORD_TRACKING=true DATA_SOURCE=postgresdvd PLAN=generated/plan/$(ls data/custom/generated/plan/ | grep plan | head -1 | awk -F " " '{print $NF}' | sed 's/\.yaml//g') docker-compose up -d datacaterer
 ```
 
 #### Delete the generated data

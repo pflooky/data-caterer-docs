@@ -657,7 +657,7 @@ account_id, name combination in the CSV file.</p>
 cat data/custom/generated/plan/plan_*
 </code></pre>
 <h4 id="generate-data-with-record-tracking">Generate data with record tracking</h4>
-<pre><code class="language-shell">APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=true ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_RECORD_TRACKING=true DATA_SOURCE=postgresdvd PLAN=generated/plan/plan_20230803T040203Z docker-compose up -d datacaterer
+<pre><code class="language-shell">APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=true ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_RECORD_TRACKING=true DATA_SOURCE=postgresdvd PLAN=generated/plan/$(ls data/custom/generated/plan/ | grep plan | head -1 | awk -F &quot; &quot; '{print $NF}' | sed 's/\.yaml//g') docker-compose up -d datacaterer
 </code></pre>
 <h4 id="delete-the-generated-data">Delete the generated data</h4>
 <pre><code class="language-shell">APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=false ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_DELETE_GENERATED_RECORDS=true DATA_SOURCE=postgresdvd docker-compose up -d datacaterer

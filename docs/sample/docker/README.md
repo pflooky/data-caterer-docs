@@ -8,9 +8,10 @@ All you need to do is define which data source you want to run with via a comman
 DATA_SOURCE=postgres docker-compose up -d datacaterer
 ```
 
-You can change `DATA_SOURCE` to one of the following:
+You can change `DATA_SOURCE` to one of the following:  
 - postgres
 - mysql
 - cassandra
 - solace
 - kafka
+- http

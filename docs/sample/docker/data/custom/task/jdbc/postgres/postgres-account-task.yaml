@@ -30,6 +30,8 @@ steps:
           type: "string"
           generator:
             type: "random"
+            options:
+              expression: "#{Name.username} #{Name.lastname}"
         - name: "customer_id_int"
           type: "int"
           generator:

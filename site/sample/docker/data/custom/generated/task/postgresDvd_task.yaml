@@ -11,7 +11,7 @@ steps:
     type: "generated"
     fields:
     - name: "actor_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -88,606 +88,6 @@ steps:
           nullCount: "0"
       nullable: false
   enabled: true
-#- name: "postgresDvd_public_actor_info"
-#  type: "jdbc"
-#  count:
-#    total: 1000
-#  options:
-#    dbtable: "public.actor_info"
-#  schema:
-#    type: "generated"
-#    fields:
-#    - name: "actor_id"
-#      type: "integer"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "200"
-#          distinctCount: "199"
-#          sourceDataType: "integer"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          numericPrecision: "32"
-#          numericScale: "0"
-#          min: "1"
-#          histogram: "TFo0QmxvY2smLgQAAOAXAAC64Q8E8QA/6TJkyZMmTQAAAP4/8AABAAQIABFADgBAAABACAYAQAAAQBAGAAcIABAUDgBAAABAGAYAQAAAQBwGAEAAAEAgBgAHCAAQIg4AQAAAQCQGAEAAAEAmBgBAAABAKAYABwgAECoOAEAAAEAsBgBAAABALgYABwgAEDAOAEAAAEAxBgBAAABAMgYAQAAAQDMGAAcIABA0DgBAAABANQYAQAAAQDYGAEAAAEA3BgAHCAAQOA4AQAAAQDkGAEAAAEA6BgAHCAAQOw4AQAAAQDwGAEAAAEA9BgBAAABAPgYABwgAED8OADMAAEAxATBAQIAPADEAQEEHAAcIAAMYABNCGAATQhAAE0MQAAUIAAMYABNEGAAURBAAAwgAE0UYABNFEAATRhAAFEYQAAMIACFHAAEAI0BHEAARSA8ANABASBAAAwgAE0kYABNJEAATShAABQgAAxgAE0sYABNLEAATTBAABQgAAxgAAE4CAGgAE00QABFODwAHCAADGAATTxgAFE8QAAMIABNQGAASUFEBJEBQGAARwBkABQgAEVEPADMAQFEoABNRKAATUSgABAgAE1IoABNSKAATUigAE1IoAAQIABNTKAATUygAE1MoAAUIAAMwABNUKAATVCgAE1QoAAUIAAMoABNVKAATVSgAE1UoAAUIAAMoABNWKAATVigABQgAAzAAE1YoABNXKAATVygABQgAAygAE1coABNYKAATWCgABQgAAygAE1goABNZKAAFCAADMAATWSgAE1koABNaKAAFCAADKAATWigAE1ooABNbKAAFCAADKAATWygAE1soABNcKAAFCAADKAATXCgAFFwoAAMIABNdMAATXSgAE10oABRdIAADCAATXigAE14oABNeKAAUXiAAAwgAE18oABNfKAATXygABQgAAygAE2AoABJg0QQjQGAwAAUIAAIhACNAYEAAIWCgMQAkQGBAAAQIABLgGAARYQcAMwBAYVAAE2FQAAUIAANQABNhUAATYVAABQgAA1AAE2FQABNiUAATYlAABQgAA1gAE2JQABNiUAATYlAABQgAA1AAE2JQABNjUAAFCAADWAATY1AAE2NQABNjUAAFCAADWAATY1AAE2NQABNkUAAFCAADUAATZFAAE2RQAAUIAANYABNkUAATZFAAFGRQAAMIABNlWAATZVAAE2VQABNlUAAFCAADUAATZVAAE2VQABRlSAADCAATZlAAE2ZQABNmUAAFCAADWAATZlAAE2ZQABNmUAAFCAADUAATZ1AAE2dQABNnUAAFCAADUAATZ1AAE2dQAAUIAANYABNnUAATaFAAE2hQAAUIAANYABNoUAATaFAAE2hQAAUIAANQABNoUAASaVAABPAHAkYAD+gH/////////84E8AcDAgAfAQgA/////////9tQAf////9MWjRCbG9jaxYAAAAAAAAAAAAAAAA="
-#          max: "200"
-#          maxLen: "4"
-#          avgLen: "4"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "first_name"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "200"
-#          distinctCount: "124"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          expression: "#{Name.firstname}"
-#          maxLen: "45"
-#          avgLen: "6"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "last_name"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "200"
-#          distinctCount: "128"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          expression: "#{Name.lastname}"
-#          maxLen: "45"
-#          avgLen: "7"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "film_info"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "200"
-#          distinctCount: "200"
-#          sourceDataType: "text"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "830"
-#          avgLen: "553"
-#          nullCount: "0"
-#      nullable: true
-#  enabled: true
-#- name: "postgresDvd_public_customer_list"
-#  type: "jdbc"
-#  count:
-#    total: 1000
-#  options:
-#    dbtable: "public.customer_list"
-#  schema:
-#    type: "generated"
-#    fields:
-#    - name: "id"
-#      type: "integer"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "599"
-#          distinctCount: "592"
-#          sourceDataType: "integer"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          numericPrecision: "32"
-#          numericScale: "0"
-#          min: "1"
-#          histogram: "TFo0QmxvY2smggQAAOAXAACCrUYK8QBAAt27du3btwAAAP4/8AABACFACAcAMwBAFAgAEyAIABMkCAATKAgAEy4IABMxCAATMwgAEzYIABM4CAATOggAEz0IABM/CAATQQgAE0IIABNDCAAhRIAJACNARQgAE0YIACFIAAEAIUBJBwAzAEBKCAATSyAAE0wIABNNCAATTyAAFFAIABHACQAzQFFACAADEAATUjAAEVMXADMAQFMQABNUKAATVCgAE1UQABNWKAATVigAE1cQABNXKAATWCgAE1kYABNZKAATWhAAE1ooABNbKAATWxAAE1woABNdKAATXRAAE14oABNeKAATXxAAE2AoABRgEAARoBEAMkBg4AgAEmG5ASNAYUgAE2FAABFiHwAyAEBiQQAjQGI4ABNiOAATY1AAE2M4ABNjGAATZFAAE2Q4ABNkUAATZVAAE2U4ABNlUAATZTgAE2Y4ABNmUAATZjgAE2c4ABNnUAATZzgAE2gYABNoUAATaDgAE2hQABNpUAATaTgAE2lQABNqOAATajgAE2pQABNqOAATazgAE2tQABNrOAATbBgAE2xQABNsOAATbVAAE21QABNtOAATbVAAE244ABNuOAATblAAE284ABNvOAATb1AAE284ABNwOAATcCAAE3BAACFwkDkAM0BwsAgAEtAIABFxBwAzAEBxOAATcTgAIXFwGQAjQHE4ABNxOAATcWgAEXIfAEEAQHIwCQAiQHIJAyNAcjgAE3KYABNyuAATcjgAInMQMAATczgAE3M4ACNzgBgAAzgAE3OgABJzOQQjQHQ4ABN0oAATdNgAE3Q4ABN0oAATdDgAE3Q4ABN12AATdTgAE3U4ABN12AATdTgAE3WgABF2hwAzAEB2OAATdqAAE3bYABN2OAATdtgAE3Y4ABN3OAATd9gAE3c4ABN3OAATd9gAE3c4ABN3oAATeNgAE3g4ABN4oAATeNgAE3g4ABN42AATeDgAE3k4ACF5QHkAI0B5OAATeTgAE3nYABN5OAAReicAMwBAetgAE3o4ABN6oAATetgAE3o4ABN62AATezgAE3s4ABN72AATezgAE3s4ABN72AATezgAE3ygABN82AATfDgAE3ygABN82AATfDgAE3zYABN9OAATfTgAE33YABN9OAATfaAAE33YABN9OAATfqAAE37YABN+OAATfqAAE344ABN+OAATf9gAE384ABN/OAATf9gAE384ABN/oAATf9gAAocAQQBAgBhBACJAgLEGIkCAkQYjQIDoABOAgAATgFAAI4CIMAATmAgAE6gIAANgABOAmAAjgOgYABL4CAASgTEHI0CBqAATgRgBE4GwACOBWCgAAtkEM0CBeBAAA8AAE4FoAROBAAEjgcggABPYCAADQAERgg8AMwBAgoABE4LYABOC2AASgiEHI0CC2AATgtgAEoIRASNAgtgAE4LYAAK3AA/oB//////////WIoK4OQgCAgASAwcAIwACCAAMEAAPGAA1D1gARQ+gAAUPcAD/Jg84Af8mD4gCzQ8YAv///7BQAv////9MWjRCbG9jaxYAAAAAAAAAAAAAAAA="
-#          max: "599"
-#          maxLen: "4"
-#          avgLen: "4"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "name"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "599"
-#          distinctCount: "599"
-#          sourceDataType: "text"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          expression: "#{Name.name}"
-#          maxLen: "21"
-#          avgLen: "13"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "address"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "599"
-#          distinctCount: "599"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          expression: "#{Address.fullAddress}"
-#          maxLen: "50"
-#          avgLen: "20"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "zip code"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "599"
-#          distinctCount: "596"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "10"
-#          avgLen: "5"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "phone"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "599"
-#          distinctCount: "599"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "20"
-#          avgLen: "12"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "city"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "599"
-#          distinctCount: "561"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          expression: "#{Address.city}"
-#          maxLen: "50"
-#          avgLen: "9"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "country"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "599"
-#          distinctCount: "105"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          expression: "#{Address.country}"
-#          maxLen: "50"
-#          avgLen: "9"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "notes"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "599"
-#          distinctCount: "1"
-#          sourceDataType: "text"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "6"
-#          avgLen: "6"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "sid"
-#      type: "short"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "599"
-#          distinctCount: "2"
-#          sourceDataType: "smallint"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          numericPrecision: "16"
-#          numericScale: "0"
-#          min: "1"
-#          histogram: "TFo0QmxvY2smSQAAAOAXAAB+8aED8QBAAt27du3btwAAAP4/8AABAA8IAP////9BEUBWBA8IAP///4IP6Af/////////3ASACwMCAB8BCAD/////////21AB/////0xaNEJsb2NrFgAAAAAAAAAAAAAAAA=="
-#          max: "2"
-#          maxLen: "2"
-#          avgLen: "2"
-#          nullCount: "0"
-#      nullable: true
-#  enabled: true
-#- name: "postgresDvd_public_film_list"
-#  type: "jdbc"
-#  count:
-#    total: 1000
-#  options:
-#    dbtable: "public.film_list"
-#  schema:
-#    type: "generated"
-#    fields:
-#    - name: "fid"
-#      type: "integer"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "997"
-#          sourceDataType: "integer"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          numericPrecision: "32"
-#          numericScale: "0"
-#          min: "1"
-#          histogram: "TFo0QmxvY2smcAQAAOAXAABZHhcK8QBAD2bNmzZs2gAAAP4/8AABACFAEAcAMwBAIAgAEygIABMwCAATNAgAEzgIABM8CAATQAgAE0IIABNECAATRggAE0gIABNKCAAhS4AJACNATQgAE08IACJQwBgAE1EIABNSCAATUwgAE1QIABNVCAATVggAE1cIABNYCAATWQgAE1pYABNbCAATXAgAE10IABNeCAATXwgAEmDJACNAYEAAE2EQABNhEAATYhAAE2IQABNjEAATYxAAEmQ5ATJAZKDIABNlEAATZRAAE2YQABNmEAATZxAAE2cQABNoEAATaBAAE2kQABNpEAATahAAE2qwABFrZwAzAEBrEAATbBAAE2wQABNtEAATbRAAE24QABNuEAATbxAAE28QABNwEAAhcFAJACRAcBgAA+AAEXEXADMAQHH4ABNxIAATcSAAE3IgABNyIAATciAAE3IgABNzIAATcyAAE3MgABRzIAACiQIjQHQgABN0IAATdCAAE3VAABN1IAATdSAAE3UgABN2IAATdiAAE3YgABN2IAATdyAAEnfRAiJAd/EAMUB3sBkAI0B3gAATeCAAE3ggABN4IAATeCAAE3kgABN5IAATeSAAE3kgABN6IAAiemBYABN6wAEieuAQABN7yAETeyAAE3sgABN7IAATfCAAE3wgABN8IAATfCAAE30gABN9IAATfSAAIn3QYAASfskDI0B+yAEjfpAYAAMgABN/IAATfyAAE38gABN/IAAigAgwACOAKAgAAsEDM0CAaBAAA1gBE4B4ABOAYAETgKAAEYEnADMAQIGoACGBQBEAI0CBsAATgUAAE4FAABOBQAATgUAAEYIvADMAQIJAABKCcQQxQIJYGQAzQIJ4CAATmAgAE7gIABPYCAAS+AgAI4MYCAADQAATg0AAE4NAABODQAATg0AAE4MAARODyAEThCgBE4TQAROEMAEThPgBE4Q4AROEAAIThEAAE4RAABOFQAAThUAAE4VAABOFSAEihYigACOFqAgAE8gIABLoCAAThogBE4aIAROGiAEThkAAE4ZAABOGQAAThkAAE4ZAABOHQAATh0gBE4eIAROHiAETh4gBE4eIAROHiAETh4gBAl8AMwBAiEAAE4hAABOIQAATiEAAE4hAABOISAETiIgBE4iIAROJQAATiUAAE4lAABOJQAATiUAAE4mAABOJgAARigcBMwBAikAAE4pAABOKyAETisgBE4rIAROKgAATioAAE4qAABOLCAITiwgCE4tAABOLQAATi0AAE4tAABOLQAATi0AAE4zIAROMyAETjMgBE4wIAhOMCAITjAgCE4wIAhOMCAITjUAAE41AABONQAATjUAAE41AABONyAETjcgBE43IAROOyAETjggCE44IAhOOCAISjqkBI0COQAATjkAAE45AABOPQAATj0AAAo8AD+gH/////////9YSjzAJAwIAHwQIAFQfA2gAvAQ4AQ/YAL0P0ABVD0AB//8HDxgC//8HD5gE/y5QA/////9MWjRCbG9jaxYAAAAAAAAAAAAAAAA="
-#          max: "1000"
-#          maxLen: "4"
-#          avgLen: "4"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "title"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "997"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "255"
-#          avgLen: "15"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "description"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "983"
-#          sourceDataType: "text"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "130"
-#          avgLen: "94"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "category"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "16"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "25"
-#          avgLen: "7"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "price"
-#      type: "decimal(4,2)"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "3"
-#          sourceDataType: "numeric"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 2
-#          numericPrecision: "4"
-#          numericScale: "2"
-#          min: "0.99"
-#          histogram: "TFo0QmxvY2smXQAAAOAXAABDceoB/wVAD2bNmzZs2gAAAP4/764UeuFHrggA//+fj0AH64UeuFHsCAD//3h/E/XCj1wo9ggA//+PD+gH/////////9wEiAoSAAEAEgEHAA8IAP/////////VUAH/////TFo0QmxvY2sWAAAAAAAAAAAAAAAA"
-#          max: "4.99"
-#          maxLen: "8"
-#          avgLen: "8"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "length"
-#      type: "short"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "141"
-#          sourceDataType: "smallint"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          numericPrecision: "16"
-#          numericScale: "0"
-#          min: "46"
-#          histogram: "TFo0QmxvY2smRwMAAOAXAABmxt0I8QBAD2bNmzZs2gAAAP5ARwABAAYIABOAEAADCAARSA8ABwgABBgAAwgAE0kgAAUIAAQYAAMIABNKIAAUShAACwgAE0sgABNLGAATTBAAFEwQAAMIABNNGAAFCAAEGAADCAATTiAABQgABBgACwgAE08oABNPGAAECAATUBgADQgAEUAZACNAUDAAI1DAEAADCAARUQ8AMwBAUSgABQgAAzAABQgAAzAAE1IwABNSMAANCAADMAANCAAEQAALCAATU1AABQgAA1gAE1NAAAUIAAM4ABNUMAANCAADOAATVDgABQgAAzgAE1U4AA0IAAM4AA8IAA4DWAATVVAAE1ZQABNWOAAFCAADKAAUVigAAwgAE1cwAA0IAANAAAUIAANAABNYMAATWBgAFFgYAAQIAANYAAQIABNZMAANCAADQAAFCAADQAAFCAAEQAALCAATWlAAE1o4AAUIAAM4ABNaMAAMCAATWzgAE1s4AAUIAAM4AAUIAANAAAQIABNcOAANCAADSAAFCAADQAANCAADSAATXUgAE10wAAUIAAMwAAUIAAMwABNeMAANCAADQAAFCAADOAAFCAAEQAADCAATX0gAE18wAAUIAAMwAAUIAAQwAAMIABNgOAAhYCAJAAYIAANIAAUIAAIpACNAYEgABQgAE6A4AARQAAQIABPgGAADCAARYQ8ABwgAA3AADQgAA3AAE2FwAA0IAAOAABNheAAFCAADeAAFCAAEeAADCAATYoAABQgAA3gAE2JwAAUIAAN4AAUIAANwAAUIAAN4ABNiaAAFCAAEaAADCAATY3AABQgAA3AADQgAA4AABQgAA3gAE2NwABNjcAAFCAADeAAUY2gAAwgAE2RwABNkYAAFCAARQBkABggAA2AABQgAA2gAE2RoABNkYAAUZFgAAwgAEWVHADMAQGVgABNlWAATZUgABQgAA1AADQgAA2AAE2VgAAUIAANgABNmYAANCAADcAATZnAADQgAA4AADQgAA4AABQgAA4AABQgAA4gABQgAA4gAE2eIAAUIAAOAAAQIAAXwBwNYAAQIAA/oB//////////EA/AHAwIAHwEIAP//vh8C0AL//74PoAX//zdQAf////9MWjRCbG9jaxYAAAAAAAAAAAAAAAA="
-#          max: "185"
-#          maxLen: "2"
-#          avgLen: "2"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "rating"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "5"
-#          sourceDataType: "USER-DEFINED"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "5"
-#          avgLen: "3"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "actors"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "997"
-#          sourceDataType: "text"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "216"
-#          avgLen: "78"
-#          nullCount: "0"
-#      nullable: true
-#  enabled: true
-#- name: "postgresDvd_public_nicer_but_slower_film_list"
-#  type: "jdbc"
-#  count:
-#    total: 1000
-#  options:
-#    dbtable: "public.nicer_but_slower_film_list"
-#  schema:
-#    type: "generated"
-#    fields:
-#    - name: "fid"
-#      type: "integer"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "997"
-#          sourceDataType: "integer"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          numericPrecision: "32"
-#          numericScale: "0"
-#          min: "1"
-#          histogram: "TFo0QmxvY2smcAQAAOAXAABZHhcK8QBAD2bNmzZs2gAAAP4/8AABACFAEAcAMwBAIAgAEygIABMwCAATNAgAEzgIABM8CAATQAgAE0IIABNECAATRggAE0gIABNKCAAhS4AJACNATQgAE08IACJQwBgAE1EIABNSCAATUwgAE1QIABNVCAATVggAE1cIABNYCAATWQgAE1pYABNbCAATXAgAE10IABNeCAATXwgAEmDJACNAYEAAE2EQABNhEAATYhAAE2IQABNjEAATYxAAEmQ5ATJAZKDIABNlEAATZRAAE2YQABNmEAATZxAAE2cQABNoEAATaBAAE2kQABNpEAATahAAE2qwABFrZwAzAEBrEAATbBAAE2wQABNtEAATbRAAE24QABNuEAATbxAAE28QABNwEAAhcFAJACRAcBgAA+AAEXEXADMAQHH4ABNxIAATcSAAE3IgABNyIAATciAAE3IgABNzIAATcyAAE3MgABRzIAACiQIjQHQgABN0IAATdCAAE3VAABN1IAATdSAAE3UgABN2IAATdiAAE3YgABN2IAATdyAAEnfRAiJAd/EAMUB3sBkAI0B3gAATeCAAE3ggABN4IAATeCAAE3kgABN5IAATeSAAE3kgABN6IAAiemBYABN6wAEieuAQABN7yAETeyAAE3sgABN7IAATfCAAE3wgABN8IAATfCAAE30gABN9IAATfSAAIn3QYAASfskDI0B+yAEjfpAYAAMgABN/IAATfyAAE38gABN/IAAigAgwACOAKAgAAsEDM0CAaBAAA1gBE4B4ABOAYAETgKAAEYEnADMAQIGoACGBQBEAI0CBsAATgUAAE4FAABOBQAATgUAAEYIvADMAQIJAABKCcQQxQIJYGQAzQIJ4CAATmAgAE7gIABPYCAAS+AgAI4MYCAADQAATg0AAE4NAABODQAATg0AAE4MAARODyAEThCgBE4TQAROEMAEThPgBE4Q4AROEAAIThEAAE4RAABOFQAAThUAAE4VAABOFSAEihYigACOFqAgAE8gIABLoCAAThogBE4aIAROGiAEThkAAE4ZAABOGQAAThkAAE4ZAABOHQAATh0gBE4eIAROHiAETh4gBE4eIAROHiAETh4gBAl8AMwBAiEAAE4hAABOIQAATiEAAE4hAABOISAETiIgBE4iIAROJQAATiUAAE4lAABOJQAATiUAAE4mAABOJgAARigcBMwBAikAAE4pAABOKyAETisgBE4rIAROKgAATioAAE4qAABOLCAITiwgCE4tAABOLQAATi0AAE4tAABOLQAATi0AAE4zIAROMyAETjMgBE4wIAhOMCAITjAgCE4wIAhOMCAITjUAAE41AABONQAATjUAAE41AABONyAETjcgBE43IAROOyAETjggCE44IAhOOCAISjqkBI0COQAATjkAAE45AABOPQAATj0AAAo8AD+gH/////////9YSjzAJAwIAHwQIAFQfA2gAvAQ4AQ/YAL0P0ABVD0AB//8HDxgC//8HD5gE/y5QA/////9MWjRCbG9jaxYAAAAAAAAAAAAAAAA="
-#          max: "1000"
-#          maxLen: "4"
-#          avgLen: "4"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "title"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "997"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "255"
-#          avgLen: "15"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "description"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "983"
-#          sourceDataType: "text"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "130"
-#          avgLen: "94"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "category"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "16"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "25"
-#          avgLen: "7"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "price"
-#      type: "decimal(4,2)"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "3"
-#          sourceDataType: "numeric"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 2
-#          numericPrecision: "4"
-#          numericScale: "2"
-#          min: "0.99"
-#          histogram: "TFo0QmxvY2smXQAAAOAXAABDceoB/wVAD2bNmzZs2gAAAP4/764UeuFHrggA//+fj0AH64UeuFHsCAD//3h/E/XCj1wo9ggA//+PD+gH/////////9wEiAoSAAEAEgEHAA8IAP/////////VUAH/////TFo0QmxvY2sWAAAAAAAAAAAAAAAA"
-#          max: "4.99"
-#          maxLen: "8"
-#          avgLen: "8"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "length"
-#      type: "short"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "141"
-#          sourceDataType: "smallint"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          numericPrecision: "16"
-#          numericScale: "0"
-#          min: "46"
-#          histogram: "TFo0QmxvY2smRwMAAOAXAABmxt0I8QBAD2bNmzZs2gAAAP5ARwABAAYIABOAEAADCAARSA8ABwgABBgAAwgAE0kgAAUIAAQYAAMIABNKIAAUShAACwgAE0sgABNLGAATTBAAFEwQAAMIABNNGAAFCAAEGAADCAATTiAABQgABBgACwgAE08oABNPGAAECAATUBgADQgAEUAZACNAUDAAI1DAEAADCAARUQ8AMwBAUSgABQgAAzAABQgAAzAAE1IwABNSMAANCAADMAANCAAEQAALCAATU1AABQgAA1gAE1NAAAUIAAM4ABNUMAANCAADOAATVDgABQgAAzgAE1U4AA0IAAM4AA8IAA4DWAATVVAAE1ZQABNWOAAFCAADKAAUVigAAwgAE1cwAA0IAANAAAUIAANAABNYMAATWBgAFFgYAAQIAANYAAQIABNZMAANCAADQAAFCAADQAAFCAAEQAALCAATWlAAE1o4AAUIAAM4ABNaMAAMCAATWzgAE1s4AAUIAAM4AAUIAANAAAQIABNcOAANCAADSAAFCAADQAANCAADSAATXUgAE10wAAUIAAMwAAUIAAMwABNeMAANCAADQAAFCAADOAAFCAAEQAADCAATX0gAE18wAAUIAAMwAAUIAAQwAAMIABNgOAAhYCAJAAYIAANIAAUIAAIpACNAYEgABQgAE6A4AARQAAQIABPgGAADCAARYQ8ABwgAA3AADQgAA3AAE2FwAA0IAAOAABNheAAFCAADeAAFCAAEeAADCAATYoAABQgAA3gAE2JwAAUIAAN4AAUIAANwAAUIAAN4ABNiaAAFCAAEaAADCAATY3AABQgAA3AADQgAA4AABQgAA3gAE2NwABNjcAAFCAADeAAUY2gAAwgAE2RwABNkYAAFCAARQBkABggAA2AABQgAA2gAE2RoABNkYAAUZFgAAwgAEWVHADMAQGVgABNlWAATZUgABQgAA1AADQgAA2AAE2VgAAUIAANgABNmYAANCAADcAATZnAADQgAA4AADQgAA4AABQgAA4AABQgAA4gABQgAA4gAE2eIAAUIAAOAAAQIAAXwBwNYAAQIAA/oB//////////EA/AHAwIAHwEIAP//vh8C0AL//74PoAX//zdQAf////9MWjRCbG9jaxYAAAAAAAAAAAAAAAA="
-#          max: "185"
-#          maxLen: "2"
-#          avgLen: "2"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "rating"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "5"
-#          sourceDataType: "USER-DEFINED"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "5"
-#          avgLen: "3"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "actors"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "997"
-#          distinctCount: "970"
-#          sourceDataType: "text"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "201"
-#          avgLen: "73"
-#          nullCount: "0"
-#      nullable: true
-#  enabled: true
-#- name: "postgresDvd_public_sales_by_film_category"
-#  type: "jdbc"
-#  count:
-#    total: 1000
-#  options:
-#    dbtable: "public.sales_by_film_category"
-#  schema:
-#    type: "generated"
-#    fields:
-#    - name: "category"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "16"
-#          distinctCount: "16"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "25"
-#          avgLen: "7"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "total_sales"
-#      type: "decimal(38,18)"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "16"
-#          distinctCount: "14"
-#          sourceDataType: "numeric"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          min: "3071.520000000000000000"
-#          histogram: "TFo0QmxvY2sm3gAAAOAXAADtT2AH/wU/sCBAgQIECAAAAP5Ap/8KPXCj1wgAZn+pNrhR64UfCABnb9rHrhR64QgAZn+qMsKPXCj2CABnIZKKAAIPCABlf61LTMzMzM0IAGcT7IAADwgAZH+upFwo9cKPCABnb7zwo9cKPQgAXxDfdwMfSAgAZxL8eAMPCABlf69E9cKPXCkIAGYxsBZ1gAAPCABmb5VPXCj1wwgAZyHwAngFDwgAZTGzHDB4Aw8IAF0P8AdlD+AHZgRgCA/oB////////+IDWAgSAAEAEgEHAA8IAP/////////VUAH/////TFo0QmxvY2sWAAAAAAAAAAAAAAAA"
-#          max: "4892.190000000000000000"
-#          maxLen: "16"
-#          avgLen: "16"
-#          nullCount: "0"
-#      nullable: true
-#  enabled: true
 - name: "postgresDvd_public_store"
   type: "jdbc"
   count:
@@ -698,7 +98,7 @@ steps:
     type: "generated"
     fields:
     - name: "store_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -721,7 +121,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "manager_staff_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -742,7 +142,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "address_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -783,219 +183,6 @@ steps:
           nullCount: "0"
       nullable: false
   enabled: true
-#- name: "postgresDvd_public_sales_by_store"
-#  type: "jdbc"
-#  count:
-#    total: 1000
-#  options:
-#    dbtable: "public.sales_by_store"
-#  schema:
-#    type: "generated"
-#    fields:
-#    - name: "store"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "2"
-#          distinctCount: "2"
-#          sourceDataType: "text"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "19"
-#          avgLen: "18"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "manager"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "2"
-#          distinctCount: "2"
-#          sourceDataType: "text"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "12"
-#          avgLen: "12"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "total_sales"
-#      type: "decimal(38,18)"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "2"
-#          distinctCount: "2"
-#          sourceDataType: "numeric"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          min: "30628.910000000000000000"
-#          histogram: "TFo0QmxvY2smUwAAAOAXAACm0aUB/wU/gCBAgQIECAAAAP5A3ek6PXCj1wgA////6m/2yFHrhR8IAP///9oP8Af////oD+gH////4ALwAxIAAQASAQcADwgA/////////9VQAf////9MWjRCbG9jaxYAAAAAAAAAAAAAAAA="
-#          max: "30683.130000000000000000"
-#          maxLen: "16"
-#          avgLen: "16"
-#          nullCount: "0"
-#      nullable: true
-#  enabled: true
-#- name: "postgresDvd_public_staff_list"
-#  type: "jdbc"
-#  count:
-#    total: 1000
-#  options:
-#    dbtable: "public.staff_list"
-#  schema:
-#    type: "generated"
-#    fields:
-#    - name: "id"
-#      type: "integer"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "2"
-#          distinctCount: "2"
-#          sourceDataType: "integer"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          numericPrecision: "32"
-#          numericScale: "0"
-#          min: "1"
-#          histogram: "TFo0QmxvY2smSAAAAOAXAADfH2wC8QA/gCBAgQIECAAAAP4/8AABAA8IAP///+gRQP4DDwgA////2g/oB//////////cBNgLAwIAHwEIAP/////////bUAH/////TFo0QmxvY2sWAAAAAAAAAAAAAAAA"
-#          max: "2"
-#          maxLen: "4"
-#          avgLen: "4"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "name"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "2"
-#          distinctCount: "2"
-#          sourceDataType: "text"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          expression: "#{Name.name}"
-#          maxLen: "12"
-#          avgLen: "12"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "address"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "2"
-#          distinctCount: "2"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          expression: "#{Address.fullAddress}"
-#          maxLen: "50"
-#          avgLen: "19"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "zip code"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "2"
-#          distinctCount: "1"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "10"
-#          avgLen: "0"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "phone"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "2"
-#          distinctCount: "2"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          maxLen: "20"
-#          avgLen: "11"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "city"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "2"
-#          distinctCount: "2"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          expression: "#{Address.city}"
-#          maxLen: "50"
-#          avgLen: "10"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "country"
-#      type: "string"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "2"
-#          distinctCount: "2"
-#          sourceDataType: "character varying"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          expression: "#{Address.country}"
-#          maxLen: "50"
-#          avgLen: "8"
-#          nullCount: "0"
-#      nullable: true
-#    - name: "sid"
-#      type: "short"
-#      generator:
-#        type: "random"
-#        options:
-#          isPrimaryKey: "false"
-#          count: "2"
-#          distinctCount: "2"
-#          sourceDataType: "smallint"
-#          isNullable: "true"
-#          isUnique: "false"
-#          scale: 0
-#          numericPrecision: "16"
-#          numericScale: "0"
-#          min: "1"
-#          histogram: "TFo0QmxvY2smSAAAAOAXAADfH2wC8QA/gCBAgQIECAAAAP4/8AABAA8IAP///+gRQP4DDwgA////2g/oB//////////cBNgLAwIAHwEIAP/////////bUAH/////TFo0QmxvY2sWAAAAAAAAAAAAAAAA"
-#          max: "2"
-#          maxLen: "2"
-#          avgLen: "2"
-#          nullCount: "0"
-#      nullable: true
-#  enabled: true
 - name: "postgresDvd_public_address"
   type: "jdbc"
   count:
@@ -1006,7 +193,7 @@ steps:
     type: "generated"
     fields:
     - name: "address_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -1079,7 +266,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "city_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -1162,7 +349,7 @@ steps:
     type: "generated"
     fields:
     - name: "category_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -1232,7 +419,7 @@ steps:
     type: "generated"
     fields:
     - name: "city_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -1272,7 +459,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "country_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -1323,7 +510,7 @@ steps:
     type: "generated"
     fields:
     - name: "country_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -1393,7 +580,7 @@ steps:
     type: "generated"
     fields:
     - name: "customer_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -1416,7 +603,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "store_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -1488,7 +675,7 @@ steps:
           nullCount: "0"
       nullable: true
     - name: "address_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -1568,7 +755,7 @@ steps:
           nullCount: "0"
       nullable: true
     - name: "active"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -1599,7 +786,7 @@ steps:
     type: "generated"
     fields:
     - name: "actor_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "oneOf"
         options:
@@ -1822,7 +1009,7 @@ steps:
           - "200"
       nullable: false
     - name: "film_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -1876,7 +1063,7 @@ steps:
     type: "generated"
     fields:
     - name: "film_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -1898,7 +1085,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "category_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "oneOf"
         options:
@@ -1969,7 +1156,7 @@ steps:
     type: "generated"
     fields:
     - name: "inventory_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -1992,7 +1179,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "film_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -2013,7 +1200,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "store_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "oneOf"
         options:
@@ -2069,7 +1256,7 @@ steps:
     type: "generated"
     fields:
     - name: "language_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -2139,7 +1326,7 @@ steps:
     type: "generated"
     fields:
     - name: "rental_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -2181,7 +1368,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "inventory_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -2202,7 +1389,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "customer_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "oneOf"
         options:
@@ -2842,7 +2029,7 @@ steps:
           nullCount: "0"
       nullable: true
     - name: "staff_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "oneOf"
         options:
@@ -2898,7 +2085,7 @@ steps:
     type: "generated"
     fields:
     - name: "staff_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -2955,7 +2142,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "address_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -2993,7 +2180,7 @@ steps:
           nullCount: "0"
       nullable: true
     - name: "store_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -3112,7 +2299,7 @@ steps:
     type: "generated"
     fields:
     - name: "payment_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -3135,7 +2322,7 @@ steps:
           nullCount: "0"
       nullable: false
     - name: "customer_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "oneOf"
         options:
@@ -3756,7 +2943,7 @@ steps:
           - "195"
       nullable: false
     - name: "staff_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "oneOf"
         options:
@@ -3780,7 +2967,7 @@ steps:
           - "1"
       nullable: false
     - name: "rental_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -3864,7 +3051,7 @@ steps:
     type: "generated"
     fields:
     - name: "film_id"
-      type: "integer"
+      type: "int"
       generator:
         type: "random"
         options:
@@ -3919,7 +3106,7 @@ steps:
           nullCount: "0"
       nullable: true
     - name: "release_year"
-      type: "integer"
+      type: "int"
       generator:
         type: "oneOf"
         options:
@@ -3942,7 +3129,7 @@ steps:
           - "2006"
       nullable: true
     - name: "language_id"
-      type: "short"
+      type: "smallint"
       generator:
         type: "oneOf"
         options:
@@ -3965,7 +3152,7 @@ steps:
           - "1"
       nullable: false
     - name: "rental_duration"
-      type: "short"
+      type: "smallint"
       generator:
         type: "oneOf"
         options:
@@ -4019,7 +3206,7 @@ steps:
           - "2.99"
       nullable: false
     - name: "length"
-      type: "short"
+      type: "smallint"
       generator:
         type: "random"
         options:
@@ -4129,7 +3316,7 @@ steps:
           - "2013-05-26 14:50:58.951"
       nullable: false
     - name: "special_features"
-      type: "array<int>"
+      type: "array<string>"
       generator:
         type: "random"
         options:

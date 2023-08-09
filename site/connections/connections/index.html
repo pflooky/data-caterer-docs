@@ -809,7 +809,7 @@
 </tr>
 <tr>
 <td>HTTP</td>
-<td>GET, PUT, POST</td>
+<td>GET, PUT, POST, DELETE, PATCH, HEAD, TRACE, OPTIONS</td>
 </tr>
 </tbody>
 </table>
@@ -960,8 +960,10 @@ found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master
 </details>
 
 <h3 id="kafka">Kafka</h3>
-<p>Define your Kafka bootstrap server to connect and send generated data to corresponding topics. Topic gets set at a step level.<br />
-Further details can be found <a href="https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka">here</a></p>
+<p>Define your Kafka bootstrap server to connect and send generated data to corresponding topics. Topic gets set at a step
+level.<br />
+Further details can be
+found <a href="https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka">here</a></p>
 <pre><code>kafka {
     kafka {
         kafka.bootstrap.servers = &quot;localhost:9092&quot;
@@ -992,15 +994,13 @@ via JNDI otherwise a connection cannot be created.</p>
 }
 </code></pre>
 <h3 id="http">HTTP</h3>
-<p>Define a URL to connect to when sending HTTP requests.<br />
-Later, can have the ability to define generated data as part of the URL.</p>
+<p>Define any username and/or password needed for the HTTP requests.<br />
+The url is defined in the tasks to allow for generated data to be populated in the url.</p>
 <pre><code>http {
     customer_api {
-        url = &quot;http://localhost:80/get&quot;
-        url = ${?HTTP_URL}
-        user = &quot;admin&quot;      #optional
+        user = &quot;admin&quot;
         user = ${?HTTP_USER}
-        password = &quot;admin&quot;  #optional
+        password = &quot;admin&quot;
         password = ${?HTTP_PASSWORD}
     }
 }

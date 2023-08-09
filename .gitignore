@@ -2,3 +2,4 @@
 docs/sample/docker/data/custom/csv
 docs/sample/docker/data/custom/json
 docs/sample/docker/data/custom/parquet
+docs/sample/docker/data/custom/generated
