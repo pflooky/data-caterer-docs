@@ -66,7 +66,7 @@ services:
       - "${HOME}/data/mysql:/var/lib/mysql"
       - "./data/sql/mysql/customer.sql:/docker-entrypoint-initdb.d/customer.sql"
     healthcheck:
-      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD" ]
+      test: [ "CMD-SHELL", "mysqladmin" ,"ping", "-h", "localhost", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD" ]
       timeout: 20s
       retries: 10
     ports:
@@ -81,7 +81,7 @@ services:
     volumes:
       - "${HOME}/data/solace:/var/lib/solace"
     healthcheck:
-      test: [ "curl", "--output", "/dev/null", "--silent", "--head", "--fail", "http://solaceserver:8080" ]
+      test: [ "CMD-SHELL", "curl", "--output", "/dev/null", "--silent", "--head", "--fail", "http://solaceserver:8080" ]
       interval: "15s"
       timeout: "5s"
       retries: 3
@@ -148,7 +148,7 @@ services:
     volumes:
       - "${HOME}/data/kafka:/var/lib/kafka/data"
     healthcheck:
-      test: [ "/bin/sh", "-c", "kafka-topics", "--bootstrap-server", "kafkaserver:29092", "--list" ]
+      test: [ "CMD-SHELL", "/bin/sh", "-c", "kafka-topics", "--bootstrap-server", "kafkaserver:29092", "--list" ]
       interval: "15s"
       timeout: "5s"
       retries: 3
