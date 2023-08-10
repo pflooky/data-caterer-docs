@@ -341,9 +341,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-with-multiple-data-sources-postgres-and-csv-file" class="md-nav__link">
-    Run with multiple data sources (Postgres and CSV File)
+  <a href="#run-with-multiple-data-sources" class="md-nav__link">
+    Run with multiple data sources
   </a>
+  
+    <nav class="md-nav" aria-label="Run with multiple data sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgres-and-csv-file" class="md-nav__link">
+    Postgres and CSV File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgres-and-jms" class="md-nav__link">
+    Postgres and JMS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -551,9 +571,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-with-multiple-data-sources-postgres-and-csv-file" class="md-nav__link">
-    Run with multiple data sources (Postgres and CSV File)
+  <a href="#run-with-multiple-data-sources" class="md-nav__link">
+    Run with multiple data sources
   </a>
+  
+    <nav class="md-nav" aria-label="Run with multiple data sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgres-and-csv-file" class="md-nav__link">
+    Postgres and CSV File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgres-and-jms" class="md-nav__link">
+    Postgres and JMS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -638,7 +678,8 @@ docker-compose up -d datacaterer
 <li>http</li>
 </ul>
 <p>If you want to test it out with your own setup, you can alter the corresponding files under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data">docs/sample/docker/data</a></p>
-<h3 id="run-with-multiple-data-sources-postgres-and-csv-file">Run with multiple data sources (Postgres and CSV File)</h3>
+<h3 id="run-with-multiple-data-sources">Run with multiple data sources</h3>
+<h4 id="postgres-and-csv-file">Postgres and CSV File</h4>
 <pre><code class="language-shell">PLAN=plan/scenario-based DATA_SOURCE=postgres docker-compose up -d datacaterer
 head data/custom/csv/transactions/part-00000*
 sample_account=$(head -1 data/custom/csv/transactions/part-00000* | awk -F &quot;,&quot; '{print $1}')
@@ -646,6 +687,7 @@ docker exec docker-postgres-1 psql -Upostgres -d customer -c &quot;SELECT * FROM
 </code></pre>
 <p>You should be able to see the linked data between Postgres and the CSV file created along with 1 to 10 records per
 account_id, name combination in the CSV file.</p>
+<h4 id="postgres-and-jms">Postgres and JMS</h4>
 <h3 id="run-with-custom-data-sources">Run with custom data sources</h3>
 <ol>
 <li>Create/alter plan under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/plan"><code>data/custom/plan</code></a></li>
