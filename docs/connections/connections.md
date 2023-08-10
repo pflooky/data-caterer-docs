@@ -187,11 +187,23 @@ org.apache.spark.sql.cassandra {
 }
 ```
 
+##### Permissions
+
 Ensure that the user has write permission so it is able to save the table to the target tables.
 <details>
 
 ```sql
 GRANT INSERT ON <schema>.<table> TO <user>;
+```
+
+</details>
+
+Following permissions are required when generating plan and tasks:
+<details>
+
+```sql
+GRANT SELECT ON system_schema.tables TO <user>;
+GRANT SELECT ON system_schema.columns TO <user>;
 ```
 
 </details>

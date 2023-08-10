@@ -7,7 +7,7 @@ services:
       - "APPLICATION_CONFIG_PATH=${APPLICATION_CONFIG_PATH:-/opt/app/custom/application.conf}"
       - "PLAN_FILE_PATH=/opt/app/custom/${PLAN:-plan/${DATA_SOURCE:-postgres}}.yaml"
       - "ENABLE_GENERATE_DATA=${ENABLE_GENERATE_DATA:-true}"
-      - "ENABLE_RECORD_TRACKING=${ENABLED_RECORD_TRACKING:-false}"
+      - "ENABLE_RECORD_TRACKING=${ENABLE_RECORD_TRACKING:-false}"
       - "ENABLE_GENERATE_PLAN_AND_TASKS=${ENABLE_GENERATE_PLAN_AND_TASKS:-false}"
       - "ENABLE_DELETE_GENERATED_RECORDS=${ENABLE_DELETE_GENERATED_RECORDS:-false}"
     volumes:
@@ -28,7 +28,6 @@ services:
       - "5432:5432"
 
   postgres:
-#    image: "alpine:3.18.3"
     image: "postgres:14.5"
     entrypoint: [ "exit" ]
     depends_on:

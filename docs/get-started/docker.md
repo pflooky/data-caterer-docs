@@ -7,16 +7,22 @@
 ```shell
 git clone git@github.com:pflooky/data-caterer-docs.git
 cd docs/sample/docker
-DATA_SOURCE=postgres docker-compose up -d datacaterer
+docker-compose up -d datacaterer
 ```
 
-You can change `DATA_SOURCE` to one of the following:
-
+To run for another data source, you can set `DATA_SOURCE` like below:
+```shell
+DATA_SOURCE=postgres docker-compose up -d datacaterer
+```
+  
+Can set it to one of the following:
+  
 - postgres
 - mysql
 - cassandra
 - solace
 - kafka
+- http
 
 If you want to test it out with your own setup, you can alter the corresponding files under [docs/sample/docker/data](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data)
 
@@ -37,9 +43,9 @@ account_id, name combination in the CSV file.
 
 1. Create/alter plan under [`data/custom/plan`](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/plan)
 2. Create/alter tasks under [`data/custom/task`](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/task)
-   1. Define your schemas and generator configurations such as record count
+    1. Define your schemas and generator configurations such as record count
 3. Create/alter application configuration [`data/custom/application.conf`](https://github.com/pflooky/data-caterer-docs/blob/main/docs/sample/docker/data/custom/application.conf)
-   1. This is where you define your connection properties and other flags/configurations
+    1. This is where you define your connection properties and other flags/configurations
 
 ```shell
 DATA_SOURCE=<data source name> docker-compose up -d datacaterer
@@ -61,7 +67,7 @@ APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DAT
 #### Delete the generated data
 
 ```shell
-APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=false ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_DELETE_GENERATED_RECORDS=true DATA_SOURCE=postgresdvd docker-compose up -d datacaterer
+APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=false ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_DELETE_GENERATED_RECORDS=true DATA_SOURCE=postgresdvd PLAN=generated/plan/$(ls data/custom/generated/plan/ | grep plan | head -1 | awk -F " " '{print $NF}' | sed 's/\.yaml//g') docker-compose up -d datacaterer
 ```
 
 ## Helm

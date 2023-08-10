@@ -524,6 +524,19 @@
     Cassandra
   </a>
   
+    <nav class="md-nav" aria-label="Cassandra">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permissions_2" class="md-nav__link">
+    Permissions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -737,6 +750,19 @@
     Cassandra
   </a>
   
+    <nav class="md-nav" aria-label="Cassandra">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#permissions_2" class="md-nav__link">
+    Permissions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -949,11 +975,23 @@ found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master
     }
 }
 </code></pre>
+<h5 id="permissions_2">Permissions</h5>
 <p>Ensure that the user has write permission so it is able to save the table to the target tables.</p>
 <details>
 
 
 <pre><code class="language-sql">GRANT INSERT ON &lt;schema&gt;.&lt;table&gt; TO &lt;user&gt;;
+</code></pre>
+
+
+</details>
+
+<p>Following permissions are required when generating plan and tasks:</p>
+<details>
+
+
+<pre><code class="language-sql">GRANT SELECT ON system_schema.tables TO &lt;user&gt;;
+GRANT SELECT ON system_schema.columns TO &lt;user&gt;;
 </code></pre>
 
 

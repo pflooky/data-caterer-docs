@@ -623,15 +623,19 @@
 <h3 id="quick-start">Quick start</h3>
 <pre><code class="language-shell">git clone git@github.com:pflooky/data-caterer-docs.git
 cd docs/sample/docker
-DATA_SOURCE=postgres docker-compose up -d datacaterer
+docker-compose up -d datacaterer
 </code></pre>
-<p>You can change <code>DATA_SOURCE</code> to one of the following:</p>
+<p>To run for another data source, you can set <code>DATA_SOURCE</code> like below:</p>
+<pre><code class="language-shell">DATA_SOURCE=postgres docker-compose up -d datacaterer
+</code></pre>
+<p>Can set it to one of the following:</p>
 <ul>
 <li>postgres</li>
 <li>mysql</li>
 <li>cassandra</li>
 <li>solace</li>
 <li>kafka</li>
+<li>http</li>
 </ul>
 <p>If you want to test it out with your own setup, you can alter the corresponding files under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data">docs/sample/docker/data</a></p>
 <h3 id="run-with-multiple-data-sources-postgres-and-csv-file">Run with multiple data sources (Postgres and CSV File)</h3>
@@ -645,10 +649,14 @@ account_id, name combination in the CSV file.</p>
 <h3 id="run-with-custom-data-sources">Run with custom data sources</h3>
 <ol>
 <li>Create/alter plan under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/plan"><code>data/custom/plan</code></a></li>
-<li>Create/alter tasks under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/task"><code>data/custom/task</code></a></li>
+<li>Create/alter tasks under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/task"><code>data/custom/task</code></a><ol>
 <li>Define your schemas and generator configurations such as record count</li>
-<li>Create/alter application configuration <a href="https://github.com/pflooky/data-caterer-docs/blob/main/docs/sample/docker/data/custom/application.conf"><code>data/custom/application.conf</code></a></li>
+</ol>
+</li>
+<li>Create/alter application configuration <a href="https://github.com/pflooky/data-caterer-docs/blob/main/docs/sample/docker/data/custom/application.conf"><code>data/custom/application.conf</code></a><ol>
 <li>This is where you define your connection properties and other flags/configurations</li>
+</ol>
+</li>
 </ol>
 <pre><code class="language-shell">DATA_SOURCE=&lt;data source name&gt; docker-compose up -d datacaterer
 </code></pre>
@@ -660,7 +668,7 @@ cat data/custom/generated/plan/plan_*
 <pre><code class="language-shell">APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=true ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_RECORD_TRACKING=true DATA_SOURCE=postgresdvd PLAN=generated/plan/$(ls data/custom/generated/plan/ | grep plan | head -1 | awk -F &quot; &quot; '{print $NF}' | sed 's/\.yaml//g') docker-compose up -d datacaterer
 </code></pre>
 <h4 id="delete-the-generated-data">Delete the generated data</h4>
-<pre><code class="language-shell">APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=false ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_DELETE_GENERATED_RECORDS=true DATA_SOURCE=postgresdvd docker-compose up -d datacaterer
+<pre><code class="language-shell">APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=false ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_DELETE_GENERATED_RECORDS=true DATA_SOURCE=postgresdvd PLAN=generated/plan/$(ls data/custom/generated/plan/ | grep plan | head -1 | awk -F &quot; &quot; '{print $NF}' | sed 's/\.yaml//g') docker-compose up -d datacaterer
 </code></pre>
 <h2 id="helm">Helm</h2>
 <p><a href="https://github.com/pflooky/data-caterer-docs/tree/main/helm/data-caterer">Link to sample helm on GitHub here</a></p>
