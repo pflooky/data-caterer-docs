@@ -6,7 +6,7 @@
 
 ```shell
 git clone git@github.com:pflooky/data-caterer-docs.git
-cd docs/sample/docker
+cd data-caterer-docs/docs/sample/docker
 docker-compose up -d datacaterer
 ```
 
