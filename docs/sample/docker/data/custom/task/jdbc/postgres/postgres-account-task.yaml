@@ -3,7 +3,7 @@ steps:
   - name: "accounts"
     type: "postgres"
     count:
-      total: 1000
+      total: "1000000"
     options:
       dbtable: "account.accounts"
     schema:

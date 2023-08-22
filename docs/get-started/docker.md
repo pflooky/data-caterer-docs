@@ -6,7 +6,7 @@
 
 ```shell
 git clone git@github.com:pflooky/data-caterer-docs.git
-cd docs/sample/docker
+cd data-caterer-docs/docs/sample/docker
 docker-compose up -d datacaterer
 ```
 
@@ -26,13 +26,25 @@ Can set it to one of the following:
 
 If you want to test it out with your own setup, you can alter the corresponding files under [docs/sample/docker/data](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data)
 
+#### Report
+
+Check the report generated under `docs/sample/docker/data/custom/report/index.html`
+
+### Run with multiple sub data sources
+
+In the context of Postgres data sources, tables are sub data sources that data can be generated for.
+  
+Try to run the following command:
+```shell
+PLAN=plan/postgres-multiple-tables docker-compose up -d datacaterer
+```
 
 ### Run with multiple data sources
 
 #### Postgres and CSV File
 
 ```shell
-PLAN=plan/scenario-based DATA_SOURCE=postgres docker-compose up -d datacaterer
+PLAN=plan/scenario-based docker-compose up -d datacaterer
 head data/custom/csv/transactions/part-00000*
 sample_account=$(head -1 data/custom/csv/transactions/part-00000* | awk -F "," '{print $1}')
 docker exec docker-postgres-1 psql -Upostgres -d customer -c "SELECT * FROM account.accounts WHERE account_number='$sample_account'"
@@ -40,8 +52,6 @@ docker exec docker-postgres-1 psql -Upostgres -d customer -c "SELECT * FROM acco
 
 You should be able to see the linked data between Postgres and the CSV file created along with 1 to 10 records per
 account_id, name combination in the CSV file.
-
-#### Postgres and JMS
 
 
 

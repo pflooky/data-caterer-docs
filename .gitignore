@@ -4,3 +4,4 @@ docs/sample/docker/data/custom/json
 docs/sample/docker/data/custom/parquet
 docs/sample/docker/data/custom/generated
 docs/sample/docker/data/custom/recordTracking
+docs/sample/docker/data/custom/report
