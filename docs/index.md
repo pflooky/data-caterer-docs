@@ -13,6 +13,7 @@ Main features of the data generator include:
 - Maintain referential integrity across any dataset
 - Create custom data generation scenarios
 - Clean up generated data
+- Validate data
 
 <video src="https://github.com/pflooky/data-caterer-docs/assets/26299147/d853241b-7c7e-4943-aefe-4002b848edf5" controls="controls" style="max-width: 730px;">
 </video>
