@@ -8,12 +8,12 @@ It can also be manually altered to produce data or scenarios the way you want.
   
 Main features of the data generator include:
   
-- Metadata discovery
-- Batch or event data generation
-- Maintain referential integrity across any dataset
-- Create custom data generation scenarios
-- Clean up generated data
-- Validate data
+- :material-card-search: Metadata discovery
+- :material-file: Batch or :material-circle-multiple: event data generation
+- :material-vector-difference-ba: Maintain referential integrity across any dataset
+- :material-projector-screen-variant-outline: Create custom data generation scenarios
+- :material-delete-sweep: Clean up generated data
+- :material-check: Validate data
 
 <video src="https://github.com/pflooky/data-caterer-docs/assets/26299147/d853241b-7c7e-4943-aefe-4002b848edf5" controls="controls" style="max-width: 730px;">
 </video>
