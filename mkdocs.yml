@@ -10,19 +10,34 @@ theme:
     - content.code.copy
   palette:
     scheme: slate
+
 nav:
   - Home: 'index.md'
-  - 'Get Started': 'get-started/docker.md'
-  - Generators:
-    - Data Generators: 'generators/generators.md'
-    - Record Count: 'generators/count.md'
-  - Connections: 'connections/connections.md'
+  - Get Started: 'get-started/docker.md'
+  - Setup:
+    - 'setup/index.md'
+    - Configuration: 'setup/configuration.md'
+    - Connection: 'setup/connection/connection.md'
+    - Generator:
+      - Data Generator: 'setup/generator/generator.md'
+      - Record Count: 'setup/generator/count.md'
+    - Validation: 'setup/validation/validation.md'
   - Samples: 'sample/index.md'
+  - Use Case:
+    - 'use-case/use-case.md'
+    - Business Value: 'use-case/business-value.md'
+  - Roadmap: 'roadmap/roadmap.md'
   - Advanced: 'advanced/advanced.md'
+
 markdown_extensions:
+  - attr_list
   - def_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.tasklist:
       custom_checkbox: true
+
 plugins:
   - search
   - open-in-new-tab

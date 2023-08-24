@@ -3,18 +3,21 @@ steps:
   - name: "balances"
     type: "postgres"
     count:
-      total: 50
+      total: 1000000
     options:
       dbtable: "account.balances"
     schema:
       fields:
         - name: "account_number"
-          type: "string"
           generator:
             type: "regex"
             options:
               regex: "ACC1[0-9]{5,10}"
               isUnique: true
+        - name: "create_time"
+          type: "timestamp"
+          generator:
+            options:
         - name: "account_status"
           type: "string"
           generator:
@@ -23,18 +26,12 @@ steps:
               oneOf:
                 - "open"
                 - "closed"
-        - name: "create_time"
-          type: "timestamp"
-          generator:
-            type: "random"
         - name: "balance"
           type: "double"
-          generator:
-            type: "random"
   - name: "transactions"
     type: "postgres"
     count:
-      total: 50
+      total: 400000
       perColumn:
         columnNames:
           - "account_number"
@@ -44,7 +41,6 @@ steps:
     schema:
       fields:
         - name: "account_number"
-          type: "string"
           generator:
             type: "regex"
             options:
@@ -52,14 +48,11 @@ steps:
         - name: "create_time"
           type: "timestamp"
           generator:
-            type: "random"
+            options:
         - name: "transaction_id"
-          type: "string"
           generator:
             type: "regex"
             options:
               regex: "txn-[0-9]{10}"
         - name: "amount"
           type: "double"
-          generator:
-            type: "random"

@@ -15,3 +15,4 @@ SELECT (SELECT COUNT(1) FROM payment)       AS payment,
        (SELECT COUNT(1) FROM country)       AS country;
 
 
+select (select count(1) from account.balances) AS balances, (select count(1) from account.transactions) AS transactions;

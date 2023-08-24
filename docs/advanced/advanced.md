@@ -46,7 +46,7 @@ fields:
 ```
 
 If you want to know all the possible edge cases for each data
-type, [can check the documentation here](../generators/generators.md).
+type, [can check the documentation here](../setup/generator/generator.md).
 
 ## Scenario testing
 
