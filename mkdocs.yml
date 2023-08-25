@@ -1,4 +1,7 @@
 site_name: Data Caterer Documentation
+repo_url: https://github.com/pflooky/data-caterer-docs
+repo_name: data-caterer-docs
+
 theme:
   name: material
   features:
@@ -8,8 +11,12 @@ theme:
     - navigation.tracking
     - navigation.top
     - content.code.copy
+    - toc.integrate
+    - toc.follow
   palette:
     scheme: slate
+  icon:
+    repo: fontawesome/brands/git-alt
 
 nav:
   - Home: 'index.md'
