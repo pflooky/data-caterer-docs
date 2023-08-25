@@ -2,6 +2,12 @@
 
 Validations can be used to run data checks after you have run the data generator or even as a standalone task. A report 
 summarising the success or failure of the validations, is produced and can be examined for further investigation.
+  
+Currently, SQL expression validations are supported (can see [here](https://spark.apache.org/docs/latest/api/sql/) 
+for reference what other expressions are valid), but will later be extended out to supported other validations such as 
+aggregates (group by account_number, sum of amounts should be greater than 100), ordering (transaction dates should be 
+in descending order), relationships (at least one transaction per account_number) or data profiling (how close produced 
+data profile is to expected data profile).
 
 ## Sample
 
@@ -20,3 +26,7 @@ dataSources:
       - expr: "regexp_like(name, 'Peter .*')"
         errorThreshold: 200
 ```
+
+Once run, it will produce a report like the below:
+
+<iframe src="https://pflooky.github.io/data-caterer-docs/site/sample/docker/data/report/html/validations.html"></iframe>

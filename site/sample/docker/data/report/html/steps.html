@@ -1,0 +1,472 @@
+<html>
+      <head>
+        <title>
+          Step Details - Data Caterer
+        </title><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script><style>
+        table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } td { white-space:pre-line } .table thead th { position: sticky; top: 0; z-index: 1; } 
+      </style>
+      </head>
+      <body>
+        <h1>Steps</h1>
+        <table class="tablesorter table table-striped" style="font-size: 13px">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Num Records</th>
+              <th>Success</th>
+              <th>Type</th>
+              <th>Enabled</th>
+              <th>Options</th>
+              <th>Count</th>
+              <th>Fields</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="file_account">
+              <td>
+                file_account
+              </td>
+              <td>
+                1000
+              </td>
+              <td>
+                &#9989;
+              </td>
+              <td>
+                json
+              </td>
+              <td>
+                &#9989;
+              </td>
+              <td>
+                path -&gt; app/src/test/resources/sample/json/account-gen
+              </td>
+              <td>
+                basic-count: num-records=1000
+              </td>
+              <td>
+                <html>
+      <body>
+        <details>
+          <table class="tablesorter table table-striped" style="font-size: 13px">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Nullable</th>
+                <th>Generator Type</th>
+                <th>Metadata</th>
+                <th>Compare Generated Metadata</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  account_id
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  count:  -&gt; 500
+distinctCount:  -&gt; 500
+maxLen:  -&gt; 10
+avgLen:  -&gt; 10
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  year
+                </td>
+                <td>
+                  int
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  min -&gt; 2021
+max -&gt; 2022
+                </td>
+                <td>
+                  count:  -&gt; 500
+distinctCount:  -&gt; 2
+min: 2021 -&gt; 2021
+max: 2022 -&gt; 2022
+maxLen:  -&gt; 4
+avgLen:  -&gt; 4
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  is_early_customer
+                </td>
+                <td>
+                  boolean
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  sql
+                </td>
+                <td>
+                  sql -&gt; CASE WHEN year == 2021 THEN true ELSE false END
+                </td>
+                <td>
+                  sql: CASE WHEN year == 2021 THEN true ELSE false END -&gt; 
+count:  -&gt; 500
+distinctCount:  -&gt; 2
+min:  -&gt; false
+max:  -&gt; true
+maxLen:  -&gt; 1
+avgLen:  -&gt; 1
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  amount
+                </td>
+                <td>
+                  double
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  min -&gt; 10.0
+max -&gt; 100.0
+                </td>
+                <td>
+                  count:  -&gt; 500
+distinctCount:  -&gt; 500
+min: 10.0 -&gt; 10.037503028630631
+max: 100.0 -&gt; 99.66500393766194
+maxLen:  -&gt; 8
+avgLen:  -&gt; 8
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  is_large_amount
+                </td>
+                <td>
+                  boolean
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  sql
+                </td>
+                <td>
+                  sql -&gt; CASE WHEN amount &gt; 50 THEN
+  true
+ELSE
+  false
+END
+                </td>
+                <td>
+                  sql: CASE WHEN amount &gt; 50 THEN
+  true
+ELSE
+  false
+END -&gt; 
+count:  -&gt; 500
+distinctCount:  -&gt; 2
+min:  -&gt; false
+max:  -&gt; true
+maxLen:  -&gt; 1
+avgLen:  -&gt; 1
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  updated_time
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  sql
+                </td>
+                <td>
+                  sql -&gt; details.updated_by.time
+                </td>
+                <td>
+                  sql: details.updated_by.time -&gt; 
+count:  -&gt; 500
+distinctCount:  -&gt; 500
+min:  -&gt; 2022-08-24 11:12:51.555000
+max:  -&gt; 2023-08-23 16:51:21.240000
+maxLen:  -&gt; 8
+avgLen:  -&gt; 8
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  first_txn_date
+                </td>
+                <td>
+                  date
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  sql
+                </td>
+                <td>
+                  sql -&gt; element_at(sort_array(transactions.txn_date), 1)
+                </td>
+                <td>
+                  sql: element_at(sort_array(transactions.txn_date), 1) -&gt; 
+count:  -&gt; 500
+distinctCount:  -&gt; 198
+min:  -&gt; 2022-08-24
+max:  -&gt; 2023-08-17
+maxLen:  -&gt; 4
+avgLen:  -&gt; 4
+nullCount:  -&gt; 98
+                </td>
+              </tr><tr>
+                <td>
+                  details
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  
+                </td>
+              </tr><tr>
+                <td>
+                  transactions
+                </td>
+                <td>
+                  array
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </details>
+      </body>
+    </html>
+              </td>
+            </tr><tr id="transactions">
+              <td>
+                transactions
+              </td>
+              <td>
+                565
+              </td>
+              <td>
+                &#9989;
+              </td>
+              <td>
+                json
+              </td>
+              <td>
+                &#9989;
+              </td>
+              <td>
+                path -&gt; app/src/test/resources/sample/json/txn-gen
+              </td>
+              <td>
+                per-column-count: columns=account_id,name, num-records-via-generator=(type=random, options=Map(max -&gt; 10, min -&gt; 1))
+              </td>
+              <td>
+                <html>
+      <body>
+        <details>
+          <table class="tablesorter table table-striped" style="font-size: 13px">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Nullable</th>
+                <th>Generator Type</th>
+                <th>Metadata</th>
+                <th>Compare Generated Metadata</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  account_id
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  regex
+                </td>
+                <td>
+                  regex -&gt; ACC1[0-9]{9}
+                </td>
+                <td>
+                  regex: ACC1[0-9]{9} -&gt; 
+count:  -&gt; 277
+distinctCount:  -&gt; 52
+maxLen:  -&gt; 13
+avgLen:  -&gt; 13
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  name
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  expression -&gt; #{Name.name}
+                </td>
+                <td>
+                  count:  -&gt; 277
+distinctCount:  -&gt; 52
+expression: #{Name.name} -&gt; #{Name.name}
+maxLen:  -&gt; 10
+avgLen:  -&gt; 10
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  year
+                </td>
+                <td>
+                  int
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  min -&gt; 2021
+max -&gt; 2022
+                </td>
+                <td>
+                  count:  -&gt; 277
+distinctCount:  -&gt; 2
+min: 2021 -&gt; 2021
+max: 2022 -&gt; 2022
+maxLen:  -&gt; 4
+avgLen:  -&gt; 4
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  amount
+                </td>
+                <td>
+                  double
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  min -&gt; 10.0
+max -&gt; 100.0
+                </td>
+                <td>
+                  count:  -&gt; 277
+distinctCount:  -&gt; 277
+min: 10.0 -&gt; 10.116954781896736
+max: 100.0 -&gt; 99.91639275812383
+maxLen:  -&gt; 8
+avgLen:  -&gt; 8
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  txn_date
+                </td>
+                <td>
+                  date
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  min -&gt; 2021-01-01
+max -&gt; 2021-12-31
+                </td>
+                <td>
+                  count:  -&gt; 277
+distinctCount:  -&gt; 186
+min: 2021-01-01 -&gt; 2021-01-01
+max: 2021-12-31 -&gt; 2021-12-29
+maxLen:  -&gt; 4
+avgLen:  -&gt; 4
+nullCount:  -&gt; 0
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </details>
+      </body>
+    </html>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </body>
+    </html>

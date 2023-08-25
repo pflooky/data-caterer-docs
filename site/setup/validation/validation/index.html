@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../../generator/count/">
+        <link rel="prev" href="../../generator/report/">
       
       
         <link rel="next" href="../../../sample/">
@@ -471,6 +471,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../generator/report/" class="md-nav__link">
+        Report
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -668,6 +682,11 @@
 <h1 id="validations">Validations</h1>
 <p>Validations can be used to run data checks after you have run the data generator or even as a standalone task. A report 
 summarising the success or failure of the validations, is produced and can be examined for further investigation.</p>
+<p>Currently, SQL expression validations are supported (can see <a href="https://spark.apache.org/docs/latest/api/sql/">here</a> 
+for reference what other expressions are valid), but will later be extended out to supported other validations such as 
+aggregates (group by account_number, sum of amounts should be greater than 100), ordering (transaction dates should be 
+in descending order), relationships (at least one transaction per account_number) or data profiling (how close produced 
+data profile is to expected data profile).</p>
 <h2 id="sample">Sample</h2>
 <div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;account_checks&quot;</span>
@@ -683,6 +702,8 @@ summarising the success or failure of the validations, is produced and can be ex
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;regexp_like(name,</span><span class="nv"> </span><span class="s">&#39;Peter</span><span class="nv"> </span><span class="s">.*&#39;)&quot;</span>
 <span class="w">        </span><span class="nt">errorThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
 </code></pre></div>
+<p>Once run, it will produce a report like the below:</p>
+<iframe src="https://pflooky.github.io/data-caterer-docs/site/sample/docker/data/report/html/validations.html"></iframe>
 
 
 

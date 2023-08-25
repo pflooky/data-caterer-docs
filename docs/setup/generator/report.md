@@ -1,0 +1,10 @@
+# Report
+
+Data Caterer can be configured to produce a report of the data generated to help users understand what was run, how much 
+data was generated, where it was generated, validation results and any associated metadata. 
+
+## Sample
+
+Once run, it will produce a report like the below:
+
+<iframe src="https://pflooky.github.io/data-caterer-docs/site/sample/docker/data/report/html/index.html"></iframe>
