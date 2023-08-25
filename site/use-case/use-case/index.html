@@ -750,24 +750,23 @@ referenced data. This becomes key to resolving the issue as you can directly cod
 have confidence that your code changes will fix the problem. Data Caterer can be used to generate the appropriate data
 in whichever environment you want to test your changes against.</p>
 <h2 id="data-profiling">Data profiling</h2>
-<p>When using Data Caterer with the feature flag <code>enableGeneratePlanAndTasks</code> enabled 
-(see <a href="../../setup/configuration/">here</a>), metadata relating all the fields defined in the data sources you have configured 
-will be generated via data profiling. You can run this as a standalone job (can disable <code>enableGenerateData</code>) so that 
-you can focus on the profile of the data you are utilising. This can be run against your production data sources so that 
-the metadata can be used to accurately generate data in other environments. This is a key feature of Data Caterer as no 
-direct production connections need to be maintained to generate data in other environments (which can lead to serious 
-concerns about data security as seen <a href="../business-value/">here</a>).</p>
+<p>When using Data Caterer with the feature flag <code>enableGeneratePlanAndTasks</code> enabled
+(see <a href="../../setup/configuration/">here</a>), metadata relating all the fields defined in the data sources you have
+configured will be generated via data profiling. You can run this as a standalone job (can disable <code>enableGenerateData</code>) 
+so that you can focus on the profile of the data you are utilising. This can be run against your production data sources 
+to ensure the metadata can be used to accurately generate data in other environments. This is a key feature of Data 
+Caterer as no direct production connections need to be maintained to generate data in other environments (which can 
+lead to serious concerns about data security as seen <a href="../business-value/">here</a>).</p>
 <h2 id="schema-gathering">Schema gathering</h2>
 <p>When using Data Caterer with the feature flag <code>enableGeneratePlanAndTasks</code> enabled
-(see <a href="../../setup/configuration/">here</a>), all schemas of the data sources defined will be tracked in a common format (as 
-tasks). This data, along with the data profiling metadata, could then feed back into your schema registries to help keep 
+(see <a href="../../setup/configuration/">here</a>), all schemas of the data sources defined will be tracked in a common format (as
+tasks). This data, along with the data profiling metadata, could then feed back into your schema registries to help keep
 them up to date with your system.</p>
 <h1 id="comparison-to-similar-tools">Comparison to similar tools</h1>
 <table>
 <thead>
 <tr>
 <th>Tool</th>
-<th>Link</th>
 <th>Description</th>
 <th>Features</th>
 <th>Pros</th>
@@ -776,56 +775,49 @@ them up to date with your system.</p>
 </thead>
 <tbody>
 <tr>
-<td>DBLDatagen</td>
-<td><a href="https://github.com/databrickslabs/dbldatagen">Link</a></td>
+<td><a href="https://github.com/databrickslabs/dbldatagen">DBLDatagen</a></td>
 <td>Python based data generation tool</td>
 <td>- Scalable and predictable data generation across data scenarios<br>- Plugin third-party libraries<br>- Generate from existing data<br>- Generate based on combination of other fields</td>
-<td>- Open source<br>- Spark based</td>
-<td></td>
+<td>- Open source<br>- Good documentation<br>- Customisable and scalable<br>- Generate from existing data/schemas</td>
+<td>- Limited support if issues<br>- Code required<br>- No clean up<br>- No validation</td>
 </tr>
 <tr>
-<td>DataCebo Synthetic Data Vault</td>
-<td><a href="https://docs.sdv.dev/sdv/">Link</a></td>
+<td><a href="https://docs.sdv.dev/sdv/">DataCebo Synthetic Data Vault</a></td>
 <td>Python based data generation tool with focus on ML generation, evaluating generated data</td>
 <td>- Create synthetic data using machine learning<br>- Evaluate and visualize synthetic data<br>- Preprocess, anonymize and define constraints</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Tonic</td>
-<td><a href="https://www.tonic.ai/">Link</a></td>
+<td><a href="https://www.tonic.ai/">Tonic</a></td>
 <td>Platform solution for generating data</td>
 <td>- Integration with many data sources<br>- UI with RBAC<br>- Quality and security checks<br>- Auditing and alerting<br>- Dashboards and reporting</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Datafaker</td>
-<td><a href="https://www.datafaker.net/documentation/getting-started/">Link</a></td>
+<td><a href="https://www.datafaker.net/documentation/getting-started/">Datafaker</a></td>
 <td>Realistic data generation library</td>
 <td>- Generate realistic data<br>- Push to CSV/JSON format<br>- Create your own data providers<br>- Performant</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Gatling</td>
-<td><a href="https://gatling.io/">Link</a></td>
+<td><a href="https://gatling.io/">Gatling</a></td>
 <td>HTTP API load testing tool</td>
 <td>- Load testing<br>- Validating data and responses<br>- Scenario testing<br>- Reporting<br>- Extensive API support<br>- Integration with CI/CD tools</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Tricentis - Data integrity</td>
-<td><a href="https://www.tricentis.com/products/data-integrity">Link</a></td>
+<td><a href="https://www.tricentis.com/products/data-integrity">Tricentis - Data integrity</a></td>
 <td>Testing tool that focuses on data integrity</td>
 <td>- Data testing<br>- Pre-screening data<br>- Reconciliation, profiling and report testing<br>- Support SQL DB, noSQL DB, files, API</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>Broadcom - Test data manager</td>
-<td><a href="https://www.broadcom.com/products/software/continuous-testing/test-data-manager">Link</a></td>
+<td><a href="https://www.broadcom.com/products/software/continuous-testing/test-data-manager">Broadcom - Test data manager</a></td>
 <td>Test data provisioning tool with PII detection and reusable datasets</td>
 <td>- Identify sensitive data<br>- Generate synthetic data<br>- Store and reuse existing data<br>- Create virtual copies of data</td>
 <td></td>
