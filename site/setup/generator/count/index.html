@@ -706,31 +706,31 @@
 <h2 id="total-count">Total Count</h2>
 <p>Total count is the simplest as you define the total number of records you require for that particular step.
 For example, in the below step, it will generate 1000 records for the CSV file  </p>
-<pre><code class="language-yaml">name: &quot;csv_file&quot;
-steps:
-  - name: &quot;transactions&quot;
-    type: &quot;csv&quot;
-    options:
-      path: &quot;app/src/test/resources/sample/csv/transactions&quot;
-    count:
-      total: 1000
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv&quot;</span>
+<span class="w">    </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span>
+<span class="w">    </span><span class="nt">count</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">total</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+</code></pre></div>
 <h2 id="generated-count">Generated Count</h2>
 <p>As like most things in data-caterer, the count can be generated based on some metadata.
 For example, if I wanted to generate between 1000 and 2000 records, I could define that by the below configuration:</p>
-<pre><code class="language-yaml">name: &quot;csv_file&quot;
-steps:
-  - name: &quot;transactions&quot;
-    type: &quot;csv&quot;
-    options:
-      path: &quot;app/src/test/resources/sample/csv/transactions&quot;
-    count:
-      generator:
-        type: &quot;random&quot;
-        options:
-          min: 1000
-          max: 2000
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv&quot;</span>
+<span class="w">    </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span>
+<span class="w">    </span><span class="nt">count</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">generator</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;random&quot;</span>
+<span class="w">        </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">          </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2000</span>
+</code></pre></div>
 <h2 id="per-column-count">Per Column Count</h2>
 <p>When defining a per column count, this allows you to generate records "per set of columns".
 This means that for a given set of columns, it will generate a particular amount of records per combination of values for those columns.  </p>
@@ -742,43 +742,43 @@ A number of transactions would be generated per <code>account_id,name</code>.  <
 This is a fixed number of records that will be generated each time, with no variation between runs.</p>
 <p>In the example below, we have <code>count.total = 1000</code> and <code>count.perColumn.total = 2</code>. Which means that <code>1000 * 2 = 2000</code> records will be generated
 for this CSV file every time data gets generated.</p>
-<pre><code class="language-yaml">name: &quot;csv_file&quot;
-steps:
-  - name: &quot;transactions&quot;
-    type: &quot;csv&quot;
-    options:
-      path: &quot;app/src/test/resources/sample/csv/transactions&quot;
-    count:
-      total: 1000
-      perColumn:
-        total: 2
-        columnNames:
-          - &quot;account_id&quot;
-          - &quot;name&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv&quot;</span>
+<span class="w">    </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span>
+<span class="w">    </span><span class="nt">count</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">total</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">      </span><span class="nt">perColumn</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">total</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">        </span><span class="nt">columnNames</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;name&quot;</span>
+</code></pre></div>
 <h3 id="generated">Generated</h3>
 <p>You can also define a generator for the count per column. This can be used in scenarios where you want a variable number of records
 per set of columns.</p>
 <p>In the example below, it will generate between <code>(count.total * count.perColumn.generator.options.minValue) = (1000 * 1) = 1000</code> and
 <code>(count.total * count.perColumn.generator.options.maxValue) = (1000 * 2) = 2000</code> records.</p>
-<pre><code class="language-yaml">name: &quot;csv_file&quot;
-steps:
-  - name: &quot;transactions&quot;
-    type: &quot;csv&quot;
-    options:
-      path: &quot;app/src/test/resources/sample/csv/transactions&quot;
-    count:
-      total: 1000
-      perColumn:
-        columnNames:
-          - &quot;account_id&quot;
-          - &quot;name&quot;
-        generator:
-          type: &quot;random&quot;
-          options:
-            maxValue: 2
-            minValue: 1
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv&quot;</span>
+<span class="w">    </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span>
+<span class="w">    </span><span class="nt">count</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">total</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000</span>
+<span class="w">      </span><span class="nt">perColumn</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">columnNames</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;name&quot;</span>
+<span class="w">        </span><span class="nt">generator</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;random&quot;</span>
+<span class="w">          </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">maxValue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">            </span><span class="nt">minValue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</code></pre></div>
 
 
 

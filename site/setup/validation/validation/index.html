@@ -669,20 +669,20 @@
 <p>Validations can be used to run data checks after you have run the data generator or even as a standalone task. A report 
 summarising the success or failure of the validations, is produced and can be examined for further investigation.</p>
 <h2 id="sample">Sample</h2>
-<pre><code class="language-yaml">---
-name: &quot;account_checks&quot;
-description: &quot;Check account related fields have gone through system correctly&quot;
-dataSources:
-  accountJson:
-    options:
-      path: &quot;sample/json/txn-gen&quot;
-    validations:
-      - expr: &quot;amount &lt; 100&quot;
-      - expr: &quot;year == 2021&quot;
-        errorThreshold: 0.1
-      - expr: &quot;regexp_like(name, 'Peter .*')&quot;
-        errorThreshold: 200
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;account_checks&quot;</span>
+<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Check</span><span class="nv"> </span><span class="s">account</span><span class="nv"> </span><span class="s">related</span><span class="nv"> </span><span class="s">fields</span><span class="nv"> </span><span class="s">have</span><span class="nv"> </span><span class="s">gone</span><span class="nv"> </span><span class="s">through</span><span class="nv"> </span><span class="s">system</span><span class="nv"> </span><span class="s">correctly&quot;</span>
+<span class="nt">dataSources</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">accountJson</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sample/json/txn-gen&quot;</span>
+<span class="w">    </span><span class="nt">validations</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">100&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;year</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">2021&quot;</span>
+<span class="w">        </span><span class="nt">errorThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;regexp_like(name,</span><span class="nv"> </span><span class="s">&#39;Peter</span><span class="nv"> </span><span class="s">.*&#39;)&quot;</span>
+<span class="w">        </span><span class="nt">errorThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
+</code></pre></div>
 
 
 

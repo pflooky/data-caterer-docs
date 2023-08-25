@@ -22,16 +22,17 @@ All connection details follow the same pattern.
 }
 ```
 
-When defining a configuration value that can be defined by a system property or environment variable at runtime, you can
-define that via the following:
-
-```
-url = "localhost"
-url = ${?POSTGRES_URL}
-```
-
-The above defines that if there is a system property or environment variable named `POSTGRES_URL`, then that value will
-be used for the `url`, otherwise, it will default to `localhost`.
+!!! info "Overriding configuration"
+    When defining a configuration value that can be defined by a system property or environment variable at runtime, you can
+    define that via the following:
+    
+    ```
+    url = "localhost"
+    url = ${?POSTGRES_URL}
+    ```
+    
+    The above defines that if there is a system property or environment variable named `POSTGRES_URL`, then that value will
+    be used for the `url`, otherwise, it will default to `localhost`.
 
 ### Example task per data source
 
@@ -126,46 +127,43 @@ jdbc {
 }
 ```
 
-Ensure that the user has write permission so it is able to save the table to the target tables.
-<details>
+Ensure that the user has write permission, so it is able to save the table to the target tables.
 
-```sql
-GRANT INSERT ON <schema>.<table> TO <user>;
-```
+??? tip "SQL Permission Statements"
 
-</details>
+    ```sql
+    GRANT INSERT ON <schema>.<table> TO <user>;
+    ```
 
 #### Postgres
 
 ##### Permissions
 
 Following permissions are required when generating plan and tasks:
-<details>
 
-```sql
-GRANT SELECT ON information_schema.tables TO < user >;
-GRANT SELECT ON information_schema.columns TO < user >;
-GRANT SELECT ON information_schema.key_column_usage TO < user >;
-GRANT SELECT ON information_schema.table_constraints TO < user >;
-GRANT SELECT ON information_schema.constraint_column_usage TO < user >;
-```
+??? tip "SQL Permission Statements"
 
-</details>
+    ```sql
+    GRANT SELECT ON information_schema.tables TO < user >;
+    GRANT SELECT ON information_schema.columns TO < user >;
+    GRANT SELECT ON information_schema.key_column_usage TO < user >;
+    GRANT SELECT ON information_schema.table_constraints TO < user >;
+    GRANT SELECT ON information_schema.constraint_column_usage TO < user >;
+    ```
 
 #### MySQL
 
 ##### Permissions
 
 Following permissions are required when generating plan and tasks:
-<details>
 
-```sql
-GRANT SELECT ON information_schema.columns TO < user >;
-GRANT SELECT ON information_schema.statistics TO < user >;
-GRANT SELECT ON information_schema.key_column_usage TO < user >;
-```
+??? tip "SQL Permission Statements"
 
-</details>
+    ```sql
+    GRANT SELECT ON information_schema.columns TO < user >;
+    GRANT SELECT ON information_schema.statistics TO < user >;
+    GRANT SELECT ON information_schema.key_column_usage TO < user >;
+    ```
 
 ### Cassandra
 
@@ -189,24 +187,22 @@ org.apache.spark.sql.cassandra {
 
 ##### Permissions
 
-Ensure that the user has write permission so it is able to save the table to the target tables.
-<details>
+Ensure that the user has write permission, so it is able to save the table to the target tables.
 
-```sql
-GRANT INSERT ON <schema>.<table> TO <user>;
-```
+??? tip "CQL Permission Statements"
 
-</details>
+    ```sql
+    GRANT INSERT ON <schema>.<table> TO <user>;
+    ```
 
 Following permissions are required when generating plan and tasks:
-<details>
 
-```sql
-GRANT SELECT ON system_schema.tables TO <user>;
-GRANT SELECT ON system_schema.columns TO <user>;
-```
+??? tip "CQL Permission Statements"
 
-</details>
+    ```sql
+    GRANT SELECT ON system_schema.tables TO <user>;
+    GRANT SELECT ON system_schema.columns TO <user>;
+    ```
 
 ### Kafka
 

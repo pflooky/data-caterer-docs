@@ -854,19 +854,22 @@
 </tbody>
 </table>
 <p>All connection details follow the same pattern.</p>
-<pre><code>&lt;connection format&gt; {
+<div class="highlight"><pre><span></span><code>&lt;connection format&gt; {
     &lt;connection name&gt; {
         &lt;key&gt; = &lt;value&gt;
     }
 }
-</code></pre>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Overriding configuration</p>
 <p>When defining a configuration value that can be defined by a system property or environment variable at runtime, you can
 define that via the following:</p>
-<pre><code>url = &quot;localhost&quot;
+<div class="highlight"><pre><span></span><code>url = &quot;localhost&quot;
 url = ${?POSTGRES_URL}
-</code></pre>
+</code></pre></div>
 <p>The above defines that if there is a system property or environment variable named <code>POSTGRES_URL</code>, then that value will
 be used for the <code>url</code>, otherwise, it will default to <code>localhost</code>.</p>
+</div>
 <h3 id="example-task-per-data-source">Example task per data source</h3>
 <p>To find examples of a task for each type of data source, please check out <a href="../../../sample/">this page</a>.</p>
 <h3 id="file">File</h3>
@@ -874,54 +877,54 @@ be used for the <code>url</code>, otherwise, it will default to <code>localhost<
 that can be included as part of your file data source configuration if required. Links to specific file type
 configurations can be found below.</p>
 <h4 id="csv">CSV</h4>
-<pre><code>csv {
+<div class="highlight"><pre><span></span><code>csv {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
     path = ${?CSV_PATH}
   }
 }
-</code></pre>
+</code></pre></div>
 <p><a href="https://spark.apache.org/docs/latest/sql-data-sources-csv.html#data-source-option">Other available configuration for CSV can be found here</a></p>
 <h4 id="json">JSON</h4>
-<pre><code>json {
+<div class="highlight"><pre><span></span><code>json {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
     path = ${?JSON_PATH}
   }
 }
-</code></pre>
+</code></pre></div>
 <p><a href="https://spark.apache.org/docs/latest/sql-data-sources-json.html#data-source-option">Other available configuration for JSON can be found here</a></p>
 <h4 id="orc">ORC</h4>
-<pre><code>orc {
+<div class="highlight"><pre><span></span><code>orc {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
     path = ${?ORC_PATH}
   }
 }
-</code></pre>
+</code></pre></div>
 <p><a href="https://spark.apache.org/docs/latest/sql-data-sources-orc.html#configuration">Other available configuration for ORC can be found here</a></p>
 <h4 id="parquet">Parquet</h4>
-<pre><code>parquet {
+<div class="highlight"><pre><span></span><code>parquet {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
     path = ${?PARQUET_PATH}
   }
 }
-</code></pre>
+</code></pre></div>
 <p><a href="https://spark.apache.org/docs/latest/sql-data-sources-parquet.html#data-source-option">Other available configuration for Parquet can be found here</a></p>
 <h4 id="delta-not-supported-yet">Delta (not supported yet)</h4>
-<pre><code>delta {
+<div class="highlight"><pre><span></span><code>delta {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
     path = ${?DELTA_PATH}
   }
 }
-</code></pre>
+</code></pre></div>
 <h3 id="jdbc">JDBC</h3>
 <p>Follows the same configuration used by Spark as
 found <a href="https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html#data-source-option">here</a>.<br />
 Sample can be found below</p>
-<pre><code>jdbc {
+<div class="highlight"><pre><span></span><code>jdbc {
     postgres {
         url = &quot;jdbc:postgresql://localhost:5432/customer&quot;
         url = ${?POSTGRES_URL}
@@ -932,51 +935,39 @@ Sample can be found below</p>
         driver = &quot;org.postgresql.Driver&quot;
     }
 }
-</code></pre>
-<p>Ensure that the user has write permission so it is able to save the table to the target tables.</p>
-<details>
-
-
-<pre><code class="language-sql">GRANT INSERT ON &lt;schema&gt;.&lt;table&gt; TO &lt;user&gt;;
-</code></pre>
-
-
+</code></pre></div>
+<p>Ensure that the user has write permission, so it is able to save the table to the target tables.</p>
+<details class="tip">
+<summary>SQL Permission Statements</summary>
+<div class="highlight"><pre><span></span><code><span class="k">GRANT</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="k">schema</span><span class="o">&gt;</span><span class="p">.</span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="k">user</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
 </details>
-
 <h4 id="postgres">Postgres</h4>
 <h5 id="permissions">Permissions</h5>
 <p>Following permissions are required when generating plan and tasks:</p>
-<details>
-
-
-<pre><code class="language-sql">GRANT SELECT ON information_schema.tables TO &lt; user &gt;;
-GRANT SELECT ON information_schema.columns TO &lt; user &gt;;
-GRANT SELECT ON information_schema.key_column_usage TO &lt; user &gt;;
-GRANT SELECT ON information_schema.table_constraints TO &lt; user &gt;;
-GRANT SELECT ON information_schema.constraint_column_usage TO &lt; user &gt;;
-</code></pre>
-
-
+<details class="tip">
+<summary>SQL Permission Statements</summary>
+<div class="highlight"><pre><span></span><code><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">key_column_usage</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">table_constraints</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">constraint_column_usage</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
 </details>
-
 <h4 id="mysql">MySQL</h4>
 <h5 id="permissions_1">Permissions</h5>
 <p>Following permissions are required when generating plan and tasks:</p>
-<details>
-
-
-<pre><code class="language-sql">GRANT SELECT ON information_schema.columns TO &lt; user &gt;;
-GRANT SELECT ON information_schema.statistics TO &lt; user &gt;;
-GRANT SELECT ON information_schema.key_column_usage TO &lt; user &gt;;
-</code></pre>
-
-
+<details class="tip">
+<summary>SQL Permission Statements</summary>
+<div class="highlight"><pre><span></span><code><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="k">statistics</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">information_schema</span><span class="p">.</span><span class="n">key_column_usage</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
 </details>
-
 <h3 id="cassandra">Cassandra</h3>
 <p>Follows same configuration as defined by the Spark Cassandra Connector as
 found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md">here</a></p>
-<pre><code>org.apache.spark.sql.cassandra {
+<div class="highlight"><pre><span></span><code>org.apache.spark.sql.cassandra {
     cassandra {
         spark.cassandra.connection.host = &quot;localhost&quot;
         spark.cassandra.connection.host = ${?CASSANDRA_HOST}
@@ -988,41 +979,33 @@ found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master
         spark.cassandra.auth.password = ${?CASSANDRA_PASSWORD}
     }
 }
-</code></pre>
+</code></pre></div>
 <h5 id="permissions_2">Permissions</h5>
-<p>Ensure that the user has write permission so it is able to save the table to the target tables.</p>
-<details>
-
-
-<pre><code class="language-sql">GRANT INSERT ON &lt;schema&gt;.&lt;table&gt; TO &lt;user&gt;;
-</code></pre>
-
-
+<p>Ensure that the user has write permission, so it is able to save the table to the target tables.</p>
+<details class="tip">
+<summary>CQL Permission Statements</summary>
+<div class="highlight"><pre><span></span><code><span class="k">GRANT</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">&lt;</span><span class="k">schema</span><span class="o">&gt;</span><span class="p">.</span><span class="o">&lt;</span><span class="k">table</span><span class="o">&gt;</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="k">user</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
 </details>
-
 <p>Following permissions are required when generating plan and tasks:</p>
-<details>
-
-
-<pre><code class="language-sql">GRANT SELECT ON system_schema.tables TO &lt;user&gt;;
-GRANT SELECT ON system_schema.columns TO &lt;user&gt;;
-</code></pre>
-
-
+<details class="tip">
+<summary>CQL Permission Statements</summary>
+<div class="highlight"><pre><span></span><code><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">system_schema</span><span class="p">.</span><span class="n">tables</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="k">user</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">system_schema</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="o">&lt;</span><span class="k">user</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div>
 </details>
-
 <h3 id="kafka">Kafka</h3>
 <p>Define your Kafka bootstrap server to connect and send generated data to corresponding topics. Topic gets set at a step
 level.<br />
 Further details can be
 found <a href="https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka">here</a></p>
-<pre><code>kafka {
+<div class="highlight"><pre><span></span><code>kafka {
     kafka {
         kafka.bootstrap.servers = &quot;localhost:9092&quot;
         kafka.bootstrap.servers = ${?KAFKA_BOOTSTRAP_SERVERS}
     }
 }
-</code></pre>
+</code></pre></div>
 <p>When defining your schema for pushing data to Kafka, it follows a specific top level schema.<br />
 An example can be found <a href="../../../sample/docker/data/custom/task/kafka/kafka-account-task.yaml">here</a>.<br />
 You can define the key, value, headers, partition or topic by following the linked schema.</p>
@@ -1030,7 +1013,7 @@ You can define the key, value, headers, partition or topic by following the link
 <p>Uses JNDI lookup to send messages to JMS queue. Ensure that the messaging system you are using has your queue/topic
 registered
 via JNDI otherwise a connection cannot be created.</p>
-<pre><code>jms {
+<div class="highlight"><pre><span></span><code>jms {
     solace {
         initialContextFactory = &quot;com.solacesystems.jndi.SolJNDIInitialContextFactory&quot;
         connectionFactory = &quot;/jms/cf/default&quot;
@@ -1044,11 +1027,11 @@ via JNDI otherwise a connection cannot be created.</p>
         vpnName = ${?SOLACE_VPN}
     }
 }
-</code></pre>
+</code></pre></div>
 <h3 id="http">HTTP</h3>
 <p>Define any username and/or password needed for the HTTP requests.<br />
 The url is defined in the tasks to allow for generated data to be populated in the url.</p>
-<pre><code>http {
+<div class="highlight"><pre><span></span><code>http {
     customer_api {
         user = &quot;admin&quot;
         user = ${?HTTP_USER}
@@ -1056,7 +1039,7 @@ The url is defined in the tasks to allow for generated data to be populated in t
         password = ${?HTTP_PASSWORD}
     }
 }
-</code></pre>
+</code></pre></div>
 
 
 

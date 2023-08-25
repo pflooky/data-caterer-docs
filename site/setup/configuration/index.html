@@ -704,55 +704,55 @@ seen <a href="../../sample/docker/data/custom/application.conf">here</a>.</p>
 </thead>
 <tbody>
 <tr>
-<td>enableGenerateData</td>
+<td><code>enableGenerateData</code></td>
 <td>true</td>
 <td>N</td>
 <td>Enable/disable data generation</td>
 </tr>
 <tr>
-<td>enableCount</td>
+<td><code>enableCount</code></td>
 <td>true</td>
 <td>N</td>
 <td>Count the number of records generated. Can be disabled to improve performance</td>
 </tr>
 <tr>
-<td>enableFailOnError</td>
+<td><code>enableFailOnError</code></td>
 <td>true</td>
 <td>N</td>
 <td>Whilst saving generated data, if there is an error, it will stop any further data from being generated</td>
 </tr>
 <tr>
-<td>enableSaveSinkMetadata</td>
+<td><code>enableSaveSinkMetadata</code></td>
 <td>true</td>
 <td>N</td>
 <td>Enable/disable HTML reports summarising data generated, metadata of data generated (if <code>enableSinkMetadata</code> is enabled) and validation results (if <code>enableValidation</code> is enabled)</td>
 </tr>
 <tr>
-<td>enableSinkMetadata</td>
+<td><code>enableSinkMetadata</code></td>
 <td>true</td>
 <td>N</td>
 <td>Run data profiling for the generated data. Shown in HTML reports if <code>enableSaveSinkMetadata</code> is enabled</td>
 </tr>
 <tr>
-<td>enableValidation</td>
+<td><code>enableValidation</code></td>
 <td>false</td>
 <td>N</td>
 <td>Run validations as described in plan. Results can be viewed from logs or from HTML report if <code>enableSaveSinkMetadata</code> is enabled</td>
 </tr>
 <tr>
-<td>enableGeneratePlanAndTasks</td>
+<td><code>enableGeneratePlanAndTasks</code></td>
 <td>false</td>
 <td>Y</td>
 <td>Enable/disable plan and task auto generation based off data source connections</td>
 </tr>
 <tr>
-<td>enableRecordTracking</td>
+<td><code>enableRecordTracking</code></td>
 <td>false</td>
 <td>Y</td>
 <td>Enable/disable which data records have been generated for any data source</td>
 </tr>
 <tr>
-<td>enableDeleteGeneratedRecords</td>
+<td><code>enableDeleteGeneratedRecords</code></td>
 <td>false</td>
 <td>Y</td>
 <td>Delete all generated records based off record tracking (if <code>enableRecordTracking</code> has been set to true)</td>
@@ -774,37 +774,37 @@ records generated.</p>
 </thead>
 <tbody>
 <tr>
-<td>planFilePath</td>
+<td><code>planFilePath</code></td>
 <td>/opt/app/plan/customer-create-plan.yaml</td>
 <td>N</td>
 <td>Plan file path to use when generating and/or validating data</td>
 </tr>
 <tr>
-<td>taskFolderPath</td>
+<td><code>taskFolderPath</code></td>
 <td>/opt/app/task</td>
 <td>N</td>
 <td>Task folder path that contains all the task files (can have nested directories)</td>
 </tr>
 <tr>
-<td>validationFolderPath</td>
+<td><code>validationFolderPath</code></td>
 <td>/opt/app/validation</td>
 <td>N</td>
 <td>Validation folder path that contains all the validation files (can have nested directories)</td>
 </tr>
 <tr>
-<td>generatedDataResultsFolderPath</td>
+<td><code>generatedDataResultsFolderPath</code></td>
 <td>/opt/app/html</td>
 <td>N</td>
 <td>Where HTML reports get generated that contain information about data generated along with any validations performed</td>
 </tr>
 <tr>
-<td>generatedPlanAndTaskFolderPath</td>
+<td><code>generatedPlanAndTaskFolderPath</code></td>
 <td>/tmp</td>
 <td>Y</td>
 <td>Folder path where generated plan and task files will be saved</td>
 </tr>
 <tr>
-<td>recordTrackingFolderPath</td>
+<td><code>recordTrackingFolderPath</code></td>
 <td>/opt/app/record-tracking</td>
 <td>Y</td>
 <td>Where record tracking parquet files get saved</td>
@@ -832,19 +832,19 @@ when analysing the generated data if the number of records generated is large.</
 </thead>
 <tbody>
 <tr>
-<td>numRecordsFromDataSource</td>
+<td><code>numRecordsFromDataSource</code></td>
 <td>10000</td>
 <td>Y</td>
 <td>Number of records read in from the data source</td>
 </tr>
 <tr>
-<td>numRecordsForAnalysis</td>
+<td><code>numRecordsForAnalysis</code></td>
 <td>10000</td>
 <td>Y</td>
 <td>Number of records used for data profiling from the records gathered in <code>numRecordsFromDataSource</code></td>
 </tr>
 <tr>
-<td>oneOfDistinctCountVsCountThreshold</td>
+<td><code>oneOfDistinctCountVsCountThreshold</code></td>
 <td>0.1</td>
 <td>Y</td>
 <td>Threshold ratio to determine if a field is of type <code>oneOf</code> (i.e. a field called <code>status</code> that only contains <code>open</code> or <code>closed</code>. Distinct count = 2, total count = 10, ratio = 2 / 10 = 0.2 therefore marked as <code>oneOf</code>)</td>
@@ -867,7 +867,7 @@ batch.</p>
 </thead>
 <tbody>
 <tr>
-<td>numRecordsPerBatch</td>
+<td><code>numRecordsPerBatch</code></td>
 <td>100000</td>
 <td>N</td>
 <td>Number of records across all data sources to generate per batch</td>

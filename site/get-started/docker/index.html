@@ -760,13 +760,13 @@
 <h1 id="run-data-caterer">Run Data Caterer</h1>
 <h2 id="docker">Docker</h2>
 <h3 id="quick-start">Quick start</h3>
-<pre><code class="language-shell">git clone git@github.com:pflooky/data-caterer-docs.git
-cd data-caterer-docs/docs/sample/docker
-docker-compose up -d datacaterer
-</code></pre>
-<p>To run for another data source, you can set <code>DATA_SOURCE</code> like below:</p>
-<pre><code class="language-shell">DATA_SOURCE=postgres docker-compose up -d datacaterer
-</code></pre>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-docs.git
+<span class="nb">cd</span><span class="w"> </span>data-caterer-docs/docs/sample/docker
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
+</code></pre></div>
+<p>To run for another data source, you can set <code>DATA_SOURCE</code> like below:
+<div class="highlight"><pre><span></span><code><span class="nv">DATA_SOURCE</span><span class="o">=</span>postgres<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
+</code></pre></div></p>
 <p>Can set it to one of the following:</p>
 <ul>
 <li>postgres</li>
@@ -781,16 +781,16 @@ docker-compose up -d datacaterer
 <p>Check the report generated under <code>docs/sample/docker/data/custom/report/index.html</code></p>
 <h3 id="run-with-multiple-sub-data-sources">Run with multiple sub data sources</h3>
 <p>In the context of Postgres data sources, tables are sub data sources that data can be generated for.</p>
-<p>Try to run the following command:</p>
-<pre><code class="language-shell">PLAN=plan/postgres-multiple-tables docker-compose up -d datacaterer
-</code></pre>
+<p>Try to run the following command:
+<div class="highlight"><pre><span></span><code><span class="nv">PLAN</span><span class="o">=</span>plan/postgres-multiple-tables<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
+</code></pre></div></p>
 <h3 id="run-with-multiple-data-sources">Run with multiple data sources</h3>
 <h4 id="postgres-and-csv-file">Postgres and CSV File</h4>
-<pre><code class="language-shell">PLAN=plan/scenario-based docker-compose up -d datacaterer
-head data/custom/csv/transactions/part-00000*
-sample_account=$(head -1 data/custom/csv/transactions/part-00000* | awk -F &quot;,&quot; '{print $1}')
-docker exec docker-postgres-1 psql -Upostgres -d customer -c &quot;SELECT * FROM account.accounts WHERE account_number='$sample_account'&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nv">PLAN</span><span class="o">=</span>plan/scenario-based<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
+head<span class="w"> </span>data/custom/csv/transactions/part-00000*
+<span class="nv">sample_account</span><span class="o">=</span><span class="k">$(</span>head<span class="w"> </span>-1<span class="w"> </span>data/custom/csv/transactions/part-00000*<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgres-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SELECT * FROM account.accounts WHERE account_number=&#39;</span><span class="nv">$sample_account</span><span class="s2">&#39;&quot;</span>
+</code></pre></div>
 <p>You should be able to see the linked data between Postgres and the CSV file created along with 1 to 10 records per
 account_id, name combination in the CSV file.</p>
 <h3 id="run-with-custom-data-sources">Run with custom data sources</h3>
@@ -805,25 +805,25 @@ account_id, name combination in the CSV file.</p>
 </ol>
 </li>
 </ol>
-<pre><code class="language-shell">DATA_SOURCE=&lt;data source name&gt; docker-compose up -d datacaterer
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nv">DATA_SOURCE</span><span class="o">=</span>&lt;data<span class="w"> </span><span class="nb">source</span><span class="w"> </span>name&gt;<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
+</code></pre></div>
 <h3 id="generate-plan-and-tasks">Generate plan and tasks</h3>
-<pre><code class="language-shell">APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=false ENABLE_GENERATE_PLAN_AND_TASKS=true DATA_SOURCE=postgresdvd docker-compose up -d datacaterer
-cat data/custom/generated/plan/plan_*
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nv">APPLICATION_CONFIG_PATH</span><span class="o">=</span>/opt/app/custom/application-dvd.conf<span class="w"> </span><span class="nv">ENABLE_GENERATE_DATA</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">ENABLE_GENERATE_PLAN_AND_TASKS</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">DATA_SOURCE</span><span class="o">=</span>postgresdvd<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
+cat<span class="w"> </span>data/custom/generated/plan/plan_*
+</code></pre></div>
 <h4 id="generate-data-with-record-tracking">Generate data with record tracking</h4>
-<pre><code class="language-shell">APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=true ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_RECORD_TRACKING=true DATA_SOURCE=postgresdvd PLAN=generated/plan/$(ls data/custom/generated/plan/ | grep plan | head -1 | awk -F &quot; &quot; '{print $NF}' | sed 's/\.yaml//g') docker-compose up -d datacaterer
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nv">APPLICATION_CONFIG_PATH</span><span class="o">=</span>/opt/app/custom/application-dvd.conf<span class="w"> </span><span class="nv">ENABLE_GENERATE_DATA</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">ENABLE_GENERATE_PLAN_AND_TASKS</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">ENABLE_RECORD_TRACKING</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">DATA_SOURCE</span><span class="o">=</span>postgresdvd<span class="w"> </span><span class="nv">PLAN</span><span class="o">=</span>generated/plan/<span class="k">$(</span>ls<span class="w"> </span>data/custom/generated/plan/<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>plan<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="s1">&#39;{print $NF}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/\.yaml//g&#39;</span><span class="k">)</span><span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
+</code></pre></div>
 <h4 id="delete-the-generated-data">Delete the generated data</h4>
-<pre><code class="language-shell">APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DATA=false ENABLE_GENERATE_PLAN_AND_TASKS=false ENABLE_DELETE_GENERATED_RECORDS=true DATA_SOURCE=postgresdvd PLAN=generated/plan/$(ls data/custom/generated/plan/ | grep plan | head -1 | awk -F &quot; &quot; '{print $NF}' | sed 's/\.yaml//g') docker-compose up -d datacaterer
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nv">APPLICATION_CONFIG_PATH</span><span class="o">=</span>/opt/app/custom/application-dvd.conf<span class="w"> </span><span class="nv">ENABLE_GENERATE_DATA</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">ENABLE_GENERATE_PLAN_AND_TASKS</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">ENABLE_DELETE_GENERATED_RECORDS</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">DATA_SOURCE</span><span class="o">=</span>postgresdvd<span class="w"> </span><span class="nv">PLAN</span><span class="o">=</span>generated/plan/<span class="k">$(</span>ls<span class="w"> </span>data/custom/generated/plan/<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>plan<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="s1">&#39;{print $NF}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/\.yaml//g&#39;</span><span class="k">)</span><span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
+</code></pre></div>
 <h2 id="helm">Helm</h2>
 <p><a href="https://github.com/pflooky/data-caterer-docs/tree/main/helm/data-caterer">Link to sample helm on GitHub here</a></p>
 <p>Update the <a href="https://github.com/pflooky/data-caterer-docs/blob/main/helm/data-caterer/templates/configuration.yaml">configuration</a>
 to your own data connections and configuration.</p>
-<pre><code class="language-shell">git clone git@github.com:pflooky/data-caterer-docs.git
-helm install data-caterer ./data-caterer-docs/helm/data-caterer
-</code></pre>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-docs.git
+helm<span class="w"> </span>install<span class="w"> </span>data-caterer<span class="w"> </span>./data-caterer-docs/helm/data-caterer
+</code></pre></div>
 
 
 

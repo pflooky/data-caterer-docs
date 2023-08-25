@@ -706,26 +706,26 @@
 definition.
 For example, if I have the column <code>account_number</code> in a data source named <code>customer-postgres</code> and column <code>account_id</code>
 in <code>transaction-cassandra</code>,</p>
-<pre><code class="language-yaml">sinkOptions:
-  foreignKeys:
-    #The foreign key name with naming convention [dataSourceName].[taskName].[columnName]
-    &quot;customer-postgres.accounts.account_number&quot;:
-      #List of columns to match with same naming convention
-      - &quot;transaction-cassandra.transactions.account_id&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">sinkOptions</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">foreignKeys</span><span class="p">:</span>
+<span class="w">    </span><span class="c1">#The foreign key name with naming convention [dataSourceName].[taskName].[columnName]</span>
+<span class="w">    </span><span class="s">&quot;customer-postgres.accounts.account_number&quot;</span><span class="p p-Indicator">:</span>
+<span class="w">      </span><span class="c1">#List of columns to match with same naming convention</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;transaction-cassandra.transactions.account_id&quot;</span>
+</code></pre></div>
 <p><a href="../../sample/docker/data/custom/plan/foreign-key-example.yaml">Sample can be found here.</a>
 You can define any number of foreign key relationships as you want.</p>
 <h2 id="edge-cases">Edge cases</h2>
 <p>For each given data type, there are edge cases which can cause issues when your application processes the data.
 This can be controlled at a column level by including the following flag in the generator options:</p>
-<pre><code class="language-yaml">fields:
-  - name: &quot;amount&quot;
-    type: &quot;double&quot;
-    generator:
-      type: &quot;random&quot;
-      options:
-        enableEdgeCases: &quot;true&quot; 
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nt">fields</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount&quot;</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;double&quot;</span>
+<span class="w">    </span><span class="nt">generator</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;random&quot;</span>
+<span class="w">      </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">enableEdgeCases</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="w"> </span>
+</code></pre></div>
 <p>If you want to know all the possible edge cases for each data
 type, <a href="../../setup/generator/generator/">can check the documentation here</a>.</p>
 <h2 id="scenario-testing">Scenario testing</h2>
@@ -741,27 +741,27 @@ Then in the parquet task, define 1 to 10 transactions per <code>account_id</code
 <h2 id="storing-plantasks-in-cloud-storage">Storing plan/task(s) in cloud storage</h2>
 <p>You can generate and store the plan/task files inside either AWS S3, Azure Blob Storage or Google GCS.
 This can be controlled via configuration set in the <code>application.conf</code> file where you can set something like the below:</p>
-<pre><code class="language-yaml">folders {
-   generatedPlanAndTaskFolderPath = &quot;s3a://my-bucket/data-caterer/generated&quot;
-   planFilePath = &quot;s3a://my-bucket/data-caterer/generated/plan/customer-create-plan.yaml&quot;
-   taskFolderPath = &quot;s3a://my-bucket/data-caterer/generated/task&quot;
-}
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">folders {</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">generatedPlanAndTaskFolderPath = &quot;s3a://my-bucket/data-caterer/generated&quot;</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">planFilePath = &quot;s3a://my-bucket/data-caterer/generated/plan/customer-create-plan.yaml&quot;</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">taskFolderPath = &quot;s3a://my-bucket/data-caterer/generated/task&quot;</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
 
-spark {
-    config {
-        ...
-        #S3
-        &quot;spark.hadoop.fs.s3a.directory.marker.retention&quot; = &quot;keep&quot;
-        &quot;spark.hadoop.fs.s3a.bucket.all.committer.magic.enabled&quot; = &quot;true&quot;
-        &quot;spark.hadoop.fs.defaultFS&quot; = &quot;s3a://my-bucket&quot;
-        #can change to other credential providers as shown here
-        #https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/index.html#Changing_Authentication_Providers
-        &quot;spark.hadoop.fs.s3a.aws.credentials.provider&quot; = &quot;org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider&quot;
-        &quot;spark.hadoop.fs.s3a.access.key&quot; = &quot;access_key&quot;
-        &quot;spark.hadoop.fs.s3a.secret.key&quot; = &quot;secret_key&quot;
-   }
-}
-</code></pre>
+<span class="l l-Scalar l-Scalar-Plain">spark {</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">config {</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">#S3</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&quot;spark.hadoop.fs.s3a.directory.marker.retention&quot; = &quot;keep&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&quot;spark.hadoop.fs.s3a.bucket.all.committer.magic.enabled&quot; = &quot;true&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&quot;spark.hadoop.fs.defaultFS&quot; = &quot;s3a://my-bucket&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">#can change to other credential providers as shown here</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">#https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/index.html#Changing_Authentication_Providers</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&quot;spark.hadoop.fs.s3a.aws.credentials.provider&quot; = &quot;org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&quot;spark.hadoop.fs.s3a.access.key&quot; = &quot;access_key&quot;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">&quot;spark.hadoop.fs.s3a.secret.key&quot; = &quot;secret_key&quot;</span>
+<span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">}</span>
+<span class="l l-Scalar l-Scalar-Plain">}</span>
+</code></pre></div>
 
 
 
