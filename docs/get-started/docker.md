@@ -28,7 +28,9 @@ If you want to test it out with your own setup, you can alter the corresponding 
 
 #### Report
 
-Check the report generated under `docs/sample/docker/data/custom/report/index.html`
+Check the report generated under `docs/sample/docker/data/custom/report/index.html`.
+  
+Sample report can also be seen [here](../sample/docker/data/report/html/index.html)
 
 ### Run with multiple sub data sources
 
