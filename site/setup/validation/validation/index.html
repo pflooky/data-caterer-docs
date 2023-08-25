@@ -698,9 +698,9 @@ data profile is to expected data profile).</p>
 <span class="w">    </span><span class="nt">validations</span><span class="p">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">100&quot;</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;year</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">2021&quot;</span>
-<span class="w">        </span><span class="nt">errorThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="w">        </span><span class="nt">errorThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span><span class="w">   </span><span class="c1">#equivalent to if error percentage is &gt;= 10%, then fail</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;regexp_like(name,</span><span class="nv"> </span><span class="s">&#39;Peter</span><span class="nv"> </span><span class="s">.*&#39;)&quot;</span>
-<span class="w">        </span><span class="nt">errorThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span>
+<span class="w">        </span><span class="nt">errorThreshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">200</span><span class="w">   </span><span class="c1">#equivalent to if number of errors is &gt;= 200, then fail</span>
 </code></pre></div>
 <p>Once run, it will produce a report like <a href="../../../sample/docker/data/report/html/validations.html">this</a>.</p>
 

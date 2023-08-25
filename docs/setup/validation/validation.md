@@ -22,9 +22,9 @@ dataSources:
     validations:
       - expr: "amount < 100"
       - expr: "year == 2021"
-        errorThreshold: 0.1
+        errorThreshold: 0.1   #equivalent to if error percentage is >= 10%, then fail
       - expr: "regexp_like(name, 'Peter .*')"
-        errorThreshold: 200
+        errorThreshold: 200   #equivalent to if number of errors is >= 200, then fail
 ```
 
 Once run, it will produce a report like [this](../../sample/docker/data/report/html/validations.html).
