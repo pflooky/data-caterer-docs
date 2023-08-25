@@ -5,6 +5,4 @@ data was generated, where it was generated, validation results and any associate
 
 ## Sample
 
-Once run, it will produce a report like the below:
-
-<iframe src="https://pflooky.github.io/data-caterer-docs/site/sample/docker/data/report/html/index.html"></iframe>
+Once run, it will produce a report like [this](../../sample/docker/data/report/html/index.html).

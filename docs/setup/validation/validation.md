@@ -27,6 +27,4 @@ dataSources:
         errorThreshold: 200
 ```
 
-Once run, it will produce a report like the below:
-
-<iframe src="https://pflooky.github.io/data-caterer-docs/site/sample/docker/data/report/html/validations.html"></iframe>
+Once run, it will produce a report like [this](../../sample/docker/data/report/html/validations.html).
