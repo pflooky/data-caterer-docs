@@ -79,8 +79,8 @@
                   
                 </td>
                 <td>
-                  count:  -&gt; 500
-distinctCount:  -&gt; 500
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 1000
 maxLen:  -&gt; 10
 avgLen:  -&gt; 10
 nullCount:  -&gt; 0
@@ -103,13 +103,14 @@ nullCount:  -&gt; 0
 max -&gt; 2022
                 </td>
                 <td>
-                  count:  -&gt; 500
+                  count:  -&gt; 1000
 distinctCount:  -&gt; 2
 min: 2021 -&gt; 2021
 max: 2022 -&gt; 2022
 maxLen:  -&gt; 4
 avgLen:  -&gt; 4
 nullCount:  -&gt; 0
+oneOf:  -&gt; List(2021, 2022)
                 </td>
               </tr><tr>
                 <td>
@@ -129,13 +130,14 @@ nullCount:  -&gt; 0
                 </td>
                 <td>
                   sql: CASE WHEN year == 2021 THEN true ELSE false END -&gt; 
-count:  -&gt; 500
+count:  -&gt; 1000
 distinctCount:  -&gt; 2
 min:  -&gt; false
 max:  -&gt; true
 maxLen:  -&gt; 1
 avgLen:  -&gt; 1
 nullCount:  -&gt; 0
+oneOf:  -&gt; List(false, true)
                 </td>
               </tr><tr>
                 <td>
@@ -155,10 +157,10 @@ nullCount:  -&gt; 0
 max -&gt; 100.0
                 </td>
                 <td>
-                  count:  -&gt; 500
-distinctCount:  -&gt; 500
-min: 10.0 -&gt; 10.037503028630631
-max: 100.0 -&gt; 99.66500393766194
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 1000
+min: 10.0 -&gt; 10.112871345749008
+max: 100.0 -&gt; 99.91825249007658
 maxLen:  -&gt; 8
 avgLen:  -&gt; 8
 nullCount:  -&gt; 0
@@ -189,13 +191,14 @@ END
 ELSE
   false
 END -&gt; 
-count:  -&gt; 500
+count:  -&gt; 1000
 distinctCount:  -&gt; 2
 min:  -&gt; false
 max:  -&gt; true
 maxLen:  -&gt; 1
 avgLen:  -&gt; 1
 nullCount:  -&gt; 0
+oneOf:  -&gt; List(false, true)
                 </td>
               </tr><tr>
                 <td>
@@ -215,10 +218,10 @@ nullCount:  -&gt; 0
                 </td>
                 <td>
                   sql: details.updated_by.time -&gt; 
-count:  -&gt; 500
-distinctCount:  -&gt; 500
-min:  -&gt; 2022-08-24 11:12:51.555000
-max:  -&gt; 2023-08-23 16:51:21.240000
+count:  -&gt; 1000
+distinctCount:  -&gt; 1000
+min:  -&gt; 2022-08-25 18:53:43.021000
+max:  -&gt; 2023-08-25 00:44:24.390000
 maxLen:  -&gt; 8
 avgLen:  -&gt; 8
 nullCount:  -&gt; 0
@@ -241,13 +244,13 @@ nullCount:  -&gt; 0
                 </td>
                 <td>
                   sql: element_at(sort_array(transactions.txn_date), 1) -&gt; 
-count:  -&gt; 500
-distinctCount:  -&gt; 198
-min:  -&gt; 2022-08-24
-max:  -&gt; 2023-08-17
+count:  -&gt; 1000
+distinctCount:  -&gt; 289
+min:  -&gt; 2022-08-25
+max:  -&gt; 2023-08-22
 maxLen:  -&gt; 4
 avgLen:  -&gt; 4
-nullCount:  -&gt; 98
+nullCount:  -&gt; 202
                 </td>
               </tr><tr>
                 <td>
@@ -299,7 +302,7 @@ nullCount:  -&gt; 98
                 transactions
               </td>
               <td>
-                565
+                529
               </td>
               <td>
                 &#9989;
@@ -350,8 +353,8 @@ nullCount:  -&gt; 98
                 </td>
                 <td>
                   regex: ACC1[0-9]{9} -&gt; 
-count:  -&gt; 277
-distinctCount:  -&gt; 52
+count:  -&gt; 529
+distinctCount:  -&gt; 108
 maxLen:  -&gt; 13
 avgLen:  -&gt; 13
 nullCount:  -&gt; 0
@@ -373,8 +376,8 @@ nullCount:  -&gt; 0
                   expression -&gt; #{Name.name}
                 </td>
                 <td>
-                  count:  -&gt; 277
-distinctCount:  -&gt; 52
+                  count:  -&gt; 529
+distinctCount:  -&gt; 95
 expression: #{Name.name} -&gt; #{Name.name}
 maxLen:  -&gt; 10
 avgLen:  -&gt; 10
@@ -398,7 +401,7 @@ nullCount:  -&gt; 0
 max -&gt; 2022
                 </td>
                 <td>
-                  count:  -&gt; 277
+                  count:  -&gt; 529
 distinctCount:  -&gt; 2
 min: 2021 -&gt; 2021
 max: 2022 -&gt; 2022
@@ -424,10 +427,10 @@ nullCount:  -&gt; 0
 max -&gt; 100.0
                 </td>
                 <td>
-                  count:  -&gt; 277
-distinctCount:  -&gt; 277
-min: 10.0 -&gt; 10.116954781896736
-max: 100.0 -&gt; 99.91639275812383
+                  count:  -&gt; 529
+distinctCount:  -&gt; 529
+min: 10.0 -&gt; 10.02767851675301
+max: 100.0 -&gt; 99.96263676209136
 maxLen:  -&gt; 8
 avgLen:  -&gt; 8
 nullCount:  -&gt; 0
@@ -450,8 +453,8 @@ nullCount:  -&gt; 0
 max -&gt; 2021-12-31
                 </td>
                 <td>
-                  count:  -&gt; 277
-distinctCount:  -&gt; 186
+                  count:  -&gt; 529
+distinctCount:  -&gt; 286
 min: 2021-01-01 -&gt; 2021-01-01
 max: 2021-12-31 -&gt; 2021-12-29
 maxLen:  -&gt; 4

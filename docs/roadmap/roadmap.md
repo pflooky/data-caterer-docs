@@ -11,6 +11,11 @@
 - Data dictionary
     - Business definitions
 - :material-check: Verification rules after data generation
+- Validation waiting conditions
+    - Webhook
+    - File exists
+    - Data exists via SQL expression
+    - Pause
 - Alerting
 - Overriding tasks
     - Can customise tasks without copying whole schema definitions
