@@ -86,10 +86,10 @@ You can also use a combination of the above two methods to generate the number o
 
 ### Total
 
-When defining a total count within the `perColumn` configuration, it translates to only creating `(count.total * count.perColumn.total)` records.  
+When defining a total count within the `perColumn` configuration, it translates to only creating `(count.total * count.perColumnTotal)` records.  
 This is a fixed number of records that will be generated each time, with no variation between runs.
 
-In the example below, we have `count.total = 1000` and `count.perColumn.total = 2`. Which means that `1000 * 2 = 2000` records will be generated
+In the example below, we have `count.total = 1000` and `count.perColumnTotal = 2`. Which means that `1000 * 2 = 2000` records will be generated
 for this CSV file every time data gets generated.
 
 === "Scala"
@@ -134,8 +134,8 @@ for this CSV file every time data gets generated.
 You can also define a generator for the count per column. This can be used in scenarios where you want a variable number of records
 per set of columns.
 
-In the example below, it will generate between `(count.total * count.perColumn.generator.options.minValue) = (1000 * 1) = 1000` and
-`(count.total * count.perColumn.generator.options.maxValue) = (1000 * 2) = 2000` records.
+In the example below, it will generate between `(count.total * count.perColumnGenerator.generator.min) = (1000 * 1) = 1000` and
+`(count.total * count.perColumnGenerator.generator.max) = (1000 * 2) = 2000` records.
 
 
 === "Scala"
@@ -150,6 +150,7 @@ In the example below, it will generate between `(count.total * count.perColumn.g
           .option("path", "app/src/test/resources/sample/csv/transactions")
           .count(
             count
+              .total(1000)
               .columns("account_id", "name")
               .perColumnGenerator(
                 generator

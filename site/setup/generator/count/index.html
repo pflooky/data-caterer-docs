@@ -820,9 +820,9 @@ This means that for a given set of columns, it will generate a particular amount
 A number of transactions would be generated per <code>account_id,name</code>.  </p>
 <p>You can also use a combination of the above two methods to generate the number of records per column.</p>
 <h3 id="total">Total</h3>
-<p>When defining a total count within the <code>perColumn</code> configuration, it translates to only creating <code>(count.total * count.perColumn.total)</code> records.<br />
+<p>When defining a total count within the <code>perColumn</code> configuration, it translates to only creating <code>(count.total * count.perColumnTotal)</code> records.<br />
 This is a fixed number of records that will be generated each time, with no variation between runs.</p>
-<p>In the example below, we have <code>count.total = 1000</code> and <code>count.perColumn.total = 2</code>. Which means that <code>1000 * 2 = 2000</code> records will be generated
+<p>In the example below, we have <code>count.total = 1000</code> and <code>count.perColumnTotal = 2</code>. Which means that <code>1000 * 2 = 2000</code> records will be generated
 for this CSV file every time data gets generated.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Scala</label><label for="__tabbed_3_2">YAML</label></div>
 <div class="tabbed-content">
@@ -864,8 +864,8 @@ for this CSV file every time data gets generated.</p>
 <h3 id="generated">Generated</h3>
 <p>You can also define a generator for the count per column. This can be used in scenarios where you want a variable number of records
 per set of columns.</p>
-<p>In the example below, it will generate between <code>(count.total * count.perColumn.generator.options.minValue) = (1000 * 1) = 1000</code> and
-<code>(count.total * count.perColumn.generator.options.maxValue) = (1000 * 2) = 2000</code> records.</p>
+<p>In the example below, it will generate between <code>(count.total * count.perColumnGenerator.generator.min) = (1000 * 1) = 1000</code> and
+<code>(count.total * count.perColumnGenerator.generator.max) = (1000 * 2) = 2000</code> records.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Scala</label><label for="__tabbed_4_2">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -878,6 +878,7 @@ per set of columns.</p>
 <span class="w">      </span><span class="p">.</span><span class="n">option</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
 <span class="w">      </span><span class="p">.</span><span class="n">count</span><span class="p">(</span>
 <span class="w">        </span><span class="n">count</span>
+<span class="w">          </span><span class="p">.</span><span class="n">total</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 <span class="w">          </span><span class="p">.</span><span class="n">columns</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
 <span class="w">          </span><span class="p">.</span><span class="n">perColumnGenerator</span><span class="p">(</span>
 <span class="w">            </span><span class="n">generator</span>

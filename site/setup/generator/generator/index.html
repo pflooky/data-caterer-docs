@@ -807,55 +807,55 @@
 <tr>
 <td>string</td>
 <td>StringType</td>
-<td>minLen, maxLen, expression, enableNull</td>
+<td><code>minLen, maxLen, expression, enableNull</code></td>
 <td></td>
 </tr>
 <tr>
 <td>integer</td>
 <td>IntegerType</td>
-<td>min, minValue, max, maxValue</td>
+<td><code>min, max</code></td>
 <td></td>
 </tr>
 <tr>
 <td>long</td>
 <td>LongType</td>
-<td>min, minValue, max, maxValue</td>
+<td><code>min, max</code></td>
 <td></td>
 </tr>
 <tr>
 <td>short</td>
 <td>ShortType</td>
-<td>min, minValue, max, maxValue</td>
+<td><code>min, max</code></td>
 <td></td>
 </tr>
 <tr>
 <td>decimal(precision, scale)</td>
 <td>DecimalType(precision, scale)</td>
-<td>min, minValue, max, maxValue</td>
+<td><code>min, max</code></td>
 <td></td>
 </tr>
 <tr>
 <td>double</td>
 <td>DoubleType</td>
-<td>min, minValue, max, maxValue</td>
+<td><code>min, max</code></td>
 <td></td>
 </tr>
 <tr>
 <td>float</td>
 <td>FloatType</td>
-<td>min, minValue, max, maxValue</td>
+<td><code>min, max</code></td>
 <td></td>
 </tr>
 <tr>
 <td>date</td>
 <td>DateType</td>
-<td>min, max, enableNull</td>
+<td><code>min, max, enableNull</code></td>
 <td></td>
 </tr>
 <tr>
 <td>timestamp</td>
 <td>TimestampType</td>
-<td>min, max, enableNull</td>
+<td><code>min, max, enableNull</code></td>
 <td></td>
 </tr>
 <tr>
@@ -867,7 +867,7 @@
 <tr>
 <td>binary</td>
 <td>BinaryType</td>
-<td>minLen, maxLen, enableNull</td>
+<td><code>minLen, maxLen, enableNull</code></td>
 <td></td>
 </tr>
 <tr>
@@ -879,7 +879,7 @@
 <tr>
 <td>array</td>
 <td>ArrayType</td>
-<td>listMinLen, listMaxLen</td>
+<td><code>listMinLen, listMaxLen</code></td>
 <td></td>
 </tr>
 <tr>
@@ -905,27 +905,27 @@ descriptions:</p>
 </thead>
 <tbody>
 <tr>
-<td>enableEdgeCases</td>
+<td><code>enableEdgeCases</code></td>
 <td>false</td>
-<td>enableEdgeCases: "true"</td>
+<td><code>enableEdgeCases: "true"</code></td>
 <td>Enable/disable generated data to contain edge cases based on the data type. For example, integer data type has edge cases of (Int.MaxValue, Int.MinValue and 0)</td>
 </tr>
 <tr>
-<td>isUnique</td>
+<td><code>isUnique</code></td>
 <td>false</td>
-<td>isUnique: "true"</td>
+<td><code>isUnique: "true"</code></td>
 <td>Enable/disable generated data to be unique for that column. Errors will be thrown when it is unable to generate unique data</td>
 </tr>
 <tr>
-<td>seed</td>
+<td><code>seed</code></td>
 <td><empty></td>
-<td>seed: "1"</td>
+<td><code>seed: "1"</code></td>
 <td>Defines the random seed for generating data for that particular column. It will override any seed defined at a global level</td>
 </tr>
 <tr>
-<td>sql</td>
+<td><code>sql</code></td>
 <td><empty></td>
-<td>sql: "CASE WHEN amount &lt; 10 THEN true ELSE false END"</td>
+<td><code>sql: "CASE WHEN amount &lt; 10 THEN true ELSE false END"</code></td>
 <td>Define any SQL statement for generating that columns value. Computation occurs after all non-SQL fields are generated. This means any columns used in the SQL cannot be based on other SQL generated columns. Data type of generated value from SQL needs to match data type defined for the field</td>
 </tr>
 </tbody>
@@ -942,27 +942,27 @@ descriptions:</p>
 </thead>
 <tbody>
 <tr>
-<td>minLen</td>
+<td><code>minLen</code></td>
 <td>1</td>
-<td>minLen: "2"</td>
+<td><code>minLen: "2"</code></td>
 <td>Ensures that all generated strings have at least length <code>minLen</code></td>
 </tr>
 <tr>
-<td>maxLen</td>
+<td><code>maxLen</code></td>
 <td>10</td>
-<td>maxLen: "15"</td>
+<td><code>maxLen: "15"</code></td>
 <td>Ensures that all generated strings have at most length <code>maxLen</code></td>
 </tr>
 <tr>
-<td>expression</td>
+<td><code>expression</code></td>
 <td><empty></td>
-<td>expression: "#{Name.name}"<br/> expression:"#{Address.city}/#{Demographic.maritalStatus}"</td>
+<td><code>expression: "#{Name.name}"</code><br/><code>expression:"#{Address.city}/#{Demographic.maritalStatus}"</code></td>
 <td>Will generate a string based on the faker expression provided. All possible faker expressions can be found <a href="../../../sample/datafaker/expressions.txt">here</a><br/> Expression has to be in format <code>#{&lt;faker expression name&gt;}</code></td>
 </tr>
 <tr>
-<td>enableNull</td>
+<td><code>enableNull</code></td>
 <td>false</td>
-<td>enableNull: "true"</td>
+<td><code>enableNull: "true"</code></td>
 <td>Enable/disable null values being generated</td>
 </tr>
 </tbody>
@@ -970,7 +970,7 @@ descriptions:</p>
 <p><strong>Edge cases</strong>: ("", "\n", "\r", "\t", " ", "\u0000", "\ufff", "İyi günler", "Спасибо", "Καλημέρα", "صباح الخير", "
 Förlåt", "你好吗", "Nhà vệ sinh ở đâu", "こんにちは", "नमस्ते", "Բարեւ", "Здравейте")</p>
 <h3 id="numeric">Numeric</h3>
-<p>For all the numeric data types, there are 4 options to choose from: min, minValue, max and maxValue.
+<p>For all the numeric data types, there are 4 options to choose from: min, max and maxValue.
 Generally speaking, you only need to define one of min or minValue, similarly with max or maxValue.<br />
 The reason why there are 2 options for each is because of when metadata is automatically gathered, we gather the
 statistics of the observed min and max values. Also, it will attempt to gather any restriction on the min or max value
@@ -987,28 +987,16 @@ as defined by the data source (i.e. max value as per database type).</p>
 </thead>
 <tbody>
 <tr>
-<td>minValue</td>
+<td><code>min</code></td>
 <td>0</td>
-<td>min: "2"</td>
-<td>Ensures that all generated values are greater than or equal to <code>minValue</code></td>
+<td><code>min: "2"</code></td>
+<td>Ensures that all generated values are greater than or equal to <code>min</code></td>
 </tr>
 <tr>
-<td>min</td>
-<td>0</td>
-<td>min: "2"</td>
-<td>Ensures that all generated values are greater than or equal to <code>min</code>. If <code>minValue</code> is defined, <code>minValue</code> will define the lowest possible generated value</td>
-</tr>
-<tr>
-<td>maxValue</td>
+<td><code>max</code></td>
 <td>1000</td>
-<td>max: "25"</td>
-<td>Ensures that all generated values are less than or equal to <code>maxValue</code></td>
-</tr>
-<tr>
-<td>max</td>
-<td>1000</td>
-<td>max: "25"</td>
-<td>Ensures that all generated values are less than or equal to <code>maxValue</code>. If <code>maxValue</code> is defined, <code>maxValue</code> will define the largest possible generated value</td>
+<td><code>max: "25"</code></td>
+<td>Ensures that all generated values are less than or equal to <code>max</code></td>
 </tr>
 </tbody>
 </table>
@@ -1027,28 +1015,16 @@ as defined by the data source (i.e. max value as per database type).</p>
 </thead>
 <tbody>
 <tr>
-<td>minValue</td>
+<td><code>min</code></td>
 <td>0.0</td>
-<td>min: "2.1"</td>
-<td>Ensures that all generated values are greater than or equal to <code>minValue</code></td>
+<td><code>min: "2.1"</code></td>
+<td>Ensures that all generated values are greater than or equal to <code>min</code></td>
 </tr>
 <tr>
-<td>min</td>
-<td>0.0</td>
-<td>min: "2.1"</td>
-<td>Ensures that all generated values are greater than or equal to <code>min</code>. If <code>minValue</code> is defined, <code>minValue</code> will define the lowest possible generated value</td>
-</tr>
-<tr>
-<td>maxValue</td>
+<td><code>max</code></td>
 <td>1000.0</td>
-<td>max: "25.9"</td>
-<td>Ensures that all generated values are less than or equal to <code>maxValue</code></td>
-</tr>
-<tr>
-<td>max</td>
-<td>1000.0</td>
-<td>max: "25.9"</td>
-<td>Ensures that all generated values are less than or equal to <code>maxValue</code>. If <code>maxValue</code> is defined, <code>maxValue</code> will define the largest possible generated value</td>
+<td><code>max: "25.9"</code></td>
+<td>Ensures that all generated values are less than or equal to <code>max</code></td>
 </tr>
 </tbody>
 </table>
@@ -1067,21 +1043,21 @@ NaN)<br />
 </thead>
 <tbody>
 <tr>
-<td>min</td>
+<td><code>min</code></td>
 <td>now() - 365 days</td>
-<td>min: "2023-01-31"</td>
+<td><code>min: "2023-01-31"</code></td>
 <td>Ensures that all generated values are greater than or equal to <code>min</code></td>
 </tr>
 <tr>
-<td>max</td>
+<td><code>max</code></td>
 <td>now()</td>
-<td>max: "2023-12-31"</td>
+<td><code>max: "2023-12-31"</code></td>
 <td>Ensures that all generated values are less than or equal to <code>max</code></td>
 </tr>
 <tr>
-<td>enableNull</td>
+<td><code>enableNull</code></td>
 <td>false</td>
-<td>enableNull: "true"</td>
+<td><code>enableNull: "true"</code></td>
 <td>Enable/disable null values being generated</td>
 </tr>
 </tbody>
@@ -1100,21 +1076,21 @@ NaN)<br />
 </thead>
 <tbody>
 <tr>
-<td>min</td>
+<td><code>min</code></td>
 <td>now() - 365 days</td>
-<td>min: "2023-01-31 23:10:10"</td>
+<td><code>min: "2023-01-31 23:10:10"</code></td>
 <td>Ensures that all generated values are greater than or equal to <code>min</code></td>
 </tr>
 <tr>
-<td>max</td>
+<td><code>max</code></td>
 <td>now()</td>
-<td>max: "2023-12-31 23:10:10"</td>
+<td><code>max: "2023-12-31 23:10:10"</code></td>
 <td>Ensures that all generated values are less than or equal to <code>max</code></td>
 </tr>
 <tr>
-<td>enableNull</td>
+<td><code>enableNull</code></td>
 <td>false</td>
-<td>enableNull: "true"</td>
+<td><code>enableNull: "true"</code></td>
 <td>Enable/disable null values being generated</td>
 </tr>
 </tbody>
@@ -1132,21 +1108,21 @@ NaN)<br />
 </thead>
 <tbody>
 <tr>
-<td>minLen</td>
+<td><code>minLen</code></td>
 <td>1</td>
-<td>minLen: "2"</td>
+<td><code>minLen: "2"</code></td>
 <td>Ensures that all generated array of bytes have at least length <code>minLen</code></td>
 </tr>
 <tr>
-<td>maxLen</td>
+<td><code>maxLen</code></td>
 <td>20</td>
-<td>maxLen: "15"</td>
+<td><code>maxLen: "15"</code></td>
 <td>Ensures that all generated array of bytes have at most length <code>maxLen</code></td>
 </tr>
 <tr>
-<td>enableNull</td>
+<td><code>enableNull</code></td>
 <td>false</td>
-<td>enableNull: "true"</td>
+<td><code>enableNull: "true"</code></td>
 <td>Enable/disable null values being generated</td>
 </tr>
 </tbody>
@@ -1164,21 +1140,21 @@ NaN)<br />
 </thead>
 <tbody>
 <tr>
-<td>listMinLen</td>
+<td><code>listMinLen</code></td>
 <td>0</td>
-<td>listMinLen: "2"</td>
+<td><code>listMinLen: "2"</code></td>
 <td>Ensures that all generated lists have at least length <code>listMinLen</code></td>
 </tr>
 <tr>
-<td>listMaxLen</td>
+<td><code>listMaxLen</code></td>
 <td>5</td>
-<td>listMaxLen: "15"</td>
+<td><code>listMaxLen: "15"</code></td>
 <td>Ensures that all generated lists have at most length <code>listMaxLen</code></td>
 </tr>
 <tr>
-<td>enableNull</td>
+<td><code>enableNull</code></td>
 <td>false</td>
-<td>enableNull: "true"</td>
+<td><code>enableNull: "true"</code></td>
 <td>Enable/disable null values being generated</td>
 </tr>
 </tbody>
