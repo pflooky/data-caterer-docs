@@ -1,6 +1,8 @@
 # Data Source Connections
 
 Details of all the connection configuration supported can be found in the below subsections for each type of connection.
+  
+These configurations can be done via API or from configuration. Examples of both are shown for each data source below.
 
 ## Supported Data Connections
 
@@ -11,6 +13,13 @@ Details of all the connection configuration supported can be found in the below 
 | Kafka            | Kafka                                               |
 | JMS              | Solace                                              |
 | HTTP             | GET, PUT, POST, DELETE, PATCH, HEAD, TRACE, OPTIONS |
+
+### API
+
+All connection details require a name. Depending on the data source, you can define additional options which may be used
+by the driver or connector for connecting to the data source.
+
+### Configuration file
 
 All connection details follow the same pattern.
 
@@ -34,7 +43,7 @@ All connection details follow the same pattern.
     The above defines that if there is a system property or environment variable named `POSTGRES_URL`, then that value will
     be used for the `url`, otherwise, it will default to `localhost`.
 
-### Example task per data source
+## Data sources
 
 To find examples of a task for each type of data source, please check out [this page](../../sample/index.md).
 
@@ -46,66 +55,106 @@ configurations can be found below.
 
 #### CSV
 
-```
-csv {
-  customer_transactions {
-    path = "/data/customer/transaction"
-    path = ${?CSV_PATH}
-  }
-}
-```
+=== "Scala"
+
+    ```scala
+    csv("customer_transactions", "/data/customer/transaction")
+    ```
+
+=== "application.conf"
+
+    ```
+    csv {
+      customer_transactions {
+        path = "/data/customer/transaction"
+        path = ${?CSV_PATH}
+      }
+    }
+    ```
 
 [Other available configuration for CSV can be found here](https://spark.apache.org/docs/latest/sql-data-sources-csv.html#data-source-option)
 
 #### JSON
 
-```
-json {
-  customer_transactions {
-    path = "/data/customer/transaction"
-    path = ${?JSON_PATH}
-  }
-}
-```
+=== "Scala"
+
+    ```scala
+    json("customer_transactions", "/data/customer/transaction")
+    ```
+
+=== "application.conf"
+
+    ```
+    json {
+      customer_transactions {
+        path = "/data/customer/transaction"
+        path = ${?JSON_PATH}
+      }
+    }
+    ```
 
 [Other available configuration for JSON can be found here](https://spark.apache.org/docs/latest/sql-data-sources-json.html#data-source-option)
 
 #### ORC
 
-```
-orc {
-  customer_transactions {
-    path = "/data/customer/transaction"
-    path = ${?ORC_PATH}
-  }
-}
-```
+=== "Scala"
+
+    ```scala
+    orc("customer_transactions", "/data/customer/transaction")
+    ```
+
+=== "application.conf"
+
+    ```
+    orc {
+      customer_transactions {
+        path = "/data/customer/transaction"
+        path = ${?ORC_PATH}
+      }
+    }
+    ```
 
 [Other available configuration for ORC can be found here](https://spark.apache.org/docs/latest/sql-data-sources-orc.html#configuration)
 
 #### Parquet
 
-```
-parquet {
-  customer_transactions {
-    path = "/data/customer/transaction"
-    path = ${?PARQUET_PATH}
-  }
-}
-```
+=== "Scala"
+
+    ```scala
+    parquet("customer_transactions", "/data/customer/transaction")
+    ```
+
+=== "application.conf"
+    
+    ```
+    parquet {
+      customer_transactions {
+        path = "/data/customer/transaction"
+        path = ${?PARQUET_PATH}
+      }
+    }
+    ```
 
 [Other available configuration for Parquet can be found here](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html#data-source-option)
 
 #### Delta (not supported yet)
 
-```
-delta {
-  customer_transactions {
-    path = "/data/customer/transaction"
-    path = ${?DELTA_PATH}
-  }
-}
-```
+=== "Scala"
+
+    ```scala
+    delta("customer_transactions", "/data/customer/transaction")
+    ```
+
+=== "application.conf"
+
+    ```
+    delta {
+      customer_transactions {
+        path = "/data/customer/transaction"
+        path = ${?DELTA_PATH}
+      }
+    }
+    ```
 
 ### JDBC
 
@@ -113,19 +162,32 @@ Follows the same configuration used by Spark as
 found [here](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html#data-source-option).  
 Sample can be found below
 
-```
-jdbc {
-    postgres {
-        url = "jdbc:postgresql://localhost:5432/customer"
-        url = ${?POSTGRES_URL}
-        user = "postgres"
-        user = ${?POSTGRES_USERNAME}
-        password = "postgres"
-        password = ${?POSTGRES_PASSWORD}
-        driver = "org.postgresql.Driver"
+=== "Scala"
+
+    ```scala
+    postgres(
+        "customer_postgres",                            #name
+        "jdbc:postgresql://localhost:5432/customer",    #url
+        "postgres",                                     #username
+        "postgres",                                     #password
+    )
+    ```
+
+=== "application.conf"
+
+    ```
+    jdbc {
+        customer_postgres {
+            url = "jdbc:postgresql://localhost:5432/customer"
+            url = ${?POSTGRES_URL}
+            user = "postgres"
+            user = ${?POSTGRES_USERNAME}
+            password = "postgres"
+            password = ${?POSTGRES_PASSWORD}
+            driver = "org.postgresql.Driver"
+        }
     }
-}
-```
+    ```
 
 Ensure that the user has write permission, so it is able to save the table to the target tables.
 
@@ -136,6 +198,8 @@ Ensure that the user has write permission, so it is able to save the table to th
     ```
 
 #### Postgres
+
+Can see example API or Config definition for Postgres connection above.
 
 ##### Permissions
 
@@ -152,6 +216,30 @@ Following permissions are required when generating plan and tasks:
     ```
 
 #### MySQL
+
+=== "Scala"
+
+    ```scala
+    mysql(
+        "customer_mysql",                       #name
+        "jdbc:mysql://localhost:3306/customer", #url
+        "root",                                 #username
+        "root",                                 #password
+    )
+    ```
+
+=== "application.conf"
+
+    ```
+    jdbc {
+        customer_mysql {
+            url = "jdbc:mysql://localhost:3306/customer"
+            user = "root"
+            password = "root"
+            driver = "com.mysql.cj.jdbc.Driver"
+        }
+    }
+    ```
 
 ##### Permissions
 
@@ -170,20 +258,33 @@ Following permissions are required when generating plan and tasks:
 Follows same configuration as defined by the Spark Cassandra Connector as
 found [here](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md)
 
-```
-org.apache.spark.sql.cassandra {
-    cassandra {
-        spark.cassandra.connection.host = "localhost"
-        spark.cassandra.connection.host = ${?CASSANDRA_HOST}
-        spark.cassandra.connection.port = "9042"
-        spark.cassandra.connection.port = ${?CASSANDRA_PORT}
-        spark.cassandra.auth.username = "cassandra"
-        spark.cassandra.auth.username = ${?CASSANDRA_USERNAME}
-        spark.cassandra.auth.password = "cassandra"
-        spark.cassandra.auth.password = ${?CASSANDRA_PASSWORD}
+=== "Scala"
+
+    ```scala
+    cassandra(
+        "customer_cassandra",   #name
+        "localhost:9042",       #url
+        "cassandra",            #username
+        "cassandra",            #password
+    )
+    ```
+
+=== "application.conf"
+
+    ```
+    org.apache.spark.sql.cassandra {
+        customer_cassandra {
+            spark.cassandra.connection.host = "localhost"
+            spark.cassandra.connection.host = ${?CASSANDRA_HOST}
+            spark.cassandra.connection.port = "9042"
+            spark.cassandra.connection.port = ${?CASSANDRA_PORT}
+            spark.cassandra.auth.username = "cassandra"
+            spark.cassandra.auth.username = ${?CASSANDRA_USERNAME}
+            spark.cassandra.auth.password = "cassandra"
+            spark.cassandra.auth.password = ${?CASSANDRA_PASSWORD}
+        }
     }
-}
-```
+    ```
 
 ##### Permissions
 
@@ -211,14 +312,25 @@ level.
 Further details can be
 found [here](https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka)
 
-```
-kafka {
+=== "Scala"
+
+    ```scala
+    kafka(
+        "customer_kafka",   #name
+        "localhost:9092"    #url
+    )
+    ```
+
+=== "application.conf"
+
+    ```
     kafka {
-        kafka.bootstrap.servers = "localhost:9092"
-        kafka.bootstrap.servers = ${?KAFKA_BOOTSTRAP_SERVERS}
+        customer_kafka {
+            kafka.bootstrap.servers = "localhost:9092"
+            kafka.bootstrap.servers = ${?KAFKA_BOOTSTRAP_SERVERS}
+        }
     }
-}
-```
+    ```
 
 When defining your schema for pushing data to Kafka, it follows a specific top level schema.  
 An example can be found [here](../../sample/docker/data/custom/task/kafka/kafka-account-task.yaml).  
@@ -230,35 +342,63 @@ Uses JNDI lookup to send messages to JMS queue. Ensure that the messaging system
 registered
 via JNDI otherwise a connection cannot be created.
 
-```
-jms {
-    solace {
-        initialContextFactory = "com.solacesystems.jndi.SolJNDIInitialContextFactory"
-        connectionFactory = "/jms/cf/default"
-        url = "smf://localhost:55555"
-        url = ${?SOLACE_URL}
-        user = "admin"
-        user = ${?SOLACE_USER}
-        password = "admin"
-        password = ${?SOLACE_PASSWORD}
-        vpnName = "default"
-        vpnName = ${?SOLACE_VPN}
+=== "Scala"
+
+    ```scala
+    solace(
+        "customer_solace",                                      #name
+        "smf://localhost:55554",                                #url
+        "admin",                                                #username
+        "admin",                                                #password
+        "default",                                              #vpn name
+        "/jms/cf/default",                                      #connection factory
+        "com.solacesystems.jndi.SolJNDIInitialContextFactory"   #initial context factory
+    )
+    ```
+
+=== "application.conf"
+
+    ```
+    jms {
+        customer_solace {
+            initialContextFactory = "com.solacesystems.jndi.SolJNDIInitialContextFactory"
+            connectionFactory = "/jms/cf/default"
+            url = "smf://localhost:55555"
+            url = ${?SOLACE_URL}
+            user = "admin"
+            user = ${?SOLACE_USER}
+            password = "admin"
+            password = ${?SOLACE_PASSWORD}
+            vpnName = "default"
+            vpnName = ${?SOLACE_VPN}
+        }
     }
-}
-```
+    ```
 
 ### HTTP
 
 Define any username and/or password needed for the HTTP requests.  
 The url is defined in the tasks to allow for generated data to be populated in the url.
 
-```
-http {
-    customer_api {
-        user = "admin"
-        user = ${?HTTP_USER}
-        password = "admin"
-        password = ${?HTTP_PASSWORD}
+=== "Scala"
+
+    ```scala
+    http(
+        "customer_api", #name
+        "admin",        #username
+        "admin"         #password
+    )
+    ```
+
+=== "application.conf"
+
+    ```
+    http {
+        customer_api {
+            user = "admin"
+            user = ${?HTTP_USER}
+            password = "admin"
+            password = ${?HTTP_PASSWORD}
+        }
     }
-}
-```
+    ```

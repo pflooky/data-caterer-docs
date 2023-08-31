@@ -54,12 +54,16 @@
   
     
     
+      
+    
     
     
     
     <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -107,6 +111,30 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
       
     
     
@@ -453,6 +481,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#spark" class="md-nav__link">
+    Spark
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -736,7 +771,7 @@ seen <a href="../../sample/docker/data/custom/application.conf">here</a>.</p>
 <td>Whilst saving generated data, if there is an error, it will stop any further data from being generated</td>
 </tr>
 <tr>
-<td><code>enableSaveSinkMetadata</code></td>
+<td><code>enableSaveReports</code></td>
 <td>true</td>
 <td>N</td>
 <td>Enable/disable HTML reports summarising data generated, metadata of data generated (if <code>enableSinkMetadata</code> is enabled) and validation results (if <code>enableValidation</code> is enabled). Sample <a href="../generator/report/">here</a></td>
@@ -773,6 +808,40 @@ seen <a href="../../sample/docker/data/custom/application.conf">here</a>.</p>
 </tr>
 </tbody>
 </table>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Scala</label><label for="__tabbed_1_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">configuration</span>
+<span class="w">  </span><span class="p">.</span><span class="n">enableGenerateData</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">enableCount</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">enableFailOnError</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">enableSaveReports</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">enableSinkMetadata</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">enableValidation</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">enableGeneratePlanAndTasks</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">enableRecordTracking</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">enableDeleteGeneratedRecords</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>flags {
+  enableCount = false
+  enableCount = ${?ENABLE_COUNT}
+  enableGenerateData = true
+  enableGenerateData = ${?ENABLE_GENERATE_DATA}
+  enableFailOnError = true
+  enableFailOnError = ${?ENABLE_FAIL_ON_ERROR}
+  enableGeneratePlanAndTasks = false
+  enableGeneratePlanAndTasks = ${?ENABLE_GENERATE_PLAN_AND_TASKS}
+  enableRecordTracking = false
+  enableRecordTracking = ${?ENABLE_RECORD_TRACKING}
+  enableDeleteGeneratedRecords = false
+  enableDeleteGeneratedRecords = ${?ENABLE_DELETE_GENERATED_RECORDS}
+}
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="folders">Folders</h2>
 <p>Depending on which flags are enabled, there are folders that get used to save metadata, store HTML reports or track the
 records generated.</p>
@@ -806,7 +875,7 @@ records generated.</p>
 <td>Validation folder path that contains all the validation files (can have nested directories)</td>
 </tr>
 <tr>
-<td><code>generatedDataResultsFolderPath</code></td>
+<td><code>generatedReportsFolderPath</code></td>
 <td>/opt/app/html</td>
 <td>N</td>
 <td>Where HTML reports get generated that contain information about data generated along with any validations performed</td>
@@ -825,6 +894,37 @@ records generated.</p>
 </tr>
 </tbody>
 </table>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Scala</label><label for="__tabbed_2_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">configuration</span>
+<span class="w">  </span><span class="p">.</span><span class="n">planFilePath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/plan/postgres-plan.yaml&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">taskFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/task&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">validationFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/validation&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/report&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">generatedPlanAndTaskFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/generated&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">recordTrackingFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/record-tracking&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>folders {
+  planFilePath = &quot;/opt/app/custom/plan/postgres-plan.yaml&quot;
+  planFilePath = ${?PLAN_FILE_PATH}
+  taskFolderPath = &quot;/opt/app/custom/task&quot;
+  taskFolderPath = ${?TASK_FOLDER_PATH}
+  validationFolderPath = &quot;/opt/app/custom/validation&quot;
+  validationFolderPath = ${?VALIDATION_FOLDER_PATH}
+  generatedReportsFolderPath = &quot;/opt/app/custom/report&quot;
+  generatedReportsFolderPath = ${?GENERATED_REPORTS_FOLDER_PATH}
+  generatedPlanAndTaskFolderPath = &quot;/opt/app/custom/generated&quot;
+  generatedPlanAndTaskFolderPath = ${?GENERATED_PLAN_AND_TASK_FOLDER_PATH}
+  recordTrackingFolderPath = &quot;/opt/app/custom/record-tracking&quot;
+  recordTrackingFolderPath = ${?RECORD_TRACKING_FOLDER_PATH}
+}
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="metadata">Metadata</h2>
 <p>When metadata gets generated, there are some configurations that can be altered to help with performance or accuracy
 related issues.
@@ -849,7 +949,7 @@ when analysing the generated data if the number of records generated is large.</
 <td><code>numRecordsFromDataSource</code></td>
 <td>10000</td>
 <td>Y</td>
-<td>Number of records read in from the data source</td>
+<td>Number of records read in from the data source that could be used for data profiling</td>
 </tr>
 <tr>
 <td><code>numRecordsForAnalysis</code></td>
@@ -858,13 +958,48 @@ when analysing the generated data if the number of records generated is large.</
 <td>Number of records used for data profiling from the records gathered in <code>numRecordsFromDataSource</code></td>
 </tr>
 <tr>
+<td><code>oneOfMinCount</code></td>
+<td>1000</td>
+<td>N</td>
+<td>Minimum number of records required before considering if a field can be of type <code>oneOf</code></td>
+</tr>
+<tr>
 <td><code>oneOfDistinctCountVsCountThreshold</code></td>
 <td>0.1</td>
 <td>Y</td>
 <td>Threshold ratio to determine if a field is of type <code>oneOf</code> (i.e. a field called <code>status</code> that only contains <code>open</code> or <code>closed</code>. Distinct count = 2, total count = 10, ratio = 2 / 10 = 0.2 therefore marked as <code>oneOf</code>)</td>
 </tr>
+<tr>
+<td><code>numGeneratedSamples</code></td>
+<td>10</td>
+<td>N</td>
+<td>Number of sample records from generated data to take. Shown in HTML report when validation rules fail</td>
+</tr>
 </tbody>
 </table>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Scala</label><label for="__tabbed_3_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">configuration</span>
+<span class="w">  </span><span class="p">.</span><span class="n">numRecordsFromDataSourceForDataProfiling</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">numRecordsForAnalysisForDataProfiling</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">oneOfMinCount</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">oneOfDistinctCountVsCountThreshold</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">numGeneratedSamples</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>metadata {
+  numRecordsFromDataSource = 10000
+  numRecordsForAnalysis = 10000
+  oneOfMinCount = 1000
+  oneOfDistinctCountVsCountThreshold = 0.1
+  numGeneratedSamples = 10
+}
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="generation">Generation</h2>
 <p>When generating data, you may have some limitations such as limited CPU or memory, large number of data sources, or data
 sources prone to failure under load.
@@ -886,8 +1021,66 @@ batch.</p>
 <td>N</td>
 <td>Number of records across all data sources to generate per batch</td>
 </tr>
+<tr>
+<td><code>numRecordsPerStep</code></td>
+<td><empty></td>
+<td>N</td>
+<td>Overrides the count defined in each step with this value if defined (i.e. if set to 1000, for each step, 1000 records will be generated)</td>
+</tr>
 </tbody>
 </table>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Scala</label><label for="__tabbed_4_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">configuration</span>
+<span class="w">  </span><span class="p">.</span><span class="n">numRecordsPerBatch</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">numRecordsPerStep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>generation {
+  numRecordsPerBatch = 100000
+  numRecordsPerStep = 1000
+}
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="spark">Spark</h2>
+<p>Given Data Caterer uses Spark as the base framework for data processing, you can configure the job as to your 
+specifications via configuration as seen <a href="https://spark.apache.org/docs/latest/configuration.html">here</a>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Scala</label><label for="__tabbed_5_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">configuration</span>
+<span class="w">  </span><span class="p">.</span><span class="n">sparkMaster</span><span class="p">(</span><span class="s">&quot;local[*]&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">sparkConfig</span><span class="p">(</span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;spark.driver.cores&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="n">addSparkConfig</span><span class="p">((</span><span class="s">&quot;spark.driver.memory&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;10g&quot;</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>spark {
+  master = &quot;local[*]&quot;
+  master = ${?SPARK_MASTER}
+  config {
+    &quot;spark.driver.memory&quot; = &quot;2g&quot;
+    &quot;spark.executor.memory&quot; = &quot;2g&quot;
+    &quot;spark.sql.cbo.enabled&quot; = &quot;true&quot;
+    &quot;spark.sql.adaptive.enabled&quot; = &quot;true&quot;
+    &quot;spark.sql.cbo.planStats.enabled&quot; = &quot;true&quot;
+    &quot;spark.sql.legacy.allowUntypedScalaUDF&quot; = &quot;true&quot;
+    &quot;spark.sql.statistics.histogram.enabled&quot; = &quot;true&quot;
+    &quot;spark.sql.shuffle.partitions&quot; = &quot;4&quot;
+    &quot;spark.sql.catalog.postgres&quot; = &quot;&quot;
+    &quot;spark.sql.catalog.cassandra&quot; = &quot;com.datastax.spark.connector.datasource.CassandraCatalog&quot;
+    &quot;spark.hadoop.fs.s3a.directory.marker.retention&quot; = &quot;keep&quot;
+    &quot;spark.hadoop.fs.s3a.bucket.all.committer.magic.enabled&quot; = &quot;true&quot;
+  }
+}
+</code></pre></div>
+</div>
+</div>
+</div>
 
 
 

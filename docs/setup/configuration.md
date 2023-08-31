@@ -15,12 +15,46 @@ Flags are used to control which processes are executed when you run Data Caterer
 | `enableGenerateData`           | true    | N    | Enable/disable data generation                                                                                                                                                                                        |
 | `enableCount`                  | true    | N    | Count the number of records generated. Can be disabled to improve performance                                                                                                                                         |
 | `enableFailOnError`            | true    | N    | Whilst saving generated data, if there is an error, it will stop any further data from being generated                                                                                                                |
-| `enableSaveSinkMetadata`       | true    | N    | Enable/disable HTML reports summarising data generated, metadata of data generated (if `enableSinkMetadata` is enabled) and validation results (if `enableValidation` is enabled). Sample [here](generator/report.md) |
+| `enableSaveReports`            | true    | N    | Enable/disable HTML reports summarising data generated, metadata of data generated (if `enableSinkMetadata` is enabled) and validation results (if `enableValidation` is enabled). Sample [here](generator/report.md) |
 | `enableSinkMetadata`           | true    | N    | Run data profiling for the generated data. Shown in HTML reports if `enableSaveSinkMetadata` is enabled                                                                                                               |
 | `enableValidation`             | false   | N    | Run validations as described in plan. Results can be viewed from logs or from HTML report if `enableSaveSinkMetadata` is enabled. Sample [here](validation/validation.md)                                             |
 | `enableGeneratePlanAndTasks`   | false   | Y    | Enable/disable plan and task auto generation based off data source connections                                                                                                                                        |
 | `enableRecordTracking`         | false   | Y    | Enable/disable which data records have been generated for any data source                                                                                                                                             |
 | `enableDeleteGeneratedRecords` | false   | Y    | Delete all generated records based off record tracking (if `enableRecordTracking` has been set to true)                                                                                                               |
+
+=== "Scala"
+
+    ```scala
+    configuration
+      .enableGenerateData(true)
+      .enableCount(true)
+      .enableFailOnError(true)
+      .enableSaveReports(true)
+      .enableSinkMetadata(true)
+      .enableValidation(false)
+      .enableGeneratePlanAndTasks(false)
+      .enableRecordTracking(false)
+      .enableDeleteGeneratedRecords(false)
+    ```
+
+=== "application.conf"
+
+    ```
+    flags {
+      enableCount = false
+      enableCount = ${?ENABLE_COUNT}
+      enableGenerateData = true
+      enableGenerateData = ${?ENABLE_GENERATE_DATA}
+      enableFailOnError = true
+      enableFailOnError = ${?ENABLE_FAIL_ON_ERROR}
+      enableGeneratePlanAndTasks = false
+      enableGeneratePlanAndTasks = ${?ENABLE_GENERATE_PLAN_AND_TASKS}
+      enableRecordTracking = false
+      enableRecordTracking = ${?ENABLE_RECORD_TRACKING}
+      enableDeleteGeneratedRecords = false
+      enableDeleteGeneratedRecords = ${?ENABLE_DELETE_GENERATED_RECORDS}
+    }
+    ```
 
 ## Folders
 
@@ -34,9 +68,40 @@ These folder pathways can be defined as a cloud storage pathway (i.e. `s3a://my-
 | `planFilePath`                   | /opt/app/plan/customer-create-plan.yaml | N    | Plan file path to use when generating and/or validating data                                                        |
 | `taskFolderPath`                 | /opt/app/task                           | N    | Task folder path that contains all the task files (can have nested directories)                                     |
 | `validationFolderPath`           | /opt/app/validation                     | N    | Validation folder path that contains all the validation files (can have nested directories)                         |
-| `generatedDataResultsFolderPath` | /opt/app/html                           | N    | Where HTML reports get generated that contain information about data generated along with any validations performed |
+| `generatedReportsFolderPath`     | /opt/app/html                           | N    | Where HTML reports get generated that contain information about data generated along with any validations performed |
 | `generatedPlanAndTaskFolderPath` | /tmp                                    | Y    | Folder path where generated plan and task files will be saved                                                       |
 | `recordTrackingFolderPath`       | /opt/app/record-tracking                | Y    | Where record tracking parquet files get saved                                                                       |
+
+=== "Scala"
+
+    ```scala
+    configuration
+      .planFilePath("/opt/app/custom/plan/postgres-plan.yaml")
+      .taskFolderPath("/opt/app/custom/task")
+      .validationFolderPath("/opt/app/custom/validation")
+      .generatedReportsFolderPath("/opt/app/custom/report")
+      .generatedPlanAndTaskFolderPath("/opt/app/custom/generated")
+      .recordTrackingFolderPath("/opt/app/custom/record-tracking")
+    ```
+
+=== "application.conf"
+
+    ```
+    folders {
+      planFilePath = "/opt/app/custom/plan/postgres-plan.yaml"
+      planFilePath = ${?PLAN_FILE_PATH}
+      taskFolderPath = "/opt/app/custom/task"
+      taskFolderPath = ${?TASK_FOLDER_PATH}
+      validationFolderPath = "/opt/app/custom/validation"
+      validationFolderPath = ${?VALIDATION_FOLDER_PATH}
+      generatedReportsFolderPath = "/opt/app/custom/report"
+      generatedReportsFolderPath = ${?GENERATED_REPORTS_FOLDER_PATH}
+      generatedPlanAndTaskFolderPath = "/opt/app/custom/generated"
+      generatedPlanAndTaskFolderPath = ${?GENERATED_PLAN_AND_TASK_FOLDER_PATH}
+      recordTrackingFolderPath = "/opt/app/custom/record-tracking"
+      recordTrackingFolderPath = ${?RECORD_TRACKING_FOLDER_PATH}
+    }
+    ```
 
 ## Metadata
 
@@ -53,9 +118,34 @@ when analysing the generated data if the number of records generated is large.
 
 | Config                               | Default | Paid | Description                                                                                                                                                                                                             |
 |--------------------------------------|---------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `numRecordsFromDataSource`           | 10000   | Y    | Number of records read in from the data source                                                                                                                                                                          |
+| `numRecordsFromDataSource`           | 10000   | Y    | Number of records read in from the data source that could be used for data profiling                                                                                                                                    |
 | `numRecordsForAnalysis`              | 10000   | Y    | Number of records used for data profiling from the records gathered in `numRecordsFromDataSource`                                                                                                                       |
+| `oneOfMinCount`                      | 1000    | N    | Minimum number of records required before considering if a field can be of type `oneOf`                                                                                                                                 |
 | `oneOfDistinctCountVsCountThreshold` | 0.1     | Y    | Threshold ratio to determine if a field is of type `oneOf` (i.e. a field called `status` that only contains `open` or `closed`. Distinct count = 2, total count = 10, ratio = 2 / 10 = 0.2 therefore marked as `oneOf`) |
+| `numGeneratedSamples`                | 10      | N    | Number of sample records from generated data to take. Shown in HTML report when validation rules fail                                                                                                                   |
+
+=== "Scala"
+
+    ```scala
+    configuration
+      .numRecordsFromDataSourceForDataProfiling(10000)
+      .numRecordsForAnalysisForDataProfiling(10000)
+      .oneOfMinCount(1000)
+      .oneOfDistinctCountVsCountThreshold(1000)
+      .numGeneratedSamples(10)
+    ```
+
+=== "application.conf"
+
+    ```
+    metadata {
+      numRecordsFromDataSource = 10000
+      numRecordsForAnalysis = 10000
+      oneOfMinCount = 1000
+      oneOfDistinctCountVsCountThreshold = 0.1
+      numGeneratedSamples = 10
+    }
+    ```
 
 ## Generation
 
@@ -64,6 +154,62 @@ sources prone to failure under load.
 To help alleviate these issues or speed up performance, you can control the number of records that get generated in each
 batch.
 
-| Config               | Default | Paid | Description                                                     |
-|----------------------|---------|------|-----------------------------------------------------------------|
-| `numRecordsPerBatch` | 100000  | N    | Number of records across all data sources to generate per batch |
+| Config               | Default | Paid | Description                                                                                                                              |
+|----------------------|---------|------|------------------------------------------------------------------------------------------------------------------------------------------|
+| `numRecordsPerBatch` | 100000  | N    | Number of records across all data sources to generate per batch                                                                          |
+| `numRecordsPerStep`  | <empty> | N    | Overrides the count defined in each step with this value if defined (i.e. if set to 1000, for each step, 1000 records will be generated) |
+
+=== "Scala"
+
+    ```scala
+    configuration
+      .numRecordsPerBatch(100000)
+      .numRecordsPerStep(1000)
+    ```
+
+=== "application.conf"
+
+    ```
+    generation {
+      numRecordsPerBatch = 100000
+      numRecordsPerStep = 1000
+    }
+    ```
+
+## Spark
+
+Given Data Caterer uses Spark as the base framework for data processing, you can configure the job as to your 
+specifications via configuration as seen [here](https://spark.apache.org/docs/latest/configuration.html).
+
+=== "Scala"
+
+    ```scala
+    configuration
+      .sparkMaster("local[*]")
+      .sparkConfig(Map("spark.driver.cores" -> "5"))
+      .addSparkConfig(("spark.driver.memory" -> "10g"))
+    ```
+
+=== "application.conf"
+
+    ```
+    spark {
+      master = "local[*]"
+      master = ${?SPARK_MASTER}
+      config {
+        "spark.driver.memory" = "2g"
+        "spark.executor.memory" = "2g"
+        "spark.sql.cbo.enabled" = "true"
+        "spark.sql.adaptive.enabled" = "true"
+        "spark.sql.cbo.planStats.enabled" = "true"
+        "spark.sql.legacy.allowUntypedScalaUDF" = "true"
+        "spark.sql.statistics.histogram.enabled" = "true"
+        "spark.sql.shuffle.partitions" = "4"
+        "spark.sql.catalog.postgres" = ""
+        "spark.sql.catalog.cassandra" = "com.datastax.spark.connector.datasource.CassandraCatalog"
+        "spark.hadoop.fs.s3a.directory.marker.retention" = "keep"
+        "spark.hadoop.fs.s3a.bucket.all.committer.magic.enabled" = "true"
+      }
+    }
+    ```
+

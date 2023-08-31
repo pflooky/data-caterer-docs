@@ -54,12 +54,16 @@
   
     
     
+      
+    
     
     
     
     <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -107,6 +111,30 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
       
     
     
@@ -448,11 +476,31 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#example-task-per-data-source" class="md-nav__link">
-    Example task per data source
+  <a href="#api" class="md-nav__link">
+    API
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file" class="md-nav__link">
+    Configuration file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-sources" class="md-nav__link">
+    Data sources
+  </a>
+  
+    <nav class="md-nav" aria-label="Data sources">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#file" class="md-nav__link">
@@ -836,6 +884,7 @@
 
 <h1 id="data-source-connections">Data Source Connections</h1>
 <p>Details of all the connection configuration supported can be found in the below subsections for each type of connection.</p>
+<p>These configurations can be done via API or from configuration. Examples of both are shown for each data source below.</p>
 <h2 id="supported-data-connections">Supported Data Connections</h2>
 <table>
 <thead>
@@ -867,6 +916,10 @@
 </tr>
 </tbody>
 </table>
+<h3 id="api">API</h3>
+<p>All connection details require a name. Depending on the data source, you can define additional options which may be used
+by the driver or connector for connecting to the data source.</p>
+<h3 id="configuration-file">Configuration file</h3>
 <p>All connection details follow the same pattern.</p>
 <div class="highlight"><pre><span></span><code>&lt;connection format&gt; {
     &lt;connection name&gt; {
@@ -884,13 +937,20 @@ url = ${?POSTGRES_URL}
 <p>The above defines that if there is a system property or environment variable named <code>POSTGRES_URL</code>, then that value will
 be used for the <code>url</code>, otherwise, it will default to <code>localhost</code>.</p>
 </div>
-<h3 id="example-task-per-data-source">Example task per data source</h3>
+<h2 id="data-sources">Data sources</h2>
 <p>To find examples of a task for each type of data source, please check out <a href="../../../sample/">this page</a>.</p>
 <h3 id="file">File</h3>
 <p>Linked <a href="https://spark.apache.org/docs/latest/sql-data-sources-generic-options.html">here</a> is a list of generic options
 that can be included as part of your file data source configuration if required. Links to specific file type
 configurations can be found below.</p>
 <h4 id="csv">CSV</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Scala</label><label for="__tabbed_1_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/data/customer/transaction&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>csv {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
@@ -898,8 +958,18 @@ configurations can be found below.</p>
   }
 }
 </code></pre></div>
+</div>
+</div>
+</div>
 <p><a href="https://spark.apache.org/docs/latest/sql-data-sources-csv.html#data-source-option">Other available configuration for CSV can be found here</a></p>
 <h4 id="json">JSON</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Scala</label><label for="__tabbed_2_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">json</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/data/customer/transaction&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>json {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
@@ -907,8 +977,18 @@ configurations can be found below.</p>
   }
 }
 </code></pre></div>
+</div>
+</div>
+</div>
 <p><a href="https://spark.apache.org/docs/latest/sql-data-sources-json.html#data-source-option">Other available configuration for JSON can be found here</a></p>
 <h4 id="orc">ORC</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Scala</label><label for="__tabbed_3_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">orc</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/data/customer/transaction&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>orc {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
@@ -916,8 +996,18 @@ configurations can be found below.</p>
   }
 }
 </code></pre></div>
+</div>
+</div>
+</div>
 <p><a href="https://spark.apache.org/docs/latest/sql-data-sources-orc.html#configuration">Other available configuration for ORC can be found here</a></p>
 <h4 id="parquet">Parquet</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Scala</label><label for="__tabbed_4_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">parquet</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/data/customer/transaction&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>parquet {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
@@ -925,8 +1015,18 @@ configurations can be found below.</p>
   }
 }
 </code></pre></div>
+</div>
+</div>
+</div>
 <p><a href="https://spark.apache.org/docs/latest/sql-data-sources-parquet.html#data-source-option">Other available configuration for Parquet can be found here</a></p>
 <h4 id="delta-not-supported-yet">Delta (not supported yet)</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Scala</label><label for="__tabbed_5_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">delta</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/data/customer/transaction&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>delta {
   customer_transactions {
     path = &quot;/data/customer/transaction&quot;
@@ -934,12 +1034,27 @@ configurations can be found below.</p>
   }
 }
 </code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="jdbc">JDBC</h3>
 <p>Follows the same configuration used by Spark as
 found <a href="https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html#data-source-option">here</a>.<br />
 Sample can be found below</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Scala</label><label for="__tabbed_6_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">postgres</span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;customer_postgres&quot;</span><span class="p">,</span><span class="w">                            </span><span class="n">#name</span>
+<span class="w">    </span><span class="s">&quot;jdbc:postgresql://localhost:5432/customer&quot;</span><span class="p">,</span><span class="w">    </span><span class="n">#url</span>
+<span class="w">    </span><span class="s">&quot;postgres&quot;</span><span class="p">,</span><span class="w">                                     </span><span class="n">#username</span>
+<span class="w">    </span><span class="s">&quot;postgres&quot;</span><span class="p">,</span><span class="w">                                     </span><span class="n">#password</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>jdbc {
-    postgres {
+    customer_postgres {
         url = &quot;jdbc:postgresql://localhost:5432/customer&quot;
         url = ${?POSTGRES_URL}
         user = &quot;postgres&quot;
@@ -950,6 +1065,9 @@ Sample can be found below</p>
     }
 }
 </code></pre></div>
+</div>
+</div>
+</div>
 <p>Ensure that the user has write permission, so it is able to save the table to the target tables.</p>
 <details class="tip">
 <summary>SQL Permission Statements</summary>
@@ -957,6 +1075,7 @@ Sample can be found below</p>
 </code></pre></div>
 </details>
 <h4 id="postgres">Postgres</h4>
+<p>Can see example API or Config definition for Postgres connection above.</p>
 <h5 id="permissions">Permissions</h5>
 <p>Following permissions are required when generating plan and tasks:</p>
 <details class="tip">
@@ -969,6 +1088,30 @@ Sample can be found below</p>
 </code></pre></div>
 </details>
 <h4 id="mysql">MySQL</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Scala</label><label for="__tabbed_7_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">mysql</span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;customer_mysql&quot;</span><span class="p">,</span><span class="w">                       </span><span class="n">#name</span>
+<span class="w">    </span><span class="s">&quot;jdbc:mysql://localhost:3306/customer&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">#url</span>
+<span class="w">    </span><span class="s">&quot;root&quot;</span><span class="p">,</span><span class="w">                                 </span><span class="n">#username</span>
+<span class="w">    </span><span class="s">&quot;root&quot;</span><span class="p">,</span><span class="w">                                 </span><span class="n">#password</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>jdbc {
+    customer_mysql {
+        url = &quot;jdbc:mysql://localhost:3306/customer&quot;
+        user = &quot;root&quot;
+        password = &quot;root&quot;
+        driver = &quot;com.mysql.cj.jdbc.Driver&quot;
+    }
+}
+</code></pre></div>
+</div>
+</div>
+</div>
 <h5 id="permissions_1">Permissions</h5>
 <p>Following permissions are required when generating plan and tasks:</p>
 <details class="tip">
@@ -981,8 +1124,20 @@ Sample can be found below</p>
 <h3 id="cassandra">Cassandra</h3>
 <p>Follows same configuration as defined by the Spark Cassandra Connector as
 found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md">here</a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Scala</label><label for="__tabbed_8_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">cassandra</span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;customer_cassandra&quot;</span><span class="p">,</span><span class="w">   </span><span class="n">#name</span>
+<span class="w">    </span><span class="s">&quot;localhost:9042&quot;</span><span class="p">,</span><span class="w">       </span><span class="n">#url</span>
+<span class="w">    </span><span class="s">&quot;cassandra&quot;</span><span class="p">,</span><span class="w">            </span><span class="n">#username</span>
+<span class="w">    </span><span class="s">&quot;cassandra&quot;</span><span class="p">,</span><span class="w">            </span><span class="n">#password</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>org.apache.spark.sql.cassandra {
-    cassandra {
+    customer_cassandra {
         spark.cassandra.connection.host = &quot;localhost&quot;
         spark.cassandra.connection.host = ${?CASSANDRA_HOST}
         spark.cassandra.connection.port = &quot;9042&quot;
@@ -994,6 +1149,9 @@ found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master
     }
 }
 </code></pre></div>
+</div>
+</div>
+</div>
 <h5 id="permissions_2">Permissions</h5>
 <p>Ensure that the user has write permission, so it is able to save the table to the target tables.</p>
 <details class="tip">
@@ -1013,13 +1171,26 @@ found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master
 level.<br />
 Further details can be
 found <a href="https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka">here</a></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Scala</label><label for="__tabbed_9_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">kafka</span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;customer_kafka&quot;</span><span class="p">,</span><span class="w">   </span><span class="n">#name</span>
+<span class="w">    </span><span class="s">&quot;localhost:9092&quot;</span><span class="w">    </span><span class="n">#url</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>kafka {
-    kafka {
+    customer_kafka {
         kafka.bootstrap.servers = &quot;localhost:9092&quot;
         kafka.bootstrap.servers = ${?KAFKA_BOOTSTRAP_SERVERS}
     }
 }
 </code></pre></div>
+</div>
+</div>
+</div>
 <p>When defining your schema for pushing data to Kafka, it follows a specific top level schema.<br />
 An example can be found <a href="../../../sample/docker/data/custom/task/kafka/kafka-account-task.yaml">here</a>.<br />
 You can define the key, value, headers, partition or topic by following the linked schema.</p>
@@ -1027,8 +1198,23 @@ You can define the key, value, headers, partition or topic by following the link
 <p>Uses JNDI lookup to send messages to JMS queue. Ensure that the messaging system you are using has your queue/topic
 registered
 via JNDI otherwise a connection cannot be created.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Scala</label><label for="__tabbed_10_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">solace</span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;customer_solace&quot;</span><span class="p">,</span><span class="w">                                      </span><span class="n">#name</span>
+<span class="w">    </span><span class="s">&quot;smf://localhost:55554&quot;</span><span class="p">,</span><span class="w">                                </span><span class="n">#url</span>
+<span class="w">    </span><span class="s">&quot;admin&quot;</span><span class="p">,</span><span class="w">                                                </span><span class="n">#username</span>
+<span class="w">    </span><span class="s">&quot;admin&quot;</span><span class="p">,</span><span class="w">                                                </span><span class="n">#password</span>
+<span class="w">    </span><span class="s">&quot;default&quot;</span><span class="p">,</span><span class="w">                                              </span><span class="n">#vpn</span><span class="w"> </span><span class="n">name</span>
+<span class="w">    </span><span class="s">&quot;/jms/cf/default&quot;</span><span class="p">,</span><span class="w">                                      </span><span class="n">#connection</span><span class="w"> </span><span class="n">factory</span>
+<span class="w">    </span><span class="s">&quot;com.solacesystems.jndi.SolJNDIInitialContextFactory&quot;</span><span class="w">   </span><span class="n">#initial</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="n">factory</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>jms {
-    solace {
+    customer_solace {
         initialContextFactory = &quot;com.solacesystems.jndi.SolJNDIInitialContextFactory&quot;
         connectionFactory = &quot;/jms/cf/default&quot;
         url = &quot;smf://localhost:55555&quot;
@@ -1042,9 +1228,23 @@ via JNDI otherwise a connection cannot be created.</p>
     }
 }
 </code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="http">HTTP</h3>
 <p>Define any username and/or password needed for the HTTP requests.<br />
 The url is defined in the tasks to allow for generated data to be populated in the url.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Scala</label><label for="__tabbed_11_2">application.conf</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">http</span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;customer_api&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">#name</span>
+<span class="w">    </span><span class="s">&quot;admin&quot;</span><span class="p">,</span><span class="w">        </span><span class="n">#username</span>
+<span class="w">    </span><span class="s">&quot;admin&quot;</span><span class="w">         </span><span class="n">#password</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>http {
     customer_api {
         user = &quot;admin&quot;
@@ -1054,6 +1254,9 @@ The url is defined in the tasks to allow for generated data to be populated in t
     }
 }
 </code></pre></div>
+</div>
+</div>
+</div>
 
 
 

@@ -7,36 +7,72 @@ There are options related to controlling the number of records generated that ca
 Total count is the simplest as you define the total number of records you require for that particular step.
 For example, in the below step, it will generate 1000 records for the CSV file  
 
-```yaml
-name: "csv_file"
-steps:
-  - name: "transactions"
-    type: "csv"
-    options:
-      path: "app/src/test/resources/sample/csv/transactions"
-    count:
-      total: 1000
-```
+=== "Scala"
+
+    ```scala
+    task
+      .name("csv_file")
+      .step(
+        step
+          .name("transactions")
+          .`type`("csv")
+          .option("path", "app/src/test/resources/sample/csv/transactions")
+          .count(1000)
+      )
+    ```
+
+=== "YAML"
+
+    ```yaml
+    name: "csv_file"
+    steps:
+      - name: "transactions"
+        type: "csv"
+        options:
+          path: "app/src/test/resources/sample/csv/transactions"
+        count:
+          total: 1000
+    ```
 
 ## Generated Count
 
 As like most things in data-caterer, the count can be generated based on some metadata.
 For example, if I wanted to generate between 1000 and 2000 records, I could define that by the below configuration:
 
-```yaml
-name: "csv_file"
-steps:
-  - name: "transactions"
-    type: "csv"
-    options:
-      path: "app/src/test/resources/sample/csv/transactions"
-    count:
-      generator:
-        type: "random"
+=== "Scala"
+
+    ```scala
+    task
+      .name("csv_file")
+      .step(
+        step
+          .name("transactions")
+          .`type`("csv")
+          .option("path", "app/src/test/resources/sample/csv/transactions")
+          .count(
+            generator
+              .min(1000)
+              .max(2000)
+          )
+      )
+    ```
+
+=== "YAML"
+
+    ```yaml
+    name: "csv_file"
+    steps:
+      - name: "transactions"
+        type: "csv"
         options:
-          min: 1000
-          max: 2000
-```
+          path: "app/src/test/resources/sample/csv/transactions"
+        count:
+          generator:
+            type: "random"
+            options:
+              min: 1000
+              max: 2000
+    ```
 
 ## Per Column Count
 
@@ -56,21 +92,42 @@ This is a fixed number of records that will be generated each time, with no vari
 In the example below, we have `count.total = 1000` and `count.perColumn.total = 2`. Which means that `1000 * 2 = 2000` records will be generated
 for this CSV file every time data gets generated.
 
-```yaml
-name: "csv_file"
-steps:
-  - name: "transactions"
-    type: "csv"
-    options:
-      path: "app/src/test/resources/sample/csv/transactions"
-    count:
-      total: 1000
-      perColumn:
-        total: 2
-        columnNames:
-          - "account_id"
-          - "name"
-```
+=== "Scala"
+
+    ```scala
+    task
+      .name("csv_file")
+      .step(
+        step
+          .name("transactions")
+          .`type`("csv")
+          .option("path", "app/src/test/resources/sample/csv/transactions")
+          .count(
+            count
+              .total(1000)
+              .perColumnTotal(2)
+              .columns("account_id", "name")
+          )
+      )
+    ```
+
+=== "YAML"
+
+    ```yaml
+    name: "csv_file"
+    steps:
+      - name: "transactions"
+        type: "csv"
+        options:
+          path: "app/src/test/resources/sample/csv/transactions"
+        count:
+          total: 1000
+          perColumn:
+            total: 2
+            columnNames:
+              - "account_id"
+              - "name"
+    ```
 
 ### Generated
 
@@ -80,22 +137,47 @@ per set of columns.
 In the example below, it will generate between `(count.total * count.perColumn.generator.options.minValue) = (1000 * 1) = 1000` and
 `(count.total * count.perColumn.generator.options.maxValue) = (1000 * 2) = 2000` records.
 
-```yaml
-name: "csv_file"
-steps:
-  - name: "transactions"
-    type: "csv"
-    options:
-      path: "app/src/test/resources/sample/csv/transactions"
-    count:
-      total: 1000
-      perColumn:
-        columnNames:
-          - "account_id"
-          - "name"
-        generator:
-          type: "random"
-          options:
-            maxValue: 2
-            minValue: 1
-```
+
+=== "Scala"
+
+    ```scala
+    task
+      .name("csv_file")
+      .step(
+        step
+          .name("transactions")
+          .`type`("csv")
+          .option("path", "app/src/test/resources/sample/csv/transactions")
+          .count(
+            count
+              .columns("account_id", "name")
+              .perColumnGenerator(
+                generator
+                  .min(1)
+                  .max(2)
+              )
+          )
+      )
+    ```
+
+=== "YAML"
+
+    ```yaml
+    name: "csv_file"
+    steps:
+      - name: "transactions"
+        type: "csv"
+        options:
+          path: "app/src/test/resources/sample/csv/transactions"
+        count:
+          total: 1000
+          perColumn:
+            columnNames:
+              - "account_id"
+              - "name"
+            generator:
+              type: "random"
+              options:
+                max: 2
+                min: 1
+    ```

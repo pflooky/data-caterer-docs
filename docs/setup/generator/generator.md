@@ -37,14 +37,15 @@ descriptions:
 
 ### String
 
-| Option     | Default | Example                                                                                   | Description                                                                                                                                                                                                             |
-|------------|---------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| minLen     | 1       | minLen: "2"                                                                               | Ensures that all generated strings have at least length `minLen`                                                                                                                                                        |
-| maxLen     | 10      | maxLen: "15"                                                                              | Ensures that all generated strings have at most length `maxLen`                                                                                                                                                         |
+| Option     | Default | Example                                                                                   | Description                                                                                                                                                                                                                |
+|------------|---------|-------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| minLen     | 1       | minLen: "2"                                                                               | Ensures that all generated strings have at least length `minLen`                                                                                                                                                           |
+| maxLen     | 10      | maxLen: "15"                                                                              | Ensures that all generated strings have at most length `maxLen`                                                                                                                                                            |
 | expression | <empty> | expression: "#{Name.name}"<br/> expression:"#{Address.city}/#{Demographic.maritalStatus}" | Will generate a string based on the faker expression provided. All possible faker expressions can be found [here](../../sample/datafaker/expressions.txt)<br/> Expression has to be in format `#{<faker expression name>}` |
-| enableNull | false   | enableNull: "true"                                                                        | Enable/disable null values being generated                                                                                                                                                                              |
+| enableNull | false   | enableNull: "true"                                                                        | Enable/disable null values being generated                                                                                                                                                                                 |
 
-**Edge cases**: ("", "\n", "\r", "\t", " ", "\\u0000", "\\ufff")
+**Edge cases**: ("", "\n", "\r", "\t", " ", "\\u0000", "\\ufff", "İyi günler", "Спасибо", "Καλημέρα", "صباح الخير", "
+Förlåt", "你好吗", "Nhà vệ sinh ở đâu", "こんにちは", "नमस्ते", "Բարեւ", "Здравейте")
 
 ### Numeric
 
@@ -58,9 +59,9 @@ as defined by the data source (i.e. max value as per database type).
 
 | Option   | Default | Example        | Description                                                                                                                                                   |
 |----------|---------|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| minValue | 0       | minValue: "2"  | Ensures that all generated values are greater than or equal to `minValue`                                                                                     |
+| minValue | 0       | min: "2"  | Ensures that all generated values are greater than or equal to `minValue`                                                                                     |
 | min      | 0       | min: "2"       | Ensures that all generated values are greater than or equal to `min`. If `minValue` is defined, `minValue` will define the lowest possible generated value    |
-| maxValue | 1000    | maxValue: "25" | Ensures that all generated values are less than or equal to `maxValue`                                                                                        |
+| maxValue | 1000    | max: "25" | Ensures that all generated values are less than or equal to `maxValue`                                                                                        |
 | max      | 1000    | max: "25"      | Ensures that all generated values are less than or equal to `maxValue`. If `maxValue` is defined, `maxValue` will define the largest possible generated value |
 
 **Edge cases Integer**: (2147483647, -2147483648, 0)  
@@ -71,9 +72,9 @@ as defined by the data source (i.e. max value as per database type).
 
 | Option   | Default | Example          | Description                                                                                                                                                   |
 |----------|---------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| minValue | 0.0     | minValue: "2.1"  | Ensures that all generated values are greater than or equal to `minValue`                                                                                     |
+| minValue | 0.0     | min: "2.1"  | Ensures that all generated values are greater than or equal to `minValue`                                                                                     |
 | min      | 0.0     | min: "2.1"       | Ensures that all generated values are greater than or equal to `min`. If `minValue` is defined, `minValue` will define the lowest possible generated value    |
-| maxValue | 1000.0  | maxValue: "25.9" | Ensures that all generated values are less than or equal to `maxValue`                                                                                        |
+| maxValue | 1000.0  | max: "25.9" | Ensures that all generated values are less than or equal to `maxValue`                                                                                        |
 | max      | 1000.0  | max: "25.9"      | Ensures that all generated values are less than or equal to `maxValue`. If `maxValue` is defined, `maxValue` will define the largest possible generated value |
 
 **Edge cases Double**: (+infinity, 1.7976931348623157e+308, 4.9e-324, 0.0, -0.0, -1.7976931348623157e+308, -infinity,

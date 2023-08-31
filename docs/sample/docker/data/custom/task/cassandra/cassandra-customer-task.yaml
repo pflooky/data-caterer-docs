@@ -20,8 +20,8 @@ steps:
           generator:
             type: "random"
             options:
-              minValue: 10.0
-              maxValue: 100.0
+              min: 10.0
+              max: 100.0
         - name: "name"
           type: "string"
           generator:
@@ -56,8 +56,8 @@ steps:
         generator:
           type: "random"
           options:
-            maxValue: 5
-            minValue: 1
+            max: 5
+            min: 1
     options:
       keyspace: "account"
       table: "account_status_history"

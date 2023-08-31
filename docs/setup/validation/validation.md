@@ -11,20 +11,38 @@ data profile is to expected data profile).
 
 ## Sample
 
-```yaml
----
-name: "account_checks"
-description: "Check account related fields have gone through system correctly"
-dataSources:
-  accountJson:
-    options:
-      path: "sample/json/txn-gen"
-    validations:
-      - expr: "amount < 100"
-      - expr: "year == 2021"
-        errorThreshold: 0.1   #equivalent to if error percentage is >= 10%, then fail
-      - expr: "regexp_like(name, 'Peter .*')"
-        errorThreshold: 200   #equivalent to if number of errors is >= 200, then fail
-```
+=== "Scala"
+
+    ```scala
+    validationConfig
+      .name("account_checks")
+      .description("Check account related fields have gone through system correctly")
+      .addValidations(
+        "accountJson",
+        Map("path" -> "sample/json/txn-gen"),
+        validation.expr("amount < 100"),
+        validation.expr("year == 2021").errorThreshold(0.1),
+        validation.expr("regexp_like(name, 'Peter .*')").errorThreshold(200).description("Should be lots of Peters")
+      )
+    ```
+
+=== "YAML"
+
+    ```yaml
+    ---
+    name: "account_checks"
+    description: "Check account related fields have gone through system correctly"
+    dataSources:
+      accountJson:
+        options:
+          path: "sample/json/txn-gen"
+        validations:
+          - expr: "amount < 100"
+          - expr: "year == 2021"
+            errorThreshold: 0.1   #equivalent to if error percentage is >= 10%, then fail
+          - expr: "regexp_like(name, 'Peter .*')"
+            errorThreshold: 200   #equivalent to if number of errors is >= 200, then fail
+            description: "Should be lots of Peters"
+    ```
 
 Once run, it will produce a report like [this](../../sample/docker/data/report/html/validations.html).

@@ -54,12 +54,16 @@
   
     
     
+      
+    
     
     
     
     <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -107,6 +111,30 @@
       </div>
     </div>
     
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+              </label>
+            
+          
+        </form>
       
     
     
@@ -939,7 +967,8 @@ descriptions:</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Edge cases</strong>: ("", "\n", "\r", "\t", " ", "\u0000", "\ufff")</p>
+<p><strong>Edge cases</strong>: ("", "\n", "\r", "\t", " ", "\u0000", "\ufff", "İyi günler", "Спасибо", "Καλημέρα", "صباح الخير", "
+Förlåt", "你好吗", "Nhà vệ sinh ở đâu", "こんにちは", "नमस्ते", "Բարեւ", "Здравейте")</p>
 <h3 id="numeric">Numeric</h3>
 <p>For all the numeric data types, there are 4 options to choose from: min, minValue, max and maxValue.
 Generally speaking, you only need to define one of min or minValue, similarly with max or maxValue.<br />
@@ -960,7 +989,7 @@ as defined by the data source (i.e. max value as per database type).</p>
 <tr>
 <td>minValue</td>
 <td>0</td>
-<td>minValue: "2"</td>
+<td>min: "2"</td>
 <td>Ensures that all generated values are greater than or equal to <code>minValue</code></td>
 </tr>
 <tr>
@@ -972,7 +1001,7 @@ as defined by the data source (i.e. max value as per database type).</p>
 <tr>
 <td>maxValue</td>
 <td>1000</td>
-<td>maxValue: "25"</td>
+<td>max: "25"</td>
 <td>Ensures that all generated values are less than or equal to <code>maxValue</code></td>
 </tr>
 <tr>
@@ -1000,7 +1029,7 @@ as defined by the data source (i.e. max value as per database type).</p>
 <tr>
 <td>minValue</td>
 <td>0.0</td>
-<td>minValue: "2.1"</td>
+<td>min: "2.1"</td>
 <td>Ensures that all generated values are greater than or equal to <code>minValue</code></td>
 </tr>
 <tr>
@@ -1012,7 +1041,7 @@ as defined by the data source (i.e. max value as per database type).</p>
 <tr>
 <td>maxValue</td>
 <td>1000.0</td>
-<td>maxValue: "25.9"</td>
+<td>max: "25.9"</td>
 <td>Ensures that all generated values are less than or equal to <code>maxValue</code></td>
 </tr>
 <tr>
