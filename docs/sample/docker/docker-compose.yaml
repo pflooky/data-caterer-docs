@@ -1,9 +1,8 @@
 version: "3.9"
 services:
   datacaterer:
-#    image: "datacatering/data-caterer-basic:0.2.2"
-    image: "datacatering/data-caterer:0.2.2"
-#    entrypoint: [ "sleep", "1000000" ]
+    image: "datacatering/data-caterer-basic:0.3.3"
+#    image: "datacatering/data-caterer:0.2.2"
     environment:
       - "APPLICATION_CONFIG_PATH=${APPLICATION_CONFIG_PATH:-/opt/app/custom/application.conf}"
       - "PLAN_FILE_PATH=/opt/app/custom/${PLAN:-plan/${DATA_SOURCE:-postgres}}.yaml"

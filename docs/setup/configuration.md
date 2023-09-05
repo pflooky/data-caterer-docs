@@ -68,7 +68,7 @@ These folder pathways can be defined as a cloud storage pathway (i.e. `s3a://my-
 | `planFilePath`                   | /opt/app/plan/customer-create-plan.yaml | N    | Plan file path to use when generating and/or validating data                                                        |
 | `taskFolderPath`                 | /opt/app/task                           | N    | Task folder path that contains all the task files (can have nested directories)                                     |
 | `validationFolderPath`           | /opt/app/validation                     | N    | Validation folder path that contains all the validation files (can have nested directories)                         |
-| `generatedReportsFolderPath`     | /opt/app/html                           | N    | Where HTML reports get generated that contain information about data generated along with any validations performed |
+| `generatedReportsFolderPath`     | /opt/app/report                         | N    | Where HTML reports get generated that contain information about data generated along with any validations performed |
 | `generatedPlanAndTaskFolderPath` | /tmp                                    | Y    | Folder path where generated plan and task files will be saved                                                       |
 | `recordTrackingFolderPath`       | /opt/app/record-tracking                | Y    | Where record tracking parquet files get saved                                                                       |
 
@@ -121,8 +121,8 @@ when analysing the generated data if the number of records generated is large.
 | `numRecordsFromDataSource`           | 10000   | Y    | Number of records read in from the data source that could be used for data profiling                                                                                                                                    |
 | `numRecordsForAnalysis`              | 10000   | Y    | Number of records used for data profiling from the records gathered in `numRecordsFromDataSource`                                                                                                                       |
 | `oneOfMinCount`                      | 1000    | N    | Minimum number of records required before considering if a field can be of type `oneOf`                                                                                                                                 |
-| `oneOfDistinctCountVsCountThreshold` | 0.1     | Y    | Threshold ratio to determine if a field is of type `oneOf` (i.e. a field called `status` that only contains `open` or `closed`. Distinct count = 2, total count = 10, ratio = 2 / 10 = 0.2 therefore marked as `oneOf`) |
-| `numGeneratedSamples`                | 10      | N    | Number of sample records from generated data to take. Shown in HTML report when validation rules fail                                                                                                                   |
+| `oneOfDistinctCountVsCountThreshold` | 0.2     | Y    | Threshold ratio to determine if a field is of type `oneOf` (i.e. a field called `status` that only contains `open` or `closed`. Distinct count = 2, total count = 10, ratio = 2 / 10 = 0.2 therefore marked as `oneOf`) |
+| `numGeneratedSamples`                | 10      | N    | Number of sample records from generated data to take. Shown in HTML report                                                                                                                                              |
 
 === "Scala"
 
@@ -142,7 +142,7 @@ when analysing the generated data if the number of records generated is large.
       numRecordsFromDataSource = 10000
       numRecordsForAnalysis = 10000
       oneOfMinCount = 1000
-      oneOfDistinctCountVsCountThreshold = 0.1
+      oneOfDistinctCountVsCountThreshold = 0.2
       numGeneratedSamples = 10
     }
     ```

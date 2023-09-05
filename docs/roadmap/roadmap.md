@@ -20,3 +20,6 @@
 - Overriding tasks
     - Can customise tasks without copying whole schema definitions
     - Easier to create scenarios
+- Integration with Great Expectations
+    - Data validations can reference expectations
+- Gradle plugin

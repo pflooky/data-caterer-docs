@@ -424,6 +424,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#api" class="md-nav__link">
+    API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#run-with-multiple-sub-data-sources" class="md-nav__link">
     Run with multiple sub data sources
   </a>
@@ -806,9 +813,9 @@
 <span class="nb">cd</span><span class="w"> </span>data-caterer-docs/docs/sample/docker
 docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
 </code></pre></div>
-<p>To run for another data source, you can set <code>DATA_SOURCE</code> like below:
+<p>To run for another data source, you can set <code>DATA_SOURCE</code> like below:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">DATA_SOURCE</span><span class="o">=</span>postgres<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
-</code></pre></div></p>
+</code></pre></div>
 <p>Can set it to one of the following:</p>
 <ul>
 <li>postgres</li>
@@ -818,15 +825,51 @@ docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w
 <li>kafka</li>
 <li>http</li>
 </ul>
-<p>If you want to test it out with your own setup, you can alter the corresponding files under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data">docs/sample/docker/data</a></p>
+<p>If you want to test it out with your own setup, you can alter the corresponding files
+under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data">docs/sample/docker/data</a></p>
 <h4 id="report">Report</h4>
 <p>Check the report generated under <code>docs/sample/docker/data/custom/report/index.html</code>.</p>
 <p>Sample report can also be seen <a href="../../sample/docker/data/report/html/">here</a></p>
+<h3 id="api">API</h3>
+<p>A Scala API is available to use to create your own data generation scenario.</p>
+<p>You can check out the example project found <a href="https://github.com/pflooky/data-caterer-example">here</a> or can follow the
+below:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">pflooky</span><span class="p">.</span><span class="nn">datacaterer</span><span class="p">.</span><span class="nn">api</span><span class="p">.</span><span class="nc">PlanRun</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">pflooky</span><span class="p">.</span><span class="nn">datacaterer</span><span class="p">.</span><span class="nn">api</span><span class="p">.</span><span class="nn">model</span><span class="p">.{</span><span class="nc">ArrayType</span><span class="p">,</span><span class="w"> </span><span class="nc">DateType</span><span class="p">,</span><span class="w"> </span><span class="nc">DoubleType</span><span class="p">}</span>
+
+<span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">sql</span><span class="p">.</span><span class="nc">Date</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ExamplePlanRun</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">jsonTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tasks</span><span class="p">.</span><span class="n">addTasks</span><span class="p">(</span><span class="s">&quot;my_json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">task</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_json&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">step</span><span class="p">(</span>
+<span class="w">        </span><span class="n">step</span>
+<span class="w">          </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_info&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="p">.</span><span class="n">option</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;/tmp/data-caterer/json&quot;</span><span class="p">)</span>
+<span class="w">          </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span><span class="n">schema</span><span class="p">.</span><span class="n">addFields</span><span class="p">(</span>
+<span class="w">            </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="n">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="n">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;first_txn_date&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DateType</span><span class="p">).</span><span class="n">sql</span><span class="p">(</span><span class="s">&quot;element_at(sort_array(txn_list.date), 1)&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;txn_list&quot;</span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="n">`type`</span><span class="p">(</span><span class="nc">ArrayType</span><span class="p">)</span>
+<span class="w">              </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span><span class="n">schema</span><span class="p">.</span><span class="n">addFields</span><span class="p">(</span>
+<span class="w">                </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DateType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="nc">Date</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
+<span class="w">                </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">)</span>
+<span class="w">              </span><span class="p">))</span>
+<span class="w">          </span><span class="p">))</span>
+<span class="w">      </span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">execute</span><span class="p">(</span><span class="n">jsonTask</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="run-with-multiple-sub-data-sources">Run with multiple sub data sources</h3>
 <p>In the context of Postgres data sources, tables are sub data sources that data can be generated for.</p>
-<p>Try to run the following command:
+<p>Try to run the following command:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">PLAN</span><span class="o">=</span>plan/postgres-multiple-tables<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="run-with-multiple-data-sources">Run with multiple data sources</h3>
 <h4 id="postgres-and-csv-file">Postgres and CSV File</h4>
 <div class="highlight"><pre><span></span><code><span class="nv">PLAN</span><span class="o">=</span>plan/scenario-based<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
@@ -838,15 +881,14 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 account_id, name combination in the CSV file.</p>
 <h3 id="run-with-custom-data-sources">Run with custom data sources</h3>
 <ol>
-<li>Create/alter plan under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/plan"><code>data/custom/plan</code></a></li>
-<li>Create/alter tasks under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/task"><code>data/custom/task</code></a><ol>
+<li>Create/alter plan
+   under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/plan"><code>data/custom/plan</code></a></li>
+<li>Create/alter tasks
+   under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/task"><code>data/custom/task</code></a></li>
 <li>Define your schemas and generator configurations such as record count</li>
-</ol>
-</li>
-<li>Create/alter application configuration <a href="https://github.com/pflooky/data-caterer-docs/blob/main/docs/sample/docker/data/custom/application.conf"><code>data/custom/application.conf</code></a><ol>
+<li>Create/alter application
+   configuration <a href="https://github.com/pflooky/data-caterer-docs/blob/main/docs/sample/docker/data/custom/application.conf"><code>data/custom/application.conf</code></a></li>
 <li>This is where you define your connection properties and other flags/configurations</li>
-</ol>
-</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="nv">DATA_SOURCE</span><span class="o">=</span>&lt;data<span class="w"> </span><span class="nb">source</span><span class="w"> </span>name&gt;<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
 </code></pre></div>
@@ -862,7 +904,8 @@ cat<span class="w"> </span>data/custom/generated/plan/plan_*
 </code></pre></div>
 <h2 id="helm">Helm</h2>
 <p><a href="https://github.com/pflooky/data-caterer-docs/tree/main/helm/data-caterer">Link to sample helm on GitHub here</a></p>
-<p>Update the <a href="https://github.com/pflooky/data-caterer-docs/blob/main/helm/data-caterer/templates/configuration.yaml">configuration</a>
+<p>Update
+the <a href="https://github.com/pflooky/data-caterer-docs/blob/main/helm/data-caterer/templates/configuration.yaml">configuration</a>
 to your own data connections and configuration.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-docs.git
 helm<span class="w"> </span>install<span class="w"> </span>data-caterer<span class="w"> </span>./data-caterer-docs/helm/data-caterer

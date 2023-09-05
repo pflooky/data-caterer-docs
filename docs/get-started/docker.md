@@ -11,12 +11,13 @@ docker-compose up -d datacaterer
 ```
 
 To run for another data source, you can set `DATA_SOURCE` like below:
+
 ```shell
 DATA_SOURCE=postgres docker-compose up -d datacaterer
 ```
-  
+
 Can set it to one of the following:
-  
+
 - postgres
 - mysql
 - cassandra
@@ -24,19 +25,61 @@ Can set it to one of the following:
 - kafka
 - http
 
-If you want to test it out with your own setup, you can alter the corresponding files under [docs/sample/docker/data](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data)
+If you want to test it out with your own setup, you can alter the corresponding files
+under [docs/sample/docker/data](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data)
 
 #### Report
 
 Check the report generated under `docs/sample/docker/data/custom/report/index.html`.
-  
+
 Sample report can also be seen [here](../sample/docker/data/report/html/index.html)
+
+### API
+
+A Scala API is available to use to create your own data generation scenario.
+
+You can check out the example project found [here](https://github.com/pflooky/data-caterer-example) or can follow the
+below:
+
+```scala
+import com.github.pflooky.datacaterer.api.PlanRun
+import com.github.pflooky.datacaterer.api.model.{ArrayType, DateType, DoubleType}
+
+import java.sql.Date
+
+class ExamplePlanRun extends PlanRun {
+
+  val jsonTask = tasks.addTasks("my_json",
+    task.name("account_json")
+      .step(
+        step
+          .name("account_info")
+          .option("path" -> "/tmp/data-caterer/json")
+          .schema(schema.addFields(
+            field.name("account_id").regex("ACC[0-9]{8}"),
+            field.name("name").expression("#{Name.name}"),
+            field.name("first_txn_date").`type`(DateType).sql("element_at(sort_array(txn_list.date), 1)"),
+            field.name("txn_list")
+              .`type`(ArrayType)
+              .schema(schema.addFields(
+                field.name("id"),
+                field.name("date").`type`(DateType).min(Date.valueOf("2022-01-01")),
+                field.name("amount").`type`(DoubleType).max(1000.0)
+              ))
+          ))
+      )
+  )
+
+  execute(jsonTask)
+}
+```
 
 ### Run with multiple sub data sources
 
 In the context of Postgres data sources, tables are sub data sources that data can be generated for.
-  
+
 Try to run the following command:
+
 ```shell
 PLAN=plan/postgres-multiple-tables docker-compose up -d datacaterer
 ```
@@ -55,15 +98,16 @@ docker exec docker-postgres-1 psql -Upostgres -d customer -c "SELECT * FROM acco
 You should be able to see the linked data between Postgres and the CSV file created along with 1 to 10 records per
 account_id, name combination in the CSV file.
 
-
-
 ### Run with custom data sources
 
-1. Create/alter plan under [`data/custom/plan`](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/plan)
-2. Create/alter tasks under [`data/custom/task`](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/task)
-    1. Define your schemas and generator configurations such as record count
-3. Create/alter application configuration [`data/custom/application.conf`](https://github.com/pflooky/data-caterer-docs/blob/main/docs/sample/docker/data/custom/application.conf)
-    1. This is where you define your connection properties and other flags/configurations
+1. Create/alter plan
+   under [`data/custom/plan`](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/plan)
+2. Create/alter tasks
+   under [`data/custom/task`](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/task)
+1. Define your schemas and generator configurations such as record count
+3. Create/alter application
+   configuration [`data/custom/application.conf`](https://github.com/pflooky/data-caterer-docs/blob/main/docs/sample/docker/data/custom/application.conf)
+1. This is where you define your connection properties and other flags/configurations
 
 ```shell
 DATA_SOURCE=<data source name> docker-compose up -d datacaterer
@@ -92,7 +136,8 @@ APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DAT
 
 [Link to sample helm on GitHub here](https://github.com/pflooky/data-caterer-docs/tree/main/helm/data-caterer)
 
-Update the [configuration](https://github.com/pflooky/data-caterer-docs/blob/main/helm/data-caterer/templates/configuration.yaml)
+Update
+the [configuration](https://github.com/pflooky/data-caterer-docs/blob/main/helm/data-caterer/templates/configuration.yaml)
 to your own data connections and configuration.
 
 ```shell

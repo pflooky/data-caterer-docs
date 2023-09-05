@@ -876,7 +876,7 @@ records generated.</p>
 </tr>
 <tr>
 <td><code>generatedReportsFolderPath</code></td>
-<td>/opt/app/html</td>
+<td>/opt/app/report</td>
 <td>N</td>
 <td>Where HTML reports get generated that contain information about data generated along with any validations performed</td>
 </tr>
@@ -965,7 +965,7 @@ when analysing the generated data if the number of records generated is large.</
 </tr>
 <tr>
 <td><code>oneOfDistinctCountVsCountThreshold</code></td>
-<td>0.1</td>
+<td>0.2</td>
 <td>Y</td>
 <td>Threshold ratio to determine if a field is of type <code>oneOf</code> (i.e. a field called <code>status</code> that only contains <code>open</code> or <code>closed</code>. Distinct count = 2, total count = 10, ratio = 2 / 10 = 0.2 therefore marked as <code>oneOf</code>)</td>
 </tr>
@@ -973,7 +973,7 @@ when analysing the generated data if the number of records generated is large.</
 <td><code>numGeneratedSamples</code></td>
 <td>10</td>
 <td>N</td>
-<td>Number of sample records from generated data to take. Shown in HTML report when validation rules fail</td>
+<td>Number of sample records from generated data to take. Shown in HTML report</td>
 </tr>
 </tbody>
 </table>
@@ -993,7 +993,7 @@ when analysing the generated data if the number of records generated is large.</
   numRecordsFromDataSource = 10000
   numRecordsForAnalysis = 10000
   oneOfMinCount = 1000
-  oneOfDistinctCountVsCountThreshold = 0.1
+  oneOfDistinctCountVsCountThreshold = 0.2
   numGeneratedSamples = 10
 }
 </code></pre></div>
