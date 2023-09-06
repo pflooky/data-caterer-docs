@@ -750,7 +750,7 @@ For example, if I have the column <code>account_number</code> in a data source n
 in <code>transaction-cassandra</code>,</p>
 <div class="highlight"><pre><span></span><code><span class="nt">sinkOptions</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">foreignKeys</span><span class="p">:</span>
-<span class="w">    </span><span class="c1">#The foreign key name with naming convention [dataSourceName].[taskName].[columnName]</span>
+<span class="w">    </span><span class="c1">#The foreign key name with naming convention [dataSourceName].[stepName].[columnName]</span>
 <span class="w">    </span><span class="s">&quot;customer-postgres.accounts.account_number&quot;</span><span class="p p-Indicator">:</span>
 <span class="w">      </span><span class="c1">#List of columns to match with same naming convention</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;transaction-cassandra.transactions.account_id&quot;</span>

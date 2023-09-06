@@ -21,7 +21,7 @@ in `transaction-cassandra`,
 ```yaml
 sinkOptions:
   foreignKeys:
-    #The foreign key name with naming convention [dataSourceName].[taskName].[columnName]
+    #The foreign key name with naming convention [dataSourceName].[stepName].[columnName]
     "customer-postgres.accounts.account_number":
       #List of columns to match with same naming convention
       - "transaction-cassandra.transactions.account_id"
