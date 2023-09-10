@@ -428,6 +428,19 @@
     API
   </a>
   
+    <nav class="md-nav" aria-label="API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-with-api" class="md-nav__link">
+    Run with API
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -831,9 +844,48 @@ under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sampl
 <p>Check the report generated under <code>docs/sample/docker/data/custom/report/index.html</code>.</p>
 <p>Sample report can also be seen <a href="../../sample/docker/data/report/html/">here</a></p>
 <h3 id="api">API</h3>
-<p>A Scala API is available to use to create your own data generation scenario.</p>
-<p>You can check out the example project found <a href="https://github.com/pflooky/data-caterer-example">here</a> or can follow the
-below:</p>
+<p>A Java and Scala API is available to use to create your own data generation scenario.</p>
+<p>You can check out the example project found <a href="https://github.com/pflooky/data-caterer-example">here</a> via:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-example.git
+</code></pre></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">com.github.pflooky.datacaterer.api.java.PlanRun</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.github.pflooky.datacaterer.api.model.ArrayType</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.github.pflooky.datacaterer.api.model.DateType</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.github.pflooky.datacaterer.api.model.DoubleType</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">com.github.pflooky.datacaterer.api.model.IntegerType</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.sql.Date</span><span class="p">;</span>
+
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DocumentationJavaPlanRun</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="n">myJson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="p">(</span><span class="s">&quot;account_info&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/tmp/data-caterer/json&quot;</span><span class="p">)</span>
+<span class="w">         </span><span class="p">.</span><span class="na">numPartitions</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">         </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">            </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">IntegerType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">2022</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">2023</span><span class="p">),</span>
+<span class="w">            </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="na">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">max</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">),</span>
+<span class="w">            </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DateType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="n">Date</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
+<span class="w">            </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">).</span><span class="na">oneOf</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;closed&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;txn_list&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">ArrayType</span><span class="p">.</span><span class="na">instance</span><span class="p">())</span>
+<span class="w">               </span><span class="p">.</span><span class="na">arrayMaxLength</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">               </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span><span class="n">schema</span><span class="p">().</span><span class="na">addFields</span><span class="p">(</span>
+<span class="w">                  </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">).</span><span class="na">regex</span><span class="p">(</span><span class="s">&quot;ID[0-9]{4}&quot;</span><span class="p">),</span>
+<span class="w">                  </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DateType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="n">Date</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
+<span class="w">                  </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">max</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">)</span>
+<span class="w">               </span><span class="p">))</span>
+<span class="w">         </span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">count</span><span class="p">().</span><span class="na">total</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+
+<span class="w">      </span><span class="n">execute</span><span class="p">(</span><span class="n">myJson</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">pflooky</span><span class="p">.</span><span class="nn">datacaterer</span><span class="p">.</span><span class="nn">api</span><span class="p">.</span><span class="nc">PlanRun</span>
 <span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">pflooky</span><span class="p">.</span><span class="nn">datacaterer</span><span class="p">.</span><span class="nn">api</span><span class="p">.</span><span class="nn">model</span><span class="p">.{</span><span class="nc">ArrayType</span><span class="p">,</span><span class="w"> </span><span class="nc">DateType</span><span class="p">,</span><span class="w"> </span><span class="nc">DoubleType</span><span class="p">}</span>
 
@@ -841,30 +893,34 @@ below:</p>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">ExamplePlanRun</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">jsonTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tasks</span><span class="p">.</span><span class="n">addTasks</span><span class="p">(</span><span class="s">&quot;my_json&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">task</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_json&quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="n">step</span><span class="p">(</span>
-<span class="w">        </span><span class="n">step</span>
-<span class="w">          </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_info&quot;</span><span class="p">)</span>
-<span class="w">          </span><span class="p">.</span><span class="n">option</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;/tmp/data-caterer/json&quot;</span><span class="p">)</span>
-<span class="w">          </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span><span class="n">schema</span><span class="p">.</span><span class="n">addFields</span><span class="p">(</span>
-<span class="w">            </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="n">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">),</span>
-<span class="w">            </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="n">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span>
-<span class="w">            </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;first_txn_date&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DateType</span><span class="p">).</span><span class="n">sql</span><span class="p">(</span><span class="s">&quot;element_at(sort_array(txn_list.date), 1)&quot;</span><span class="p">),</span>
-<span class="w">            </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;txn_list&quot;</span><span class="p">)</span>
-<span class="w">              </span><span class="p">.</span><span class="n">`type`</span><span class="p">(</span><span class="nc">ArrayType</span><span class="p">)</span>
-<span class="w">              </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span><span class="n">schema</span><span class="p">.</span><span class="n">addFields</span><span class="p">(</span>
-<span class="w">                </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">),</span>
-<span class="w">                </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DateType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="nc">Date</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
-<span class="w">                </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">)</span>
-<span class="w">              </span><span class="p">))</span>
-<span class="w">          </span><span class="p">))</span>
-<span class="w">      </span><span class="p">)</span>
-<span class="w">  </span><span class="p">)</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">jsonTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="p">(</span><span class="s">&quot;account_info&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/tmp/data-caterer/json&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">IntegerType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">2022</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="n">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mf">1000.0</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DateType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="nc">Date</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">).</span><span class="n">oneOf</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;closed&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;txn_list&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">`type`</span><span class="p">(</span><span class="nc">ArrayType</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span><span class="n">schema</span><span class="p">.</span><span class="n">addFields</span><span class="p">(</span>
+<span class="w">          </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">),</span>
+<span class="w">          </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DateType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="nc">Date</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
+<span class="w">          </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">),</span>
+<span class="w">        </span><span class="p">))</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">total</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 
 <span class="w">  </span><span class="n">execute</span><span class="p">(</span><span class="n">jsonTask</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="run-with-api">Run with API</h4>
+<p>Once you have cloned the data-caterer-example repo, it is easiest to run via the <code>run.sh</code> script that helps package up 
+the API into a jar, then mount it to the docker image, ready to be run. It will prompt you for the class name you want
+to run for.</p>
 <h3 id="run-with-multiple-sub-data-sources">Run with multiple sub data sources</h3>
 <p>In the context of Postgres data sources, tables are sub data sources that data can be generated for.</p>
 <p>Try to run the following command:</p>

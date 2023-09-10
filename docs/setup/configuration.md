@@ -22,6 +22,21 @@ Flags are used to control which processes are executed when you run Data Caterer
 | `enableRecordTracking`         | false   | Y    | Enable/disable which data records have been generated for any data source                                                                                                                                             |
 | `enableDeleteGeneratedRecords` | false   | Y    | Delete all generated records based off record tracking (if `enableRecordTracking` has been set to true)                                                                                                               |
 
+=== "Java"
+
+    ```java
+    configuration()
+      .enableGenerateData(true)
+      .enableCount(true)
+      .enableFailOnError(true)
+      .enableSaveReports(true)
+      .enableSinkMetadata(true)
+      .enableValidation(false)
+      .enableGeneratePlanAndTasks(false)
+      .enableRecordTracking(false)
+      .enableDeleteGeneratedRecords(false);
+    ```
+
 === "Scala"
 
     ```scala
@@ -71,6 +86,18 @@ These folder pathways can be defined as a cloud storage pathway (i.e. `s3a://my-
 | `generatedReportsFolderPath`     | /opt/app/report                         | N    | Where HTML reports get generated that contain information about data generated along with any validations performed |
 | `generatedPlanAndTaskFolderPath` | /tmp                                    | Y    | Folder path where generated plan and task files will be saved                                                       |
 | `recordTrackingFolderPath`       | /opt/app/record-tracking                | Y    | Where record tracking parquet files get saved                                                                       |
+
+=== "Java"
+
+    ```java
+    configuration()
+      .planFilePath("/opt/app/custom/plan/postgres-plan.yaml")
+      .taskFolderPath("/opt/app/custom/task")
+      .validationFolderPath("/opt/app/custom/validation")
+      .generatedReportsFolderPath("/opt/app/custom/report")
+      .generatedPlanAndTaskFolderPath("/opt/app/custom/generated")
+      .recordTrackingFolderPath("/opt/app/custom/record-tracking");
+    ```
 
 === "Scala"
 
@@ -124,6 +151,17 @@ when analysing the generated data if the number of records generated is large.
 | `oneOfDistinctCountVsCountThreshold` | 0.2     | Y    | Threshold ratio to determine if a field is of type `oneOf` (i.e. a field called `status` that only contains `open` or `closed`. Distinct count = 2, total count = 10, ratio = 2 / 10 = 0.2 therefore marked as `oneOf`) |
 | `numGeneratedSamples`                | 10      | N    | Number of sample records from generated data to take. Shown in HTML report                                                                                                                                              |
 
+=== "Java"
+
+    ```Java
+    configuration()
+      .numRecordsFromDataSourceForDataProfiling(10000)
+      .numRecordsForAnalysisForDataProfiling(10000)
+      .oneOfMinCount(1000)
+      .oneOfDistinctCountVsCountThreshold(1000)
+      .numGeneratedSamples(10);
+    ```
+
 === "Scala"
 
     ```scala
@@ -162,6 +200,14 @@ batch.
 === "Scala"
 
     ```scala
+    configuration()
+      .numRecordsPerBatch(100000)
+      .numRecordsPerStep(1000);
+    ```
+
+=== "Scala"
+
+    ```scala
     configuration
       .numRecordsPerBatch(100000)
       .numRecordsPerStep(1000)
@@ -181,13 +227,22 @@ batch.
 Given Data Caterer uses Spark as the base framework for data processing, you can configure the job as to your 
 specifications via configuration as seen [here](https://spark.apache.org/docs/latest/configuration.html).
 
+=== "Java"
+
+    ```java
+    configuration()
+      .sparkMaster("local[*]")
+      .sparkConfig(Map.of("spark.driver.cores", "5"))
+      .addSparkConfig("spark.driver.memory", "10g");
+    ```
+
 === "Scala"
 
     ```scala
     configuration
       .sparkMaster("local[*]")
       .sparkConfig(Map("spark.driver.cores" -> "5"))
-      .addSparkConfig(("spark.driver.memory" -> "10g"))
+      .addSparkConfig("spark.driver.memory" -> "10g")
     ```
 
 === "application.conf"

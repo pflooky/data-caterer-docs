@@ -748,10 +748,32 @@
 <h2 id="total-count">Total Count</h2>
 <p>Total count is the simplest as you define the total number of records you require for that particular step.
 For example, in the below step, it will generate 1000 records for the CSV file  </p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Scala</label><label for="__tabbed_1_2">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label><label for="__tabbed_1_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">task</span>
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+
+<span class="err">#</span><span class="n">or</span>
+
+<span class="nf">task</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;csv_file&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">steps</span><span class="p">(</span>
+<span class="w">    </span><span class="n">step</span><span class="p">()</span>
+<span class="w">      </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="s">&quot;csv&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">option</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">#or</span>
+
+<span class="n">task</span>
 <span class="w">  </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;csv_file&quot;</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="n">step</span><span class="p">(</span>
 <span class="w">    </span><span class="n">step</span>
@@ -778,22 +800,16 @@ For example, in the below step, it will generate 1000 records for the CSV file  
 <h2 id="generated-count">Generated Count</h2>
 <p>As like most things in data-caterer, the count can be generated based on some metadata.
 For example, if I wanted to generate between 1000 and 2000 records, I could define that by the below configuration:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Scala</label><label for="__tabbed_2_2">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label><label for="__tabbed_2_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">task</span>
-<span class="w">  </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;csv_file&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="n">step</span><span class="p">(</span>
-<span class="w">    </span><span class="n">step</span>
-<span class="w">      </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="n">`type`</span><span class="p">(</span><span class="s">&quot;csv&quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="n">option</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="n">count</span><span class="p">(</span>
-<span class="w">        </span><span class="n">generator</span>
-<span class="w">          </span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="w">          </span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
-<span class="w">      </span><span class="p">)</span>
-<span class="w">  </span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">generator</span><span class="p">().</span><span class="na">min</span><span class="p">(</span><span class="mi">1000</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">2000</span><span class="p">));</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">generator</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1000</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">2000</span><span class="p">))</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -824,22 +840,23 @@ A number of transactions would be generated per <code>account_id,name</code>.  <
 This is a fixed number of records that will be generated each time, with no variation between runs.</p>
 <p>In the example below, we have <code>count.total = 1000</code> and <code>count.perColumnTotal = 2</code>. Which means that <code>1000 * 2 = 2000</code> records will be generated
 for this CSV file every time data gets generated.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Scala</label><label for="__tabbed_3_2">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Scala</label><label for="__tabbed_3_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">task</span>
-<span class="w">  </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;csv_file&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="n">step</span><span class="p">(</span>
-<span class="w">    </span><span class="n">step</span>
-<span class="w">      </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="n">`type`</span><span class="p">(</span><span class="s">&quot;csv&quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="n">option</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="n">count</span><span class="p">(</span>
-<span class="w">        </span><span class="n">count</span>
-<span class="w">          </span><span class="p">.</span><span class="n">total</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="w">          </span><span class="p">.</span><span class="n">perColumnTotal</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">          </span><span class="p">.</span><span class="n">columns</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">count</span><span class="p">(</span>
+<span class="w">    </span><span class="n">count</span><span class="p">()</span>
+<span class="w">      </span><span class="p">.</span><span class="na">total</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">perColumnTotal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span>
+<span class="w">    </span><span class="n">count</span>
+<span class="w">      </span><span class="p">.</span><span class="n">total</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">perColumnTotal</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span>
 </code></pre></div>
 </div>
@@ -866,26 +883,23 @@ for this CSV file every time data gets generated.</p>
 per set of columns.</p>
 <p>In the example below, it will generate between <code>(count.total * count.perColumnGenerator.generator.min) = (1000 * 1) = 1000</code> and
 <code>(count.total * count.perColumnGenerator.generator.max) = (1000 * 2) = 2000</code> records.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Scala</label><label for="__tabbed_4_2">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">Scala</label><label for="__tabbed_4_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">task</span>
-<span class="w">  </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;csv_file&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="n">step</span><span class="p">(</span>
-<span class="w">    </span><span class="n">step</span>
-<span class="w">      </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="n">`type`</span><span class="p">(</span><span class="s">&quot;csv&quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="n">option</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="n">count</span><span class="p">(</span>
-<span class="w">        </span><span class="n">count</span>
-<span class="w">          </span><span class="p">.</span><span class="n">total</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="w">          </span><span class="p">.</span><span class="n">columns</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
-<span class="w">          </span><span class="p">.</span><span class="n">perColumnGenerator</span><span class="p">(</span>
-<span class="w">            </span><span class="n">generator</span>
-<span class="w">              </span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">              </span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">          </span><span class="p">)</span>
-<span class="w">      </span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">count</span><span class="p">(</span>
+<span class="w">    </span><span class="n">count</span><span class="p">()</span>
+<span class="w">      </span><span class="p">.</span><span class="na">total</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">perColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">().</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span>
+<span class="w">    </span><span class="n">count</span>
+<span class="w">      </span><span class="p">.</span><span class="n">total</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">perColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span>
 </code></pre></div>
 </div>

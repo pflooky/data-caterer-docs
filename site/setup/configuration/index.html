@@ -808,8 +808,21 @@ seen <a href="../../sample/docker/data/custom/application.conf">here</a>.</p>
 </tr>
 </tbody>
 </table>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Scala</label><label for="__tabbed_1_2">application.conf</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label><label for="__tabbed_1_3">application.conf</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">configuration</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="na">enableGenerateData</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">enableCount</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">enableFailOnError</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">enableSaveReports</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">enableSinkMetadata</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">enableValidation</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">enableGeneratePlanAndTasks</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">enableRecordTracking</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">enableDeleteGeneratedRecords</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</code></pre></div>
+</div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configuration</span>
 <span class="w">  </span><span class="p">.</span><span class="n">enableGenerateData</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
@@ -894,8 +907,18 @@ records generated.</p>
 </tr>
 </tbody>
 </table>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Scala</label><label for="__tabbed_2_2">application.conf</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label><label for="__tabbed_2_3">application.conf</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">configuration</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="na">planFilePath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/plan/postgres-plan.yaml&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">taskFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/task&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">validationFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/validation&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/report&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">generatedPlanAndTaskFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/generated&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">recordTrackingFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/record-tracking&quot;</span><span class="p">);</span>
+</code></pre></div>
+</div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configuration</span>
 <span class="w">  </span><span class="p">.</span><span class="n">planFilePath</span><span class="p">(</span><span class="s">&quot;/opt/app/custom/plan/postgres-plan.yaml&quot;</span><span class="p">)</span>
@@ -977,8 +1000,17 @@ when analysing the generated data if the number of records generated is large.</
 </tr>
 </tbody>
 </table>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Scala</label><label for="__tabbed_3_2">application.conf</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Scala</label><label for="__tabbed_3_3">application.conf</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">configuration</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="na">numRecordsFromDataSourceForDataProfiling</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">numRecordsForAnalysisForDataProfiling</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">oneOfMinCount</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">oneOfDistinctCountVsCountThreshold</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">numGeneratedSamples</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</code></pre></div>
+</div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configuration</span>
 <span class="w">  </span><span class="p">.</span><span class="n">numRecordsFromDataSourceForDataProfiling</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
@@ -1029,8 +1061,14 @@ batch.</p>
 </tr>
 </tbody>
 </table>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Scala</label><label for="__tabbed_4_2">application.conf</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Scala</label><label for="__tabbed_4_2">Scala</label><label for="__tabbed_4_3">application.conf</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">configuration</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="n">numRecordsPerBatch</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">numRecordsPerStep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+</code></pre></div>
+</div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configuration</span>
 <span class="w">  </span><span class="p">.</span><span class="n">numRecordsPerBatch</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
@@ -1049,13 +1087,20 @@ batch.</p>
 <h2 id="spark">Spark</h2>
 <p>Given Data Caterer uses Spark as the base framework for data processing, you can configure the job as to your 
 specifications via configuration as seen <a href="https://spark.apache.org/docs/latest/configuration.html">here</a>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Scala</label><label for="__tabbed_5_2">application.conf</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">Scala</label><label for="__tabbed_5_3">application.conf</label></div>
 <div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">configuration</span><span class="p">()</span>
+<span class="w">  </span><span class="p">.</span><span class="na">sparkMaster</span><span class="p">(</span><span class="s">&quot;local[*]&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">sparkConfig</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;spark.driver.cores&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="na">addSparkConfig</span><span class="p">(</span><span class="s">&quot;spark.driver.memory&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;10g&quot;</span><span class="p">);</span>
+</code></pre></div>
+</div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configuration</span>
 <span class="w">  </span><span class="p">.</span><span class="n">sparkMaster</span><span class="p">(</span><span class="s">&quot;local[*]&quot;</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="n">sparkConfig</span><span class="p">(</span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;spark.driver.cores&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">))</span>
-<span class="w">  </span><span class="p">.</span><span class="n">addSparkConfig</span><span class="p">((</span><span class="s">&quot;spark.driver.memory&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;10g&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="n">addSparkConfig</span><span class="p">(</span><span class="s">&quot;spark.driver.memory&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;10g&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">

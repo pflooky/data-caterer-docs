@@ -55,6 +55,12 @@ configurations can be found below.
 
 #### CSV
 
+=== "Java"
+
+    ```java
+    csv("customer_transactions", "/data/customer/transaction")
+    ```
+
 === "Scala"
 
     ```scala
@@ -75,6 +81,12 @@ configurations can be found below.
 [Other available configuration for CSV can be found here](https://spark.apache.org/docs/latest/sql-data-sources-csv.html#data-source-option)
 
 #### JSON
+
+=== "Java"
+
+    ```java
+    json("customer_transactions", "/data/customer/transaction")
+    ```
 
 === "Scala"
 
@@ -97,6 +109,12 @@ configurations can be found below.
 
 #### ORC
 
+=== "Java"
+
+    ```java
+    orc("customer_transactions", "/data/customer/transaction")
+    ```
+
 === "Scala"
 
     ```scala
@@ -118,6 +136,12 @@ configurations can be found below.
 
 #### Parquet
 
+=== "Java"
+
+    ```java
+    parquet("customer_transactions", "/data/customer/transaction")
+    ```
+
 === "Scala"
 
     ```scala
@@ -138,6 +162,12 @@ configurations can be found below.
 [Other available configuration for Parquet can be found here](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html#data-source-option)
 
 #### Delta (not supported yet)
+
+=== "Java"
+
+    ```java
+    delta("customer_transactions", "/data/customer/transaction")
+    ```
 
 === "Scala"
 
@@ -162,6 +192,17 @@ Follows the same configuration used by Spark as
 found [here](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html#data-source-option).  
 Sample can be found below
 
+=== "Java"
+
+    ```java
+    postgres(
+        "customer_postgres",                            #name
+        "jdbc:postgresql://localhost:5432/customer",    #url
+        "postgres",                                     #username
+        "postgres"                                      #password
+    )
+    ```
+
 === "Scala"
 
     ```scala
@@ -169,7 +210,7 @@ Sample can be found below
         "customer_postgres",                            #name
         "jdbc:postgresql://localhost:5432/customer",    #url
         "postgres",                                     #username
-        "postgres",                                     #password
+        "postgres"                                      #password
     )
     ```
 
@@ -217,6 +258,17 @@ Following permissions are required when generating plan and tasks:
 
 #### MySQL
 
+=== "Java"
+
+    ```java
+    mysql(
+        "customer_mysql",                       #name
+        "jdbc:mysql://localhost:3306/customer", #url
+        "root",                                 #username
+        "root"                                  #password
+    )
+    ```
+
 === "Scala"
 
     ```scala
@@ -224,7 +276,7 @@ Following permissions are required when generating plan and tasks:
         "customer_mysql",                       #name
         "jdbc:mysql://localhost:3306/customer", #url
         "root",                                 #username
-        "root",                                 #password
+        "root"                                  #password
     )
     ```
 
@@ -258,6 +310,17 @@ Following permissions are required when generating plan and tasks:
 Follows same configuration as defined by the Spark Cassandra Connector as
 found [here](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md)
 
+=== "Java"
+
+    ```java
+    cassandra(
+        "customer_cassandra",   #name
+        "localhost:9042",       #url
+        "cassandra",            #username
+        "cassandra"             #password
+    )
+    ```
+
 === "Scala"
 
     ```scala
@@ -265,7 +328,7 @@ found [here](https://github.com/datastax/spark-cassandra-connector/blob/master/d
         "customer_cassandra",   #name
         "localhost:9042",       #url
         "cassandra",            #username
-        "cassandra",            #password
+        "cassandra"             #password
     )
     ```
 
@@ -312,6 +375,15 @@ level.
 Further details can be
 found [here](https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka)
 
+=== "Java"
+
+    ```java
+    kafka(
+        "customer_kafka",   #name
+        "localhost:9092"    #url
+    )
+    ```
+
 === "Scala"
 
     ```scala
@@ -341,6 +413,20 @@ You can define the key, value, headers, partition or topic by following the link
 Uses JNDI lookup to send messages to JMS queue. Ensure that the messaging system you are using has your queue/topic
 registered
 via JNDI otherwise a connection cannot be created.
+
+=== "Java"
+
+    ```java
+    solace(
+        "customer_solace",                                      #name
+        "smf://localhost:55554",                                #url
+        "admin",                                                #username
+        "admin",                                                #password
+        "default",                                              #vpn name
+        "/jms/cf/default",                                      #connection factory
+        "com.solacesystems.jndi.SolJNDIInitialContextFactory"   #initial context factory
+    )
+    ```
 
 === "Scala"
 
@@ -379,6 +465,16 @@ via JNDI otherwise a connection cannot be created.
 
 Define any username and/or password needed for the HTTP requests.  
 The url is defined in the tasks to allow for generated data to be populated in the url.
+
+=== "Java"
+
+    ```java
+    http(
+        "customer_api", #name
+        "admin",        #username
+        "admin"         #password
+    )
+    ```
 
 === "Scala"
 

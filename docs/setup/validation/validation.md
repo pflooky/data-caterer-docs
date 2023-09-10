@@ -1,7 +1,7 @@
 # Validations
 
 Validations can be used to run data checks after you have run the data generator or even as a standalone task. A report 
-summarising the success or failure of the validations, is produced and can be examined for further investigation.
+summarising the success or failure of the validations is produced and can be examined for further investigation.
   
 Currently, SQL expression validations are supported (can see [here](https://spark.apache.org/docs/latest/api/sql/) 
 for reference what other expressions are valid), but will later be extended out to supported other validations such as 
@@ -11,6 +11,21 @@ data profile is to expected data profile).
 
 ## Sample
 
+=== "Java"
+
+    ```java
+    validationConfig()
+      .name("account_checks")
+      .description("Check account related fields have gone through system correctly")
+      .addValidations(
+        "accountJson",                          #data source name
+        Map.of("path", "sample/json/txn-gen"),  #data source options
+        validation().expr("amount < 100"),      #validations
+        validation().expr("year == 2021").errorThreshold(0.1),
+        validation().expr("regexp_like(name, 'Peter .*')").errorThreshold(200).description("Should be lots of Peters")
+      );
+    ```
+
 === "Scala"
 
     ```scala
@@ -18,9 +33,9 @@ data profile is to expected data profile).
       .name("account_checks")
       .description("Check account related fields have gone through system correctly")
       .addValidations(
-        "accountJson",
-        Map("path" -> "sample/json/txn-gen"),
-        validation.expr("amount < 100"),
+        "accountJson",                        #data source name
+        Map("path" -> "sample/json/txn-gen"), #data source options
+        validation.expr("amount < 100"),      #validations
         validation.expr("year == 2021").errorThreshold(0.1),
         validation.expr("regexp_like(name, 'Peter .*')").errorThreshold(200).description("Should be lots of Peters")
       )

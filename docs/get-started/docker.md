@@ -36,43 +36,88 @@ Sample report can also be seen [here](../sample/docker/data/report/html/index.ht
 
 ### API
 
-A Scala API is available to use to create your own data generation scenario.
+A Java and Scala API is available to use to create your own data generation scenario.
 
-You can check out the example project found [here](https://github.com/pflooky/data-caterer-example) or can follow the
-below:
+You can check out the example project found [here](https://github.com/pflooky/data-caterer-example) via:
+  
+```shell
+git clone git@github.com:pflooky/data-caterer-example.git
+```
+  
+=== "Java"
 
-```scala
-import com.github.pflooky.datacaterer.api.PlanRun
-import com.github.pflooky.datacaterer.api.model.{ArrayType, DateType, DoubleType}
+      ```java
+      import com.github.pflooky.datacaterer.api.java.PlanRun;
+      import com.github.pflooky.datacaterer.api.model.ArrayType;
+      import com.github.pflooky.datacaterer.api.model.DateType;
+      import com.github.pflooky.datacaterer.api.model.DoubleType;
+      import com.github.pflooky.datacaterer.api.model.IntegerType;
+      
+      import java.sql.Date;
+      
+      public class DocumentationJavaPlanRun extends PlanRun {
+         {
+            var myJson = json("account_info", "/tmp/data-caterer/json")
+               .numPartitions(1)
+               .schema(
+                  field().name("account_id").regex("ACC[0-9]{8}"),
+                  field().name("year").type(IntegerType.instance()).min(2022).max(2023),
+                  field().name("name").expression("#{Name.name}"),
+                  field().name("amount").type(DoubleType.instance()).max(1000.0),
+                  field().name("date").type(DateType.instance()).min(Date.valueOf("2022-01-01")),
+                  field().name("status").oneOf("open", "closed"),
+                  field().name("txn_list").type(ArrayType.instance())
+                     .arrayMaxLength(2)
+                     .schema(schema().addFields(
+                        field().name("id").regex("ID[0-9]{4}"),
+                        field().name("date").type(DateType.instance()).min(Date.valueOf("2022-01-01")),
+                        field().name("amount").type(DoubleType.instance()).max(1000.0)
+                     ))
+               )
+            .count(count().total(100));
+      
+            execute(myJson);
+         }
+      }
+      ```
 
-import java.sql.Date
+=== "Scala"
 
-class ExamplePlanRun extends PlanRun {
-
-  val jsonTask = tasks.addTasks("my_json",
-    task.name("account_json")
-      .step(
-        step
-          .name("account_info")
-          .option("path" -> "/tmp/data-caterer/json")
-          .schema(schema.addFields(
-            field.name("account_id").regex("ACC[0-9]{8}"),
+      ```scala
+      import com.github.pflooky.datacaterer.api.PlanRun
+      import com.github.pflooky.datacaterer.api.model.{ArrayType, DateType, DoubleType}
+      
+      import java.sql.Date
+      
+      class ExamplePlanRun extends PlanRun {
+      
+        val jsonTask = json("account_info", "/tmp/data-caterer/json")
+          .schema(
+            field.name("account_id"),
+            field.name("year").`type`(IntegerType).min(2022),
             field.name("name").expression("#{Name.name}"),
-            field.name("first_txn_date").`type`(DateType).sql("element_at(sort_array(txn_list.date), 1)"),
+            field.name("amount").`type`(DoubleType).max(1000.0),
+            field.name("date").`type`(DateType).min(Date.valueOf("2022-01-01")),
+            field.name("status").oneOf("open", "closed"),
             field.name("txn_list")
               .`type`(ArrayType)
               .schema(schema.addFields(
                 field.name("id"),
                 field.name("date").`type`(DateType).min(Date.valueOf("2022-01-01")),
-                field.name("amount").`type`(DoubleType).max(1000.0)
+                field.name("amount").`type`(DoubleType),
               ))
-          ))
-      )
-  )
+          )
+          .count(count.total(100))
+      
+        execute(jsonTask)
+      }
+      ```
 
-  execute(jsonTask)
-}
-```
+#### Run with API
+
+Once you have cloned the data-caterer-example repo, it is easiest to run via the `run.sh` script that helps package up 
+the API into a jar, then mount it to the docker image, ready to be run. It will prompt you for the class name you want
+to run for.
 
 ### Run with multiple sub data sources
 

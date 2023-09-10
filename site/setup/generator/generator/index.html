@@ -539,6 +539,19 @@
     String
   </a>
   
+    <nav class="md-nav" aria-label="String">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -550,9 +563,42 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#integerlongshortdecimal" class="md-nav__link">
-    Integer/Long/Short/Decimal
+  <a href="#integerlongshort" class="md-nav__link">
+    Integer/Long/Short
   </a>
+  
+    <nav class="md-nav" aria-label="Integer/Long/Short">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_1" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decimal" class="md-nav__link">
+    Decimal
+  </a>
+  
+    <nav class="md-nav" aria-label="Decimal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_2" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -560,6 +606,19 @@
   <a href="#doublefloat" class="md-nav__link">
     Double/Float
   </a>
+  
+    <nav class="md-nav" aria-label="Double/Float">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_3" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -573,12 +632,38 @@
     Date
   </a>
   
+    <nav class="md-nav" aria-label="Date">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_4" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#timestamp" class="md-nav__link">
     Timestamp
   </a>
+  
+    <nav class="md-nav" aria-label="Timestamp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_5" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -587,12 +672,38 @@
     Binary
   </a>
   
+    <nav class="md-nav" aria-label="Binary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_6" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#list" class="md-nav__link">
-    List
+  <a href="#array" class="md-nav__link">
+    Array
   </a>
+  
+    <nav class="md-nav" aria-label="Array">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sample_7" class="md-nav__link">
+    Sample
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -879,7 +990,7 @@
 <tr>
 <td>array</td>
 <td>ArrayType</td>
-<td><code>listMinLen, listMaxLen</code></td>
+<td><code>arrayMinLen, arrayMaxLen, arrayType</code></td>
 <td></td>
 </tr>
 <tr>
@@ -909,6 +1020,12 @@ descriptions:</p>
 <td>false</td>
 <td><code>enableEdgeCase: "true"</code></td>
 <td>Enable/disable generated data to contain edge cases based on the data type. For example, integer data type has edge cases of (Int.MaxValue, Int.MinValue and 0)</td>
+</tr>
+<tr>
+<td><code>edgeCaseProbability</code></td>
+<td>0.0</td>
+<td><code>edgeCaseProb: "0.1"</code></td>
+<td>Probability of generating a random edge case value if <code>enableEdgeCase</code> is true</td>
 </tr>
 <tr>
 <td><code>isUnique</code></td>
@@ -965,17 +1082,76 @@ descriptions:</p>
 <td><code>enableNull: "true"</code></td>
 <td>Enable/disable null values being generated</td>
 </tr>
+<tr>
+<td><code>nullProbability</code></td>
+<td>0.0</td>
+<td><code>nullProb: "0.1"</code></td>
+<td>Probability to generate null values if <code>enableNull</code> is true</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Edge cases</strong>: ("", "\n", "\r", "\t", " ", "\u0000", "\ufff", "İyi günler", "Спасибо", "Καλημέρα", "صباح الخير", "
 Förlåt", "你好吗", "Nhà vệ sinh ở đâu", "こんにちは", "नमस्ते", "Բարեւ", "Здравейте")</p>
+<h4 id="sample">Sample</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label><label for="__tabbed_1_3">YAML</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">()</span>
+<span class="w">      </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">type</span><span class="p">(</span><span class="n">StringType</span><span class="p">.</span><span class="na">instance</span><span class="p">())</span>
+<span class="w">      </span><span class="p">.</span><span class="na">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">enableNull</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">nullProbability</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">minLength</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">maxLength</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span>
+<span class="w">      </span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">`type`</span><span class="p">(</span><span class="nc">StringType</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">enableNull</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">nullProbability</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">minLength</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">maxLength</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv&quot;</span>
+<span class="w">    </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span>
+<span class="w">    </span><span class="nt">schema</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;name&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;string&quot;</span>
+<span class="w">          </span><span class="nt">generator</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">expression</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;#{Name.name}&quot;</span>
+<span class="w">              </span><span class="nt">enableNull</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">              </span><span class="nt">nullProb</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span>
+<span class="w">              </span><span class="nt">minLength</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<span class="w">              </span><span class="nt">maxLength</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="numeric">Numeric</h3>
 <p>For all the numeric data types, there are 4 options to choose from: min, max and maxValue.
 Generally speaking, you only need to define one of min or minValue, similarly with max or maxValue.<br />
 The reason why there are 2 options for each is because of when metadata is automatically gathered, we gather the
 statistics of the observed min and max values. Also, it will attempt to gather any restriction on the min or max value
 as defined by the data source (i.e. max value as per database type).</p>
-<h4 id="integerlongshortdecimal">Integer/Long/Short/Decimal</h4>
+<h4 id="integerlongshort">Integer/Long/Short</h4>
 <table>
 <thead>
 <tr>
@@ -1001,8 +1177,122 @@ as defined by the data source (i.e. max value as per database type).</p>
 </tbody>
 </table>
 <p><strong>Edge cases Integer</strong>: (2147483647, -2147483648, 0)<br />
-<strong>Edge cases Long/Decimal</strong>: (9223372036854775807, -9223372036854775808, 0)<br />
+<strong>Edge cases Long</strong>: (9223372036854775807, -9223372036854775808, 0)<br />
 <strong>Edge cases Short</strong>: (32767, -32768, 0)</p>
+<h5 id="sample_1">Sample</h5>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label><label for="__tabbed_2_3">YAML</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">IntegerType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">2020</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">2023</span><span class="p">),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;customer_id&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">LongType</span><span class="p">.</span><span class="na">instance</span><span class="p">()),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;customer_group&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">ShortType</span><span class="p">.</span><span class="na">instance</span><span class="p">())</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">IntegerType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">2020</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">2023</span><span class="p">),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;customer_id&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">LongType</span><span class="p">),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;customer_group&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">ShortType</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">schema</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;year&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;integer&quot;</span>
+<span class="w">          </span><span class="nt">generator</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2020</span>
+<span class="w">              </span><span class="nt">max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2023</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;customer_id&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;long&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;customer_group&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;short&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="decimal">Decimal</h4>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>min</code></td>
+<td>0</td>
+<td><code>min: "2"</code></td>
+<td>Ensures that all generated values are greater than or equal to <code>min</code></td>
+</tr>
+<tr>
+<td><code>max</code></td>
+<td>1000</td>
+<td><code>max: "25"</code></td>
+<td>Ensures that all generated values are less than or equal to <code>max</code></td>
+</tr>
+<tr>
+<td><code>numericPrecision</code></td>
+<td>10</td>
+<td><code>precision: "25"</code></td>
+<td>The maximum number of digits</td>
+</tr>
+<tr>
+<td><code>numericScale</code></td>
+<td>0</td>
+<td><code>scale: "25"</code></td>
+<td>The number of digits on the right side of the decimal point (has to be less than or equal to precision)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Edge cases Decimal</strong>: (9223372036854775807, -9223372036854775808, 0)</p>
+<h5 id="sample_2">Sample</h5>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Scala</label><label for="__tabbed_3_3">YAML</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DecimalType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">numericPrecision</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="na">numericScale</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DecimalType</span><span class="p">).</span><span class="n">numericPrecision</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="n">numericScale</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">schema</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;balance&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;decimal&quot;</span>
+<span class="w">            </span><span class="nt">generator</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">precision</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">                </span><span class="nt">scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h4 id="doublefloat">Double/Float</h4>
 <table>
 <thead>
@@ -1031,6 +1321,36 @@ as defined by the data source (i.e. max value as per database type).</p>
 <p><strong>Edge cases Double</strong>: (+infinity, 1.7976931348623157e+308, 4.9e-324, 0.0, -0.0, -1.7976931348623157e+308, -infinity,
 NaN)<br />
 <strong>Edge cases Float</strong>: (+infinity, 3.4028235e+38, 1.4e-45, 0.0, -0.0, -3.4028235e+38, -infinity, NaN)</p>
+<h5 id="sample_3">Sample</h5>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">Scala</label><label for="__tabbed_4_3">YAML</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">())</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">schema</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;double&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="date">Date</h3>
 <table>
 <thead>
@@ -1060,10 +1380,49 @@ NaN)<br />
 <td><code>enableNull: "true"</code></td>
 <td>Enable/disable null values being generated</td>
 </tr>
+<tr>
+<td><code>nullProbability</code></td>
+<td>0.0</td>
+<td><code>nullProb: "0.1"</code></td>
+<td>Probability to generate null values if <code>enableNull</code> is true</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Edge cases</strong>: (0001-01-01, 1582-10-15, 1970-01-01, 9999-12-31)
 (<a href="https://github.com/apache/spark/blob/master/sql/catalyst/src/test/scala/org/apache/spark/sql/RandomDataGenerator.scala#L206">reference</a>)</p>
+<h4 id="sample_4">Sample</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">Scala</label><label for="__tabbed_5_3">YAML</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;created_date&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DateType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Date</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2020-01-01&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;created_date&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DateType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">sql</span><span class="p">.</span><span class="nc">Date</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2020-01-01&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">schema</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;created_date&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;date&quot;</span>
+<span class="w">            </span><span class="nt">generator</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2020-01-01&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="timestamp">Timestamp</h3>
 <table>
 <thead>
@@ -1093,9 +1452,48 @@ NaN)<br />
 <td><code>enableNull: "true"</code></td>
 <td>Enable/disable null values being generated</td>
 </tr>
+<tr>
+<td><code>nullProbability</code></td>
+<td>0.0</td>
+<td><code>nullProb: "0.1"</code></td>
+<td>Probability to generate null values if <code>enableNull</code> is true</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Edge cases</strong>: (0001-01-01 00:00:00, 1582-10-15 23:59:59, 1970-01-01 00:00:00, 9999-12-31 23:59:59)</p>
+<h4 id="sample_5">Sample</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">Scala</label><label for="__tabbed_6_3">YAML</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;created_time&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">TimestampType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Timestamp</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2020-01-01 00:00:00&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;created_time&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">TimestampType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">sql</span><span class="p">.</span><span class="nc">Timestamp</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2020-01-01 00:00:00&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">schema</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;created_time&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;timestamp&quot;</span>
+<span class="w">            </span><span class="nt">generator</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">min</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2020-01-01</span><span class="nv"> </span><span class="s">00:00:00&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="binary">Binary</h3>
 <table>
 <thead>
@@ -1125,10 +1523,46 @@ NaN)<br />
 <td><code>enableNull: "true"</code></td>
 <td>Enable/disable null values being generated</td>
 </tr>
+<tr>
+<td><code>nullProbability</code></td>
+<td>0.0</td>
+<td><code>nullProb: "0.1"</code></td>
+<td>Probability to generate null values if <code>enableNull</code> is true</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Edge cases</strong>: ("", "\n", "\r", "\t", " ", "\u0000", "\ufff", -128, 127)</p>
-<h3 id="list">List</h3>
+<h4 id="sample_6">Sample</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Java</label><label for="__tabbed_7_2">Scala</label><label for="__tabbed_7_3">YAML</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;payload&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">BinaryType</span><span class="p">.</span><span class="na">instance</span><span class="p">())</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;payload&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">BinaryType</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">schema</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;payload&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;binary&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="array">Array</h3>
 <table>
 <thead>
 <tr>
@@ -1140,16 +1574,22 @@ NaN)<br />
 </thead>
 <tbody>
 <tr>
-<td><code>listMinLen</code></td>
+<td><code>arrayMinLen</code></td>
 <td>0</td>
-<td><code>listMinLen: "2"</code></td>
-<td>Ensures that all generated lists have at least length <code>listMinLen</code></td>
+<td><code>arrayMinLen: "2"</code></td>
+<td>Ensures that all generated arrays have at least length <code>arrayMinLen</code></td>
 </tr>
 <tr>
-<td><code>listMaxLen</code></td>
+<td><code>arrayMaxLen</code></td>
 <td>5</td>
-<td><code>listMaxLen: "15"</code></td>
-<td>Ensures that all generated lists have at most length <code>listMaxLen</code></td>
+<td><code>arrayMaxLen: "15"</code></td>
+<td>Ensures that all generated arrays have at most length <code>arrayMaxLen</code></td>
+</tr>
+<tr>
+<td><code>arrayType</code></td>
+<td><empty></td>
+<td><code>arrayType: "double"</code></td>
+<td>Inner data type of the array. Optional when using Java/Scala API. Allows for nested data types to be defined like struct</td>
 </tr>
 <tr>
 <td><code>enableNull</code></td>
@@ -1157,8 +1597,44 @@ NaN)<br />
 <td><code>enableNull: "true"</code></td>
 <td>Enable/disable null values being generated</td>
 </tr>
+<tr>
+<td><code>nullProbability</code></td>
+<td>0.0</td>
+<td><code>nullProb: "0.1"</code></td>
+<td>Probability to generate null values if <code>enableNull</code> is true</td>
+</tr>
 </tbody>
 </table>
+<h4 id="sample_7">Sample</h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">Scala</label><label for="__tabbed_8_3">YAML</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;last_5_amounts&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">ArrayType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">arrayType</span><span class="p">(</span><span class="s">&quot;double&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;app/src/test/resources/sample/csv/transactions&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;last_5_amounts&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">ArrayType</span><span class="p">).</span><span class="n">arrayType</span><span class="p">(</span><span class="s">&quot;double&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;csv_file&quot;</span>
+<span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="nt">schema</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">fields</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;last_5_amounts&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;array&lt;double&gt;&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
 
 

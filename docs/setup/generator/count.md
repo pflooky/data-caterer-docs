@@ -7,9 +7,33 @@ There are options related to controlling the number of records generated that ca
 Total count is the simplest as you define the total number of records you require for that particular step.
 For example, in the below step, it will generate 1000 records for the CSV file  
 
+=== "Java"
+
+    ```java
+    csv("transactions", "app/src/test/resources/sample/csv/transactions")
+      .count(1000);
+    
+    #or
+
+    task()
+      .name("csv_file")
+      .steps(
+        step()
+          .name("transactions")
+          .type("csv")
+          .option("path", "app/src/test/resources/sample/csv/transactions")
+          .count(1000)
+      );
+    ```
+
 === "Scala"
 
     ```scala
+    csv("transactions", "app/src/test/resources/sample/csv/transactions")
+      .count(1000)
+  
+    #or
+
     task
       .name("csv_file")
       .step(
@@ -39,22 +63,18 @@ For example, in the below step, it will generate 1000 records for the CSV file
 As like most things in data-caterer, the count can be generated based on some metadata.
 For example, if I wanted to generate between 1000 and 2000 records, I could define that by the below configuration:
 
+=== "Java"
+
+    ```java
+    csv("transactions", "app/src/test/resources/sample/csv/transactions")
+      .count(generator().min(1000).max(2000));
+    ```
+
 === "Scala"
 
     ```scala
-    task
-      .name("csv_file")
-      .step(
-        step
-          .name("transactions")
-          .`type`("csv")
-          .option("path", "app/src/test/resources/sample/csv/transactions")
-          .count(
-            generator
-              .min(1000)
-              .max(2000)
-          )
-      )
+    csv("transactions", "app/src/test/resources/sample/csv/transactions")
+      .count(generator.min(1000).max(2000))
     ```
 
 === "YAML"
@@ -92,22 +112,25 @@ This is a fixed number of records that will be generated each time, with no vari
 In the example below, we have `count.total = 1000` and `count.perColumnTotal = 2`. Which means that `1000 * 2 = 2000` records will be generated
 for this CSV file every time data gets generated.
 
+=== "Java"
+
+    ```java
+    csv("transactions", "app/src/test/resources/sample/csv/transactions")
+      .count(
+        count()
+          .total(1000)
+          .perColumnTotal(2, "account_id", "name")
+      );
+    ```
+
 === "Scala"
 
     ```scala
-    task
-      .name("csv_file")
-      .step(
-        step
-          .name("transactions")
-          .`type`("csv")
-          .option("path", "app/src/test/resources/sample/csv/transactions")
-          .count(
-            count
-              .total(1000)
-              .perColumnTotal(2)
-              .columns("account_id", "name")
-          )
+    csv("transactions", "app/src/test/resources/sample/csv/transactions")
+      .count(
+        count
+          .total(1000)
+          .perColumnTotal(2, "account_id", "name")
       )
     ```
 
@@ -138,26 +161,25 @@ In the example below, it will generate between `(count.total * count.perColumnGe
 `(count.total * count.perColumnGenerator.generator.max) = (1000 * 2) = 2000` records.
 
 
+=== "Java"
+
+    ```java
+    csv("transactions", "app/src/test/resources/sample/csv/transactions")
+      .count(
+        count()
+          .total(1000)
+          .perColumnGenerator(generator().min(1).max(2), "account_id", "name")
+      );
+    ```
+
 === "Scala"
 
     ```scala
-    task
-      .name("csv_file")
-      .step(
-        step
-          .name("transactions")
-          .`type`("csv")
-          .option("path", "app/src/test/resources/sample/csv/transactions")
-          .count(
-            count
-              .total(1000)
-              .columns("account_id", "name")
-              .perColumnGenerator(
-                generator
-                  .min(1)
-                  .max(2)
-              )
-          )
+    csv("transactions", "app/src/test/resources/sample/csv/transactions")
+      .count(
+        count
+          .total(1000)
+          .perColumnGenerator(generator.min(1).max(2), "account_id", "name")
       )
     ```
 
