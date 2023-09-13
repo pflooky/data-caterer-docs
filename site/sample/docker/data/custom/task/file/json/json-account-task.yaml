@@ -3,7 +3,7 @@ steps:
   - name: "account"
     type: "json"
     count:
-      total: 1000
+      records: 1000
     options:
       path: "/opt/app/custom/json/account"
     schema:

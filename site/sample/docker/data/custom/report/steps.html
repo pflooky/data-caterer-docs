@@ -2,7 +2,7 @@
       <head>
         <title>
           Step Details - Data Caterer
-        </title><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        </title><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script><script type="text/javascript">
         $(document).ready(function() {$(".tablesorter").tablesorter();});
       </script><style>
         table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } td { white-space:pre-line } .table thead th { position: sticky; top: 0; z-index: 1; } 
@@ -14,99 +14,405 @@
           <thead>
             <tr>
               <th>Name</th>
+              <th>Num Records</th>
+              <th>Success</th>
               <th>Type</th>
               <th>Enabled</th>
-              <th>Success</th>
               <th>Options</th>
               <th>Count</th>
-              <th>Num Records</th>
               <th>Fields</th>
             </tr>
           </thead>
           <tbody>
-            <tr id="jms_account">
+            <tr id="accounts">
               <td>
-                jms_account
-              </td>
-              <td>
-                json
-              </td>
-              <td>
-                &#9989;
-              </td>
-              <td>
-                &#9989;
-              </td>
-              <td>
-                destinationName -&gt; /JNDI/T/test_topic
-              </td>
-              <td>
-                basic-count: num-records=50
+                accounts
               </td>
               <td>
                 -1
               </td>
               <td>
+                &#9989;
+              </td>
+              <td>
+                postgres
+              </td>
+              <td>
+                &#9989;
+              </td>
+              <td>
+                dbtable -&gt; account.accounts
+              </td>
+              <td>
+                basic-count: num-records=1000
+              </td>
+              <td>
                 <html>
       <body>
-        <table class="tablesorter table table-striped" style="font-size: 13px">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Nullable</th>
-              <th>Generator Type</th>
-              <th>Metadata</th>
-              <th>Compare Generated Metadata</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                value
-              </td>
-              <td>
-                string
-              </td>
-              <td>
-                &#9989;
-              </td>
-              <td>
-                sql
-              </td>
-              <td>
-                sql -&gt; to_json(content)
-              </td>
-              <td>
-                sql: to_json(content) -&gt; 
-count:  -&gt; 50
-distinctCount:  -&gt; 49
-maxLen:  -&gt; 421
-avgLen:  -&gt; 301
+        <details>
+          <table class="tablesorter table table-striped" style="font-size: 13px">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Nullable</th>
+                <th>Generator Type</th>
+                <th>Metadata</th>
+                <th>Compare Generated Metadata</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  account_number
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  regex
+                </td>
+                <td>
+                  regex -&gt; ACC1[0-9]{5,10}
+                </td>
+                <td>
+                  regex: ACC1[0-9]{5,10} -&gt; 
+count:  -&gt; 1000
+distinctCount:  -&gt; 970
+maxLen:  -&gt; 14
+avgLen:  -&gt; 11
 nullCount:  -&gt; 0
-              </td>
-            </tr><tr>
-              <td>
-                content
-              </td>
-              <td>
-                string
-              </td>
-              <td>
-                &#9989;
-              </td>
-              <td>
-                random
-              </td>
-              <td>
-                
-              </td>
-              <td>
-                
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </td>
+              </tr><tr>
+                <td>
+                  account_status
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  oneOf
+                </td>
+                <td>
+                  oneOf -&gt; List(open, closed)
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 2
+maxLen:  -&gt; 6
+avgLen:  -&gt; 6
+nullCount:  -&gt; 0
+oneOf: List(open, closed) -&gt; List(closed, open)
+                </td>
+              </tr><tr>
+                <td>
+                  created_by
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  expression -&gt; #{Name.username}
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 983
+expression: #{Name.username} -&gt; 
+maxLen:  -&gt; 21
+avgLen:  -&gt; 14
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  created_by_fixed_length
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  sql
+                </td>
+                <td>
+                  sql -&gt; SUBSTR(created_by, 0, 5)
+                </td>
+                <td>
+                  sql: SUBSTR(created_by, 0, 5) -&gt; 
+count:  -&gt; 1000
+distinctCount:  -&gt; 778
+maxLen:  -&gt; 5
+avgLen:  -&gt; 5
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  customer_id_int
+                </td>
+                <td>
+                  int
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  isUnique -&gt; true
+min -&gt; 1
+max -&gt; 999999999
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 1000
+isUnique: true -&gt; 
+min: 1 -&gt; 1403431
+max: 999999999 -&gt; 999747451
+maxLen:  -&gt; 4
+avgLen:  -&gt; 4
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  customer_id_smallint
+                </td>
+                <td>
+                  short
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 1000
+min:  -&gt; 1000
+max:  -&gt; 1999
+maxLen:  -&gt; 2
+avgLen:  -&gt; 2
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  customer_id_bigint
+                </td>
+                <td>
+                  long
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 977
+min:  -&gt; 14
+max:  -&gt; 99921
+maxLen:  -&gt; 8
+avgLen:  -&gt; 8
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  customer_id_decimal
+                </td>
+                <td>
+                  decimal(26,3)
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 990
+min:  -&gt; 126.648197360590420000
+max:  -&gt; 99963.398930380100000000
+maxLen:  -&gt; 16
+avgLen:  -&gt; 16
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  customer_id_real
+                </td>
+                <td>
+                  float
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 983
+min:  -&gt; 82.580925
+max:  -&gt; 99834.36
+maxLen:  -&gt; 4
+avgLen:  -&gt; 4
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  customer_id_double
+                </td>
+                <td>
+                  double
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 925
+min:  -&gt; 68.93576449068517
+max:  -&gt; 99905.06348795706
+maxLen:  -&gt; 8
+avgLen:  -&gt; 8
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  open_date
+                </td>
+                <td>
+                  date
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 353
+min:  -&gt; 2022-09-13
+max:  -&gt; 2023-09-12
+maxLen:  -&gt; 4
+avgLen:  -&gt; 4
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  open_timestamp
+                </td>
+                <td>
+                  timestamp
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 990
+min:  -&gt; 2022-09-13 06:27:40.375000
+max:  -&gt; 2023-09-12 18:36:57.319000
+maxLen:  -&gt; 8
+avgLen:  -&gt; 8
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  last_opened_time
+                </td>
+                <td>
+                  timestamp
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 997
+min:  -&gt; 2022-09-13 13:59:54.016000
+max:  -&gt; 2023-09-13 04:19:44.113000
+maxLen:  -&gt; 8
+avgLen:  -&gt; 8
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  payload_bytes
+                </td>
+                <td>
+                  binary
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  
+                </td>
+                <td>
+                  count:  -&gt; 1000
+distinctCount:  -&gt; 990
+maxLen:  -&gt; 19
+avgLen:  -&gt; 11
+nullCount:  -&gt; 0
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </details>
       </body>
     </html>
               </td>

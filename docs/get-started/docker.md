@@ -42,6 +42,10 @@ You can check out the example project found [here](https://github.com/pflooky/da
   
 ```shell
 git clone git@github.com:pflooky/data-caterer-example.git
+#for Scala example
+#src/main/scala/com/github/pflooky/plan/DocumentationPlanRun.scala
+#for Java example
+#src/main/java/com/github/pflooky/plan/DocumentationJavaPlanRun.java
 ```
   
 === "Java"
@@ -58,7 +62,6 @@ git clone git@github.com:pflooky/data-caterer-example.git
       public class DocumentationJavaPlanRun extends PlanRun {
          {
             var myJson = json("account_info", "/tmp/data-caterer/json")
-               .numPartitions(1)
                .schema(
                   field().name("account_id").regex("ACC[0-9]{8}"),
                   field().name("year").type(IntegerType.instance()).min(2022).max(2023),
@@ -85,7 +88,7 @@ git clone git@github.com:pflooky/data-caterer-example.git
 
       ```scala
       import com.github.pflooky.datacaterer.api.PlanRun
-      import com.github.pflooky.datacaterer.api.model.{ArrayType, DateType, DoubleType}
+      import com.github.pflooky.datacaterer.api.model.{ArrayType, DateType, DoubleType, IntegerType}
       
       import java.sql.Date
       

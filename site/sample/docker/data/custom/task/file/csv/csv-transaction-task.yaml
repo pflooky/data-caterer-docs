@@ -5,7 +5,7 @@ steps:
     options:
       path: "/opt/app/custom/csv/transactions"
     count:
-      total: 100
+      records: 100
       perColumn:
         columnNames:
           - "account_id"

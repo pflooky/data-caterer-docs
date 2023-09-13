@@ -1,10 +1,8 @@
 # Home
 
-Using Data Caterer, you have the ability to generate production like data based on any source/target system whether it
-be a CSV file, database table, etc. anywhere you want the data to be. Whether it be in a test environment or even in
-your local laptop.
-Just define your data source connections and data will be generated.
-It can also be manually altered to produce data or scenarios the way you want.
+Data Caterer is a data generation tool that aids in creating production like data across batch and event data systems.
+You can then clean up the generated data or run data validations to ensure your systems have ingested it as expected.
+Use the Java, Scala API, or YAML files to help with setup or customisation that are all run via docker.
   
 Main features of the data generator include:
   

@@ -2,6 +2,8 @@
 
 Below are examples of different types of plans and tasks that can be helpful when trying to create your own. You can use
 these as a template or to search for something related to your particular use case.
+  
+Checkout this [repo](https://github.com/pflooky/data-caterer-example) for example Java and Scala API usage.
 
 ## Base Concept
 

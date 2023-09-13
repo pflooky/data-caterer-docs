@@ -4,7 +4,7 @@ steps:
 - name: "postgresDvd_public_actor"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.actor"
   schema:
@@ -91,7 +91,7 @@ steps:
 - name: "postgresDvd_public_store"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.store"
   schema:
@@ -186,7 +186,7 @@ steps:
 - name: "postgresDvd_public_address"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.address"
   schema:
@@ -342,7 +342,7 @@ steps:
 - name: "postgresDvd_public_category"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.category"
   schema:
@@ -412,7 +412,7 @@ steps:
 - name: "postgresDvd_public_city"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.city"
   schema:
@@ -503,7 +503,7 @@ steps:
 - name: "postgresDvd_public_country"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.country"
   schema:
@@ -573,7 +573,7 @@ steps:
 - name: "postgresDvd_public_customer"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.customer"
   schema:
@@ -779,7 +779,7 @@ steps:
 - name: "postgresDvd_public_film_actor"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.film_actor"
   schema:
@@ -1056,7 +1056,7 @@ steps:
 - name: "postgresDvd_public_film_category"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.film_category"
   schema:
@@ -1149,7 +1149,7 @@ steps:
 - name: "postgresDvd_public_inventory"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.inventory"
   schema:
@@ -1249,7 +1249,7 @@ steps:
 - name: "postgresDvd_public_language"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.language"
   schema:
@@ -1319,7 +1319,7 @@ steps:
 - name: "postgresDvd_public_rental"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.rental"
   schema:
@@ -2078,7 +2078,7 @@ steps:
 - name: "postgresDvd_public_staff"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.staff"
   schema:
@@ -2292,7 +2292,7 @@ steps:
 - name: "postgresDvd_public_payment"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.payment"
   schema:
@@ -3044,7 +3044,7 @@ steps:
 - name: "postgresDvd_public_film"
   type: "jdbc"
   count:
-    total: 1000
+    records: 1000
   options:
     dbtable: "public.film"
   schema:

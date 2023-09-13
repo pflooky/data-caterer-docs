@@ -263,7 +263,7 @@
   
     <li class="md-tabs__item">
       <a href="../../use-case/use-case/" class="md-tabs__link">
-        Use Case
+        Use Case and Comparison
       </a>
     </li>
   
@@ -726,14 +726,14 @@
       
       
         <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-          Use Case
+          Use Case and Comparison
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          Use Case
+          Use Case and Comparison
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -847,6 +847,10 @@ under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sampl
 <p>A Java and Scala API is available to use to create your own data generation scenario.</p>
 <p>You can check out the example project found <a href="https://github.com/pflooky/data-caterer-example">here</a> via:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-example.git
+<span class="c1">#for Scala example</span>
+<span class="c1">#src/main/scala/com/github/pflooky/plan/DocumentationPlanRun.scala</span>
+<span class="c1">#for Java example</span>
+<span class="c1">#src/main/java/com/github/pflooky/plan/DocumentationJavaPlanRun.java</span>
 </code></pre></div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label></div>
 <div class="tabbed-content">
@@ -862,7 +866,6 @@ under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sampl
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DocumentationJavaPlanRun</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
 <span class="w">   </span><span class="p">{</span>
 <span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="n">myJson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">json</span><span class="p">(</span><span class="s">&quot;account_info&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/tmp/data-caterer/json&quot;</span><span class="p">)</span>
-<span class="w">         </span><span class="p">.</span><span class="na">numPartitions</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">         </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
 <span class="w">            </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">),</span>
 <span class="w">            </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">IntegerType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">2022</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">2023</span><span class="p">),</span>
@@ -887,7 +890,7 @@ under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sampl
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">pflooky</span><span class="p">.</span><span class="nn">datacaterer</span><span class="p">.</span><span class="nn">api</span><span class="p">.</span><span class="nc">PlanRun</span>
-<span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">pflooky</span><span class="p">.</span><span class="nn">datacaterer</span><span class="p">.</span><span class="nn">api</span><span class="p">.</span><span class="nn">model</span><span class="p">.{</span><span class="nc">ArrayType</span><span class="p">,</span><span class="w"> </span><span class="nc">DateType</span><span class="p">,</span><span class="w"> </span><span class="nc">DoubleType</span><span class="p">}</span>
+<span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">pflooky</span><span class="p">.</span><span class="nn">datacaterer</span><span class="p">.</span><span class="nn">api</span><span class="p">.</span><span class="nn">model</span><span class="p">.{</span><span class="nc">ArrayType</span><span class="p">,</span><span class="w"> </span><span class="nc">DateType</span><span class="p">,</span><span class="w"> </span><span class="nc">DoubleType</span><span class="p">,</span><span class="w"> </span><span class="nc">IntegerType</span><span class="p">}</span>
 
 <span class="k">import</span><span class="w"> </span><span class="nn">java</span><span class="p">.</span><span class="nn">sql</span><span class="p">.</span><span class="nc">Date</span>
 

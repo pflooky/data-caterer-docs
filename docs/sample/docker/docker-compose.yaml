@@ -1,8 +1,7 @@
 version: "3.9"
 services:
   datacaterer:
-    image: "datacatering/data-caterer-basic:0.3.3"
-#    image: "datacatering/data-caterer:0.2.2"
+    image: "datacatering/data-caterer-basic:0.3.7"
     environment:
       - "APPLICATION_CONFIG_PATH=${APPLICATION_CONFIG_PATH:-/opt/app/custom/application.conf}"
       - "PLAN_FILE_PATH=/opt/app/custom/${PLAN:-plan/${DATA_SOURCE:-postgres}}.yaml"
@@ -10,8 +9,8 @@ services:
       - "ENABLE_RECORD_TRACKING=${ENABLE_RECORD_TRACKING:-false}"
       - "ENABLE_GENERATE_PLAN_AND_TASKS=${ENABLE_GENERATE_PLAN_AND_TASKS:-false}"
       - "ENABLE_DELETE_GENERATED_RECORDS=${ENABLE_DELETE_GENERATED_RECORDS:-false}"
-      - "SPARK_DRIVER_MEMORY=2g"
-      - "SPARK_EXECUTOR_MEMORY=2g"
+      - "DRIVER_MEMORY=2g"
+      - "EXECUTOR_MEMORY=2g"
     volumes:
       - "./data/custom:/opt/app/custom"
     depends_on:

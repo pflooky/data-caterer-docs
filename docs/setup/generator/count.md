@@ -2,9 +2,9 @@
 
 There are options related to controlling the number of records generated that can help in generating the scenarios or data required.
 
-## Total Count
+## Record Count
 
-Total count is the simplest as you define the total number of records you require for that particular step.
+Record count is the simplest as you define the total number of records you require for that particular step.
 For example, in the below step, it will generate 1000 records for the CSV file  
 
 === "Java"
@@ -12,18 +12,6 @@ For example, in the below step, it will generate 1000 records for the CSV file
     ```java
     csv("transactions", "app/src/test/resources/sample/csv/transactions")
       .count(1000);
-    
-    #or
-
-    task()
-      .name("csv_file")
-      .steps(
-        step()
-          .name("transactions")
-          .type("csv")
-          .option("path", "app/src/test/resources/sample/csv/transactions")
-          .count(1000)
-      );
     ```
 
 === "Scala"
@@ -31,18 +19,6 @@ For example, in the below step, it will generate 1000 records for the CSV file
     ```scala
     csv("transactions", "app/src/test/resources/sample/csv/transactions")
       .count(1000)
-  
-    #or
-
-    task
-      .name("csv_file")
-      .step(
-        step
-          .name("transactions")
-          .`type`("csv")
-          .option("path", "app/src/test/resources/sample/csv/transactions")
-          .count(1000)
-      )
     ```
 
 === "YAML"
@@ -55,12 +31,12 @@ For example, in the below step, it will generate 1000 records for the CSV file
         options:
           path: "app/src/test/resources/sample/csv/transactions"
         count:
-          total: 1000
+          records: 1000
     ```
 
 ## Generated Count
 
-As like most things in data-caterer, the count can be generated based on some metadata.
+As like most things in Data Caterer, the count can be generated based on some metadata.
 For example, if I wanted to generate between 1000 and 2000 records, I could define that by the below configuration:
 
 === "Java"
@@ -99,18 +75,18 @@ For example, if I wanted to generate between 1000 and 2000 records, I could defi
 When defining a per column count, this allows you to generate records "per set of columns".
 This means that for a given set of columns, it will generate a particular amount of records per combination of values for those columns.  
 
-One example of this would be when generating transactions relating to a customer. A customer may be defined by columns `account_id, name`.
-A number of transactions would be generated per `account_id,name`.  
+One example of this would be when generating transactions relating to a customer, a customer may be defined by columns `account_id, name`.
+A number of transactions would be generated per `account_id, name`.  
 
 You can also use a combination of the above two methods to generate the number of records per column.
 
-### Total
+### Records
 
-When defining a total count within the `perColumn` configuration, it translates to only creating `(count.total * count.perColumnTotal)` records.  
+When defining a base number of records within the `perColumn` configuration, it translates to creating `(count.records * count.recordsPerColumn)` records.  
 This is a fixed number of records that will be generated each time, with no variation between runs.
 
-In the example below, we have `count.total = 1000` and `count.perColumnTotal = 2`. Which means that `1000 * 2 = 2000` records will be generated
-for this CSV file every time data gets generated.
+In the example below, we have `count.records = 1000` and `count.recordsPerColumn = 2`. Which means that `1000 * 2 = 2000` records will be generated
+in total.
 
 === "Java"
 
@@ -118,8 +94,8 @@ for this CSV file every time data gets generated.
     csv("transactions", "app/src/test/resources/sample/csv/transactions")
       .count(
         count()
-          .total(1000)
-          .perColumnTotal(2, "account_id", "name")
+          .records(1000)
+          .recordsPerColumn(2, "account_id", "name")
       );
     ```
 
@@ -129,8 +105,8 @@ for this CSV file every time data gets generated.
     csv("transactions", "app/src/test/resources/sample/csv/transactions")
       .count(
         count
-          .total(1000)
-          .perColumnTotal(2, "account_id", "name")
+          .records(1000)
+          .recordsPerColumn(2, "account_id", "name")
       )
     ```
 
@@ -144,9 +120,9 @@ for this CSV file every time data gets generated.
         options:
           path: "app/src/test/resources/sample/csv/transactions"
         count:
-          total: 1000
+          records: 1000
           perColumn:
-            total: 2
+            records: 2
             columnNames:
               - "account_id"
               - "name"
@@ -157,8 +133,8 @@ for this CSV file every time data gets generated.
 You can also define a generator for the count per column. This can be used in scenarios where you want a variable number of records
 per set of columns.
 
-In the example below, it will generate between `(count.total * count.perColumnGenerator.generator.min) = (1000 * 1) = 1000` and
-`(count.total * count.perColumnGenerator.generator.max) = (1000 * 2) = 2000` records.
+In the example below, it will generate between `(count.records * count.perColumnGenerator.generator.min) = (1000 * 1) = 1000` and
+`(count.records * count.perColumnGenerator.generator.max) = (1000 * 2) = 2000` records.
 
 
 === "Java"
@@ -167,7 +143,7 @@ In the example below, it will generate between `(count.total * count.perColumnGe
     csv("transactions", "app/src/test/resources/sample/csv/transactions")
       .count(
         count()
-          .total(1000)
+          .records(1000)
           .perColumnGenerator(generator().min(1).max(2), "account_id", "name")
       );
     ```
@@ -178,7 +154,7 @@ In the example below, it will generate between `(count.total * count.perColumnGe
     csv("transactions", "app/src/test/resources/sample/csv/transactions")
       .count(
         count
-          .total(1000)
+          .records(1000)
           .perColumnGenerator(generator.min(1).max(2), "account_id", "name")
       )
     ```
@@ -193,7 +169,7 @@ In the example below, it will generate between `(count.total * count.perColumnGe
         options:
           path: "app/src/test/resources/sample/csv/transactions"
         count:
-          total: 1000
+          records: 1000
           perColumn:
             columnNames:
               - "account_id"
@@ -201,6 +177,6 @@ In the example below, it will generate between `(count.total * count.perColumnGe
             generator:
               type: "random"
               options:
-                max: 2
                 min: 1
+                max: 2
     ```

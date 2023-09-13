@@ -3,7 +3,7 @@ steps:
   - name: "accounts"
     type: "cassandra"
     count:
-      total: 10
+      records: 10
     options:
       keyspace: "account"
       table: "accounts"
@@ -49,7 +49,7 @@ steps:
   - name: "account_status_history"
     type: "cassandra"
     count:
-      total: 10
+      records: 10
       perColumn:
         columnNames:
           - "account_id"

@@ -147,7 +147,7 @@ when analysing the generated data if the number of records generated is large.
 |--------------------------------------|---------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `numRecordsFromDataSource`           | 10000   | Y    | Number of records read in from the data source that could be used for data profiling                                                                                                                                    |
 | `numRecordsForAnalysis`              | 10000   | Y    | Number of records used for data profiling from the records gathered in `numRecordsFromDataSource`                                                                                                                       |
-| `oneOfMinCount`                      | 1000    | N    | Minimum number of records required before considering if a field can be of type `oneOf`                                                                                                                                 |
+| `oneOfMinCount`                      | 1000    | Y    | Minimum number of records required before considering if a field can be of type `oneOf`                                                                                                                                 |
 | `oneOfDistinctCountVsCountThreshold` | 0.2     | Y    | Threshold ratio to determine if a field is of type `oneOf` (i.e. a field called `status` that only contains `open` or `closed`. Distinct count = 2, total count = 10, ratio = 2 / 10 = 0.2 therefore marked as `oneOf`) |
 | `numGeneratedSamples`                | 10      | N    | Number of sample records from generated data to take. Shown in HTML report                                                                                                                                              |
 
@@ -222,7 +222,7 @@ batch.
     }
     ```
 
-## Spark
+## Runtime
 
 Given Data Caterer uses Spark as the base framework for data processing, you can configure the job as to your 
 specifications via configuration as seen [here](https://spark.apache.org/docs/latest/configuration.html).
@@ -231,39 +231,29 @@ specifications via configuration as seen [here](https://spark.apache.org/docs/la
 
     ```java
     configuration()
-      .sparkMaster("local[*]")
-      .sparkConfig(Map.of("spark.driver.cores", "5"))
-      .addSparkConfig("spark.driver.memory", "10g");
+      .master("local[*]")
+      .runtimeConfig(Map.of("spark.driver.cores", "5"))
+      .addRuntimeConfig("spark.driver.memory", "10g");
     ```
 
 === "Scala"
 
     ```scala
     configuration
-      .sparkMaster("local[*]")
-      .sparkConfig(Map("spark.driver.cores" -> "5"))
-      .addSparkConfig("spark.driver.memory" -> "10g")
+      .master("local[*]")
+      .runtimeConfig(Map("spark.driver.cores" -> "5"))
+      .addRuntimeConfig("spark.driver.memory" -> "10g")
     ```
 
 === "application.conf"
 
     ```
-    spark {
+    runtime {
       master = "local[*]"
-      master = ${?SPARK_MASTER}
+      master = ${?DATA_CATERER_MASTER}
       config {
-        "spark.driver.memory" = "2g"
-        "spark.executor.memory" = "2g"
-        "spark.sql.cbo.enabled" = "true"
-        "spark.sql.adaptive.enabled" = "true"
-        "spark.sql.cbo.planStats.enabled" = "true"
-        "spark.sql.legacy.allowUntypedScalaUDF" = "true"
-        "spark.sql.statistics.histogram.enabled" = "true"
-        "spark.sql.shuffle.partitions" = "4"
-        "spark.sql.catalog.postgres" = ""
-        "spark.sql.catalog.cassandra" = "com.datastax.spark.connector.datasource.CassandraCatalog"
-        "spark.hadoop.fs.s3a.directory.marker.retention" = "keep"
-        "spark.hadoop.fs.s3a.bucket.all.committer.magic.enabled" = "true"
+        "spark.driver.cores" = "5"
+        "spark.driver.memory" = "10g"
       }
     }
     ```

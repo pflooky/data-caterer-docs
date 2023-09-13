@@ -263,7 +263,7 @@
   
     <li class="md-tabs__item">
       <a href="../../use-case/use-case/" class="md-tabs__link">
-        Use Case
+        Use Case and Comparison
       </a>
     </li>
   
@@ -482,8 +482,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#spark" class="md-nav__link">
-    Spark
+  <a href="#runtime" class="md-nav__link">
+    Runtime
   </a>
   
 </li>
@@ -642,14 +642,14 @@
       
       
         <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-          Use Case
+          Use Case and Comparison
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          Use Case
+          Use Case and Comparison
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -983,7 +983,7 @@ when analysing the generated data if the number of records generated is large.</
 <tr>
 <td><code>oneOfMinCount</code></td>
 <td>1000</td>
-<td>N</td>
+<td>Y</td>
 <td>Minimum number of records required before considering if a field can be of type <code>oneOf</code></td>
 </tr>
 <tr>
@@ -1084,42 +1084,32 @@ batch.</p>
 </div>
 </div>
 </div>
-<h2 id="spark">Spark</h2>
+<h2 id="runtime">Runtime</h2>
 <p>Given Data Caterer uses Spark as the base framework for data processing, you can configure the job as to your 
 specifications via configuration as seen <a href="https://spark.apache.org/docs/latest/configuration.html">here</a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">Scala</label><label for="__tabbed_5_3">application.conf</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configuration</span><span class="p">()</span>
-<span class="w">  </span><span class="p">.</span><span class="na">sparkMaster</span><span class="p">(</span><span class="s">&quot;local[*]&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="na">sparkConfig</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;spark.driver.cores&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">))</span>
-<span class="w">  </span><span class="p">.</span><span class="na">addSparkConfig</span><span class="p">(</span><span class="s">&quot;spark.driver.memory&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;10g&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">.</span><span class="na">master</span><span class="p">(</span><span class="s">&quot;local[*]&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">runtimeConfig</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;spark.driver.cores&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="na">addRuntimeConfig</span><span class="p">(</span><span class="s">&quot;spark.driver.memory&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;10g&quot;</span><span class="p">);</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">configuration</span>
-<span class="w">  </span><span class="p">.</span><span class="n">sparkMaster</span><span class="p">(</span><span class="s">&quot;local[*]&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="n">sparkConfig</span><span class="p">(</span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;spark.driver.cores&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">))</span>
-<span class="w">  </span><span class="p">.</span><span class="n">addSparkConfig</span><span class="p">(</span><span class="s">&quot;spark.driver.memory&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;10g&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">master</span><span class="p">(</span><span class="s">&quot;local[*]&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">runtimeConfig</span><span class="p">(</span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;spark.driver.cores&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="n">addRuntimeConfig</span><span class="p">(</span><span class="s">&quot;spark.driver.memory&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;10g&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>spark {
+<div class="highlight"><pre><span></span><code>runtime {
   master = &quot;local[*]&quot;
-  master = ${?SPARK_MASTER}
+  master = ${?DATA_CATERER_MASTER}
   config {
-    &quot;spark.driver.memory&quot; = &quot;2g&quot;
-    &quot;spark.executor.memory&quot; = &quot;2g&quot;
-    &quot;spark.sql.cbo.enabled&quot; = &quot;true&quot;
-    &quot;spark.sql.adaptive.enabled&quot; = &quot;true&quot;
-    &quot;spark.sql.cbo.planStats.enabled&quot; = &quot;true&quot;
-    &quot;spark.sql.legacy.allowUntypedScalaUDF&quot; = &quot;true&quot;
-    &quot;spark.sql.statistics.histogram.enabled&quot; = &quot;true&quot;
-    &quot;spark.sql.shuffle.partitions&quot; = &quot;4&quot;
-    &quot;spark.sql.catalog.postgres&quot; = &quot;&quot;
-    &quot;spark.sql.catalog.cassandra&quot; = &quot;com.datastax.spark.connector.datasource.CassandraCatalog&quot;
-    &quot;spark.hadoop.fs.s3a.directory.marker.retention&quot; = &quot;keep&quot;
-    &quot;spark.hadoop.fs.s3a.bucket.all.committer.magic.enabled&quot; = &quot;true&quot;
+    &quot;spark.driver.cores&quot; = &quot;5&quot;
+    &quot;spark.driver.memory&quot; = &quot;10g&quot;
   }
 }
 </code></pre></div>
