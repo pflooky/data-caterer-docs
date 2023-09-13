@@ -695,6 +695,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comparison/" class="md-nav__link">
+        Comparison
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -804,69 +818,6 @@ lead to serious concerns about data security as seen <a href="../business-value/
 (see <a href="../../setup/configuration/">here</a>), all schemas of the data sources defined will be tracked in a common format (as
 tasks). This data, along with the data profiling metadata, could then feed back into your schema registries to help keep
 them up to date with your system.</p>
-<h1 id="comparison-to-similar-tools">Comparison to similar tools</h1>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-<th>Features</th>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://github.com/databrickslabs/dbldatagen">DBLDatagen</a></td>
-<td>Python based data generation tool</td>
-<td>- Scalable and predictable data generation across data scenarios<br>- Plugin third-party libraries<br>- Generate from existing data<br>- Generate based on combination of other fields</td>
-<td>- Open source<br>- Good documentation<br>- Customisable and scalable<br>- Generate from existing data/schemas</td>
-<td>- Limited support if issues<br>- Code required<br>- No clean up<br>- No validation</td>
-</tr>
-<tr>
-<td><a href="https://docs.sdv.dev/sdv/">DataCebo Synthetic Data Vault</a></td>
-<td>Python based data generation tool with focus on ML generation, evaluating generated data</td>
-<td>- Create synthetic data using machine learning<br>- Evaluate and visualize synthetic data<br>- Preprocess, anonymize and define constraints</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.tonic.ai/">Tonic</a></td>
-<td>Platform solution for generating data</td>
-<td>- Integration with many data sources<br>- UI with RBAC<br>- Quality and security checks<br>- Auditing and alerting<br>- Dashboards and reporting</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.datafaker.net/documentation/getting-started/">Datafaker</a></td>
-<td>Realistic data generation library</td>
-<td>- Generate realistic data<br>- Push to CSV/JSON format<br>- Create your own data providers<br>- Performant</td>
-<td>- Simple, easy to use<br>- Extensible<br>- Open source<br>- Realistic values</td>
-<td>- Have to code for and manage data source connections<br>- No data clean up<br>- No validation<br>- No foreign keys support</td>
-</tr>
-<tr>
-<td><a href="https://gatling.io/">Gatling</a></td>
-<td>HTTP API load testing tool</td>
-<td>- Load testing<br>- Validating data and responses<br>- Scenario testing<br>- Reporting<br>- Extensive API support<br>- Integration with CI/CD tools</td>
-<td>- Widely used<br>- Clear documentation<br>- Extensive testing/validation support<br>- Customisable scenarios</td>
-<td>- Only supports HTTP, JMS and JDBC<br>- No data clean up<br>- Data feeders not based off metadata</td>
-</tr>
-<tr>
-<td><a href="https://www.tricentis.com/products/data-integrity">Tricentis - Data integrity</a></td>
-<td>Testing tool that focuses on data integrity</td>
-<td>- Data testing<br>- Pre-screening data<br>- Reconciliation, profiling and report testing<br>- Support SQL DB, noSQL DB, files, API</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.broadcom.com/products/software/continuous-testing/test-data-manager">Broadcom - Test data manager</a></td>
-<td>Test data provisioning tool with PII detection and reusable datasets</td>
-<td>- Identify sensitive data<br>- Generate synthetic data<br>- Store and reuse existing data<br>- Create virtual copies of data</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 
 
 

@@ -43,6 +43,7 @@ nav:
   - Use Case and Comparison:
     - 'use-case/use-case.md'
     - Business Value: 'use-case/business-value.md'
+    - Comparison: 'use-case/comparison.md'
   - Roadmap: 'roadmap/roadmap.md'
   - Advanced: 'advanced/advanced.md'
 
