@@ -77,7 +77,7 @@ git clone git@github.com:pflooky/data-caterer-example.git
                         field().name("amount").type(DoubleType.instance()).max(1000.0)
                      ))
                )
-            .count(count().total(100));
+            .count(count().records(100));
       
             execute(myJson);
          }
@@ -110,7 +110,7 @@ git clone git@github.com:pflooky/data-caterer-example.git
                 field.name("amount").`type`(DoubleType),
               ))
           )
-          .count(count.total(100))
+          .count(count.records(100))
       
         execute(jsonTask)
       }
