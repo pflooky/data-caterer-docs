@@ -39,6 +39,7 @@ nav:
       - Record Count: 'setup/generator/count.md'
       - Report: 'setup/generator/report.md'
     - Validation: 'setup/validation/validation.md'
+    - Foreign Keys: 'setup/foreign-key/foreign-key.md'
   - Samples: 'sample/index.md'
   - Use Case and Comparison:
     - 'use-case/use-case.md'

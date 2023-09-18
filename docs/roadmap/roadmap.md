@@ -23,3 +23,7 @@
 - Integration with Great Expectations
     - Data validations can reference expectations
 - Gradle plugin
+- Metadata improvements
+    - PII detection
+    - Relationship detection across data sources
+    - SQL generation
