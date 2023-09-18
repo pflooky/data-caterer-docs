@@ -55,7 +55,7 @@ for `account_id`.
 
     plan.addForeignKeyRelationship(
       postgresAcc, "account_id",
-      List((postgresTxn, "account_id"))
+      List(postgresTxn -> "account_id")
     )
     ```
 
@@ -143,7 +143,7 @@ and `name` from `accounts` to match with `account_id` and `full_name` to match i
 
     plan.addForeignKeyRelationship(
       postgresAcc, List("account_id", "name"),
-      List((postgresTxn, List("account_id", "full_name")))
+      List(postgresTxn -> List("account_id", "full_name"))
     )
     ```
 
@@ -241,7 +241,7 @@ key definition.
 
     plan.addForeignKeyRelationship(
       postgresAcc, List("account_id", "name"),
-      List((jsonTask, List("account_id", "_txn_name")))
+      List(jsonTask -> List("account_id", "_txn_name"))
     )
     ```
 

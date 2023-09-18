@@ -799,7 +799,7 @@ for <code>account_id</code>.</p>
 
 <span class="n">plan</span><span class="p">.</span><span class="n">addForeignKeyRelationship</span><span class="p">(</span>
 <span class="w">  </span><span class="n">postgresAcc</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nc">List</span><span class="p">((</span><span class="n">postgresTxn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="nc">List</span><span class="p">(</span><span class="n">postgresTxn</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 </code></pre></div>
 </div>
@@ -883,7 +883,7 @@ and <code>name</code> from <code>accounts</code> to match with <code>account_id<
 
 <span class="n">plan</span><span class="p">.</span><span class="n">addForeignKeyRelationship</span><span class="p">(</span>
 <span class="w">  </span><span class="n">postgresAcc</span><span class="p">,</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">),</span>
-<span class="w">  </span><span class="nc">List</span><span class="p">((</span><span class="n">postgresTxn</span><span class="p">,</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">)))</span>
+<span class="w">  </span><span class="nc">List</span><span class="p">(</span><span class="n">postgresTxn</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">))</span>
 <span class="p">)</span>
 </code></pre></div>
 </div>
@@ -976,7 +976,7 @@ key definition.</p>
 
 <span class="n">plan</span><span class="p">.</span><span class="n">addForeignKeyRelationship</span><span class="p">(</span>
 <span class="w">  </span><span class="n">postgresAcc</span><span class="p">,</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">),</span>
-<span class="w">  </span><span class="nc">List</span><span class="p">((</span><span class="n">jsonTask</span><span class="p">,</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;_txn_name&quot;</span><span class="p">)))</span>
+<span class="w">  </span><span class="nc">List</span><span class="p">(</span><span class="n">jsonTask</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;_txn_name&quot;</span><span class="p">))</span>
 <span class="p">)</span>
 </code></pre></div>
 </div>
