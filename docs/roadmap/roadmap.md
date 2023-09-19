@@ -3,15 +3,15 @@
 - Support for other data sources
     - GCP and Azure related data services, Delta, RabbitMQ, ActiveMQ
 - Metadata discovery for HTTP, JMS
-- :material-check: API for developers and testers
+- :white_check_mark: API for developers and testers
 - UI for metadata and data generation
-- :material-check: Report for data generated and validation rules
+- :white_check_mark: Report for data generated and validation rules
 - Metadata stored in database
 - Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry)
 - Data dictionary
     - Business definitions of fields that can be referenced for metadata across all data sources
-- :material-check: Verification rules after data generation
-- :material-check: Validation waiting conditions
+- :white_check_mark: Verification rules after data generation
+- :white_check_mark: Validation waiting conditions
     - Webhook
     - File exists
     - Data exists via SQL expression
