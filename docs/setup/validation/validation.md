@@ -19,8 +19,8 @@ data profile is to expected data profile).
     var csvTxns = csv("transactions", "/tmp/csv", Map.of("header", "true"))
       .validations(
         validation().expr("amount < 100"),
-        validation().expr("year == 2021").errorThreshold(0.1),  //equivalent to if error percentage is >= 10%, then fail
-        validation().expr("REGEXP_LIKE(name, 'Peter .*')").errorThreshold(200)  //equivalent to if number of errors is >= 200, then fail
+        validation().expr("year == 2021").errorThreshold(0.1),  //equivalent to if error percentage is > 10%, then fail
+        validation().expr("REGEXP_LIKE(name, 'Peter .*')").errorThreshold(200)  //equivalent to if number of errors is > 200, then fail
       );
     
     var conf = configuration().enableValidation(true);
@@ -32,8 +32,8 @@ data profile is to expected data profile).
     val csvTxns = csv("transactions", "/tmp/csv", Map("header" -> "true"))
       .validations(
         validation.expr("amount < 100"),
-        validation.expr("year == 2021").errorThreshold(0.1),  //equivalent to if error percentage is >= 10%, then fail
-        validation.expr("REGEXP_LIKE(name, 'Peter .*')").errorThreshold(200)  //equivalent to if number of errors is >= 200, then fail
+        validation.expr("year == 2021").errorThreshold(0.1),  //equivalent to if error percentage is > 10%, then fail
+        validation.expr("REGEXP_LIKE(name, 'Peter .*')").errorThreshold(200)  //equivalent to if number of errors is > 200, then fail
       )
     
     val conf = configuration.enableValidation(true)
@@ -51,9 +51,9 @@ data profile is to expected data profile).
         validations:
           - expr: "amount < 100"
           - expr: "year == 2021"
-            errorThreshold: 0.1   #equivalent to if error percentage is >= 10%, then fail
+            errorThreshold: 0.1   #equivalent to if error percentage is > 10%, then fail
           - expr: "REGEXP_LIKE(name, 'Peter .*')"
-            errorThreshold: 200   #equivalent to if number of errors is >= 200, then fail
+            errorThreshold: 200   #equivalent to if number of errors is > 200, then fail
             description: "Should be lots of Peters"
 
     #enableValidation inside application.conf
