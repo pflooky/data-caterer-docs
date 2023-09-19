@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   datacaterer:
-    image: "datacatering/data-caterer-basic:0.3.10"
+    image: "datacatering/data-caterer-basic:0.3.11"
     environment:
       - "APPLICATION_CONFIG_PATH=${APPLICATION_CONFIG_PATH:-/opt/app/custom/application.conf}"
       - "PLAN_FILE_PATH=/opt/app/custom/${PLAN:-plan/${DATA_SOURCE:-postgres}}.yaml"
