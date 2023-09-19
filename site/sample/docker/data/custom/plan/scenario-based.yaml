@@ -10,5 +10,5 @@ tasks:
     
 sinkOptions:
   foreignKeys:
-    "postgresCustomer.accounts.account_number":
-      - "csv.transactions.account_id"
+    - - "postgresCustomer.accounts.account_number"
+      - - "csv.transactions.account_id"

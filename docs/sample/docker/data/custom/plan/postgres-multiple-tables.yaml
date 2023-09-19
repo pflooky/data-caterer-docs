@@ -7,5 +7,5 @@ tasks:
 
 sinkOptions:
   foreignKeys:
-    "postgresCustomer.balances.account_number":
-      - "postgresCustomer.transactions.account_number"
+    - - "postgresCustomer.balances.account_number"
+      - - "postgresCustomer.transactions.account_number"

@@ -713,7 +713,7 @@
 <li>UI for metadata and data generation</li>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span> Report for data generated and validation rules</li>
 <li>Metadata stored in database</li>
-<li>Integration with existing metadata services (i.e. amundsen, datahub)</li>
+<li>Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry)</li>
 <li>Data dictionary<ul>
 <li>Business definitions of fields that can be referenced for metadata across all data sources</li>
 </ul>
@@ -724,6 +724,13 @@
 <li>File exists</li>
 <li>Data exists via SQL expression</li>
 <li>Pause</li>
+</ul>
+</li>
+<li>Extend validation types<ul>
+<li>Aggregates (sum of amount per account is &gt; 500)</li>
+<li>Ordering (transactions are ordered by date)</li>
+<li>Relationship (at least one account entry in history table per account in accounts table)</li>
+<li>Data profile (how close the generated data profile is compared to the expected data profile)</li>
 </ul>
 </li>
 <li>Alerting</li>

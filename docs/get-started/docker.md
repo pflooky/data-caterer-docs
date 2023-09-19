@@ -118,6 +118,11 @@ git clone git@github.com:pflooky/data-caterer-example.git
 
 #### Run with API
 
+```shell
+./run.sh
+<input class name>
+```
+
 Once you have cloned the data-caterer-example repo, it is easiest to run via the `run.sh` script that helps package up 
 the API into a jar, then mount it to the docker image, ready to be run. It will prompt you for the class name you want
 to run for.

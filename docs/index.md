@@ -1,11 +1,11 @@
 # Home
 
-Data Caterer is a data generation tool that aids in creating production like data across batch and event data systems.
-You can then clean up the generated data or run data validations to ensure your systems have ingested it as expected.
-Use the Java, Scala API, or YAML files to help with setup or customisation that are all run via docker.
-  
+Data Caterer is a metadata driven data generation tool that aids in creating production like data across batch and event
+data systems. You can then clean up the generated data or run data validations to ensure your systems have ingested it
+as expected. Use the Java, Scala API, or YAML files to help with setup or customisation that are all run via Docker.
+
 Main features of the data generator include:
-  
+
 - :material-card-search: Metadata discovery
 - :material-file: Batch or :material-circle-multiple: event data generation
 - :material-vector-difference-ba: Maintain referential integrity across any dataset

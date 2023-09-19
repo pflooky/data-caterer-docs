@@ -79,9 +79,9 @@
                   regex -&gt; ACC1[0-9]{5,10}
                 </td>
                 <td>
-                  regex: ACC1[0-9]{5,10} -&gt; 
+                  regex: ACC1[0-9]{5,10} -&gt; ACC1[0-9]{5,10}
 count:  -&gt; 1000
-distinctCount:  -&gt; 970
+distinctCount:  -&gt; 963
 maxLen:  -&gt; 14
 avgLen:  -&gt; 11
 nullCount:  -&gt; 0
@@ -128,8 +128,8 @@ oneOf: List(open, closed) -&gt; List(closed, open)
                 </td>
                 <td>
                   count:  -&gt; 1000
-distinctCount:  -&gt; 983
-expression: #{Name.username} -&gt; 
+distinctCount:  -&gt; 925
+expression: #{Name.username} -&gt; #{Name.username}
 maxLen:  -&gt; 21
 avgLen:  -&gt; 14
 nullCount:  -&gt; 0
@@ -153,7 +153,7 @@ nullCount:  -&gt; 0
                 <td>
                   sql: SUBSTR(created_by, 0, 5) -&gt; 
 count:  -&gt; 1000
-distinctCount:  -&gt; 778
+distinctCount:  -&gt; 802
 maxLen:  -&gt; 5
 avgLen:  -&gt; 5
 nullCount:  -&gt; 0
@@ -178,10 +178,10 @@ max -&gt; 999999999
                 </td>
                 <td>
                   count:  -&gt; 1000
-distinctCount:  -&gt; 1000
-isUnique: true -&gt; 
-min: 1 -&gt; 1403431
-max: 999999999 -&gt; 999747451
+distinctCount:  -&gt; 932
+isUnique: true -&gt; true
+min: 1 -&gt; 1498130
+max: 999999999 -&gt; 998068391
 maxLen:  -&gt; 4
 avgLen:  -&gt; 4
 nullCount:  -&gt; 0
@@ -229,9 +229,9 @@ nullCount:  -&gt; 0
                 </td>
                 <td>
                   count:  -&gt; 1000
-distinctCount:  -&gt; 977
-min:  -&gt; 14
-max:  -&gt; 99921
+distinctCount:  -&gt; 983
+min:  -&gt; 68
+max:  -&gt; 99898
 maxLen:  -&gt; 8
 avgLen:  -&gt; 8
 nullCount:  -&gt; 0
@@ -254,9 +254,9 @@ nullCount:  -&gt; 0
                 </td>
                 <td>
                   count:  -&gt; 1000
-distinctCount:  -&gt; 990
-min:  -&gt; 126.648197360590420000
-max:  -&gt; 99963.398930380100000000
+distinctCount:  -&gt; 970
+min:  -&gt; 43.980
+max:  -&gt; 99971.126
 maxLen:  -&gt; 16
 avgLen:  -&gt; 16
 nullCount:  -&gt; 0
@@ -279,9 +279,9 @@ nullCount:  -&gt; 0
                 </td>
                 <td>
                   count:  -&gt; 1000
-distinctCount:  -&gt; 983
-min:  -&gt; 82.580925
-max:  -&gt; 99834.36
+distinctCount:  -&gt; 1000
+min:  -&gt; 17.118132
+max:  -&gt; 99875.49
 maxLen:  -&gt; 4
 avgLen:  -&gt; 4
 nullCount:  -&gt; 0
@@ -304,9 +304,9 @@ nullCount:  -&gt; 0
                 </td>
                 <td>
                   count:  -&gt; 1000
-distinctCount:  -&gt; 925
-min:  -&gt; 68.93576449068517
-max:  -&gt; 99905.06348795706
+distinctCount:  -&gt; 1000
+min:  -&gt; 19.258189007298476
+max:  -&gt; 99978.92700786125
 maxLen:  -&gt; 8
 avgLen:  -&gt; 8
 nullCount:  -&gt; 0
@@ -329,9 +329,9 @@ nullCount:  -&gt; 0
                 </td>
                 <td>
                   count:  -&gt; 1000
-distinctCount:  -&gt; 353
-min:  -&gt; 2022-09-13
-max:  -&gt; 2023-09-12
+distinctCount:  -&gt; 349
+min:  -&gt; 2022-09-19
+max:  -&gt; 2023-09-18
 maxLen:  -&gt; 4
 avgLen:  -&gt; 4
 nullCount:  -&gt; 0
@@ -354,9 +354,9 @@ nullCount:  -&gt; 0
                 </td>
                 <td>
                   count:  -&gt; 1000
-distinctCount:  -&gt; 990
-min:  -&gt; 2022-09-13 06:27:40.375000
-max:  -&gt; 2023-09-12 18:36:57.319000
+distinctCount:  -&gt; 1000
+min:  -&gt; 2022-09-19 05:34:34.574000
+max:  -&gt; 2023-09-19 01:48:19.757000
 maxLen:  -&gt; 8
 avgLen:  -&gt; 8
 nullCount:  -&gt; 0
@@ -379,9 +379,9 @@ nullCount:  -&gt; 0
                 </td>
                 <td>
                   count:  -&gt; 1000
-distinctCount:  -&gt; 997
-min:  -&gt; 2022-09-13 13:59:54.016000
-max:  -&gt; 2023-09-13 04:19:44.113000
+distinctCount:  -&gt; 1000
+min:  -&gt; 2022-09-19 05:27:50.034000
+max:  -&gt; 2023-09-18 21:59:10.294000
 maxLen:  -&gt; 8
 avgLen:  -&gt; 8
 nullCount:  -&gt; 0
@@ -404,9 +404,180 @@ nullCount:  -&gt; 0
                 </td>
                 <td>
                   count:  -&gt; 1000
-distinctCount:  -&gt; 990
+distinctCount:  -&gt; 1000
 maxLen:  -&gt; 19
-avgLen:  -&gt; 11
+avgLen:  -&gt; 10
+nullCount:  -&gt; 0
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </details>
+      </body>
+    </html>
+              </td>
+            </tr><tr id="transactions">
+              <td>
+                transactions
+              </td>
+              <td>
+                -1
+              </td>
+              <td>
+                &#9989;
+              </td>
+              <td>
+                csv
+              </td>
+              <td>
+                &#9989;
+              </td>
+              <td>
+                path -&gt; /opt/app/custom/csv/transactions
+              </td>
+              <td>
+                per-column-count: columns=account_id,name, num-records-via-generator=(Generator(random,Map(max -&gt; 10, min -&gt; 1)))
+              </td>
+              <td>
+                <html>
+      <body>
+        <details>
+          <table class="tablesorter table table-striped" style="font-size: 13px">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Nullable</th>
+                <th>Generator Type</th>
+                <th>Metadata</th>
+                <th>Compare Generated Metadata</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  account_id
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  regex
+                </td>
+                <td>
+                  regex -&gt; ACC1[0-9]{9}
+                </td>
+                <td>
+                  regex: ACC1[0-9]{9} -&gt; ACC1[0-9]{5,10}
+count:  -&gt; 529
+distinctCount:  -&gt; 105
+maxLen:  -&gt; 14
+avgLen:  -&gt; 12
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  name
+                </td>
+                <td>
+                  string
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  expression -&gt; #{Name.name}
+                </td>
+                <td>
+                  count:  -&gt; 529
+distinctCount:  -&gt; 98
+expression: #{Name.name} -&gt; #{Name.name}
+maxLen:  -&gt; 26
+avgLen:  -&gt; 15
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  year
+                </td>
+                <td>
+                  int
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  min -&gt; 2021
+max -&gt; 2022
+                </td>
+                <td>
+                  count:  -&gt; 529
+distinctCount:  -&gt; 2
+min: 2021 -&gt; 2021
+max: 2022 -&gt; 2022
+maxLen:  -&gt; 4
+avgLen:  -&gt; 4
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  amount
+                </td>
+                <td>
+                  double
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  min -&gt; 10.0
+max -&gt; 100.0
+                </td>
+                <td>
+                  count:  -&gt; 529
+distinctCount:  -&gt; 521
+min: 10.0 -&gt; 10.226492679417555
+max: 100.0 -&gt; 99.64345283009047
+maxLen:  -&gt; 8
+avgLen:  -&gt; 8
+nullCount:  -&gt; 0
+                </td>
+              </tr><tr>
+                <td>
+                  txn_date
+                </td>
+                <td>
+                  date
+                </td>
+                <td>
+                  &#9989;
+                </td>
+                <td>
+                  random
+                </td>
+                <td>
+                  min -&gt; 2021-01-01
+max -&gt; 2021-12-31
+                </td>
+                <td>
+                  count:  -&gt; 529
+distinctCount:  -&gt; 281
+min: 2021-01-01 -&gt; 2021-01-01
+max: 2021-12-31 -&gt; 2021-12-27
+maxLen:  -&gt; 4
+avgLen:  -&gt; 4
 nullCount:  -&gt; 0
                 </td>
               </tr>

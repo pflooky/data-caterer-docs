@@ -7,7 +7,7 @@
 - UI for metadata and data generation
 - :material-check: Report for data generated and validation rules
 - Metadata stored in database
-- Integration with existing metadata services (i.e. amundsen, datahub)
+- Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry)
 - Data dictionary
     - Business definitions of fields that can be referenced for metadata across all data sources
 - :material-check: Verification rules after data generation
@@ -16,6 +16,11 @@
     - File exists
     - Data exists via SQL expression
     - Pause
+- Extend validation types
+    - Aggregates (sum of amount per account is > 500)
+    - Ordering (transactions are ordered by date)
+    - Relationship (at least one account entry in history table per account in accounts table)
+    - Data profile (how close the generated data profile is compared to the expected data profile)
 - Alerting
 - Overriding tasks
     - Can customise tasks without copying whole schema definitions
