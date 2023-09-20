@@ -952,37 +952,37 @@
 <tr>
 <td>integer</td>
 <td>IntegerType</td>
-<td><code>min, max</code></td>
+<td><code>min, max, stddev, mean</code></td>
 <td></td>
 </tr>
 <tr>
 <td>long</td>
 <td>LongType</td>
-<td><code>min, max</code></td>
+<td><code>min, max, stddev, mean</code></td>
 <td></td>
 </tr>
 <tr>
 <td>short</td>
 <td>ShortType</td>
-<td><code>min, max</code></td>
+<td><code>min, max, stddev, mean</code></td>
 <td></td>
 </tr>
 <tr>
 <td>decimal(precision, scale)</td>
 <td>DecimalType(precision, scale)</td>
-<td><code>min, max</code></td>
+<td><code>min, max, stddev, mean</code></td>
 <td></td>
 </tr>
 <tr>
 <td>double</td>
 <td>DoubleType</td>
-<td><code>min, max</code></td>
+<td><code>min, max, stddev, mean</code></td>
 <td></td>
 </tr>
 <tr>
 <td>float</td>
 <td>FloatType</td>
-<td><code>min, max</code></td>
+<td><code>min, max, stddev, mean</code></td>
 <td></td>
 </tr>
 <tr>
@@ -1202,6 +1202,18 @@ as defined by the data source (i.e. max value as per database type).</p>
 <td><code>max: "25"</code></td>
 <td>Ensures that all generated values are less than or equal to <code>max</code></td>
 </tr>
+<tr>
+<td><code>stddev</code></td>
+<td>1.0</td>
+<td><code>stddev: "2.0"</code></td>
+<td>Standard deviation for normal distributed data</td>
+</tr>
+<tr>
+<td><code>mean</code></td>
+<td><code>max - min</code></td>
+<td><code>mean: "5.0"</code></td>
+<td>Mean for normal distributed data</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Edge cases Integer</strong>: (2147483647, -2147483648, 0)<br />
@@ -1271,6 +1283,18 @@ as defined by the data source (i.e. max value as per database type).</p>
 <td>1000</td>
 <td><code>max: "25"</code></td>
 <td>Ensures that all generated values are less than or equal to <code>max</code></td>
+</tr>
+<tr>
+<td><code>stddev</code></td>
+<td>1.0</td>
+<td><code>stddev: "2.0"</code></td>
+<td>Standard deviation for normal distributed data</td>
+</tr>
+<tr>
+<td><code>mean</code></td>
+<td><code>max - min</code></td>
+<td><code>mean: "5.0"</code></td>
+<td>Mean for normal distributed data</td>
 </tr>
 <tr>
 <td><code>numericPrecision</code></td>
@@ -1343,6 +1367,18 @@ as defined by the data source (i.e. max value as per database type).</p>
 <td>1000.0</td>
 <td><code>max: "25.9"</code></td>
 <td>Ensures that all generated values are less than or equal to <code>max</code></td>
+</tr>
+<tr>
+<td><code>stddev</code></td>
+<td>1.0</td>
+<td><code>stddev: "2.0"</code></td>
+<td>Standard deviation for normal distributed data</td>
+</tr>
+<tr>
+<td><code>mean</code></td>
+<td><code>max - min</code></td>
+<td><code>mean: "5.0"</code></td>
+<td>Mean for normal distributed data</td>
 </tr>
 </tbody>
 </table>

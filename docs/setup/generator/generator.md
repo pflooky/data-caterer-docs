@@ -7,12 +7,12 @@ Below is a list of all supported data types for generating data:
 | Data Type                 | Spark Data Type               | Options                                  | Description                                               |
 |---------------------------|-------------------------------|------------------------------------------|-----------------------------------------------------------|
 | string                    | StringType                    | `minLen, maxLen, expression, enableNull` |                                                           |
-| integer                   | IntegerType                   | `min, max`                               |                                                           |
-| long                      | LongType                      | `min, max`                               |                                                           |
-| short                     | ShortType                     | `min, max`                               |                                                           |
-| decimal(precision, scale) | DecimalType(precision, scale) | `min, max`                               |                                                           |
-| double                    | DoubleType                    | `min, max`                               |                                                           |
-| float                     | FloatType                     | `min, max`                               |                                                           |
+| integer                   | IntegerType                   | `min, max, stddev, mean`                 |                                                           |
+| long                      | LongType                      | `min, max, stddev, mean`                 |                                                           |
+| short                     | ShortType                     | `min, max, stddev, mean`                 |                                                           |
+| decimal(precision, scale) | DecimalType(precision, scale) | `min, max, stddev, mean`                 |                                                           |
+| double                    | DoubleType                    | `min, max, stddev, mean`                 |                                                           |
+| float                     | FloatType                     | `min, max, stddev, mean`                 |                                                           |
 | date                      | DateType                      | `min, max, enableNull`                   |                                                           |
 | timestamp                 | TimestampType                 | `min, max, enableNull`                   |                                                           |
 | boolean                   | BooleanType                   |                                          |                                                           |
@@ -115,10 +115,12 @@ as defined by the data source (i.e. max value as per database type).
 
 #### Integer/Long/Short
 
-| Option | Default | Example     | Description                                                          |
-|--------|---------|-------------|----------------------------------------------------------------------|
-| `min`  | 0       | `min: "2"`  | Ensures that all generated values are greater than or equal to `min` |
-| `max`  | 1000    | `max: "25"` | Ensures that all generated values are less than or equal to `max`    |
+| Option   | Default     | Example         | Description                                                          |
+|----------|-------------|-----------------|----------------------------------------------------------------------|
+| `min`    | 0           | `min: "2"`      | Ensures that all generated values are greater than or equal to `min` |
+| `max`    | 1000        | `max: "25"`     | Ensures that all generated values are less than or equal to `max`    |
+| `stddev` | 1.0         | `stddev: "2.0"` | Standard deviation for normal distributed data                       |
+| `mean`   | `max - min` | `mean: "5.0"`   | Mean for normal distributed data                                     |
 
 **Edge cases Integer**: (2147483647, -2147483648, 0)  
 **Edge cases Long**: (9223372036854775807, -9223372036854775808, 0)  
@@ -172,12 +174,14 @@ as defined by the data source (i.e. max value as per database type).
 #### Decimal
 
 
-| Option             | Default | Example           | Description                                                                                             |
-|--------------------|---------|-------------------|---------------------------------------------------------------------------------------------------------|
-| `min`              | 0       | `min: "2"`        | Ensures that all generated values are greater than or equal to `min`                                    |
-| `max`              | 1000    | `max: "25"`       | Ensures that all generated values are less than or equal to `max`                                       |
-| `numericPrecision` | 10      | `precision: "25"` | The maximum number of digits                                                                            |
-| `numericScale`     | 0       | `scale: "25"`     | The number of digits on the right side of the decimal point (has to be less than or equal to precision) |
+| Option             | Default     | Example           | Description                                                                                             |
+|--------------------|-------------|-------------------|---------------------------------------------------------------------------------------------------------|
+| `min`              | 0           | `min: "2"`        | Ensures that all generated values are greater than or equal to `min`                                    |
+| `max`              | 1000        | `max: "25"`       | Ensures that all generated values are less than or equal to `max`                                       |
+| `stddev`           | 1.0         | `stddev: "2.0"`   | Standard deviation for normal distributed data                                                          |
+| `mean`             | `max - min` | `mean: "5.0"`     | Mean for normal distributed data                                                                        |
+| `numericPrecision` | 10          | `precision: "25"` | The maximum number of digits                                                                            |
+| `numericScale`     | 0           | `scale: "25"`     | The number of digits on the right side of the decimal point (has to be less than or equal to precision) |
 
 **Edge cases Decimal**: (9223372036854775807, -9223372036854775808, 0)
 
@@ -220,10 +224,12 @@ as defined by the data source (i.e. max value as per database type).
 
 #### Double/Float
 
-| Option | Default | Example       | Description                                                          |
-|--------|---------|---------------|----------------------------------------------------------------------|
-| `min`  | 0.0     | `min: "2.1"`  | Ensures that all generated values are greater than or equal to `min` |
-| `max`  | 1000.0  | `max: "25.9"` | Ensures that all generated values are less than or equal to `max`    |
+| Option   | Default     | Example         | Description                                                          |
+|----------|-------------|-----------------|----------------------------------------------------------------------|
+| `min`    | 0.0         | `min: "2.1"`    | Ensures that all generated values are greater than or equal to `min` |
+| `max`    | 1000.0      | `max: "25.9"`   | Ensures that all generated values are less than or equal to `max`    |
+| `stddev` | 1.0         | `stddev: "2.0"` | Standard deviation for normal distributed data                       |
+| `mean`   | `max - min` | `mean: "5.0"`   | Mean for normal distributed data                                     |
 
 **Edge cases Double**: (+infinity, 1.7976931348623157e+308, 4.9e-324, 0.0, -0.0, -1.7976931348623157e+308, -infinity,
 NaN)  
