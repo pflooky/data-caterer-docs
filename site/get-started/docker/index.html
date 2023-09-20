@@ -850,8 +850,8 @@
 <h1 id="run-data-caterer">Run Data Caterer</h1>
 <h2 id="docker">Docker</h2>
 <h3 id="quick-start">Quick start</h3>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-docs.git
-<span class="nb">cd</span><span class="w"> </span>data-caterer-docs/docs/sample/docker
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-example.git
+<span class="nb">cd</span><span class="w"> </span>docker
 docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
 </code></pre></div>
 <p>To run for another data source, you can set <code>DATA_SOURCE</code> like below:</p>
@@ -867,10 +867,10 @@ docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w
 <li>http</li>
 </ul>
 <p>If you want to test it out with your own setup, you can alter the corresponding files
-under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data">docs/sample/docker/data</a></p>
+under <a href="https://github.com/pflooky/data-caterer-example/tree/main/docker/data">docker/data</a></p>
 <h4 id="report">Report</h4>
-<p>Check the report generated under <code>docs/sample/docker/data/custom/report/index.html</code>.</p>
-<p>Sample report can also be seen <a href="../../sample/docker/data/report/html/">here</a></p>
+<p>Check the report generated under <code>docker/data/custom/report/index.html</code>.</p>
+<p>Sample report can also be seen <a href="../../sample/report/html/">here</a></p>
 <h3 id="api">API</h3>
 <p>A Java and Scala API is available to use to create your own data generation scenario.</p>
 <p>You can check out the example project found <a href="https://github.com/pflooky/data-caterer-example">here</a> via:</p>
@@ -972,13 +972,17 @@ account_id, name combination in the CSV file.</p>
 <h3 id="run-with-custom-data-sources">Run with custom data sources</h3>
 <ol>
 <li>Create/alter plan
-   under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/plan"><code>data/custom/plan</code></a></li>
+   under <a href="https://github.com/pflooky/data-caterer-example/tree/main/docker/data/custom/plan"><code>data/custom/plan</code></a></li>
 <li>Create/alter tasks
-   under <a href="https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/task"><code>data/custom/task</code></a></li>
+   under <a href="https://github.com/pflooky/data-caterer-example/tree/main/docker/data/custom/task"><code>data/custom/task</code></a><ol>
 <li>Define your schemas and generator configurations such as record count</li>
+</ol>
+</li>
 <li>Create/alter application
-   configuration <a href="https://github.com/pflooky/data-caterer-docs/blob/main/docs/sample/docker/data/custom/application.conf"><code>data/custom/application.conf</code></a></li>
+   configuration <a href="https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/application.conf"><code>data/custom/application.conf</code></a><ol>
 <li>This is where you define your connection properties and other flags/configurations</li>
+</ol>
+</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="nv">DATA_SOURCE</span><span class="o">=</span>&lt;data<span class="w"> </span><span class="nb">source</span><span class="w"> </span>name&gt;<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
 </code></pre></div>
@@ -993,12 +997,12 @@ cat<span class="w"> </span>data/custom/generated/plan/plan_*
 <div class="highlight"><pre><span></span><code><span class="nv">APPLICATION_CONFIG_PATH</span><span class="o">=</span>/opt/app/custom/application-dvd.conf<span class="w"> </span><span class="nv">ENABLE_GENERATE_DATA</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">ENABLE_GENERATE_PLAN_AND_TASKS</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">ENABLE_DELETE_GENERATED_RECORDS</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">DATA_SOURCE</span><span class="o">=</span>postgresdvd<span class="w"> </span><span class="nv">PLAN</span><span class="o">=</span>generated/plan/<span class="k">$(</span>ls<span class="w"> </span>data/custom/generated/plan/<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>plan<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s2">&quot; &quot;</span><span class="w"> </span><span class="s1">&#39;{print $NF}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/\.yaml//g&#39;</span><span class="k">)</span><span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
 </code></pre></div>
 <h2 id="helm">Helm</h2>
-<p><a href="https://github.com/pflooky/data-caterer-docs/tree/main/helm/data-caterer">Link to sample helm on GitHub here</a></p>
+<p><a href="https://github.com/pflooky/data-caterer-example/tree/main/helm/data-caterer">Link to sample helm on GitHub here</a></p>
 <p>Update
-the <a href="https://github.com/pflooky/data-caterer-docs/blob/main/helm/data-caterer/templates/configuration.yaml">configuration</a>
+the <a href="https://github.com/pflooky/data-caterer-example/blob/main/helm/data-caterer/templates/configuration.yaml">configuration</a>
 to your own data connections and configuration.</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-docs.git
-helm<span class="w"> </span>install<span class="w"> </span>data-caterer<span class="w"> </span>./data-caterer-docs/helm/data-caterer
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-example.git
+helm<span class="w"> </span>install<span class="w"> </span>data-caterer<span class="w"> </span>./data-caterer-example/helm/data-caterer
 </code></pre></div>
 
 

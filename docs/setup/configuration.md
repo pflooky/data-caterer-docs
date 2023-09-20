@@ -3,8 +3,9 @@
 A number of configurations can be made and customised within Data Caterer to help control what gets run and/or where any
 metadata gets saved.
 
-These configurations are defined from within your `application.conf` file as
-seen [here](../sample/docker/data/custom/application.conf).
+These configurations are defined from within your Java or Scala class via `configuration` or for YAML file setup,
+`application.conf` file as seen 
+[here](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/application.conf).
 
 ## Flags
 

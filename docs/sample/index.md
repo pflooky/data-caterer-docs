@@ -16,25 +16,25 @@ and how many steps (sub data sources) there are (i.e. tables in a database, topi
 
 ### Foreign Keys
 
-[Define foreign keys across data sources in your plan to ensure generated data can match](docker/data/custom/plan/foreign-key-example.yaml)  
-[Link to associated task 1](docker/data/custom/task/file/json/json-account-task.yaml)  
-[Link to associated task 2](docker/data/custom/task/jdbc/postgres/postgres-account-task.yaml)
+[Define foreign keys across data sources in your plan to ensure generated data can match](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/plan/foreign-key-example.yaml)  
+[Link to associated task 1](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/file/json/json-account-task.yaml)  
+[Link to associated task 2](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/jdbc/postgres/postgres-account-task.yaml)
 
 ## Task
 
-| Data Source Type | Data Source | Sample Task                                                                  | Notes                                                             |
-|------------------|-------------|------------------------------------------------------------------------------|-------------------------------------------------------------------|
-| Database         | Postgres    | [Sample](docker/data/custom/task/jdbc/postgres/postgres-account-task.yaml)   |                                                                   |
-| Database         | MySQL       | [Sample](docker/data/custom/task/jdbc/mysql/mysql-account-task.yaml)         |                                                                   |
-| Database         | Cassandra   | [Sample](docker/data/custom/task/cassandra/cassandra-customer-task.yaml)     |                                                                   |
-| File             | CSV         | [Sample](docker/data/custom/task/file/csv/csv-transaction-task.yaml)         |                                                                   |
-| File             | JSON        | [Sample](docker/data/custom/task/file/json/json-account-task.yaml)           | Contains nested schemas and use of SQL for generated values       |
-| File             | Parquet     | [Sample](docker/data/custom/task/file/parquet/parquet-transaction-task.yaml) | Partition by year column                                          |
-| Kafka            | Kafka       | [Sample](docker/data/custom/task/kafka/kafka-account-task.yaml)              | Specific base schema to be used, define headers, key, value, etc. |
-| JMS              | Solace      | [Sample](docker/data/custom/task/jms/solace/jms-account-task.yaml)           | JSON formatted message                                            |
-| HTTP             | PUT         | [Sample](docker/data/custom/task/http/http-account-task.yaml)                | JSON formatted PUT body                                           |
+| Data Source Type | Data Source | Sample Task                                                                                                                            | Notes                                                             |
+|------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
+| Database         | Postgres    | [Sample](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/jdbc/postgres/postgres-account-task.yaml)   |                                                                   |
+| Database         | MySQL       | [Sample](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/jdbc/mysql/mysql-account-task.yaml)         |                                                                   |
+| Database         | Cassandra   | [Sample](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/cassandra/cassandra-customer-task.yaml)     |                                                                   |
+| File             | CSV         | [Sample](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/file/csv/csv-transaction-task.yaml)         |                                                                   |
+| File             | JSON        | [Sample](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/file/json/json-account-task.yaml)           | Contains nested schemas and use of SQL for generated values       |
+| File             | Parquet     | [Sample](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/file/parquet/parquet-transaction-task.yaml) | Partition by year column                                          |
+| Kafka            | Kafka       | [Sample](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/kafka/kafka-account-task.yaml)              | Specific base schema to be used, define headers, key, value, etc. |
+| JMS              | Solace      | [Sample](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/jms/solace/jms-account-task.yaml)           | JSON formatted message                                            |
+| HTTP             | PUT         | [Sample](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/http/http-account-task.yaml)                | JSON formatted PUT body                                           |
 
 
 ## Configuration
 
-[Basic configuration](docker/data/custom/application.conf)
+[Basic configuration](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/application.conf)

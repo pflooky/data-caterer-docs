@@ -5,8 +5,8 @@
 ### Quick start
 
 ```shell
-git clone git@github.com:pflooky/data-caterer-docs.git
-cd data-caterer-docs/docs/sample/docker
+git clone git@github.com:pflooky/data-caterer-example.git
+cd docker
 docker-compose up -d datacaterer
 ```
 
@@ -26,13 +26,13 @@ Can set it to one of the following:
 - http
 
 If you want to test it out with your own setup, you can alter the corresponding files
-under [docs/sample/docker/data](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data)
+under [docker/data](https://github.com/pflooky/data-caterer-example/tree/main/docker/data)
 
 #### Report
 
-Check the report generated under `docs/sample/docker/data/custom/report/index.html`.
+Check the report generated under `docker/data/custom/report/index.html`.
 
-Sample report can also be seen [here](../sample/docker/data/report/html/index.html)
+Sample report can also be seen [here](../sample/report/html/index.html)
 
 ### API
 
@@ -154,13 +154,13 @@ account_id, name combination in the CSV file.
 ### Run with custom data sources
 
 1. Create/alter plan
-   under [`data/custom/plan`](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/plan)
+   under [`data/custom/plan`](https://github.com/pflooky/data-caterer-example/tree/main/docker/data/custom/plan)
 2. Create/alter tasks
-   under [`data/custom/task`](https://github.com/pflooky/data-caterer-docs/tree/main/docs/sample/docker/data/custom/task)
-1. Define your schemas and generator configurations such as record count
+   under [`data/custom/task`](https://github.com/pflooky/data-caterer-example/tree/main/docker/data/custom/task)
+    1. Define your schemas and generator configurations such as record count
 3. Create/alter application
-   configuration [`data/custom/application.conf`](https://github.com/pflooky/data-caterer-docs/blob/main/docs/sample/docker/data/custom/application.conf)
-1. This is where you define your connection properties and other flags/configurations
+   configuration [`data/custom/application.conf`](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/application.conf)
+    1. This is where you define your connection properties and other flags/configurations
 
 ```shell
 DATA_SOURCE=<data source name> docker-compose up -d datacaterer
@@ -187,13 +187,13 @@ APPLICATION_CONFIG_PATH=/opt/app/custom/application-dvd.conf ENABLE_GENERATE_DAT
 
 ## Helm
 
-[Link to sample helm on GitHub here](https://github.com/pflooky/data-caterer-docs/tree/main/helm/data-caterer)
+[Link to sample helm on GitHub here](https://github.com/pflooky/data-caterer-example/tree/main/helm/data-caterer)
 
 Update
-the [configuration](https://github.com/pflooky/data-caterer-docs/blob/main/helm/data-caterer/templates/configuration.yaml)
+the [configuration](https://github.com/pflooky/data-caterer-example/blob/main/helm/data-caterer/templates/configuration.yaml)
 to your own data connections and configuration.
 
 ```shell
-git clone git@github.com:pflooky/data-caterer-docs.git
-helm install data-caterer ./data-caterer-docs/helm/data-caterer
+git clone git@github.com:pflooky/data-caterer-example.git
+helm install data-caterer ./data-caterer-example/helm/data-caterer
 ```

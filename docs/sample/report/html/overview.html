@@ -1,0 +1,186 @@
+<html>
+      <head>
+        <title>
+          Overview - Data Caterer
+        </title><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script><style>
+        table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } td { white-space:pre-line } .table thead th { position: sticky; top: 0; z-index: 1; } .outer-container { display: flex; flex-direction: column; height: 100vh; } .top-container { height: 50%; overflow: auto; resize: vertical; } .bottom-container { flex: 1; min-height: 0; height: 50%; overflow: auto; resize: vertical; } .slider { text-align: center; background-color: #dee2e6; cursor: row-resize; user-select: none; } .selected-row { background-color: lightgreen !important; } 
+      </style>
+      </head>
+      <body>
+        <div>Generated at
+          2023-09-20T12:37:52.167+08:00
+        </div>
+        <h1>Data Caterer Summary</h1>
+        <h2>Flags</h2><table class="table table-striped" style="font-size: 13px">
+      <thead>
+        <tr>
+          <th>Generate Metadata</th>
+          <th>Generate Data</th>
+          <th>Record Tracking</th>
+          <th>Delete Data</th>
+          <th>Calculate Generated Records Metadata</th>
+          <th>Validate Data</th>
+          <th>Unique Check</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            &#10060;
+          </td>
+          <td>
+            &#9989;
+          </td>
+          <td>
+            &#10060;
+          </td>
+          <td>
+            &#10060;
+          </td>
+          <td>
+            &#9989;
+          </td>
+          <td>
+            &#9989;
+          </td>
+          <td>
+            &#10060;
+          </td>
+        </tr>
+      </tbody>
+    </table><h2>Plan</h2><table class="tablesorter table table-striped" style="font-size: 13px">
+      <thead>
+        <tr>
+          <th>Plan Name</th>
+          <th>Num Records</th>
+          <th>Success</th>
+          <th>Tasks</th>
+          <th>Steps</th>
+          <th>Data Sources</th>
+          <th>Foreign Keys</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Default plan
+          </td>
+          <td>
+            251
+          </td>
+          <td>
+            &#9989;
+          </td>
+          <td>
+            2
+          </td>
+          <td>
+            2
+          </td>
+          <td>
+            2
+          </td>
+          <td>
+            (account_info.964aa3fe-120d-401b-84d1-2bb146d0d7ad.account_id,_join_txn_name,List(transactions.fca8b5c1-b7ae-43b6-b8cd-ca5de004d02f.account_id,name))
+          </td>
+        </tr>
+      </tbody>
+    </table><h2>Tasks</h2><table class="tablesorter table table-striped" style="font-size: 13px">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Num Records</th>
+          <th>Success</th>
+          <th>Steps</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <a href="tasks.html#ef38f577-19d4-437f-9db3-6f5393feca66">
+              ef38f577-19d4-437f-9db3-6f5393feca66
+            </a>
+          </td>
+          <td>
+            100
+          </td>
+          <td>
+            &#9989;
+          </td>
+          <td>
+            <a href="steps.html#964aa3fe-120d-401b-84d1-2bb146d0d7ad">
+          964aa3fe-120d-401b-84d1-2bb146d0d7ad
+        </a>
+          </td>
+        </tr><tr>
+          <td>
+            <a href="tasks.html#6ce651d2-e212-4180-bec5-8825d6fda261">
+              6ce651d2-e212-4180-bec5-8825d6fda261
+            </a>
+          </td>
+          <td>
+            151
+          </td>
+          <td>
+            &#9989;
+          </td>
+          <td>
+            <a href="steps.html#fca8b5c1-b7ae-43b6-b8cd-ca5de004d02f">
+          fca8b5c1-b7ae-43b6-b8cd-ca5de004d02f
+        </a>
+          </td>
+        </tr>
+      </tbody>
+    </table><h2>Validations</h2><table class="tablesorter table table-striped" style="font-size: 13px">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Data Sources</th>
+          <th>Success</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <a href="validations.html#default_validation">
+              default_validation
+            </a>
+          </td>
+          <td>
+            Validation of data sources after generating data
+          </td>
+          <td>
+            <a href="data-sources.html#transactions">
+          transactions
+        </a>
+          </td>
+          <td>
+            &#9989;
+          </td>
+        </tr>
+      </tbody>
+    </table><h2>Output Rows Per Second</h2><canvas id="outputRowsPerSecond" style="width:100%;max-width:700px"></canvas><script type="text/javascript">
+        new Chart(outputRowsPerSecond, {
+    type: "line",
+    data: {
+      labels: ["12:37:50","12:37:51","12:37:52","12:37:53"],
+      datasets: [{
+        backgroundColor: "rgba(0,0,255,1.0)",
+        borderColor: "rgba(0,0,255,0.1)",
+        data: [0,100,151,0]
+      }]
+    },
+    options: {
+      legend: {display: false},
+      scales: {
+        yAxes: [{ticks: {min: 0, max: 153}}],
+      }
+    }
+  });
+
+      </script>
+      </body>
+    </html>

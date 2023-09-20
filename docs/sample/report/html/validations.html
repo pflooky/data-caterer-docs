@@ -1,0 +1,146 @@
+<html>
+      <head>
+        <title>
+          Validations - Data Caterer
+        </title><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script><style>
+        table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } td { white-space:pre-line } .table thead th { position: sticky; top: 0; z-index: 1; } .outer-container { display: flex; flex-direction: column; height: 100vh; } .top-container { height: 50%; overflow: auto; resize: vertical; } .bottom-container { flex: 1; min-height: 0; height: 50%; overflow: auto; resize: vertical; } .slider { text-align: center; background-color: #dee2e6; cursor: row-resize; user-select: none; } .selected-row { background-color: lightgreen !important; } 
+      </style>
+      </head>
+      <body>
+        <h1>Validations</h1><table class="tablesorter table table-striped" style="font-size: 13px">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Data Sources</th>
+          <th>Success</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <a href="validations.html#default_validation">
+              default_validation
+            </a>
+          </td>
+          <td>
+            Validation of data sources after generating data
+          </td>
+          <td>
+            <a href="data-sources.html#transactions">
+          transactions
+        </a>
+          </td>
+          <td>
+            &#9989;
+          </td>
+        </tr>
+      </tbody>
+    </table><h2>Details</h2>
+        <table class="tablesorter table table-striped" style="font-size: 13px">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Data Source</th>
+              <th>Options</th>
+              <th>Success</th>
+              <th>Validation</th>
+              <th>Num Failed</th>
+              <th>Error Sample</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                  <td>
+                    Validate
+                  </td>
+                  <td>
+                    <a href="data-sources.html#transactions">
+                      transactions
+                    </a>
+                  </td>
+                  <td>
+                    saveMode -&gt; overwrite
+header -&gt; true
+format -&gt; csv
+path -&gt; src/test/resources/sample/documentation/csv
+                  </td>
+                  <td>
+                    &#9989;
+                  </td>
+                  <td>
+                    expr -&gt; amount &gt; 0
+errorThreshold -&gt; 0.01
+
+                  </td>
+                  <td>
+                    0
+                  </td>
+                  <td>
+                    
+                  </td>
+                </tr><tr>
+                  <td>
+                    Validate
+                  </td>
+                  <td>
+                    <a href="data-sources.html#transactions">
+                      transactions
+                    </a>
+                  </td>
+                  <td>
+                    saveMode -&gt; overwrite
+header -&gt; true
+format -&gt; csv
+path -&gt; src/test/resources/sample/documentation/csv
+                  </td>
+                  <td>
+                    &#9989;
+                  </td>
+                  <td>
+                    expr -&gt; LENGTH(name) &gt; 3
+errorThreshold -&gt; 5.0
+
+                  </td>
+                  <td>
+                    0
+                  </td>
+                  <td>
+                    
+                  </td>
+                </tr><tr>
+                  <td>
+                    Non-empty merchant name
+                  </td>
+                  <td>
+                    <a href="data-sources.html#transactions">
+                      transactions
+                    </a>
+                  </td>
+                  <td>
+                    saveMode -&gt; overwrite
+header -&gt; true
+format -&gt; csv
+path -&gt; src/test/resources/sample/documentation/csv
+                  </td>
+                  <td>
+                    &#9989;
+                  </td>
+                  <td>
+                    expr -&gt; LENGTH(merchant) &gt; 0
+errorThreshold -&gt; 0.0
+
+                  </td>
+                  <td>
+                    0
+                  </td>
+                  <td>
+                    
+                  </td>
+                </tr>
+          </tbody>
+        </table>
+      </body>
+    </html>

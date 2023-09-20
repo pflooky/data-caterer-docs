@@ -235,4 +235,4 @@ validations. This can be via:
 
 ## Report
 
-Once run, it will produce a report like [this](../../sample/docker/data/report/html/validations.html).
+Once run, it will produce a report like [this](../../sample/report/html/validations.html).

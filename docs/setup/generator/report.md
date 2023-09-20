@@ -5,4 +5,4 @@ data was generated, where it was generated, validation results and any associate
 
 ## Sample
 
-Once run, it will produce a report like [this](../../sample/docker/data/report/html/index.html).
+Once run, it will produce a report like [this](../../sample/report/html/index.html).

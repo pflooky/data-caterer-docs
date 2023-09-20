@@ -65,9 +65,9 @@ You can alter the `status` column in the account data to only generate `open` ac
 and define a foreign key between Postgres and parquet to ensure the same `account_id` is being used.  
 Then in the parquet task, define 1 to 10 transactions per `account_id` to be generated.
 
-[Postgres account generation example task](../sample/docker/data/custom/task/jdbc/postgres/postgres-account-task.yaml)  
-[Parquet transaction generation example task](../sample/docker/data/custom/task/file/parquet/parquet-transaction-task.yaml)  
-[Plan](../sample/docker/data/custom/plan/scenario-based.yaml)
+[Postgres account generation example task](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/jdbc/postgres/postgres-account-task.yaml)  
+[Parquet transaction generation example task](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/file/parquet/parquet-transaction-task.yaml)  
+[Plan](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/plan/scenario-based.yaml)
 
 ## Cloud storage
 

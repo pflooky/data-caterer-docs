@@ -405,7 +405,7 @@ found [here](https://spark.apache.org/docs/latest/structured-streaming-kafka-int
     ```
 
 When defining your schema for pushing data to Kafka, it follows a specific top level schema.  
-An example can be found [here](../../sample/docker/data/custom/task/kafka/kafka-account-task.yaml).  
+An example can be found [here](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/kafka/kafka-account-task.yaml).  
 You can define the key, value, headers, partition or topic by following the linked schema.
 
 ### JMS
