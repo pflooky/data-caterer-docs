@@ -8,6 +8,7 @@ All the configurations and customisation related to Data Caterer can be found un
 - :material-connection: __[Connections]__ - Explore the data source connections available
 - :material-chart-bell-curve-cumulative: __[Generators]__ - Choose and configure the type of generator you want used for fields
 - :material-check: __[Validations]__ - How to validate data to ensure your system is performing as expected
+- :material-key: __[Foreign Keys]__ - Define links between data elements across data sources
 
 </div>
 
@@ -15,3 +16,4 @@ All the configurations and customisation related to Data Caterer can be found un
   [Connections]: connection/connection.md
   [Generators]: generator/generator.md
   [Validations]: validation/validation.md
+  [Foreign Keys]: foreign-key/foreign-key.md
