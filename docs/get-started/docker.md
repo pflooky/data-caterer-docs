@@ -6,6 +6,7 @@
 
 ```shell
 git clone git@github.com:pflooky/data-caterer-example.git
+./gradlew clean build
 cd docker
 docker-compose up -d datacaterer
 ```
