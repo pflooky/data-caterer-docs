@@ -8,55 +8,63 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
 
 ### Scenarios
 
-- __[First Data Generation]__ - If you are new, this is the place to start
-- __[Multiple Records Per Column Value]__ - How you can generate multiple records per set of columns
-- __[Foreign Keys Across Data Sources]__ - Generate matching values across generated data sets
-- __[Auto Generate From Data Connection]__ - :exclamation: Paid tier feature of automatically generating data
+!!! note "Free tier scenarios"
 
-  [First Data Generation]: scenario/first-data-generation.md
-  [Multiple Records Per Column Value]: scenario/first-data-generation.md
-  [Foreign Keys Across Data Sources]: scenario/first-data-generation.md
-  [Auto Generate From Data Connection]: scenario/first-data-generation.md
+    - __[First Data Generation]__ - If you are new, this is the place to start
+    - __[Multiple Records Per Column Value]__ - How you can generate multiple records per set of columns
+    - __[Foreign Keys Across Data Sources]__ - Generate matching values across generated data sets
+
+      [First Data Generation]: scenario/first-data-generation.md
+      [Multiple Records Per Column Value]: scenario/first-data-generation.md
+      [Foreign Keys Across Data Sources]: scenario/first-data-generation.md
+
+!!! example "Paid tier scenarios"
+
+    - __[Auto Generate From Data Connection]__ - Automatically generating data from just defining data sources
+    - __[Delete Generated Data]__ - Delete generated data
+
+      [Auto Generate From Data Connection]: scenario/first-data-generation.md
+      [Delete Generated Data]: scenario/first-data-generation.md
   
 ### Data Sources
 
 !!! note "Free tier data sources"
 
-<div class="grid cards" markdown>
+    <div class="grid cards" markdown>
 
-- __[CSV]__ - Generate data for files with separator (comma separated by default)
-- __[JSON]__ - JSON files that can have nested schema structures
-- __[ORC]__ - ORC format files
-- __[Parquet]__ - Parquet format files
-- __[Fixed width]__ - A variant of CSV but with no separator
-- __[Postgres]__ - JDBC Postgres tables
+    - __[CSV]__ - Generate data for files with separator (comma separated by default)
+    - __[JSON]__ - JSON files that can have nested schema structures
+    - __[ORC]__ - ORC format files
+    - __[Parquet]__ - Parquet format files
+    - __[Fixed width]__ - A variant of CSV but with no separator
+    - __[Postgres]__ - JDBC Postgres tables
 
-</div>
+    </div>
 
-  [CSV]: scenario/first-data-generation.md
-  [JSON]: data-source/cassandra.md
-  [ORC]: data-source/cassandra.md
-  [Parquet]: data-source/cassandra.md
-  [Fixed width]: data-source/cassandra.md
-  [Postgres]: data-source/cassandra.md
+      [CSV]: scenario/first-data-generation.md
+      [JSON]: data-source/cassandra.md
+      [ORC]: data-source/cassandra.md
+      [Parquet]: data-source/cassandra.md
+      [Fixed width]: data-source/cassandra.md
+      [Postgres]: data-source/cassandra.md
 
-!!! note "Paid tier data sources"
+!!! example "Paid tier data sources"
 
-<div class="grid cards" markdown>
+    <div class="grid cards" markdown>
 
-- __[MySql]__ - JDBC MySql tables
-- __[Cassandra]__ - Cassandra tables
-- __[Kafka]__ - Kafka topics
-- __[Solace]__ - Solace messages
-- __[HTTP]__ - HTTP requests
+    - __[MySql]__ - JDBC MySql tables
+    - __[Cassandra]__ - Cassandra tables
+    - __[Kafka]__ - Kafka topics
+    - __[Solace]__ - Solace messages
+    - __[HTTP]__ - HTTP requests
 
-</div>
+    </div>
 
-  [MySql]: data-source/cassandra.md
-  [Cassandra]: data-source/cassandra.md
-  [Kafka]: data-source/cassandra.md
-  [Solace]: data-source/cassandra.md
-  [Http]: data-source/cassandra.md
+      [MySql]: data-source/cassandra.md
+      [Cassandra]: data-source/cassandra.md
+      [Kafka]: data-source/cassandra.md
+      [Solace]: data-source/cassandra.md
+      [Http]: data-source/cassandra.md
 
 ## YAML Files
 

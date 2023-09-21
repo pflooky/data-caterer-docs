@@ -21,8 +21,8 @@ git clone git@github.com:pflooky/data-caterer-example.git
 
 Create a new Java or Scala class.
 
-- Scala: `src/main/scala/com/github/pflooky/plan/MyCsvPlan.scala`
 - Java: `src/main/java/com/github/pflooky/plan/MyCsvPlan.java`
+- Scala: `src/main/scala/com/github/pflooky/plan/MyCsvPlan.scala`
 
 Make sure your class extends `PlanRun`.
 
@@ -58,7 +58,7 @@ high level configurations.
     csv(
       "customer_accounts",              //name
       "/opt/app/data/customer/account", //path
-      Map.of("header", "true")              //optional additional options
+      Map.of("header", "true")          //optional additional options
     )
     ```
     
@@ -70,7 +70,7 @@ high level configurations.
     csv(
       "customer_accounts",              //name
       "/opt/app/data/customer/account", //path
-      Map("header" -> "true")               //optional additional options
+      Map("header" -> "true")           //optional additional options
     )
     ```
 
@@ -80,10 +80,8 @@ high level configurations.
 
 Our CSV file that we generate should adhere to a defined schema where we can also define data types.
 
-Trimming the connection details to work with the docker-compose Cassandra, we have a base Cassandra connection to define
-the table and schema required. Let's define each field along with their corresponding data type. You will notice that
-the `text` fields do not have a data type defined. This is because the default data type is `StringType` which
-corresponds to `text` in Cassandra.
+Let's define each field along with their corresponding data type. You will notice that the `string` fields do not have a
+data type defined. This is because the default data type is `StringType`.
 
 === "Java"
 
@@ -119,9 +117,11 @@ We could stop here and generate random data for the accounts table. But wouldn't
 that is closer to the structure of the data that would come in production? We can do this by defining various metadata
 attributes that add guidelines that the data generator will understand when generating data.
 
-`account_id` follows a particular pattern that where it starts with `ACC` and has 8 digits after it.
-This can be defined via a regex like below. Alongside, we also mention that values are unique ensure that
-unique values are generated.
+##### account_id
+
+- `account_id` follows a particular pattern that where it starts with `ACC` and has 8 digits after it.
+  This can be defined via a regex like below. Alongside, we also mention that values are unique ensure that
+  unique values are generated.
 
 === "Java"
 
@@ -135,8 +135,10 @@ unique values are generated.
     field.name("account_id").regex("ACC[0-9]{8}").unique(true),
     ```
 
-`amount` the numbers shouldn't be too large, so we can define a min and max for the generated numbers to be between
-`1` and `1000`.
+##### amount
+
+- `amount` the numbers shouldn't be too large, so we can define a min and max for the generated numbers to be between
+  `1` and `1000`.
 
 === "Java"
 
@@ -150,10 +152,13 @@ unique values are generated.
     field.name("amount").`type`(DoubleType).min(1).max(1000),
     ```
 
-`name` is a string that also follows a certain pattern, so we could also define a regex but here we will choose to
-leverage the DataFaker library and create an `expression` to generate real looking name. All possible faker expressions
-can be found [here](../../sample/datafaker/expressions.txt)
+##### name
 
+- `name` is a string that also follows a certain pattern, so we could also define a regex but here we will choose to
+  leverage the DataFaker library and create an `expression` to generate real looking name. All possible faker
+  expressions
+  can be found [here](../../sample/datafaker/expressions.txt)
+  
 === "Java"
 
     ```java
@@ -165,8 +170,11 @@ can be found [here](../../sample/datafaker/expressions.txt)
     ```scala
     field.name("name").expression("#{Name.name}"),
 
-`open_time` is a timestamp that we want to have a value greater than a specific date. We can define a min date by using
-`java.sql.Date` like below.
+##### open_time
+
+- `open_time` is a timestamp that we want to have a value greater than a specific date. We can define a min date by
+  using
+  `java.sql.Date` like below.
 
 === "Java"
 
@@ -180,7 +188,9 @@ can be found [here](../../sample/datafaker/expressions.txt)
     field.name("open_time").`type`(TimestampType).min(java.sql.Date.valueOf("2022-01-01")),
     ```
 
-`status` is a field that can only obtain one of four values, `open, closed, suspended or pending`.
+##### status
+
+- `status` is a field that can only obtain one of four values, `open, closed, suspended or pending`.
 
 === "Java"
 
@@ -194,9 +204,11 @@ can be found [here](../../sample/datafaker/expressions.txt)
     field.name("status").oneOf("open", "closed", "suspended", "pending")
     ```
 
-`created_by` is a field that is based on the `status` field where it follows the
-logic: `if status is open or closed, then
-it is created_by eod else created_by event`. This can be achieved by defining a SQL expression like below.
+##### created_by
+
+- `created_by` is a field that is based on the `status` field where it follows the
+  logic: `if status is open or closed, then
+  it is created_by eod else created_by event`. This can be achieved by defining a SQL expression like below.
 
 === "Java"
 
@@ -343,3 +355,5 @@ ACC39405798,989.2623959059525,eod,Shelby Reinger,2022-10-23T17:29:17.564Z,open
 
 Also check the HTML report, found at `docker/sample/report/index.html`, that gets generated to get an overview of what
 was executed.
+
+![Sample report](../../sample/report/report_screenshot.png)

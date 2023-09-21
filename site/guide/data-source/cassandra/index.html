@@ -614,6 +614,54 @@
     Field Metadata
   </a>
   
+    <nav class="md-nav" aria-label="Field Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#account_id" class="md-nav__link">
+    account_id
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amount" class="md-nav__link">
+    amount
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open_time" class="md-nav__link">
+    open_time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status" class="md-nav__link">
+    status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#created_by" class="md-nav__link">
+    created_by
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -978,7 +1026,7 @@
 
 
 <h1 id="cassandra">Cassandra</h1>
-<div class="admonition info">
+<div class="admonition example">
 <p class="admonition-title">Info</p>
 <p>Writing data to Cassandra is a paid feature.</p>
 </div>
@@ -1021,8 +1069,8 @@ metadata information about tables and columns from the below tables.</p>
 <h3 id="plan-setup">Plan Setup</h3>
 <p>Create a new Java or Scala class.</p>
 <ul>
-<li>Scala: <code>src/main/scala/com/github/pflooky/plan/MyCassandraPlan.scala</code></li>
 <li>Java: <code>src/main/java/com/github/pflooky/plan/MyCassandraJavaPlan.java</code></li>
+<li>Scala: <code>src/main/scala/com/github/pflooky/plan/MyCassandraPlan.scala</code></li>
 </ul>
 <p>Make sure your class extends <code>PlanRun</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label></div>
@@ -1140,6 +1188,7 @@ corresponds to <code>text</code> in Cassandra.</p>
 <p>We could stop here and generate random data for the accounts table. But wouldn't it be more useful if we produced data
 that is closer to the structure of the data that would come in production? We can do this by defining various metadata
 that add guidelines that the data generator will understand when generating data.</p>
+<h5 id="account_id">account_id</h5>
 <p><code>account_id</code> follows a particular pattern that where it starts with <code>ACC</code> and has 8 digits after it.
 This can be defined via a regex like below. Alongside, we also mention that it is the primary key to prompt ensure that
 unique values are generated.</p>
@@ -1155,6 +1204,7 @@ unique values are generated.</p>
 </div>
 </div>
 </div>
+<h5 id="amount">amount</h5>
 <p><code>amount</code> the numbers shouldn't be too large, so we can define a min and max for the generated numbers to be between
 <code>1</code> and <code>1000</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">Scala</label></div>
@@ -1169,6 +1219,7 @@ unique values are generated.</p>
 </div>
 </div>
 </div>
+<h5 id="name">name</h5>
 <p><code>name</code> is a string that also follows a certain pattern, so we could also define a regex but here we will choose to
 leverage the DataFaker library and create an <code>expression</code> to generate real looking name. All possible faker expressions
 can be found <a href="../../../sample/datafaker/expressions.txt">here</a></p>
@@ -1184,6 +1235,7 @@ can be found <a href="../../../sample/datafaker/expressions.txt">here</a></p>
 </div>
 </div>
 </div>
+<h5 id="open_time">open_time</h5>
 <p><code>open_time</code> is a timestamp that we want to have a value greater than a specific date. We can define a min date by using
 <code>java.sql.Date</code> like below.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Java</label><label for="__tabbed_7_2">Scala</label></div>
@@ -1198,6 +1250,7 @@ can be found <a href="../../../sample/datafaker/expressions.txt">here</a></p>
 </div>
 </div>
 </div>
+<h5 id="status">status</h5>
 <p><code>status</code> is a field that can only obtain one of four values, <code>open, closed, suspended or pending</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">Scala</label></div>
 <div class="tabbed-content">
@@ -1211,6 +1264,7 @@ can be found <a href="../../../sample/datafaker/expressions.txt">here</a></p>
 </div>
 </div>
 </div>
+<h5 id="created_by">created_by</h5>
 <p><code>created_by</code> is a field that is based on the <code>status</code> field where it follows the logic: <code>if status is open or closed, then
 it is created_by eod else created_by event</code>. This can be achieved by defining a SQL expression like below.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Java</label><label for="__tabbed_9_2">Scala</label></div>
@@ -1363,6 +1417,7 @@ Aggregation<span class="w"> </span>query<span class="w"> </span>used<span class=
 </code></pre></div>
 <p>Also check the HTML report, found at <code>docker/sample/report/index.html</code>, that gets generated to get an overview of what
 was executed.</p>
+<p><img alt="Sample report" src="../../../sample/report/report_screenshot.png" /></p>
 
 
 

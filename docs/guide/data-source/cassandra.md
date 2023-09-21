@@ -1,6 +1,6 @@
 # Cassandra
 
-!!! info
+!!! example "Info"
 
     Writing data to Cassandra is a paid feature.
 
@@ -59,8 +59,8 @@ metadata information about tables and columns from the below tables.
 
 Create a new Java or Scala class.
 
-- Scala: `src/main/scala/com/github/pflooky/plan/MyCassandraPlan.scala`
 - Java: `src/main/java/com/github/pflooky/plan/MyCassandraJavaPlan.java`
+- Scala: `src/main/scala/com/github/pflooky/plan/MyCassandraPlan.scala`
 
 Make sure your class extends `PlanRun`.
 
@@ -194,6 +194,8 @@ We could stop here and generate random data for the accounts table. But wouldn't
 that is closer to the structure of the data that would come in production? We can do this by defining various metadata
 that add guidelines that the data generator will understand when generating data.
 
+##### account_id
+
 `account_id` follows a particular pattern that where it starts with `ACC` and has 8 digits after it.
 This can be defined via a regex like below. Alongside, we also mention that it is the primary key to prompt ensure that
 unique values are generated.
@@ -210,6 +212,8 @@ unique values are generated.
     field.name("account_id").regex("ACC[0-9]{8}").primaryKey(true),
     ```
 
+##### amount
+
 `amount` the numbers shouldn't be too large, so we can define a min and max for the generated numbers to be between
 `1` and `1000`.
 
@@ -224,6 +228,8 @@ unique values are generated.
     ```scala
     field.name("amount").`type`(DoubleType).min(1).max(1000),
     ```
+
+##### name
 
 `name` is a string that also follows a certain pattern, so we could also define a regex but here we will choose to
 leverage the DataFaker library and create an `expression` to generate real looking name. All possible faker expressions
@@ -241,6 +247,8 @@ can be found [here](../../sample/datafaker/expressions.txt)
     field.name("name").expression("#{Name.name}"),
     ```
 
+##### open_time
+
 `open_time` is a timestamp that we want to have a value greater than a specific date. We can define a min date by using
 `java.sql.Date` like below.
 
@@ -256,6 +264,8 @@ can be found [here](../../sample/datafaker/expressions.txt)
     field.name("open_time").`type`(TimestampType).min(java.sql.Date.valueOf("2022-01-01")),
     ```
 
+##### status
+
 `status` is a field that can only obtain one of four values, `open, closed, suspended or pending`.
 
 === "Java"
@@ -269,6 +279,8 @@ can be found [here](../../sample/datafaker/expressions.txt)
     ```scala
     field.name("status").oneOf("open", "closed", "suspended", "pending")
     ```
+
+##### created_by
 
 `created_by` is a field that is based on the `status` field where it follows the logic: `if status is open or closed, then
 it is created_by eod else created_by event`. This can be achieved by defining a SQL expression like below.
@@ -436,3 +448,5 @@ Aggregation query used without partition key
 
 Also check the HTML report, found at `docker/sample/report/index.html`, that gets generated to get an overview of what
 was executed.
+
+![Sample report](../../sample/report/report_screenshot.png)
