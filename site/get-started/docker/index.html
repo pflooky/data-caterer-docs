@@ -1003,11 +1003,12 @@
 <h2 id="docker">Docker</h2>
 <h3 id="quick-start">Quick start</h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-example.git
-<span class="nb">cd</span><span class="w"> </span>docker
-docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
+./run.sh
 </code></pre></div>
 <p>To run for another data source, you can set <code>DATA_SOURCE</code> like below:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">DATA_SOURCE</span><span class="o">=</span>postgres<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
+<div class="highlight"><pre><span></span><code>./gradlew<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>docker
+<span class="nv">DATA_SOURCE</span><span class="o">=</span>postgres<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
 </code></pre></div>
 <p>Can set it to one of the following:</p>
 <ul>
@@ -1102,7 +1103,7 @@ under <a href="https://github.com/pflooky/data-caterer-example/tree/main/docker/
 </div>
 <h4 id="run-with-api">Run with API</h4>
 <div class="highlight"><pre><span></span><code>./run.sh
-&lt;input<span class="w"> </span>class<span class="w"> </span>name&gt;
+<span class="c1">#&lt;input class name&gt;</span>
 </code></pre></div>
 <p>Once you have cloned the data-caterer-example repo, it is easiest to run via the <code>run.sh</code> script that helps package up 
 the API into a jar, then mount it to the docker image, ready to be run. It will prompt you for the class name you want

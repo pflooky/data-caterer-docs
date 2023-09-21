@@ -6,13 +6,14 @@
 
 ```shell
 git clone git@github.com:pflooky/data-caterer-example.git
-cd docker
-docker-compose up -d datacaterer
+./run.sh
 ```
 
 To run for another data source, you can set `DATA_SOURCE` like below:
 
 ```shell
+./gradlew build
+cd docker
 DATA_SOURCE=postgres docker-compose up -d datacaterer
 ```
 
@@ -120,7 +121,7 @@ git clone git@github.com:pflooky/data-caterer-example.git
 
 ```shell
 ./run.sh
-<input class name>
+#<input class name>
 ```
 
 Once you have cloned the data-caterer-example repo, it is easiest to run via the `run.sh` script that helps package up 
