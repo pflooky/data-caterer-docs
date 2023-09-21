@@ -32,3 +32,6 @@
     - PII detection
     - Relationship detection across data sources
     - SQL generation
+- Code generation
+- Schema generation from Scala/Java class
+

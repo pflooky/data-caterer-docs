@@ -30,6 +30,13 @@ theme:
 nav:
   - Home: 'index.md'
   - Get Started: 'get-started/docker.md'
+  - Guide:
+    - 'guide/index.md'
+    - Scenario:
+        - First Data Generation: 'guide/scenario/first-data-generation.md'
+    - Data Sources:
+        - CSV: 'guide/scenario/first-data-generation.md'
+        - Cassandra: 'guide/data-source/cassandra.md'
   - Setup:
     - 'setup/index.md'
     - Configuration: 'setup/configuration.md'
@@ -40,7 +47,6 @@ nav:
       - Report: 'setup/generator/report.md'
     - Validation: 'setup/validation/validation.md'
     - Foreign Keys: 'setup/foreign-key/foreign-key.md'
-  - Samples: 'sample/index.md'
   - Use Case and Comparison:
     - 'use-case/use-case.md'
     - Business Value: 'use-case/business-value.md'

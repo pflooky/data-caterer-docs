@@ -45,7 +45,7 @@ All connection details follow the same pattern.
 
 ## Data sources
 
-To find examples of a task for each type of data source, please check out [this page](../../sample/index.md).
+To find examples of a task for each type of data source, please check out [this page](../../guide/index.md).
 
 ### File
 
@@ -317,7 +317,8 @@ found [here](https://github.com/datastax/spark-cassandra-connector/blob/master/d
         "customer_cassandra",   #name
         "localhost:9042",       #url
         "cassandra",            #username
-        "cassandra"             #password
+        "cassandra",            #password
+        Map.of()                #optional additional connection options
     )
     ```
 
@@ -328,7 +329,8 @@ found [here](https://github.com/datastax/spark-cassandra-connector/blob/master/d
         "customer_cassandra",   #name
         "localhost:9042",       #url
         "cassandra",            #username
-        "cassandra"             #password
+        "cassandra",            #password
+        Map()                #optional additional connection options
     )
     ```
 
@@ -359,7 +361,8 @@ Ensure that the user has write permission, so it is able to save the table to th
     GRANT INSERT ON <schema>.<table> TO <user>;
     ```
 
-Following permissions are required when generating plan and tasks:
+Following permissions are required when enabling `configuration.enableGeneratePlanAndTasks(true)` as it will gather
+metadata information about tables and columns from the below tables.
 
 ??? tip "CQL Permission Statements"
 
