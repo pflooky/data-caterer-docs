@@ -86,10 +86,10 @@ data type defined. This is because the default data type is `StringType`.
 === "Java"
 
     ```java
-    var csvTask = csv("customer_accounts", "/opt/app/data/customer/account", Map.of("header", "true"))
+    var accountTask = csv("customer_accounts", "/opt/app/data/customer/account", Map.of("header", "true"))
             .schema(
                     field().name("account_id"),
-                    field().name("amount").type(DoubleType.instance()),
+                    field().name("balance").type(DoubleType.instance()),
                     field().name("created_by"),
                     field().name("name"),
                     field().name("open_time").type(TimestampType.instance()),
@@ -100,10 +100,10 @@ data type defined. This is because the default data type is `StringType`.
 === "Scala"
 
     ```scala
-    val csvTask = csv("customer_accounts", "/opt/app/data/customer/account", Map("header" -> "true"))
+    val accountTask = csv("customer_accounts", "/opt/app/data/customer/account", Map("header" -> "true"))
       .schema(
         field.name("account_id"),
-        field.name("amount").`type`(DoubleType),
+        field.name("balance").`type`(DoubleType),
         field.name("created_by"),
         field.name("name"),
         field.name("open_time").`type`(TimestampType),
@@ -135,21 +135,21 @@ attributes that add guidelines that the data generator will understand when gene
     field.name("account_id").regex("ACC[0-9]{8}").unique(true),
     ```
 
-##### amount
+##### balance
 
-- `amount` the numbers shouldn't be too large, so we can define a min and max for the generated numbers to be between
+- `balance` let's make the numbers not too large, so we can define a min and max for the generated numbers to be between
   `1` and `1000`.
 
 === "Java"
 
     ```java
-    field().name("amount").type(DoubleType.instance()).min(1).max(1000),
+    field().name("balance").type(DoubleType.instance()).min(1).max(1000),
     ```
 
 === "Scala"
 
     ```scala
-    field.name("amount").`type`(DoubleType).min(1).max(1000),
+    field.name("balance").`type`(DoubleType).min(1).max(1000),
     ```
 
 ##### name
@@ -227,10 +227,10 @@ Putting it all the fields together, our class should now look like this.
 === "Java"
 
     ```java
-    var csvTask = csv("customer_accounts", "/opt/app/data/customer/account", Map.of("header", "true"))
+    var accountTask = csv("customer_accounts", "/opt/app/data/customer/account", Map.of("header", "true"))
             .schema(
                     field().name("account_id").regex("ACC[0-9]{8}").unique(true),
-                    field().name("amount").type(DoubleType.instance()).min(1).max(1000),
+                    field().name("balance").type(DoubleType.instance()).min(1).max(1000),
                     field().name("created_by").sql("CASE WHEN status IN ('open', 'closed') THEN 'eod' ELSE 'event' END"),
                     field().name("name").expression("#{Name.name}"),
                     field().name("open_time").type(TimestampType.instance()).min(java.sql.Date.valueOf("2022-01-01")),
@@ -241,15 +241,40 @@ Putting it all the fields together, our class should now look like this.
 === "Scala"
 
     ```scala
-    val csvTask = csv("customer_accounts", "/opt/app/data/customer/account", Map("header" -> "true"))
+    val accountTask = csv("customer_accounts", "/opt/app/data/customer/account", Map("header" -> "true"))
       .schema(
         field.name("account_id").regex("ACC[0-9]{8}").unique(true),
-        field.name("amount").`type`(DoubleType).min(1).max(1000),
+        field.name("balance").`type`(DoubleType).min(1).max(1000),
         field.name("created_by").sql("CASE WHEN status IN ('open', 'closed') THEN 'eod' ELSE 'event' END"),
         field.name("name").expression("#{Name.name}"),
         field.name("open_time").`type`(TimestampType).min(java.sql.Date.valueOf("2022-01-01")),
         field.name("status").oneOf("open", "closed", "suspended", "pending")
       )
+    ```
+
+#### Record Count
+
+We only want to generate 100 records, so that we can see what the output looks like. This is controlled at the 
+`accountTask` level like below. If you want to generate more records, set it to the value you want.
+
+=== "Java"
+
+    ```java
+    var accountTask = csv("customer_accounts", "/opt/app/data/customer/account", Map.of("header", "true"))
+            .schema(
+                    ...
+            )
+            .count(count().records(100));
+    ```
+
+=== "Scala"
+
+    ```scala
+    val accountTask = csv("customer_accounts", "/opt/app/data/customer/account", Map("header" -> "true"))
+      .schema(
+        ...
+      )
+      .count(count.records(100))
     ```
 
 #### Additional Configurations
@@ -276,18 +301,18 @@ have unique values generated.
 
 #### Execute
 
-To tell Data Caterer that we want to run with the configurations along with the `csvTask`, we have to call `execute`
+To tell Data Caterer that we want to run with the configurations along with the `accountTask`, we have to call `execute`
 . So our full plan run will look like this.
 
 === "Java"
 
     ```java
-    public class CsvJavaPlan extends PlanRun {
+    public class MyCsvJavaPlan extends PlanRun {
         {
-            var csvTask = csv("customer_accounts", "/opt/app/data/customer/account", Map.of("header", "true"))
+            var accountTask = csv("customer_accounts", "/opt/app/data/customer/account", Map.of("header", "true"))
                     .schema(
                             field().name("account_id").regex("ACC[0-9]{8}").unique(true),
-                            field().name("amount").type(DoubleType.instance()).min(1).max(1000),
+                            field().name("balance").type(DoubleType.instance()).min(1).max(1000),
                             field().name("created_by").sql("CASE WHEN status IN ('open', 'closed') THEN 'eod' ELSE 'event' END"),
                             field().name("name").expression("#{Name.name}"),
                             field().name("open_time").type(TimestampType.instance()).min(java.sql.Date.valueOf("2022-01-01")),
@@ -298,7 +323,7 @@ To tell Data Caterer that we want to run with the configurations along with the 
                     .generatedReportsFolderPath("/opt/app/data/report")
                     .enableUniqueCheck(true);
     
-            execute(config, csvTask);
+            execute(config, accountTask);
         }
     }
     ```
@@ -306,12 +331,12 @@ To tell Data Caterer that we want to run with the configurations along with the 
 === "Scala"
 
     ```scala
-    class CsvPlan extends PlanRun {
+    class MyCsvPlan extends PlanRun {
 
-      val csvTask = csv("customer_accounts", "/opt/app/data/customer/account", Map("header" -> "true"))
+      val accountTask = csv("customer_accounts", "/opt/app/data/customer/account", Map("header" -> "true"))
         .schema(
           field.name("account_id").regex("ACC[0-9]{8}").unique(true),
-          field.name("amount").`type`(DoubleType).min(1).max(1000),
+          field.name("balance").`type`(DoubleType).min(1).max(1000),
           field.name("created_by").sql("CASE WHEN status IN ('open', 'closed') THEN 'eod' ELSE 'event' END"),
           field.name("name").expression("#{Name.name}"),
           field.name("open_time").`type`(TimestampType).min(java.sql.Date.valueOf("2022-01-01")),
@@ -321,7 +346,7 @@ To tell Data Caterer that we want to run with the configurations along with the 
           .generatedReportsFolderPath("/opt/app/data/report")
           .enableUniqueCheck(true)
         
-        execute(config, csvTask)
+        execute(config, accountTask)
     }
     ```
 
@@ -333,7 +358,7 @@ created.
 
 ```shell
 ./run.sh
-#input class CsvJavaPlan or CsvPlan
+#input class MyCsvJavaPlan or MyCsvPlan
 #after completing
 head docker/sample/customer/account/part-00000*
 ```
@@ -341,7 +366,7 @@ head docker/sample/customer/account/part-00000*
 Your output should look like this.
 
 ```shell
-account_id,amount,created_by,name,open_time,status
+account_id,balance,created_by,name,open_time,status
 ACC06192462,853.9843359645766,eod,Hoyt Kertzmann MD,2023-07-22T11:17:01.713Z,closed
 ACC15350419,632.5969895326234,eod,Dr. Claude White,2022-12-13T21:57:56.840Z,open
 ACC25134369,592.0958847218986,eod,Fabian Rolfson,2023-04-26T04:54:41.068Z,open
@@ -357,3 +382,214 @@ Also check the HTML report, found at `docker/sample/report/index.html`, that get
 was executed.
 
 ![Sample report](../../sample/report/report_screenshot.png)
+
+### Join With Another Data Source
+
+Now that we have generated some accounts, let's also try to generate a set of transactions for those accounts in CSV 
+format as well. The transactions could be in any other format, but to keep this simple, we will continue using CSV.
+  
+We can define our schema the same way along with any additional metadata.
+
+=== "Java"
+
+    ```java
+    var transactionTask = csv("customer_transactions", "/opt/app/data/customer/transaction", Map.of("header", "true"))
+            .schema(
+                    field().name("account_id"),
+                    field().name("name"),
+                    field().name("amount").type(DoubleType.instance()).min(1).max(100),
+                    field().name("time").type(TimestampType.instance()).min(java.sql.Date.valueOf("2022-01-01")),
+                    field().name("date").type(DateType.instance()).sql("DATE(time)")
+            );
+    ```
+
+=== "Scala"
+
+    ```scala
+    val transactionTask = csv("customer_transactions", "/opt/app/data/customer/transaction", Map("header" -> "true"))
+      .schema(
+        field.name("account_id"),
+        field.name("full_name"),
+        field.name("amount").`type`(DoubleType).min(1).max(100),
+        field.name("time").`type`(TimestampType).min(java.sql.Date.valueOf("2022-01-01")),
+        field.name("date").`type`(DateType).sql("DATE(time)")
+      )
+    ```
+
+#### Records Per Column
+
+Usually, for a given `account_id, full_name`, there should be multiple records for it as we want to simulate a customer
+having multiple transactions. We can achieve this through defining the number of records to generate in the `count` 
+function.
+
+=== "Java"
+
+    ```java
+    var transactionTask = csv("customer_transactions", "/opt/app/data/customer/transaction", Map.of("header", "true"))
+            .schema(
+                    ...
+            )
+            .count(count().recordsPerColumn(5, "account_id", "full_name"));
+    ```
+
+=== "Scala"
+
+    ```scala
+    val transactionTask = csv("customer_transactions", "/opt/app/data/customer/transaction", Map("header" -> "true"))
+      .schema(
+        ...
+      )
+      .count(count.recordsPerColumn(5, "account_id", "full_name"))
+    ```
+
+##### Random Records Per Column
+
+Here, you will notice that we are generating 5 records per `account_id, full_name`. This is okay but still not quite 
+reflective of the real world. Sometimes, people have accounts with no transactions in them, or they could have many. We 
+can accommodate for this via defining a random number of records per column.
+
+=== "Java"
+
+    ```java
+    var transactionTask = csv("customer_transactions", "/opt/app/data/customer/transaction", Map.of("header", "true"))
+            .schema(
+                    ...
+            )
+            .count(count().recordsPerColumnGenerator(generator().min(0).max(5), "account_id", "full_name"));
+    ```
+
+=== "Scala"
+
+    ```scala
+    val transactionTask = csv("customer_transactions", "/opt/app/data/customer/transaction", Map("header" -> "true"))
+      .schema(
+        ...
+      )
+      .count(count.recordsPerColumnGenerator(generator.min(0).max(5), "account_id", "full_name"))
+    ```
+
+Here we set the minimum number of records per column to be 0 and the maximum to 5.
+
+#### Foreign Key
+
+In this scenario, we want to match the `account_id` in `account` to match the same column values in `transaction`. We 
+also want to match `name` in `account` to `full_name` in `transaction`. This can be done via plan configuration like 
+below.
+
+=== "Java"
+
+    ```java
+    var myPlan = plan().addForeignKeyRelationship(
+            accountTask, List.of("account_id", "name"), //the task and columns we want linked
+            List.of(Map.entry(transactionTask, List.of("account_id", "full_name"))) //list of other tasks and their respective column names we want matched
+    );
+    ```
+
+=== "Scala"
+
+    ```scala
+    val myPlan = plan.addForeignKeyRelationship(
+      accountTask, List("account_id", "name"),  //the task and columns we want linked
+      List(transactionTask -> List("account_id", "full_name"))  //list of other tasks and their respective column names we want matched
+    )
+    ```
+
+Now, stitching it all together for the `execute` function, our final plan should look like this.
+
+=== "Java"
+
+    ```java
+    public class MyCsvJavaPlan extends PlanRun {
+        {
+            var accountTask = csv("customer_accounts", "/opt/app/data/customer/account", Map.of("header", "true"))
+                    .schema(
+                            field().name("account_id").regex("ACC[0-9]{8}").unique(true),
+                            field().name("balance").type(DoubleType.instance()).min(1).max(1000),
+                            field().name("created_by").sql("CASE WHEN status IN ('open', 'closed') THEN 'eod' ELSE 'event' END"),
+                            field().name("name").expression("#{Name.name}"),
+                            field().name("open_time").type(TimestampType.instance()).min(java.sql.Date.valueOf("2022-01-01")),
+                            field().name("status").oneOf("open", "closed", "suspended", "pending")
+                    )
+                    .count(count().records(100));
+    
+            var transactionTask = csv("customer_transactions", "/opt/app/data/customer/transaction", Map.of("header", "true"))
+                    .schema(
+                            field().name("account_id"),
+                            field().name("name"),
+                            field().name("amount").type(DoubleType.instance()).min(1).max(100),
+                            field().name("time").type(TimestampType.instance()).min(java.sql.Date.valueOf("2022-01-01")),
+                            field().name("date").type(DateType.instance()).sql("DATE(time)")
+                    )
+                    .count(count().recordsPerColumnGenerator(generator().min(0).max(5), "account_id", "full_name"));
+    
+            var config = configuration()
+                    .generatedReportsFolderPath("/opt/app/data/report")
+                    .enableUniqueCheck(true);
+    
+            var myPlan = plan().addForeignKeyRelationship(
+                    accountTask, List.of("account_id", "name"),
+                    List.of(Map.entry(transactionTask, List.of("account_id", "full_name")))
+            );
+    
+            execute(myPlan, config, accountTask, transactionTask);
+        }
+    }
+    ```
+
+=== "Scala"
+
+    ```scala
+    class MyCsvPlan extends PlanRun {
+    
+      val accountTask = csv("customer_accounts", "/opt/app/data/customer/account", Map("header" -> "true"))
+        .schema(
+          field.name("account_id").regex("ACC[0-9]{8}").unique(true),
+          field.name("balance").`type`(DoubleType).min(1).max(1000),
+          field.name("created_by").sql("CASE WHEN status IN ('open', 'closed') THEN 'eod' ELSE 'event' END"),
+          field.name("name").expression("#{Name.name}"),
+          field.name("open_time").`type`(TimestampType).min(java.sql.Date.valueOf("2022-01-01")),
+          field.name("status").oneOf("open", "closed", "suspended", "pending")
+        )
+        .count(count.records(100))
+    
+      val transactionTask = csv("customer_transactions", "/opt/app/data/customer/transaction", Map("header" -> "true"))
+        .schema(
+          field.name("account_id"),
+          field.name("name"),
+          field.name("amount").`type`(DoubleType).min(1).max(100),
+          field.name("time").`type`(TimestampType).min(java.sql.Date.valueOf("2022-01-01")),
+          field.name("date").`type`(DateType).sql("DATE(time)")
+        )
+        .count(count.recordsPerColumnGenerator(generator.min(0).max(5), "account_id", "full_name"))
+    
+      val config = configuration
+        .generatedReportsFolderPath("/opt/app/data/report")
+        .enableUniqueCheck(true)
+    
+      val myPlan = plan.addForeignKeyRelationship(
+        accountTask, List("account_id", "name"),
+        List(transactionTask -> List("account_id", "full_name"))
+      )
+    
+      execute(myPlan, config, accountTask, transactionTask)
+    }
+    ```
+
+Let's try run again.
+
+```shell
+#clean up old data
+rm -rf docker/sample/customer/account
+./run.sh
+#input class MyCsvJavaPlan or MyCsvPlan
+#after completing, let's pick an account and check the transactions for that account
+account=$(tail -1 docker/sample/customer/account/part-00000* | awk -F "," '{print $1 "," $4}')
+echo $account
+cat docker/sample/customer/transaction/part-00000* | grep $account
+```
+
+Congratulations! You have now made a data generator that has simulated a real world data scenario. You can check the 
+`CsvJavaPlan.java` or `CsvPlan.scala` files as well to check that your plan is the same.
+
+You can now look to play around with other configurations or data sources to meet your needs. Also, make sure to explore
+the docs further as it can guide you on what can be configured.

@@ -591,8 +591,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#amount" class="md-nav__link">
-    amount
+  <a href="#balance" class="md-nav__link">
+    balance
   </a>
   
 </li>
@@ -631,6 +631,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#record-count" class="md-nav__link">
+    Record Count
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additional-configurations" class="md-nav__link">
     Additional Configurations
   </a>
@@ -653,6 +660,46 @@
   <a href="#run" class="md-nav__link">
     Run
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-with-another-data-source" class="md-nav__link">
+    Join With Another Data Source
+  </a>
+  
+    <nav class="md-nav" aria-label="Join With Another Data Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#records-per-column" class="md-nav__link">
+    Records Per Column
+  </a>
+  
+    <nav class="md-nav" aria-label="Records Per Column">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#random-records-per-column" class="md-nav__link">
+    Random Records Per Column
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreign-key" class="md-nav__link">
+    Foreign Key
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1077,10 +1124,10 @@ data type defined. This is because the default data type is <code>StringType</co
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">csvTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
 <span class="w">        </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
 <span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">),</span>
-<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()),</span>
+<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()),</span>
 <span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;created_by&quot;</span><span class="p">),</span>
 <span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">),</span>
 <span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;open_time&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">TimestampType</span><span class="p">.</span><span class="na">instance</span><span class="p">()),</span>
@@ -1089,10 +1136,10 @@ data type defined. This is because the default data type is <code>StringType</co
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">csvTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
 <span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
 <span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">),</span>
-<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">),</span>
 <span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;created_by&quot;</span><span class="p">),</span>
 <span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">),</span>
 <span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;open_time&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">TimestampType</span><span class="p">),</span>
@@ -1124,19 +1171,19 @@ attributes that add guidelines that the data generator will understand when gene
 </div>
 </div>
 </div>
-<h5 id="amount">amount</h5>
+<h5 id="balance">balance</h5>
 <ul>
-<li><code>amount</code> the numbers shouldn't be too large, so we can define a min and max for the generated numbers to be between
+<li><code>balance</code> let's make the numbers not too large, so we can define a min and max for the generated numbers to be between
   <code>1</code> and <code>1000</code>.</li>
 </ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+<div class="highlight"><pre><span></span><code><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+<div class="highlight"><pre><span></span><code><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
 </code></pre></div>
 </div>
 </div>
@@ -1216,10 +1263,10 @@ field.name("name").expression("#{Name.name}"),</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Java</label><label for="__tabbed_10_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">csvTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
 <span class="w">        </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
 <span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">).</span><span class="na">unique</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
-<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
 <span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;created_by&quot;</span><span class="p">).</span><span class="na">sql</span><span class="p">(</span><span class="s">&quot;CASE WHEN status IN (&#39;open&#39;, &#39;closed&#39;) THEN &#39;eod&#39; ELSE &#39;event&#39; END&quot;</span><span class="p">),</span>
 <span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="na">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span>
 <span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;open_time&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">TimestampType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Date</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
@@ -1228,10 +1275,10 @@ field.name("name").expression("#{Name.name}"),</p>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">csvTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
 <span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
 <span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="n">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">).</span><span class="n">unique</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
-<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
 <span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;created_by&quot;</span><span class="p">).</span><span class="n">sql</span><span class="p">(</span><span class="s">&quot;CASE WHEN status IN (&#39;open&#39;, &#39;closed&#39;) THEN &#39;eod&#39; ELSE &#39;event&#39; END&quot;</span><span class="p">),</span>
 <span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="n">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span>
 <span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;open_time&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">TimestampType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">sql</span><span class="p">.</span><span class="nc">Date</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
@@ -1241,11 +1288,34 @@ field.name("name").expression("#{Name.name}"),</p>
 </div>
 </div>
 </div>
+<h4 id="record-count">Record Count</h4>
+<p>We only want to generate 100 records, so that we can see what the output looks like. This is controlled at the 
+<code>accountTask</code> level like below. If you want to generate more records, set it to the value you want.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Java</label><label for="__tabbed_11_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">        </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">                </span><span class="p">...</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">count</span><span class="p">().</span><span class="na">records</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">records</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h4 id="additional-configurations">Additional Configurations</h4>
 <p>At the end of data generation, a report gets generated that summarises the actions it performed. We can control the
 output folder of that report via configurations. We will also enable the unique check to ensure any unique fields will
 have unique values generated.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Java</label><label for="__tabbed_11_2">Scala</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Java</label><label for="__tabbed_12_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">()</span>
@@ -1262,17 +1332,17 @@ have unique values generated.</p>
 </div>
 </div>
 <h4 id="execute">Execute</h4>
-<p>To tell Data Caterer that we want to run with the configurations along with the <code>csvTask</code>, we have to call <code>execute</code>
+<p>To tell Data Caterer that we want to run with the configurations along with the <code>accountTask</code>, we have to call <code>execute</code>
 . So our full plan run will look like this.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Java</label><label for="__tabbed_12_2">Scala</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Java</label><label for="__tabbed_13_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CsvJavaPlan</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCsvJavaPlan</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">csvTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
 <span class="w">                </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
 <span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">).</span><span class="na">unique</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
-<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
 <span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;created_by&quot;</span><span class="p">).</span><span class="na">sql</span><span class="p">(</span><span class="s">&quot;CASE WHEN status IN (&#39;open&#39;, &#39;closed&#39;) THEN &#39;eod&#39; ELSE &#39;event&#39; END&quot;</span><span class="p">),</span>
 <span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="na">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span>
 <span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;open_time&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">TimestampType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Date</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
@@ -1283,18 +1353,18 @@ have unique values generated.</p>
 <span class="w">                </span><span class="p">.</span><span class="na">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">)</span>
 <span class="w">                </span><span class="p">.</span><span class="na">enableUniqueCheck</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
 
-<span class="w">        </span><span class="n">execute</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">csvTask</span><span class="p">);</span>
+<span class="w">        </span><span class="n">execute</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">accountTask</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">CsvPlan</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyCsvPlan</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">csvTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
 <span class="w">    </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
 <span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="n">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">).</span><span class="n">unique</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
-<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
 <span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;created_by&quot;</span><span class="p">).</span><span class="n">sql</span><span class="p">(</span><span class="s">&quot;CASE WHEN status IN (&#39;open&#39;, &#39;closed&#39;) THEN &#39;eod&#39; ELSE &#39;event&#39; END&quot;</span><span class="p">),</span>
 <span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="n">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span>
 <span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;open_time&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">TimestampType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">sql</span><span class="p">.</span><span class="nc">Date</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
@@ -1304,7 +1374,7 @@ have unique values generated.</p>
 <span class="w">      </span><span class="p">.</span><span class="n">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">)</span>
 <span class="w">      </span><span class="p">.</span><span class="n">enableUniqueCheck</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
 
-<span class="w">    </span><span class="n">execute</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">csvTask</span><span class="p">)</span>
+<span class="w">    </span><span class="n">execute</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">accountTask</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -1315,12 +1385,12 @@ have unique values generated.</p>
 class we just
 created.</p>
 <div class="highlight"><pre><span></span><code>./run.sh
-<span class="c1">#input class CsvJavaPlan or CsvPlan</span>
+<span class="c1">#input class MyCsvJavaPlan or MyCsvPlan</span>
 <span class="c1">#after completing</span>
 head<span class="w"> </span>docker/sample/customer/account/part-00000*
 </code></pre></div>
 <p>Your output should look like this.</p>
-<div class="highlight"><pre><span></span><code>account_id,amount,created_by,name,open_time,status
+<div class="highlight"><pre><span></span><code>account_id,balance,created_by,name,open_time,status
 ACC06192462,853.9843359645766,eod,Hoyt<span class="w"> </span>Kertzmann<span class="w"> </span>MD,2023-07-22T11:17:01.713Z,closed
 ACC15350419,632.5969895326234,eod,Dr.<span class="w"> </span>Claude<span class="w"> </span>White,2022-12-13T21:57:56.840Z,open
 ACC25134369,592.0958847218986,eod,Fabian<span class="w"> </span>Rolfson,2023-04-26T04:54:41.068Z,open
@@ -1334,6 +1404,201 @@ ACC39405798,989.2623959059525,eod,Shelby<span class="w"> </span>Reinger,2022-10-
 <p>Also check the HTML report, found at <code>docker/sample/report/index.html</code>, that gets generated to get an overview of what
 was executed.</p>
 <p><img alt="Sample report" src="../../../sample/report/report_screenshot.png" /></p>
+<h3 id="join-with-another-data-source">Join With Another Data Source</h3>
+<p>Now that we have generated some accounts, let's also try to generate a set of transactions for those accounts in CSV 
+format as well. The transactions could be in any other format, but to keep this simple, we will continue using CSV.</p>
+<p>We can define our schema the same way along with any additional metadata.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Java</label><label for="__tabbed_14_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">        </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;time&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">TimestampType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Date</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
+<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DateType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">sql</span><span class="p">(</span><span class="s">&quot;DATE(time)&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;full_name&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;time&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">TimestampType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">sql</span><span class="p">.</span><span class="nc">Date</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DateType</span><span class="p">).</span><span class="n">sql</span><span class="p">(</span><span class="s">&quot;DATE(time)&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="records-per-column">Records Per Column</h4>
+<p>Usually, for a given <code>account_id, full_name</code>, there should be multiple records for it as we want to simulate a customer
+having multiple transactions. We can achieve this through defining the number of records to generate in the <code>count</code> 
+function.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">Java</label><label for="__tabbed_15_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">        </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">                </span><span class="p">...</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">count</span><span class="p">().</span><span class="na">recordsPerColumn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">));</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">recordsPerColumn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h5 id="random-records-per-column">Random Records Per Column</h5>
+<p>Here, you will notice that we are generating 5 records per <code>account_id, full_name</code>. This is okay but still not quite 
+reflective of the real world. Sometimes, people have accounts with no transactions in them, or they could have many. We 
+can accommodate for this via defining a random number of records per column.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:2"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">Java</label><label for="__tabbed_16_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">        </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">                </span><span class="p">...</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">count</span><span class="p">().</span><span class="na">recordsPerColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">().</span><span class="na">min</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">));</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">recordsPerColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Here we set the minimum number of records per column to be 0 and the maximum to 5.</p>
+<h4 id="foreign-key">Foreign Key</h4>
+<p>In this scenario, we want to match the <code>account_id</code> in <code>account</code> to match the same column values in <code>transaction</code>. We 
+also want to match <code>name</code> in <code>account</code> to <code>full_name</code> in <code>transaction</code>. This can be done via plan configuration like 
+below.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">Java</label><label for="__tabbed_17_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">myPlan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plan</span><span class="p">().</span><span class="na">addForeignKeyRelationship</span><span class="p">(</span>
+<span class="w">        </span><span class="n">accountTask</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">),</span><span class="w"> </span><span class="c1">//the task and columns we want linked</span>
+<span class="w">        </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">entry</span><span class="p">(</span><span class="n">transactionTask</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">)))</span><span class="w"> </span><span class="c1">//list of other tasks and their respective column names we want matched</span>
+<span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">myPlan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plan</span><span class="p">.</span><span class="n">addForeignKeyRelationship</span><span class="p">(</span>
+<span class="w">  </span><span class="n">accountTask</span><span class="p">,</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">),</span><span class="w">  </span><span class="c1">//the task and columns we want linked</span>
+<span class="w">  </span><span class="nc">List</span><span class="p">(</span><span class="n">transactionTask</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">))</span><span class="w">  </span><span class="c1">//list of other tasks and their respective column names we want matched</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Now, stitching it all together for the <code>execute</code> function, our final plan should look like this.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:2"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><input id="__tabbed_18_2" name="__tabbed_18" type="radio" /><div class="tabbed-labels"><label for="__tabbed_18_1">Java</label><label for="__tabbed_18_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCsvJavaPlan</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">                </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">).</span><span class="na">unique</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;created_by&quot;</span><span class="p">).</span><span class="na">sql</span><span class="p">(</span><span class="s">&quot;CASE WHEN status IN (&#39;open&#39;, &#39;closed&#39;) THEN &#39;eod&#39; ELSE &#39;event&#39; END&quot;</span><span class="p">),</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="na">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;open_time&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">TimestampType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Date</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">).</span><span class="na">oneOf</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;closed&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;suspended&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pending&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">count</span><span class="p">().</span><span class="na">records</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">                </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">),</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">),</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;time&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">TimestampType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Date</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
+<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DateType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">sql</span><span class="p">(</span><span class="s">&quot;DATE(time)&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">count</span><span class="p">().</span><span class="na">recordsPerColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">().</span><span class="na">min</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">));</span>
+
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">enableUniqueCheck</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">myPlan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plan</span><span class="p">().</span><span class="na">addForeignKeyRelationship</span><span class="p">(</span>
+<span class="w">                </span><span class="n">accountTask</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">entry</span><span class="p">(</span><span class="n">transactionTask</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">)))</span>
+<span class="w">        </span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">execute</span><span class="p">(</span><span class="n">myPlan</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">accountTask</span><span class="p">,</span><span class="w"> </span><span class="n">transactionTask</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyCsvPlan</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_accounts&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/account&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="n">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">).</span><span class="n">unique</span><span class="p">(</span><span class="kc">true</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;created_by&quot;</span><span class="p">).</span><span class="n">sql</span><span class="p">(</span><span class="s">&quot;CASE WHEN status IN (&#39;open&#39;, &#39;closed&#39;) THEN &#39;eod&#39; ELSE &#39;event&#39; END&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="n">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;open_time&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">TimestampType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">sql</span><span class="p">.</span><span class="nc">Date</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">).</span><span class="n">oneOf</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;closed&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;suspended&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pending&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">records</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">    </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;time&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">TimestampType</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">sql</span><span class="p">.</span><span class="nc">Date</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
+<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DateType</span><span class="p">).</span><span class="n">sql</span><span class="p">(</span><span class="s">&quot;DATE(time)&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">recordsPerColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">))</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span>
+<span class="w">    </span><span class="p">.</span><span class="n">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">enableUniqueCheck</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">myPlan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plan</span><span class="p">.</span><span class="n">addForeignKeyRelationship</span><span class="p">(</span>
+<span class="w">    </span><span class="n">accountTask</span><span class="p">,</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="nc">List</span><span class="p">(</span><span class="n">transactionTask</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">)</span>
+
+<span class="w">  </span><span class="n">execute</span><span class="p">(</span><span class="n">myPlan</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">accountTask</span><span class="p">,</span><span class="w"> </span><span class="n">transactionTask</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Let's try run again.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">#clean up old data</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>docker/sample/customer/account
+./run.sh
+<span class="c1">#input class MyCsvJavaPlan or MyCsvPlan</span>
+<span class="c1">#after completing, let&#39;s pick an account and check the transactions for that account</span>
+<span class="nv">account</span><span class="o">=</span><span class="k">$(</span>tail<span class="w"> </span>-1<span class="w"> </span>docker/sample/customer/account/part-00000*<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="s1">&#39;{print $1 &quot;,&quot; $4}&#39;</span><span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="nv">$account</span>
+cat<span class="w"> </span>docker/sample/customer/transaction/part-00000*<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="nv">$account</span>
+</code></pre></div>
+<p>Congratulations! You have now made a data generator that has simulated a real world data scenario. You can check the 
+<code>CsvJavaPlan.java</code> or <code>CsvPlan.scala</code> files as well to check that your plan is the same.</p>
+<p>You can now look to play around with other configurations or data sources to meet your needs. Also, make sure to explore
+the docs further as it can guide you on what can be configured.</p>
 
 
 
