@@ -144,7 +144,7 @@ In the example below, it will generate between `(count.records * count.perColumn
       .count(
         count()
           .records(1000)
-          .perColumnGenerator(generator().min(1).max(2), "account_id", "name")
+          .recordsPerColumnGenerator(generator().min(1).max(2), "account_id", "name")
       );
     ```
 
@@ -155,7 +155,7 @@ In the example below, it will generate between `(count.records * count.perColumn
       .count(
         count
           .records(1000)
-          .perColumnGenerator(generator.min(1).max(2), "account_id", "name")
+          .recordsPerColumnGenerator(generator.min(1).max(2), "account_id", "name")
       )
     ```
 

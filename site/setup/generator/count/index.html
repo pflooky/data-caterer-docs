@@ -459,6 +459,34 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/scenario/auto-generate-connection/" class="md-nav__link">
+        Auto Generate From Data Connection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guide/scenario/records-per-column/" class="md-nav__link">
+        Multiple Records Per Column Value
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -502,7 +530,7 @@
   
     <li class="md-nav__item">
       <a href="../../../guide/scenario/first-data-generation/" class="md-nav__link">
-        CSV
+        Files (CSV, JSON, ORC, Parquet)
       </a>
     </li>
   
@@ -1046,7 +1074,7 @@ per set of columns.</p>
 <span class="w">  </span><span class="p">.</span><span class="na">count</span><span class="p">(</span>
 <span class="w">    </span><span class="n">count</span><span class="p">()</span>
 <span class="w">      </span><span class="p">.</span><span class="na">records</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="na">perColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">().</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="na">recordsPerColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">().</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
 <span class="w">  </span><span class="p">);</span>
 </code></pre></div>
 </div>
@@ -1055,7 +1083,7 @@ per set of columns.</p>
 <span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span>
 <span class="w">    </span><span class="n">count</span>
 <span class="w">      </span><span class="p">.</span><span class="n">records</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="w">      </span><span class="p">.</span><span class="n">perColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="n">recordsPerColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
 <span class="w">  </span><span class="p">)</span>
 </code></pre></div>
 </div>

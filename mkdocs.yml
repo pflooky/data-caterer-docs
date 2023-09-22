@@ -34,8 +34,10 @@ nav:
     - 'guide/index.md'
     - Scenario:
         - First Data Generation: 'guide/scenario/first-data-generation.md'
+        - Auto Generate From Data Connection: 'guide/scenario/auto-generate-connection.md'
+        - Multiple Records Per Column Value: 'guide/scenario/records-per-column.md'
     - Data Sources:
-        - CSV: 'guide/scenario/first-data-generation.md'
+        - Files (CSV, JSON, ORC, Parquet): 'guide/scenario/first-data-generation.md'
         - Cassandra: 'guide/data-source/cassandra.md'
   - Setup:
     - 'setup/index.md'

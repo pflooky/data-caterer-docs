@@ -15,16 +15,16 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
     - __[Foreign Keys Across Data Sources]__ - Generate matching values across generated data sets
 
       [First Data Generation]: scenario/first-data-generation.md
-      [Multiple Records Per Column Value]: scenario/first-data-generation.md
+      [Multiple Records Per Column Value]: scenario/records-per-column.md
       [Foreign Keys Across Data Sources]: scenario/first-data-generation.md
 
 !!! example "Paid tier scenarios"
 
     - __[Auto Generate From Data Connection]__ - Automatically generating data from just defining data sources
-    - __[Delete Generated Data]__ - Delete generated data
+    - __[Delete Generated Data]__ - Delete the generated data whilst leaving other data still there
 
-      [Auto Generate From Data Connection]: scenario/first-data-generation.md
-      [Delete Generated Data]: scenario/first-data-generation.md
+      [Auto Generate From Data Connection]: scenario/auto-generate-connection.md
+      [Delete Generated Data]: scenario/auto-generate-connection.md
   
 ### Data Sources
 
@@ -32,21 +32,15 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
 
     <div class="grid cards" markdown>
 
-    - __[CSV]__ - Generate data for files with separator (comma separated by default)
-    - __[JSON]__ - JSON files that can have nested schema structures
-    - __[ORC]__ - ORC format files
-    - __[Parquet]__ - Parquet format files
-    - __[Fixed width]__ - A variant of CSV but with no separator
+    - __[Files (CSV, JSON, ORC, Parquet)]__ - Generate data for files with separator (comma separated by default)
+    - __[Files (Fixed width)]__ - A variant of CSV but with no separator
     - __[Postgres]__ - JDBC Postgres tables
 
     </div>
 
-      [CSV]: scenario/first-data-generation.md
-      [JSON]: data-source/cassandra.md
-      [ORC]: data-source/cassandra.md
-      [Parquet]: data-source/cassandra.md
-      [Fixed width]: data-source/cassandra.md
-      [Postgres]: data-source/cassandra.md
+      [Files (CSV, JSON, ORC, Parquet)]: scenario/first-data-generation.md
+      [Files (Fixed width)]: scenario/first-data-generation.md
+      [Postgres]: scenario/first-data-generation.md
 
 !!! example "Paid tier data sources"
 
