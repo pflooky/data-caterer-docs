@@ -664,11 +664,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#join-with-another-data-source" class="md-nav__link">
-    Join With Another Data Source
+  <a href="#join-with-another-csv" class="md-nav__link">
+    Join With Another CSV
   </a>
   
-    <nav class="md-nav" aria-label="Join With Another Data Source">
+    <nav class="md-nav" aria-label="Join With Another CSV">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1404,7 +1404,7 @@ ACC39405798,989.2623959059525,eod,Shelby<span class="w"> </span>Reinger,2022-10-
 <p>Also check the HTML report, found at <code>docker/sample/report/index.html</code>, that gets generated to get an overview of what
 was executed.</p>
 <p><img alt="Sample report" src="../../../sample/report/report_screenshot.png" /></p>
-<h3 id="join-with-another-data-source">Join With Another Data Source</h3>
+<h3 id="join-with-another-csv">Join With Another CSV</h3>
 <p>Now that we have generated some accounts, let's also try to generate a set of transactions for those accounts in CSV 
 format as well. The transactions could be in any other format, but to keep this simple, we will continue using CSV.</p>
 <p>We can define our schema the same way along with any additional metadata.</p>
@@ -1594,6 +1594,11 @@ rm<span class="w"> </span>-rf<span class="w"> </span>docker/sample/customer/acco
 <span class="nv">account</span><span class="o">=</span><span class="k">$(</span>tail<span class="w"> </span>-1<span class="w"> </span>docker/sample/customer/account/part-00000*<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="s1">&#39;{print $1 &quot;,&quot; $4}&#39;</span><span class="k">)</span>
 <span class="nb">echo</span><span class="w"> </span><span class="nv">$account</span>
 cat<span class="w"> </span>docker/sample/customer/transaction/part-00000*<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="nv">$account</span>
+</code></pre></div>
+<p>It should look something like this.</p>
+<div class="highlight"><pre><span></span><code>ACC29117767,Willodean<span class="w"> </span>Sauer
+ACC29117767,Willodean<span class="w"> </span>Sauer,84.99145871948083,2023-05-14T09:55:51.439Z,2023-05-14
+ACC29117767,Willodean<span class="w"> </span>Sauer,58.89345733567232,2022-11-22T07:38:20.143Z,2022-11-22
 </code></pre></div>
 <p>Congratulations! You have now made a data generator that has simulated a real world data scenario. You can check the 
 <code>CsvJavaPlan.java</code> or <code>CsvPlan.scala</code> files as well to check that your plan is the same.</p>

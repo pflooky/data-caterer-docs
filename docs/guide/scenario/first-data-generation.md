@@ -383,7 +383,7 @@ was executed.
 
 ![Sample report](../../sample/report/report_screenshot.png)
 
-### Join With Another Data Source
+### Join With Another CSV
 
 Now that we have generated some accounts, let's also try to generate a set of transactions for those accounts in CSV 
 format as well. The transactions could be in any other format, but to keep this simple, we will continue using CSV.
@@ -586,6 +586,14 @@ rm -rf docker/sample/customer/account
 account=$(tail -1 docker/sample/customer/account/part-00000* | awk -F "," '{print $1 "," $4}')
 echo $account
 cat docker/sample/customer/transaction/part-00000* | grep $account
+```
+
+It should look something like this.
+
+```shell
+ACC29117767,Willodean Sauer
+ACC29117767,Willodean Sauer,84.99145871948083,2023-05-14T09:55:51.439Z,2023-05-14
+ACC29117767,Willodean Sauer,58.89345733567232,2022-11-22T07:38:20.143Z,2022-11-22
 ```
 
 Congratulations! You have now made a data generator that has simulated a real world data scenario. You can check the 
