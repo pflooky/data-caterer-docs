@@ -2,7 +2,7 @@
 
 Last updated September 25, 2023
 
-## Data Caterer Policy on Privacy of Customer Personal Information
+# Data Caterer Policy on Privacy of Customer Personal Information
 
 Peter John Flook is committed to protecting the privacy and security of your personal information obtained by reason of
 your use
