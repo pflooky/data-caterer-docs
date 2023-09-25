@@ -7,7 +7,7 @@ bug fixes and features get published.
 ## Paid Features
 
 - :material-card-search: Metadata discovery
-- :material-connection: All data sources (see [here for all data sources](../setup/connection/connection.md))
+- :material-connection: All data sources (see [here for all data sources](setup/connection/connection.md))
 - :material-file: Batch and :material-circle-multiple: Event generation
 - :material-auto-fix: Auto generation from data connections
 - :material-delete-sweep: Clean up generated data

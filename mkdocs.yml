@@ -55,10 +55,10 @@ nav:
     - 'use-case/use-case.md'
     - Business Value: 'use-case/business-value.md'
     - Comparison: 'use-case/comparison.md'
-    - Roadmap: 'roadmap/roadmap.md'
-  - Pricing: 'pricing/pricing.md'
+    - Roadmap: 'use-case/roadmap.md'
+  - Pricing: 'pricing.md'
   - About:
-      - 'legal/about.md'
+      - 'about.md'
       - Terms of service: 'legal/terms-of-service.md'
       - Privacy policy: 'legal/privacy-policy.md'
 

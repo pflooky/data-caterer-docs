@@ -13,8 +13,8 @@ help the product grow into a sustainable and feature-full service.
 
 ## Terms of service
 
-Terms of service can be found [here](terms-of-service.md).
+Terms of service can be found [here](legal/terms-of-service.md).
 
 ## Privacy policy
 
-Privacy policy can be found [here](privacy-policy.md).
+Privacy policy can be found [here](legal/privacy-policy.md).
