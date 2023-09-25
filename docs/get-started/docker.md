@@ -41,7 +41,7 @@ Sample report can also be seen [here](../sample/report/html/index.html)
 ### API
 
 A Java and Scala API is available to use to create your own data generation scenario. There are various guides you can 
-follow [here](../guide/index.md).
+follow [here](../setup/guide/index.md).
 
 You can check out the example project found [here](https://github.com/pflooky/data-caterer-example) via:
   

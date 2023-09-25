@@ -6,14 +6,14 @@ There are many options available for you to use when you have a scenario when da
 
 1. Create expression [datafaker](https://www.datafaker.net/documentation/expressions/)
     1. Can be used to create names, addresses, or anything that can be found
-       under [here](../sample/datafaker/expressions.txt)
+       under [here](../../sample/datafaker/expressions.txt)
 2. Create regex
 
 ## Foreign keys across data sets
 
-![Multiple data source foreign key example](../diagrams/foreign_keys.drawio.png "Multiple data source foreign keys")
+![Multiple data source foreign key example](../../diagrams/foreign_keys.drawio.png "Multiple data source foreign keys")
 
-Details for how you can configure foreign keys can be found [here](../setup/foreign-key/foreign-key.md).
+Details for how you can configure foreign keys can be found [here](../foreign-key/foreign-key.md).
 
 ## Edge cases
 
@@ -54,7 +54,7 @@ This can be controlled at a column level by including the following flag in the 
     ```
 
 If you want to know all the possible edge cases for each data
-type, [can check the documentation here](../setup/generator/generator.md).
+type, [can check the documentation here](../generator/generator.md).
 
 ## Scenario testing
 

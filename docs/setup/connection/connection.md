@@ -45,7 +45,7 @@ define that via the following:
 
 ## Data sources
 
-To find examples of a task for each type of data source, please check out [this page](../../guide/index.md).
+To find examples of a task for each type of data source, please check out [this page](../guide/index.md).
 
 ### File
 

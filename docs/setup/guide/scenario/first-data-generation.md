@@ -157,7 +157,7 @@ attributes that add guidelines that the data generator will understand when gene
 - `name` is a string that also follows a certain pattern, so we could also define a regex but here we will choose to
   leverage the DataFaker library and create an `expression` to generate real looking name. All possible faker
   expressions
-  can be found [here](../../sample/datafaker/expressions.txt)
+  can be found [here](../../../sample/datafaker/expressions.txt)
   
 === "Java"
 
@@ -381,7 +381,7 @@ ACC39405798,989.2623959059525,eod,Shelby Reinger,2022-10-23T17:29:17.564Z,open
 Also check the HTML report, found at `docker/sample/report/index.html`, that gets generated to get an overview of what
 was executed.
 
-![Sample report](../../sample/report/report_screenshot.png)
+![Sample report](../../../sample/report/report_screenshot.png)
 
 ### Join With Another CSV
 

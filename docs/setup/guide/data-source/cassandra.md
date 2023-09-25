@@ -233,7 +233,7 @@ unique values are generated.
 
 `name` is a string that also follows a certain pattern, so we could also define a regex but here we will choose to
 leverage the DataFaker library and create an `expression` to generate real looking name. All possible faker expressions
-can be found [here](../../sample/datafaker/expressions.txt)
+can be found [here](../../../sample/datafaker/expressions.txt)
 
 === "Java"
 
@@ -449,4 +449,4 @@ Aggregation query used without partition key
 Also check the HTML report, found at `docker/sample/report/index.html`, that gets generated to get an overview of what
 was executed.
 
-![Sample report](../../sample/report/report_screenshot.png)
+![Sample report](../../../sample/report/report_screenshot.png)

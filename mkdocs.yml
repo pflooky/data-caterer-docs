@@ -30,18 +30,18 @@ theme:
 nav:
   - Home: 'index.md'
   - Get Started: 'get-started/docker.md'
-  - Guide:
-    - 'guide/index.md'
-    - Scenario:
-        - First Data Generation: 'guide/scenario/first-data-generation.md'
-        - Multiple Records Per Column Value: 'guide/scenario/records-per-column.md'
-        - Auto Generate From Data Connection: 'guide/scenario/auto-generate-connection.md'
-        - Delete Generated Data: 'guide/scenario/delete-generated-data.md'
-    - Data Sources:
-        - Files (CSV, JSON, ORC, Parquet): 'guide/scenario/first-data-generation.md'
-        - Cassandra: 'guide/data-source/cassandra.md'
   - Setup:
     - 'setup/index.md'
+    - Guide:
+      - 'setup/guide/index.md'
+      - Scenario:
+          - First Data Generation: 'setup/guide/scenario/first-data-generation.md'
+          - Multiple Records Per Column Value: 'setup/guide/scenario/records-per-column.md'
+          - Auto Generate From Data Connection: 'setup/guide/scenario/auto-generate-connection.md'
+          - Delete Generated Data: 'setup/guide/scenario/delete-generated-data.md'
+      - Data Sources:
+          - Files (CSV, JSON, ORC, Parquet): 'setup/guide/scenario/first-data-generation.md'
+          - Cassandra: 'setup/guide/data-source/cassandra.md'
     - Configuration: 'setup/configuration.md'
     - Connection: 'setup/connection/connection.md'
     - Generator:
@@ -50,13 +50,17 @@ nav:
       - Report: 'setup/generator/report.md'
     - Validation: 'setup/validation/validation.md'
     - Foreign Keys: 'setup/foreign-key/foreign-key.md'
+    - Advanced: 'setup/advanced/advanced.md'
   - Use Case and Comparison:
     - 'use-case/use-case.md'
     - Business Value: 'use-case/business-value.md'
     - Comparison: 'use-case/comparison.md'
-  - Roadmap: 'roadmap/roadmap.md'
-  - Advanced: 'advanced/advanced.md'
+    - Roadmap: 'roadmap/roadmap.md'
   - Pricing: 'pricing/pricing.md'
+  - About:
+      - 'legal/about.md'
+      - Terms of service: 'legal/terms-of-service.md'
+      - Privacy policy: 'legal/privacy-policy.md'
 
 markdown_extensions:
   - attr_list
