@@ -21,7 +21,7 @@ publishable-key="pk_live_51Nt1GMJLcXz3QuJfivqD6tl8fF3VZdzHgSOl9AGTWn3qD0neSI2UTH
 
 ## Manage Subscription
 
-[Manage via this link](https://billing.stripe.com/p/login/test_6oE9CyanW5K96PedQQ)
+[Manage via this link](https://billing.stripe.com/p/login/28oaIGdfreH7eXufYY)
 
 ## Contact
 
