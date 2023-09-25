@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../first-data-generation/">
+        <link rel="prev" href="../auto-generate-connection/">
       
       
-        <link rel="next" href="../auto-generate-connection/">
+        <link rel="next" href="../first-data-generation/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Multiple Records Per Column Value - Data Caterer Documentation</title>
+        <title>Delete Generated Data - Data Caterer Documentation</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#multiple-records-per-column" class="md-skip">
+        <a href="#delete-generated-data" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Multiple Records Per Column Value
+              Delete Generated Data
             
           </span>
         </div>
@@ -479,6 +479,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../records-per-column/" class="md-nav__link">
+        Multiple Records Per Column Value
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auto-generate-connection/" class="md-nav__link">
+        Auto Generate From Data Connection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -491,12 +519,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Multiple Records Per Column Value
+          Delete Generated Data
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Multiple Records Per Column Value
+        Delete Generated Data
       </a>
       
         
@@ -537,29 +565,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#record-count" class="md-nav__link">
-    Record Count
+  <a href="#postgres-setup" class="md-nav__link">
+    Postgres Setup
   </a>
-  
-    <nav class="md-nav" aria-label="Record Count">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#records-per-column" class="md-nav__link">
-    Records Per Column
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#random-records-per-column" class="md-nav__link">
-    Random Records Per Column
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -567,6 +575,40 @@
   <a href="#run" class="md-nav__link">
     Run
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    Delete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-topics" class="md-nav__link">
+    Additional Topics
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-class-for-generating-another-for-deleting" class="md-nav__link">
+    One class for generating, another for deleting?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-record-count" class="md-nav__link">
+    Define record count
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -579,34 +621,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../auto-generate-connection/" class="md-nav__link">
-        Auto Generate From Data Connection
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../delete-generated-data/" class="md-nav__link">
-        Delete Generated Data
-      </a>
     </li>
   
 
@@ -1012,11 +1026,15 @@
   
 
 
-<h1 id="multiple-records-per-column">Multiple Records Per Column</h1>
-<p>Creating a data generator for a CSV file where there are multiple records per column values.</p>
+<h1 id="delete-generated-data">Delete Generated Data</h1>
+<div class="admonition example">
+<p class="admonition-title">Info</p>
+<p>Delete generated data is a paid feature.</p>
+</div>
+<p>Creating a data generator for Postgres and delete the generated data after using it.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>10 minutes</li>
+<li>5 minutes</li>
 <li>Git</li>
 <li>Gradle</li>
 <li>Docker</li>
@@ -1028,8 +1046,8 @@
 <h3 id="plan-setup">Plan Setup</h3>
 <p>Create a new Java or Scala class.</p>
 <ul>
-<li>Java: <code>src/main/java/com/github/pflooky/plan/MyMultipleRecordsPerColJavaPlan.java</code></li>
-<li>Scala: <code>src/main/scala/com/github/pflooky/plan/MyMultipleRecordsPerColPlan.scala</code></li>
+<li>Java: <code>src/main/java/com/github/pflooky/plan/MyAdvancedDeleteJavaPlanRun.java</code></li>
+<li>Scala: <code>src/main/scala/com/github/pflooky/plan/MyAdvancedDeletePlanRun.scala</code></li>
 </ul>
 <p>Make sure your class extends <code>PlanRun</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label></div>
@@ -1038,23 +1056,19 @@
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">com.github.pflooky.datacaterer.java.api.PlanRun</span><span class="p">;</span>
 <span class="p">...</span>
 
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyMultipleRecordsPerColJavaPlan</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyAdvancedDeleteJavaPlanRun</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
-<span class="w">                </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
-<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">),</span>
-<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;full_name&quot;</span><span class="p">),</span>
-<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
-<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;time&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">TimestampType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Date</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
-<span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DateType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">sql</span><span class="p">(</span><span class="s">&quot;DATE(time)&quot;</span><span class="p">)</span>
-<span class="w">                </span><span class="p">)</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">autoRun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">postgres</span><span class="p">(</span><span class="s">&quot;my_postgres&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;jdbc:postgresql://host.docker.internal:5432/customer&quot;</span><span class="p">)</span><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">enableGeneratePlanAndTasks</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">                                                 </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">enableRecordTracking</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">                                                       </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">enableDeleteGeneratedRecords</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="w">                                              </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">enableUniqueCheck</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">generatedPlanAndTaskFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/generated&quot;</span><span class="p">)</span><span class="w">                        </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">);</span><span class="w">                              </span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="na">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">enableUniqueCheck</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
-
-<span class="w">        </span><span class="n">execute</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">transactionTask</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">        </span><span class="n">execute</span><span class="p">(</span><span class="n">autoRun</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -1062,98 +1076,108 @@
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">pflooky</span><span class="p">.</span><span class="nn">datacaterer</span><span class="p">.</span><span class="nn">api</span><span class="p">.</span><span class="nc">PlanRun</span>
 <span class="p">...</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">MyMultipleRecordsPerColPlan</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyAdvancedDeletePlanRun</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">transactionTask</span><span class="p">:</span><span class="w"> </span><span class="nc">ConnectionTaskBuilder</span><span class="p">[</span><span class="nc">FileBuilder</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
-<span class="w">    </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
-<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="n">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">),</span><span class="w"> </span>
-<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;full_name&quot;</span><span class="p">).</span><span class="n">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span><span class="w"> </span>
-<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DoubleType</span><span class="p">.</span><span class="n">instance</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
-<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;time&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">TimestampType</span><span class="p">.</span><span class="n">instance</span><span class="p">).</span><span class="n">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="n">sql</span><span class="p">.</span><span class="nc">Date</span><span class="p">.</span><span class="n">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span><span class="w"> </span>
-<span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="n">`type`</span><span class="p">(</span><span class="nc">DateType</span><span class="p">.</span><span class="n">instance</span><span class="p">).</span><span class="n">sql</span><span class="p">(</span><span class="s">&quot;DATE(time)&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">)</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">autoRun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span>
+<span class="w">    </span><span class="p">.</span><span class="n">postgres</span><span class="p">(</span><span class="s">&quot;my_postgres&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;jdbc:postgresql://host.docker.internal:5432/customer&quot;</span><span class="p">)</span><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">enableGeneratePlanAndTasks</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">                                                 </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">enableRecordTracking</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">                                                       </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">enableDeleteGeneratedRecords</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="w">                                              </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">enableUniqueCheck</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">generatedPlanAndTaskFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/generated&quot;</span><span class="p">)</span><span class="w">                        </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">recordTrackingFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/recordTracking&quot;</span><span class="p">)</span><span class="w">                         </span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span>
-<span class="w">    </span><span class="p">.</span><span class="n">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">)</span>
-
-<span class="w">  </span><span class="n">execute</span><span class="p">(</span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">transactionTask</span><span class="p">)</span>
+<span class="w">  </span><span class="n">execute</span><span class="p">(</span><span class="n">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">autoRun</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
 </div>
-<h3 id="record-count">Record Count</h3>
-<p>By default, tasks will generate 1000 records. You can alter this value via the <code>count</code> configuration which can be
-applied to individual tasks. For example, in Scala, <code>csv(...).count(count.records(100))</code> to generate only 100 records.</p>
-<h4 id="records-per-column">Records Per Column</h4>
-<p>In this scenario, for a given <code>account_id, full_name</code>, there should be multiple records for it as we want to simulate a
-customer having multiple transactions. We can achieve this through defining the number of records to generate in
-the <code>count</code> function.</p>
+<p>In the above code we note the following:</p>
+<ol>
+<li>We have defined a Postgres connection called <code>my_postgres</code></li>
+<li><code>enableGeneratePlanAndTasks</code> is enabled to auto generate data for all tables under <code>customer</code> database</li>
+<li><code>enableRecordTracking</code> is enabled to ensure that all generated records are tracked. This will get used when we want
+   to delete data afterwards</li>
+<li><code>enableDeleteGeneratedRecords</code> is disabled for now. We want to see the generated data first and delete sometime after</li>
+<li><code>generatedPlanAndTaskFolderPath</code> is the folder path where we saved the metadata we have gathered from <code>my_postgres</code></li>
+<li><code>recordTrackingFolderPath</code> is the folder path where record tracking is maintained. We need to persist this data to
+   ensure it is still available when we want to delete data</li>
+</ol>
+<h3 id="postgres-setup">Postgres Setup</h3>
+<p>If you don't have your own Postgres up and running, you can set up and run an instance configured in the <code>docker</code>
+folder via.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docker
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>postgres
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;\dt+ account.*&#39;</span>
+</code></pre></div>
+<p>This will create the tables found under <code>docker/data/sql/postgres/customer.sql</code>. You can change this file to contain
+your own tables. We can see there are 4 tables created for us, <code>accounts, balances, transactions and mapping</code>.</p>
+<h3 id="run">Run</h3>
+<p>Let's try run.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
+./run.sh
+<span class="c1">#input class MyAdvancedDeleteJavaPlanRun or MyAdvancedDeletePlanRun</span>
+<span class="c1">#after completing</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;select * from account.accounts limit 1&#39;</span>
+</code></pre></div>
+<p>It should look something like this.</p>
+<div class="highlight"><pre><span></span><code><span class="w">   </span>id<span class="w">   </span><span class="p">|</span><span class="w"> </span>account_number<span class="w">  </span><span class="p">|</span><span class="w"> </span>account_status<span class="w"> </span><span class="p">|</span><span class="w"> </span>created_by<span class="w"> </span><span class="p">|</span><span class="w"> </span>created_by_fixed_length<span class="w"> </span><span class="p">|</span><span class="w"> </span>customer_id_int<span class="w"> </span><span class="p">|</span><span class="w"> </span>customer_id_smallint<span class="w"> </span><span class="p">|</span><span class="w"> </span>customer_id_bigint<span class="w"> </span><span class="p">|</span><span class="w">   </span>customer_id_decimal<span class="w">    </span><span class="p">|</span><span class="w"> </span>customer_id_real<span class="w"> </span><span class="p">|</span><span class="w"> </span>customer_id_double<span class="w"> </span><span class="p">|</span><span class="w"> </span>open_date<span class="w">  </span><span class="p">|</span><span class="w">     </span>open_timestamp<span class="w">      </span><span class="p">|</span><span class="w"> </span>last_opened_time<span class="w"> </span><span class="p">|</span><span class="w">                                                           </span>payload_bytes
+--------+-----------------+----------------+------------+-------------------------+-----------------+----------------------+--------------------+--------------------------+------------------+--------------------+------------+-------------------------+------------------+------------------------------------------------------------------------------------------------------------------------------------
+<span class="w"> </span><span class="m">100414</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>5uROOVOUyQUbubN<span class="w"> </span><span class="p">|</span><span class="w"> </span>h3H<span class="w">            </span><span class="p">|</span><span class="w"> </span>SfA0eZJcTm<span class="w"> </span><span class="p">|</span><span class="w"> </span>CuRw<span class="w">                    </span><span class="p">|</span><span class="w">              </span><span class="m">13</span><span class="w"> </span><span class="p">|</span><span class="w">                   </span><span class="m">42</span><span class="w"> </span><span class="p">|</span><span class="w">               </span><span class="m">6041</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">76987</span>.745612542900000000<span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">91866</span>.78<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">66400</span>.37433202339<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2023</span>-03-05<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2023</span>-08-14<span class="w"> </span><span class="m">11</span>:33:11.343<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">23</span>:58:01.736<span class="w">     </span><span class="p">|</span><span class="w"> </span><span class="se">\x</span>604d315d4547616e6a233050415373317274736f5e682d516132524f3d23233c37463463322f342d34376d597e665d6b3d395b4238284028622b7d6d2b4f5042
+<span class="o">(</span><span class="m">1</span><span class="w"> </span>row<span class="o">)</span>
+</code></pre></div>
+<p>The data that gets inserted will follow the foreign keys that are defined within Postgres and also ensure the insertion
+order is correct.</p>
+<p>Check the number of records via:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;select count(1) from account.accounts&#39;</span>
+<span class="c1">#open report under docker/sample/report/index.html</span>
+</code></pre></div>
+<h3 id="delete">Delete</h3>
+<p>We are now at a stage where we want to delete the data that was generated. All we need to do is flip two flags.</p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="na">enableDeleteGeneratedRecords</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="p">.</span><span class="na">enableGenerateData</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="w">  </span><span class="c1">//this flag is newly defined in our class, we explicitly disable generating data</span>
+</code></pre></div>
+<p>Enable delete generated records and disable generating data. </p>
+<p>Before we run again, let us insert a record manually to see if that data will survive after running the job to delete
+the generated data.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;insert into account.accounts (account_number) values (&#39;my_account_number&#39;)&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;select count(1) from account.accounts&quot;</span>
+</code></pre></div>
+<p>We now should have 1001 records in our <code>account.accounts</code> table. Let's delete the generated data now.</p>
+<div class="highlight"><pre><span></span><code>./run.sh
+<span class="c1">#input class MyAdvancedDeleteJavaPlanRun or MyAdvancedDeletePlanRun</span>
+<span class="c1">#after completing</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;select * from account.accounts limit 1&#39;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;select count(1) from account.accounts&#39;</span>
+</code></pre></div>
+<p>You should see that only 1 record is left, the one that we manually inserted. Great, now we can generate data reliably 
+and also be able to clean it up.</p>
+<h3 id="additional-topics">Additional Topics</h3>
+<h4 id="one-class-for-generating-another-for-deleting">One class for generating, another for deleting?</h4>
+<p>Yes, this is possible. The only requirement is that the connection names used need to be the same across both classes.</p>
+<h4 id="define-record-count">Define record count</h4>
+<p>You can control the record count per sub data source via <code>numRecordsPerStep</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
-<span class="w">        </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
-<span class="w">                </span><span class="p">...</span>
-<span class="w">        </span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">count</span><span class="p">().</span><span class="na">recordsPerColumn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">));</span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">autoRun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">()</span>
+<span class="w">      </span><span class="p">...</span>
+<span class="w">      </span><span class="p">.</span><span class="na">numRecordsPerStep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">execute</span><span class="p">(</span><span class="n">autoRun</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
-<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
-<span class="w">    </span><span class="p">...</span>
-<span class="w">  </span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">recordsPerColumn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">autoRun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="w">  </span><span class="p">.</span><span class="n">numRecordsPerStep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">execute</span><span class="p">(</span><span class="n">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">autoRun</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
 </div>
-<p>This will generate <code>1000 * 5 = 5000</code> records as the default number of records is set (1000) and
-per <code>account_id, full_name</code> from the initial 1000 records, 5 records will be generated.</p>
-<h4 id="random-records-per-column">Random Records Per Column</h4>
-<p>Generating 5 records per column is okay but still not quite reflective of the real world. Sometimes, people have
-accounts with no transactions in them, or they could have many. We can accommodate for this via defining a random number
-of records per column.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Scala</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
-<span class="w">        </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
-<span class="w">                </span><span class="p">...</span>
-<span class="w">        </span><span class="p">)</span>
-<span class="w">        </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">count</span><span class="p">().</span><span class="na">recordsPerColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">().</span><span class="na">min</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">));</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
-<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
-<span class="w">    </span><span class="p">...</span>
-<span class="w">  </span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">recordsPerColumnGenerator</span><span class="p">(</span><span class="n">generator</span><span class="p">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="n">max</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;full_name&quot;</span><span class="p">))</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<p>Here we set the minimum number of records per column to be 0 and the maximum to 5. This will follow a uniform
-distribution so the average number of records per account is 2.5. We could also define other metadata,
-just like we did with fields, when defining the generator. For example, we could set <code>standardDeviation</code> and <code>mean</code> for
-the number of records generated per column to follow a normal distribution.</p>
-<h3 id="run">Run</h3>
-<p>Let's try run.</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#clean up old data</span>
-rm<span class="w"> </span>-rf<span class="w"> </span>docker/sample/customer/account
-./run.sh
-<span class="c1">#input class MyMultipleRecordsPerColJavaPlan or MyMultipleRecordsPerColPlan</span>
-<span class="c1">#after completing</span>
-head<span class="w"> </span>docker/sample/customer/transaction/part-00000*
-</code></pre></div>
-<p>It should look something like this.</p>
-<div class="highlight"><pre><span></span><code>ACC29117767,Willodean<span class="w"> </span>Sauer
-ACC29117767,Willodean<span class="w"> </span>Sauer,84.99145871948083,2023-05-14T09:55:51.439Z,2023-05-14
-ACC29117767,Willodean<span class="w"> </span>Sauer,58.89345733567232,2022-11-22T07:38:20.143Z,2022-11-22
-</code></pre></div>
-<p>You can now look to play around with other count configurations found <a href="../../../setup/generator/count/">here</a>.</p>
 
 
 

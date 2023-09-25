@@ -1,18 +1,18 @@
 # Data Source Connections
 
 Details of all the connection configuration supported can be found in the below subsections for each type of connection.
-  
+
 These configurations can be done via API or from configuration. Examples of both are shown for each data source below.
 
 ## Supported Data Connections
 
-| Data Source Type | Data Source                                         |
-|------------------|-----------------------------------------------------|
-| Database         | Postgres, MySQL, Cassandra                          |
-| File             | CSV, JSON, ORC, Parquet                             |
-| Kafka            | Kafka                                               |
-| JMS              | Solace                                              |
-| HTTP             | GET, PUT, POST, DELETE, PATCH, HEAD, TRACE, OPTIONS |
+| Data Source Type | Data Source                                         | Paid                   |
+|------------------|-----------------------------------------------------|------------------------|
+| Database         | Postgres, MySQL, Cassandra                          | N (Postgres), Y (rest) |
+| File             | CSV, JSON, ORC, Parquet                             | N                      |
+| Kafka            | Kafka                                               | Y                      |
+| JMS              | Solace                                              | Y                      |
+| HTTP             | GET, PUT, POST, DELETE, PATCH, HEAD, TRACE, OPTIONS | Y                      |
 
 ### API
 
@@ -32,9 +32,9 @@ All connection details follow the same pattern.
 ```
 
 !!! info "Overriding configuration"
-    When defining a configuration value that can be defined by a system property or environment variable at runtime, you can
-    define that via the following:
-    
+When defining a configuration value that can be defined by a system property or environment variable at runtime, you can
+define that via the following:
+
     ```
     url = "localhost"
     url = ${?POSTGRES_URL}
@@ -149,7 +149,7 @@ configurations can be found below.
     ```
 
 === "application.conf"
-    
+
     ```
     parquet {
       customer_transactions {
@@ -408,8 +408,9 @@ found [here](https://spark.apache.org/docs/latest/structured-streaming-kafka-int
     ```
 
 When defining your schema for pushing data to Kafka, it follows a specific top level schema.  
-An example can be found [here](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/kafka/kafka-account-task.yaml).  
-You can define the key, value, headers, partition or topic by following the linked schema.
+An example can be
+found [here](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/kafka/kafka-account-task.yaml)
+. You can define the key, value, headers, partition or topic by following the linked schema.
 
 ### JMS
 

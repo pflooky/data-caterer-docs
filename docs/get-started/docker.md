@@ -4,12 +4,15 @@
 
 ### Quick start
 
+Ensure you have `docker` installed and running.
+
 ```shell
 git clone git@github.com:pflooky/data-caterer-example.git
 ./run.sh
+#check results under docker/sample/report/index.html folder
 ```
 
-To run for another data source, you can set `DATA_SOURCE` like below:
+To run for another data source, you can run using `docker-compose` and set `DATA_SOURCE` like below
 
 ```shell
 ./gradlew build
@@ -37,7 +40,8 @@ Sample report can also be seen [here](../sample/report/html/index.html)
 
 ### API
 
-A Java and Scala API is available to use to create your own data generation scenario.
+A Java and Scala API is available to use to create your own data generation scenario. There are various guides you can 
+follow [here](../guide/index.md).
 
 You can check out the example project found [here](https://github.com/pflooky/data-caterer-example) via:
   
@@ -122,6 +126,7 @@ git clone git@github.com:pflooky/data-caterer-example.git
 ```shell
 ./run.sh
 #<input class name>
+#check results under docker/sample/report/index.html folder
 ```
 
 Once you have cloned the data-caterer-example repo, it is easiest to run via the `run.sh` script that helps package up 

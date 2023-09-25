@@ -297,6 +297,18 @@
   </li>
 
       
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../pricing/pricing/" class="md-tabs__link">
+      Pricing
+    </a>
+  </li>
+
+      
     </ul>
   </div>
 </nav>
@@ -620,6 +632,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../guide/scenario/records-per-column/" class="md-nav__link">
+        Multiple Records Per Column Value
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../guide/scenario/auto-generate-connection/" class="md-nav__link">
         Auto Generate From Data Connection
       </a>
@@ -634,8 +660,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guide/scenario/records-per-column/" class="md-nav__link">
-        Multiple Records Per Column Value
+      <a href="../../guide/scenario/delete-generated-data/" class="md-nav__link">
+        Delete Generated Data
       </a>
     </li>
   
@@ -1009,6 +1035,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pricing/pricing/" class="md-nav__link">
+        Pricing
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1030,10 +1071,12 @@
 <h1 id="run-data-caterer">Run Data Caterer</h1>
 <h2 id="docker">Docker</h2>
 <h3 id="quick-start">Quick start</h3>
+<p>Ensure you have <code>docker</code> installed and running.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-example.git
 ./run.sh
+<span class="c1">#check results under docker/sample/report/index.html folder</span>
 </code></pre></div>
-<p>To run for another data source, you can set <code>DATA_SOURCE</code> like below:</p>
+<p>To run for another data source, you can run using <code>docker-compose</code> and set <code>DATA_SOURCE</code> like below</p>
 <div class="highlight"><pre><span></span><code>./gradlew<span class="w"> </span>build
 <span class="nb">cd</span><span class="w"> </span>docker
 <span class="nv">DATA_SOURCE</span><span class="o">=</span>postgres<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
@@ -1053,7 +1096,8 @@ under <a href="https://github.com/pflooky/data-caterer-example/tree/main/docker/
 <p>Check the report generated under <code>docker/data/custom/report/index.html</code>.</p>
 <p>Sample report can also be seen <a href="../../sample/report/html/">here</a></p>
 <h3 id="api">API</h3>
-<p>A Java and Scala API is available to use to create your own data generation scenario.</p>
+<p>A Java and Scala API is available to use to create your own data generation scenario. There are various guides you can 
+follow <a href="../../guide/">here</a>.</p>
 <p>You can check out the example project found <a href="https://github.com/pflooky/data-caterer-example">here</a> via:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-example.git
 <span class="c1">#for Scala example</span>
@@ -1132,6 +1176,7 @@ under <a href="https://github.com/pflooky/data-caterer-example/tree/main/docker/
 <h4 id="run-with-api">Run with API</h4>
 <div class="highlight"><pre><span></span><code>./run.sh
 <span class="c1">#&lt;input class name&gt;</span>
+<span class="c1">#check results under docker/sample/report/index.html folder</span>
 </code></pre></div>
 <p>Once you have cloned the data-caterer-example repo, it is easiest to run via the <code>run.sh</code> script that helps package up 
 the API into a jar, then mount it to the docker image, ready to be run. It will prompt you for the class name you want

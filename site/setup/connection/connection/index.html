@@ -297,6 +297,18 @@
   </li>
 
       
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../pricing/pricing/" class="md-tabs__link">
+      Pricing
+    </a>
+  </li>
+
+      
     </ul>
   </div>
 </nav>
@@ -465,6 +477,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../guide/scenario/records-per-column/" class="md-nav__link">
+        Multiple Records Per Column Value
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../guide/scenario/auto-generate-connection/" class="md-nav__link">
         Auto Generate From Data Connection
       </a>
@@ -479,8 +505,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guide/scenario/records-per-column/" class="md-nav__link">
-        Multiple Records Per Column Value
+      <a href="../../../guide/scenario/delete-generated-data/" class="md-nav__link">
+        Delete Generated Data
       </a>
     </li>
   
@@ -1072,6 +1098,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pricing/pricing/" class="md-nav__link">
+        Pricing
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1099,28 +1140,34 @@
 <tr>
 <th>Data Source Type</th>
 <th>Data Source</th>
+<th>Paid</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Database</td>
 <td>Postgres, MySQL, Cassandra</td>
+<td>N (Postgres), Y (rest)</td>
 </tr>
 <tr>
 <td>File</td>
 <td>CSV, JSON, ORC, Parquet</td>
+<td>N</td>
 </tr>
 <tr>
 <td>Kafka</td>
 <td>Kafka</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>JMS</td>
 <td>Solace</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>HTTP</td>
 <td>GET, PUT, POST, DELETE, PATCH, HEAD, TRACE, OPTIONS</td>
+<td>Y</td>
 </tr>
 </tbody>
 </table>
@@ -1137,14 +1184,17 @@ by the driver or connector for connecting to the data source.</p>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Overriding configuration</p>
+</div>
 <p>When defining a configuration value that can be defined by a system property or environment variable at runtime, you can
 define that via the following:</p>
-<div class="highlight"><pre><span></span><code>url = &quot;localhost&quot;
+<pre><code>```
+url = "localhost"
 url = ${?POSTGRES_URL}
-</code></pre></div>
-<p>The above defines that if there is a system property or environment variable named <code>POSTGRES_URL</code>, then that value will
-be used for the <code>url</code>, otherwise, it will default to <code>localhost</code>.</p>
-</div>
+```
+
+The above defines that if there is a system property or environment variable named `POSTGRES_URL`, then that value will
+be used for the `url`, otherwise, it will default to `localhost`.
+</code></pre>
 <h2 id="data-sources">Data sources</h2>
 <p>To find examples of a task for each type of data source, please check out <a href="../../../guide/">this page</a>.</p>
 <h3 id="file">File</h3>
@@ -1457,8 +1507,9 @@ found <a href="https://spark.apache.org/docs/latest/structured-streaming-kafka-i
 </div>
 </div>
 <p>When defining your schema for pushing data to Kafka, it follows a specific top level schema.<br />
-An example can be found <a href="https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/kafka/kafka-account-task.yaml">here</a>.<br />
-You can define the key, value, headers, partition or topic by following the linked schema.</p>
+An example can be
+found <a href="https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/kafka/kafka-account-task.yaml">here</a>
+. You can define the key, value, headers, partition or topic by following the linked schema.</p>
 <h3 id="jms">JMS</h3>
 <p>Uses JNDI lookup to send messages to JMS queue. Ensure that the messaging system you are using has your queue/topic
 registered

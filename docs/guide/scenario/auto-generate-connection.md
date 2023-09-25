@@ -39,9 +39,11 @@ Make sure your class extends `PlanRun`.
     public class MyAdvancedAutomatedJavaPlanRun extends PlanRun {
         {
             var autoRun = configuration()
-                    .postgres("my_postgres", "jdbc:postgresql://host.docker.internal:5432/customer")
-                    .enableGeneratePlanAndTasks(true)
-                    .enableUniqueCheck(true);
+                    .postgres("my_postgres", "jdbc:postgresql://host.docker.internal:5432/customer")  (1)
+                    .enableGeneratePlanAndTasks(true)                                                 (2)
+                    .generatedPlanAndTaskFolderPath("/opt/app/data/generated")                        (3)
+                    .enableUniqueCheck(true)                                                          (4)
+                    .generatedReportsFolderPath("/opt/app/data/report");
     
             execute(autoRun);
         }
@@ -57,13 +59,30 @@ Make sure your class extends `PlanRun`.
     class MyAdvancedAutomatedPlanRun extends PlanRun {
 
       val autoRun = configuration
-        .postgres("my_postgres", "jdbc:postgresql://host.docker.internal:5432/customer")
-        .enableGeneratePlanAndTasks(true)
-        .enableUniqueCheck(true)
+        .postgres("my_postgres", "jdbc:postgresql://host.docker.internal:5432/customer")  (1)
+        .enableGeneratePlanAndTasks(true)                                                 (2)
+        .generatedPlanAndTaskFolderPath("/opt/app/data/generated")                        (3)
+        .enableUniqueCheck(true)                                                          (4)
+        .generatedReportsFolderPath("/opt/app/data/report")
     
       execute(configuration = autoRun)
     }
     ```
+
+In the above code, we note the following:
+
+1. Data source configuration to a Postgres data source called `my_postgres`
+2. We have enabled the flag `enableGeneratePlanAndTasks` which tells Data Caterer to go to `my_postgres` and generate
+   data for all the tables found under the database `customer` (which is defined in the connection string).
+3. The config `generatedPlanAndTaskFolderPath` defines where the metadata that is gathered from `my_postgres` should be
+   saved at so that we could re-use it later.
+4. `enableUniqueCheck` is set to true to ensure that generated data is unique based on primary key or foreign key
+   definitions.
+
+!!! note
+
+    Unique check will only ensure generated data is unique. Any existing data in your data source is not taken into 
+    account, so generated data may fail to insert depending on the data source restrictions
 
 ### Postgres Setup
 
@@ -76,7 +95,7 @@ docker-compose up -d postgres
 docker exec docker-postgresserver-1 psql -Upostgres -d customer -c '\dt+ account.*'
 ```
 
-This will create the tables found under `docker/data/sql/postgres/customer.sql`. You can change this file to contain 
+This will create the tables found under `docker/data/sql/postgres/customer.sql`. You can change this file to contain
 your own tables. We can see there are 4 tables created for us, `accounts, balances, transactions and mapping`.
 
 ### Run
@@ -100,8 +119,11 @@ It should look something like this.
 (1 row)
 ```
 
-The data that gets inserted will follow the foreign keys that are defined within Postgres and also ensure the insertion 
+The data that gets inserted will follow the foreign keys that are defined within Postgres and also ensure the insertion
 order is correct.
+
+Also check the HTML report that gets generated under `docker/sample/report/index.html`. You can see a summary of what
+was generated along with other metadata.
 
 You can now look to play around with other tables or data sources and auto generate for them.
 
@@ -110,13 +132,13 @@ You can now look to play around with other tables or data sources and auto gener
 #### Learn From Existing Data
 
 If you have any existing data within your data source, Data Caterer will gather metadata about the existing data to
-help guide it when generating new data. There are configurations that can help tune the metadata analysis found 
+help guide it when generating new data. There are configurations that can help tune the metadata analysis found
 [here](../../setup/configuration.md#metadata).
 
 #### Filter Out Schema/Tables
 
 As part of your connection definition, you can define any schemas and/or tables your don't want to generate data for. In
-the example below, it will not generate any data for any tables under the `history` and `audit` schemas. Also, any 
+the example below, it will not generate any data for any tables under the `history` and `audit` schemas. Also, any
 table with the name `balances` or `transactions` in any schema will also not have data generated.
 
 === "Java"
@@ -146,3 +168,27 @@ table with the name `balances` or `transactions` in any schema will also not hav
         )
       )
     ```
+
+#### Define record count
+
+You can control the record count per sub data source via `numRecordsPerStep`.
+
+=== "Java"
+
+      ```java
+      var autoRun = configuration()
+            ...
+            .numRecordsPerStep(100)
+      
+      execute(autoRun)
+      ```
+
+=== "Scala"
+
+      ```scala
+      val autoRun = configuration
+        ...
+        .numRecordsPerStep(100)
+         
+      execute(configuration = autoRun)
+      ```

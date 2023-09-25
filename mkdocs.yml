@@ -34,8 +34,9 @@ nav:
     - 'guide/index.md'
     - Scenario:
         - First Data Generation: 'guide/scenario/first-data-generation.md'
-        - Auto Generate From Data Connection: 'guide/scenario/auto-generate-connection.md'
         - Multiple Records Per Column Value: 'guide/scenario/records-per-column.md'
+        - Auto Generate From Data Connection: 'guide/scenario/auto-generate-connection.md'
+        - Delete Generated Data: 'guide/scenario/delete-generated-data.md'
     - Data Sources:
         - Files (CSV, JSON, ORC, Parquet): 'guide/scenario/first-data-generation.md'
         - Cassandra: 'guide/data-source/cassandra.md'
@@ -55,6 +56,7 @@ nav:
     - Comparison: 'use-case/comparison.md'
   - Roadmap: 'roadmap/roadmap.md'
   - Advanced: 'advanced/advanced.md'
+  - Pricing: 'pricing/pricing.md'
 
 markdown_extensions:
   - attr_list
