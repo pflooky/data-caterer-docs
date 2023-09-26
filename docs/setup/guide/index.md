@@ -52,9 +52,9 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
 
     - __[Cassandra]__ - Cassandra tables
     - __[Kafka]__ - Kafka topics
-    - __[MySql]__ - JDBC MySql tables
-    - __[Solace]__ - Solace messages
-    - __[HTTP]__ - HTTP requests
+    - __[MySql]__ - (Soon to document) JDBC MySql tables
+    - __[Solace]__ - (Soon to document) Solace messages
+    - __[HTTP]__ - (Soon to document) HTTP requests
 
     </div>
 
