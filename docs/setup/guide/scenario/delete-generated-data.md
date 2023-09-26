@@ -45,7 +45,8 @@ Make sure your class extends `PlanRun`.
                     .enableDeleteGeneratedRecords(false)                                              (4)
                     .enableUniqueCheck(true)
                     .generatedPlanAndTaskFolderPath("/opt/app/data/generated")                        (5)
-                    .generatedReportsFolderPath("/opt/app/data/report");                              (6)
+                    .recordTrackingFolderPath("/opt/app/data/recordTracking")                         (6)
+                    .generatedReportsFolderPath("/opt/app/data/report");
    
             execute(autoRun);
        }
@@ -68,6 +69,7 @@ Make sure your class extends `PlanRun`.
         .enableUniqueCheck(true)
         .generatedPlanAndTaskFolderPath("/opt/app/data/generated")                        (5)
         .recordTrackingFolderPath("/opt/app/data/recordTracking")                         (6)
+        .generatedReportsFolderPath("/opt/app/data/report")
       
       execute(configuration = autoRun)
     }
@@ -165,7 +167,9 @@ and also be able to clean it up.
 
 #### One class for generating, another for deleting?
 
-Yes, this is possible. The only requirement is that the connection names used need to be the same across both classes.
+Yes, this is possible. There are two requirements:
+- the connection names used need to be the same across both classes
+- `recordTrackingFolderPath` needs to be set to the same value
 
 #### Define record count
 

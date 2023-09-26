@@ -632,13 +632,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#delete" class="md-nav__link">
-    Delete
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#additional-topics" class="md-nav__link">
     Additional Topics
   </a>
@@ -1125,7 +1118,7 @@
 <p>Creating a data generator for Kafka topic with matching records in a CSV file.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>10 minutes</li>
+<li>5 minutes</li>
 <li>Git</li>
 <li>Gradle</li>
 <li>Docker</li>
@@ -1213,15 +1206,21 @@ when we define our foreign key relationships.</p>
 <h4 id="foreign-keys">Foreign Keys</h4>
 <p>From the above CSV schema, we see note the following against the Kafka schema:</p>
 <ul>
-<li><code>account_number</code> in CSV needs to match with the <code>account_id</code> in Kafka</li>
+<li><code>account_number</code> in CSV needs to match with the <code>account_id</code> in Kafka<ul>
 <li>We see that <code>account_id</code> is referred to in the <code>key</code> column as <code>field.name("key").sql("content.account_id")</code></li>
-<li><code>year</code> needs to match with <code>content.year</code> in Kafka, which is a nested field</li>
+</ul>
+</li>
+<li><code>year</code> needs to match with <code>content.year</code> in Kafka, which is a nested field<ul>
 <li>We can only do foreign key relationships with top level fields, not nested fields. So we define a new column
-    called <code>tmp_year</code> which will not appear in the final output for the Kafka messages but is used as an intermediate
-    step <code>field.name("tmp_year").sql("content.year").omit(true)</code></li>
-<li><code>name</code> needs to match with <code>content.details.name</code> in Kafka, also a nested field</li>
+  called <code>tmp_year</code> which will not appear in the final output for the Kafka messages but is used as an intermediate
+  step <code>field.name("tmp_year").sql("content.year").omit(true)</code></li>
+</ul>
+</li>
+<li><code>name</code> needs to match with <code>content.details.name</code> in Kafka, also a nested field<ul>
 <li>Using the same logic as above, we define a temporary column called <code>tmp_name</code> which will take the value of the
-    nested field but will be omitted <code>field.name("tmp_name").sql("content.details.name").omit(true)</code></li>
+  nested field but will be omitted <code>field.name("tmp_name").sql("content.details.name").omit(true)</code></li>
+</ul>
+</li>
 <li><code>payload</code> represents the whole JSON message sent to Kafka, which matches to <code>value</code> column</li>
 </ul>
 <p>Our foreign keys are therefore defined like below. Order is important when defining the list of columns. The index needs
@@ -1233,6 +1232,11 @@ to match with the corresponding column in the other data source.</p>
 <span class="w">        </span><span class="n">kafkaTask</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">),</span>
 <span class="w">        </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">entry</span><span class="p">(</span><span class="n">csvTask</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;account_number&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;payload&quot;</span><span class="p">)))</span>
 <span class="p">);</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">()</span>
+<span class="w">      </span><span class="p">.</span><span class="na">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">);</span>
+
+<span class="n">execute</span><span class="p">(</span><span class="n">myPlan</span><span class="p">,</span><span class="w"> </span><span class="n">conf</span><span class="p">,</span><span class="w"> </span><span class="n">kafkaTask</span><span class="p">,</span><span class="w"> </span><span class="n">csvTask</span><span class="p">);</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1240,6 +1244,10 @@ to match with the corresponding column in the other data source.</p>
 <span class="w">    </span><span class="n">kafkaTask</span><span class="p">,</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">),</span>
 <span class="w">    </span><span class="nc">List</span><span class="p">(</span><span class="n">csvTask</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_number&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;payload&quot;</span><span class="p">))</span>
 <span class="p">)</span>
+
+<span class="kd">val</span><span class="w"> </span><span class="n">conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">.</span><span class="n">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">)</span>
+
+<span class="n">execute</span><span class="p">(</span><span class="n">myPlan</span><span class="p">,</span><span class="w"> </span><span class="n">conf</span><span class="p">,</span><span class="w"> </span><span class="n">kafkaTask</span><span class="p">,</span><span class="w"> </span><span class="n">csvTask</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1262,30 +1270,11 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 ACC03093143,2023,Nadine<span class="w"> </span>Heidenreich<span class="w"> </span>Jr.,<span class="s2">&quot;{\&quot;account_id\&quot;:\&quot;ACC03093143\&quot;,\&quot;year\&quot;:2023,\&quot;amount\&quot;:87990.37196728592,\&quot;details\&quot;:{\&quot;name\&quot;:\&quot;Nadine Heidenreich Jr.\&quot;,\&quot;first_txn_date\&quot;:\&quot;2021-11-09\&quot;,\&quot;updated_by\&quot;:{\&quot;user\&quot;:\&quot;YfEyJCe8ohrl0j IfyT\&quot;,\&quot;time\&quot;:\&quot;2022-09-26T20:47:53.404Z\&quot;}},\&quot;transactions\&quot;:[{\&quot;txn_date\&quot;:\&quot;2021-11-09\&quot;,\&quot;amount\&quot;:97073.7914706189}]}&quot;</span>
 </code></pre></div>
 <p>Great! The account, year, name and payload look to all match up.</p>
-<h3 id="delete">Delete</h3>
-<p>We are now at a stage where we want to delete the data that was generated. All we need to do is flip two flags.</p>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div>
-<p>Enable delete generated records and disable generating data.</p>
-<p>Before we run again, let us insert a record manually to see if that data will survive after running the job to delete
-the generated data.</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;insert into account.accounts (account_number) values (&#39;my_account_number&#39;)&quot;</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;select count(1) from account.accounts&quot;</span>
-</code></pre></div>
-<p>We now should have 1001 records in our <code>account.accounts</code> table. Let's delete the generated data now.</p>
-<div class="highlight"><pre><span></span><code>./run.sh
-<span class="c1">#input class MyAdvancedBatchEventJavaPlanRun or MyAdvancedBatchEventPlanRun</span>
-<span class="c1">#after completing</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;select * from account.accounts limit 1&#39;</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;select count(1) from account.accounts&#39;</span>
-</code></pre></div>
-<p>You should see that only 1 record is left, the one that we manually inserted. Great, now we can generate data reliably
-and also be able to clean it up.</p>
 <h3 id="additional-topics">Additional Topics</h3>
 <h4 id="order-of-execution">Order of execution</h4>
-<p>You may notice that the events are generated first, then the parquet file. This is because as part of the <code>execute</code>
-function, we passed in the <code>kafkaTask</code> first, before the <code>parquetTask</code>. You can change the order of execution by
-passing in <code>parquetTask</code> before <code>kafkaTask</code> into the <code>execute</code> function.</p>
+<p>You may notice that the events are generated first, then the CSV file. This is because as part of the <code>execute</code>
+function, we passed in the <code>kafkaTask</code> first, before the <code>csvTask</code>. You can change the order of execution by
+passing in <code>csvTask</code> before <code>kafkaTask</code> into the <code>execute</code> function.</p>
 
 
 

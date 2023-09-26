@@ -8,7 +8,7 @@ Creating a data generator for Kafka topic with matching records in a CSV file.
 
 ## Requirements
 
-- 10 minutes
+- 5 minutes
 - Git
 - Gradle
 - Docker
@@ -113,14 +113,14 @@ when we define our foreign key relationships.
 From the above CSV schema, we see note the following against the Kafka schema:
 
 - `account_number` in CSV needs to match with the `account_id` in Kafka
-  - We see that `account_id` is referred to in the `key` column as `field.name("key").sql("content.account_id")`
+    - We see that `account_id` is referred to in the `key` column as `field.name("key").sql("content.account_id")`
 - `year` needs to match with `content.year` in Kafka, which is a nested field
-  - We can only do foreign key relationships with top level fields, not nested fields. So we define a new column
-    called `tmp_year` which will not appear in the final output for the Kafka messages but is used as an intermediate
-    step `field.name("tmp_year").sql("content.year").omit(true)`
+    - We can only do foreign key relationships with top level fields, not nested fields. So we define a new column
+      called `tmp_year` which will not appear in the final output for the Kafka messages but is used as an intermediate
+      step `field.name("tmp_year").sql("content.year").omit(true)`
 - `name` needs to match with `content.details.name` in Kafka, also a nested field
-  - Using the same logic as above, we define a temporary column called `tmp_name` which will take the value of the
-    nested field but will be omitted `field.name("tmp_name").sql("content.details.name").omit(true)`
+    - Using the same logic as above, we define a temporary column called `tmp_name` which will take the value of the
+      nested field but will be omitted `field.name("tmp_name").sql("content.details.name").omit(true)`
 - `payload` represents the whole JSON message sent to Kafka, which matches to `value` column
 
 Our foreign keys are therefore defined like below. Order is important when defining the list of columns. The index needs
@@ -133,6 +133,11 @@ to match with the corresponding column in the other data source.
             kafkaTask, List.of("key", "tmp_year", "tmp_name", "value"),
             List.of(Map.entry(csvTask, List.of("account_number", "year", "name", "payload")))
     );
+  
+    var conf = configuration()
+          .generatedReportsFolderPath("/opt/app/data/report");
+
+    execute(myPlan, conf, kafkaTask, csvTask);
     ```
 
 === "Scala"
@@ -142,6 +147,10 @@ to match with the corresponding column in the other data source.
         kafkaTask, List("key", "tmp_year", "tmp_name", "value"),
         List(csvTask -> List("account_number", "year", "name", "payload"))
     )
+  
+    val conf = configuration.generatedReportsFolderPath("/opt/app/data/report")
+
+    execute(myPlan, conf, kafkaTask, csvTask)
     ```
 
 ### Run
@@ -173,41 +182,10 @@ ACC03093143,2023,Nadine Heidenreich Jr.,"{\"account_id\":\"ACC03093143\",\"year\
 
 Great! The account, year, name and payload look to all match up.
 
-### Delete
-
-We are now at a stage where we want to delete the data that was generated. All we need to do is flip two flags.
-
-```java
-
-```
-
-Enable delete generated records and disable generating data.
-
-Before we run again, let us insert a record manually to see if that data will survive after running the job to delete
-the generated data.
-
-```shell
-docker exec docker-postgresserver-1 psql -Upostgres -d customer -c "insert into account.accounts (account_number) values ('my_account_number')"
-docker exec docker-postgresserver-1 psql -Upostgres -d customer -c "select count(1) from account.accounts"
-```
-
-We now should have 1001 records in our `account.accounts` table. Let's delete the generated data now.
-
-```shell
-./run.sh
-#input class MyAdvancedBatchEventJavaPlanRun or MyAdvancedBatchEventPlanRun
-#after completing
-docker exec docker-postgresserver-1 psql -Upostgres -d customer -c 'select * from account.accounts limit 1'
-docker exec docker-postgresserver-1 psql -Upostgres -d customer -c 'select count(1) from account.accounts'
-```
-
-You should see that only 1 record is left, the one that we manually inserted. Great, now we can generate data reliably
-and also be able to clean it up.
-
 ### Additional Topics
 
 #### Order of execution
 
-You may notice that the events are generated first, then the parquet file. This is because as part of the `execute`
-function, we passed in the `kafkaTask` first, before the `parquetTask`. You can change the order of execution by
-passing in `parquetTask` before `kafkaTask` into the `execute` function.
+You may notice that the events are generated first, then the CSV file. This is because as part of the `execute`
+function, we passed in the `kafkaTask` first, before the `csvTask`. You can change the order of execution by
+passing in `csvTask` before `kafkaTask` into the `execute` function.

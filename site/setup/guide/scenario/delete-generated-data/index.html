@@ -1143,7 +1143,8 @@
 <span class="w">                </span><span class="p">.</span><span class="na">enableDeleteGeneratedRecords</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="w">                                              </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="w">                </span><span class="p">.</span><span class="na">enableUniqueCheck</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
 <span class="w">                </span><span class="p">.</span><span class="na">generatedPlanAndTaskFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/generated&quot;</span><span class="p">)</span><span class="w">                        </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">);</span><span class="w">                              </span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">recordTrackingFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/recordTracking&quot;</span><span class="p">)</span><span class="w">                         </span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">);</span>
 
 <span class="w">        </span><span class="n">execute</span><span class="p">(</span><span class="n">autoRun</span><span class="p">);</span>
 <span class="w">   </span><span class="p">}</span>
@@ -1164,6 +1165,7 @@
 <span class="w">    </span><span class="p">.</span><span class="n">enableUniqueCheck</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">generatedPlanAndTaskFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/generated&quot;</span><span class="p">)</span><span class="w">                        </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">recordTrackingFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/recordTracking&quot;</span><span class="p">)</span><span class="w">                         </span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">)</span>
 
 <span class="w">  </span><span class="n">execute</span><span class="p">(</span><span class="n">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">autoRun</span><span class="p">)</span>
 <span class="p">}</span>
@@ -1233,7 +1235,9 @@ docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </spa
 and also be able to clean it up.</p>
 <h3 id="additional-topics">Additional Topics</h3>
 <h4 id="one-class-for-generating-another-for-deleting">One class for generating, another for deleting?</h4>
-<p>Yes, this is possible. The only requirement is that the connection names used need to be the same across both classes.</p>
+<p>Yes, this is possible. There are two requirements:
+- the connection names used need to be the same across both classes
+- <code>recordTrackingFolderPath</code> needs to be set to the same value</p>
 <h4 id="define-record-count">Define record count</h4>
 <p>You can control the record count per sub data source via <code>numRecordsPerStep</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label></div>

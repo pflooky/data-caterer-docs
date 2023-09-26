@@ -4,7 +4,7 @@ Creating a data generator for a CSV file where there are multiple records per co
 
 ## Requirements
 
-- 10 minutes
+- 5 minutes
 - Git
 - Gradle
 - Docker
