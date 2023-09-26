@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../guide/data-source/cassandra/">
+        <link rel="prev" href="../guide/data-source/kafka/">
       
       
         <link rel="next" href="../connection/connection/">
@@ -532,6 +532,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/scenario/batch-and-event/" class="md-nav__link">
+        Generate Batch and Event Data
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -588,6 +602,20 @@
     <li class="md-nav__item">
       <a href="../guide/data-source/cassandra/" class="md-nav__link">
         Cassandra
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/data-source/kafka/" class="md-nav__link">
+        Kafka
       </a>
     </li>
   
@@ -1037,7 +1065,7 @@
 metadata gets saved.</p>
 <p>These configurations are defined from within your Java or Scala class via <code>configuration</code> or for YAML file setup,
 <code>application.conf</code> file as seen 
-<a href="https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/application.conf">here</a>.</p>
+<a href="https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/application.conf"><strong>here</strong></a>.</p>
 <h2 id="flags">Flags</h2>
 <p>Flags are used to control which processes are executed when you run Data Caterer.</p>
 <table>
@@ -1072,7 +1100,7 @@ metadata gets saved.</p>
 <td><code>enableSaveReports</code></td>
 <td>true</td>
 <td>N</td>
-<td>Enable/disable HTML reports summarising data generated, metadata of data generated (if <code>enableSinkMetadata</code> is enabled) and validation results (if <code>enableValidation</code> is enabled). Sample <a href="../generator/report/">here</a></td>
+<td>Enable/disable HTML reports summarising data generated, metadata of data generated (if <code>enableSinkMetadata</code> is enabled) and validation results (if <code>enableValidation</code> is enabled). Sample <a href="../generator/report/"><strong>here</strong></a></td>
 </tr>
 <tr>
 <td><code>enableSinkMetadata</code></td>
@@ -1084,7 +1112,7 @@ metadata gets saved.</p>
 <td><code>enableValidation</code></td>
 <td>false</td>
 <td>N</td>
-<td>Run validations as described in plan. Results can be viewed from logs or from HTML report if <code>enableSaveSinkMetadata</code> is enabled. Sample <a href="../validation/validation/">here</a></td>
+<td>Run validations as described in plan. Results can be viewed from logs or from HTML report if <code>enableSaveSinkMetadata</code> is enabled. Sample <a href="../validation/validation/"><strong>here</strong></a></td>
 </tr>
 <tr>
 <td><code>enableGeneratePlanAndTasks</code></td>
@@ -1384,7 +1412,7 @@ batch.</p>
 </div>
 <h2 id="runtime">Runtime</h2>
 <p>Given Data Caterer uses Spark as the base framework for data processing, you can configure the job as to your 
-specifications via configuration as seen <a href="https://spark.apache.org/docs/latest/configuration.html">here</a>.</p>
+specifications via configuration as seen <a href="https://spark.apache.org/docs/latest/configuration.html"><strong>here</strong></a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">Scala</label><label for="__tabbed_5_3">application.conf</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

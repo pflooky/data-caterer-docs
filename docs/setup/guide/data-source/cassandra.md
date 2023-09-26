@@ -59,8 +59,8 @@ metadata information about tables and columns from the below tables.
 
 Create a new Java or Scala class.
 
-- Java: `src/main/java/com/github/pflooky/plan/MyCassandraJavaPlan.java`
-- Scala: `src/main/scala/com/github/pflooky/plan/MyCassandraPlan.scala`
+- Java: `src/main/java/com/github/pflooky/plan/MyAdvancedCassandraJavaPlan.java`
+- Scala: `src/main/scala/com/github/pflooky/plan/MyAdvancedCassandraPlan.scala`
 
 Make sure your class extends `PlanRun`.
 
@@ -69,7 +69,7 @@ Make sure your class extends `PlanRun`.
     ```java
     import com.github.pflooky.datacaterer.java.api.PlanRun;
     
-    public class MyCassandraJavaPlan extends PlanRun {
+    public class MyAdvancedCassandraJavaPlan extends PlanRun {
     }
     ```
 
@@ -78,7 +78,7 @@ Make sure your class extends `PlanRun`.
     ```scala
     import com.github.pflooky.datacaterer.api.PlanRun
     
-    class MyCassandraPlan extends PlanRun {
+    class MyAdvancedCassandraPlan extends PlanRun {
     }
     ```
 
@@ -87,7 +87,7 @@ methods defined to make it simple and easy to use.
 
 #### Connection Configuration
 
-Within our `MyCassandraPlan` class, we can start by defining the connection properties to connect to Cassandra.
+Within our class, we can start by defining the connection properties to connect to Cassandra.
 
 === "Java"
 
@@ -101,7 +101,7 @@ Within our `MyCassandraPlan` class, we can start by defining the connection prop
     )
     ```
     
-    Additional options such as SSL configuration, etc can be found [here](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md).
+    Additional options such as SSL configuration, etc can be found [**here**](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md).
 
 === "Scala"
 
@@ -115,7 +115,7 @@ Within our `MyCassandraPlan` class, we can start by defining the connection prop
     )
     ```
     
-    Additional options such as SSL configuration, etc can be found [here](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md).
+    Additional options such as SSL configuration, etc can be found [**here**](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md).
 
 #### Schema
 
@@ -233,7 +233,7 @@ unique values are generated.
 
 `name` is a string that also follows a certain pattern, so we could also define a regex but here we will choose to
 leverage the DataFaker library and create an `expression` to generate real looking name. All possible faker expressions
-can be found [here](../../../sample/datafaker/expressions.txt)
+can be found [**here**](../../../sample/datafaker/expressions.txt)
 
 === "Java"
 
@@ -360,7 +360,7 @@ To tell Data Caterer that we want to run with the configurations along with the 
 === "Java"
 
     ```java
-    public class AdvancedCassandraJavaPlanRun extends PlanRun {
+    public class MyAdvancedCassandraJavaPlan extends PlanRun {
         {
             var accountTask = cassandra("customer_cassandra", "host.docker.internal:9042")
                     .table("account", "accounts")
@@ -385,7 +385,7 @@ To tell Data Caterer that we want to run with the configurations along with the 
 === "Scala"
 
     ```scala
-    class AdvancedCassandraPlanRun extends PlanRun {
+    class MyAdvancedCassandraPlan extends PlanRun {
       val accountTask = cassandra("customer_cassandra", "host.docker.internal:9042")
         .table("account", "accounts")
         .schema(
@@ -412,7 +412,7 @@ created.
 
 ```shell
 ./run.sh
-#input class AdvancedCassandraJavaPlanRun or AdvancedCassandraPlanRun
+#input class MyAdvancedCassandraJavaPlan or MyAdvancedCassandraPlan
 #after completing
 docker exec docker-cassandraserver-1 cqlsh -e 'select count(1) from account.accounts;select * from account.accounts limit 10;'
 ```

@@ -135,7 +135,7 @@ We are now at a stage where we want to delete the data that was generated. All w
 
 ```java
 .enableDeleteGeneratedRecords(true)
-.enableGenerateData(false)  //this flag is newly defined in our class, we explicitly disable generating data
+.enableGenerateData(false)  //we need to explicitly disable generating data
 ```
 
 Enable delete generated records and disable generating data. 

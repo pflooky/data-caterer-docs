@@ -24,11 +24,11 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
 
     - __[Auto Generate From Data Connection]__ - Automatically generating data from just defining data sources
     - __[Delete Generated Data]__ - Delete the generated data whilst leaving other data
-    - __[Generate Batch and Event Data]__ - (Soon to document) Generate matching batch and event data
+    - __[Generate Batch and Event Data]__ - Generate matching batch and event data
 
       [Auto Generate From Data Connection]: scenario/auto-generate-connection.md
       [Delete Generated Data]: scenario/delete-generated-data.md
-      [Generate Batch and Event Data]: scenario/auto-generate-connection.md
+      [Generate Batch and Event Data]: scenario/batch-and-event.md
   
 ### Data Sources
 
@@ -50,17 +50,17 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
 
     <div class="grid cards" markdown>
 
-    - __[MySql]__ - JDBC MySql tables
     - __[Cassandra]__ - Cassandra tables
     - __[Kafka]__ - Kafka topics
+    - __[MySql]__ - JDBC MySql tables
     - __[Solace]__ - Solace messages
     - __[HTTP]__ - HTTP requests
 
     </div>
 
-      [MySql]: data-source/cassandra.md
       [Cassandra]: data-source/cassandra.md
-      [Kafka]: data-source/cassandra.md
+      [Kafka]: data-source/kafka.md
+      [MySql]: data-source/cassandra.md
       [Solace]: data-source/cassandra.md
       [Http]: data-source/cassandra.md
 

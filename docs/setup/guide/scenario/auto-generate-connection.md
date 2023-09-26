@@ -133,7 +133,7 @@ You can now look to play around with other tables or data sources and auto gener
 
 If you have any existing data within your data source, Data Caterer will gather metadata about the existing data to
 help guide it when generating new data. There are configurations that can help tune the metadata analysis found
-[here](../../configuration.md#metadata).
+[**here**](../../configuration.md#metadata).
 
 #### Filter Out Schema/Tables
 

@@ -157,7 +157,7 @@ attributes that add guidelines that the data generator will understand when gene
 - `name` is a string that also follows a certain pattern, so we could also define a regex but here we will choose to
   leverage the DataFaker library and create an `expression` to generate real looking name. All possible faker
   expressions
-  can be found [here](../../../sample/datafaker/expressions.txt)
+  can be found [**here**](../../../sample/datafaker/expressions.txt)
   
 === "Java"
 

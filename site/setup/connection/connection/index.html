@@ -532,6 +532,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/scenario/batch-and-event/" class="md-nav__link">
+        Generate Batch and Event Data
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -588,6 +602,20 @@
     <li class="md-nav__item">
       <a href="../../guide/data-source/cassandra/" class="md-nav__link">
         Cassandra
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/data-source/kafka/" class="md-nav__link">
+        Kafka
       </a>
     </li>
   
@@ -1246,7 +1274,7 @@ be used for the `url`, otherwise, it will default to `localhost`.
 <h2 id="data-sources">Data sources</h2>
 <p>To find examples of a task for each type of data source, please check out <a href="../../guide/">this page</a>.</p>
 <h3 id="file">File</h3>
-<p>Linked <a href="https://spark.apache.org/docs/latest/sql-data-sources-generic-options.html">here</a> is a list of generic options
+<p>Linked <a href="https://spark.apache.org/docs/latest/sql-data-sources-generic-options.html"><strong>here</strong></a> is a list of generic options
 that can be included as part of your file data source configuration if required. Links to specific file type
 configurations can be found below.</p>
 <h4 id="csv">CSV</h4>
@@ -1365,7 +1393,7 @@ configurations can be found below.</p>
 </div>
 <h3 id="jdbc">JDBC</h3>
 <p>Follows the same configuration used by Spark as
-found <a href="https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html#data-source-option">here</a>.<br />
+found <a href="https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html#data-source-option"><strong>here</strong></a>.<br />
 Sample can be found below</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">Scala</label><label for="__tabbed_6_3">application.conf</label></div>
 <div class="tabbed-content">
@@ -1467,7 +1495,7 @@ Sample can be found below</p>
 </details>
 <h3 id="cassandra">Cassandra</h3>
 <p>Follows same configuration as defined by the Spark Cassandra Connector as
-found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md">here</a></p>
+found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md"><strong>here</strong></a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">Scala</label><label for="__tabbed_8_3">application.conf</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1526,7 +1554,7 @@ metadata information about tables and columns from the below tables.</p>
 <p>Define your Kafka bootstrap server to connect and send generated data to corresponding topics. Topic gets set at a step
 level.<br />
 Further details can be
-found <a href="https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka">here</a></p>
+found <a href="https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka"><strong>here</strong></a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Java</label><label for="__tabbed_9_2">Scala</label><label for="__tabbed_9_3">application.conf</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1556,7 +1584,7 @@ found <a href="https://spark.apache.org/docs/latest/structured-streaming-kafka-i
 </div>
 <p>When defining your schema for pushing data to Kafka, it follows a specific top level schema.<br />
 An example can be
-found <a href="https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/kafka/kafka-account-task.yaml">here</a>
+found <a href="https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/kafka/kafka-account-task.yaml"><strong>here</strong></a>
 . You can define the key, value, headers, partition or topic by following the linked schema.</p>
 <h3 id="jms">JMS</h3>
 <p>Uses JNDI lookup to send messages to JMS queue. Ensure that the messaging system you are using has your queue/topic

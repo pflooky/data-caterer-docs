@@ -12,7 +12,7 @@
         <link rel="prev" href="../auto-generate-connection/">
       
       
-        <link rel="next" href="../first-data-generation/">
+        <link rel="next" href="../batch-and-event/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
@@ -645,6 +645,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../batch-and-event/" class="md-nav__link">
+        Generate Batch and Event Data
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -701,6 +715,20 @@
     <li class="md-nav__item">
       <a href="../../data-source/cassandra/" class="md-nav__link">
         Cassandra
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-source/kafka/" class="md-nav__link">
+        Kafka
       </a>
     </li>
   
@@ -1186,7 +1214,7 @@ order is correct.</p>
 <h3 id="delete">Delete</h3>
 <p>We are now at a stage where we want to delete the data that was generated. All we need to do is flip two flags.</p>
 <div class="highlight"><pre><span></span><code><span class="p">.</span><span class="na">enableDeleteGeneratedRecords</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-<span class="p">.</span><span class="na">enableGenerateData</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="w">  </span><span class="c1">//this flag is newly defined in our class, we explicitly disable generating data</span>
+<span class="p">.</span><span class="na">enableGenerateData</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="w">  </span><span class="c1">//we need to explicitly disable generating data</span>
 </code></pre></div>
 <p>Enable delete generated records and disable generating data. </p>
 <p>Before we run again, let us insert a record manually to see if that data will survive after running the job to delete

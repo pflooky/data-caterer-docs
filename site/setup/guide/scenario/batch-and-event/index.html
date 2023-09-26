@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../records-per-column/">
+        <link rel="prev" href="../delete-generated-data/">
       
       
-        <link rel="next" href="../delete-generated-data/">
+        <link rel="next" href="../first-data-generation/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Auto Generate From Data Connection - Data Caterer Documentation</title>
+        <title>Generate Batch and Event Data - Data Caterer Documentation</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#auto-generate-from-data-connection" class="md-skip">
+        <a href="#generate-batch-and-event-data" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Auto Generate From Data Connection
+              Generate Batch and Event Data
             
           </span>
         </div>
@@ -512,6 +512,34 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../auto-generate-connection/" class="md-nav__link">
+        Auto Generate From Data Connection
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../delete-generated-data/" class="md-nav__link">
+        Delete Generated Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -524,12 +552,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Auto Generate From Data Connection
+          Generate Batch and Event Data
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Auto Generate From Data Connection
+        Generate Batch and Event Data
       </a>
       
         
@@ -563,22 +591,49 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#plan-setup" class="md-nav__link">
-    Plan Setup
+  <a href="#kafka-setup" class="md-nav__link">
+    Kafka Setup
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#postgres-setup" class="md-nav__link">
-    Postgres Setup
+  <a href="#plan-setup" class="md-nav__link">
+    Plan Setup
   </a>
+  
+    <nav class="md-nav" aria-label="Plan Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema" class="md-nav__link">
+    Schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreign-keys" class="md-nav__link">
+    Foreign Keys
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#run" class="md-nav__link">
     Run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    Delete
   </a>
   
 </li>
@@ -592,22 +647,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#learn-from-existing-data" class="md-nav__link">
-    Learn From Existing Data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filter-out-schematables" class="md-nav__link">
-    Filter Out Schema/Tables
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#define-record-count" class="md-nav__link">
-    Define record count
+  <a href="#order-of-execution" class="md-nav__link">
+    Order of execution
   </a>
   
 </li>
@@ -626,34 +667,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../delete-generated-data/" class="md-nav__link">
-        Delete Generated Data
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../batch-and-event/" class="md-nav__link">
-        Generate Batch and Event Data
-      </a>
     </li>
   
 
@@ -1104,15 +1117,15 @@
   
 
 
-<h1 id="auto-generate-from-data-connection">Auto Generate From Data Connection</h1>
+<h1 id="generate-batch-and-event-data">Generate Batch and Event Data</h1>
 <div class="admonition example">
 <p class="admonition-title">Info</p>
-<p>Auto data generation from data connection is a paid feature.</p>
+<p>Generating event data is a paid feature.</p>
 </div>
-<p>Creating a data generator based on only a data connection to Postgres.</p>
+<p>Creating a data generator for Kafka topic with matching records in a CSV file.</p>
 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>5 minutes</li>
+<li>10 minutes</li>
 <li>Git</li>
 <li>Gradle</li>
 <li>Docker</li>
@@ -1121,11 +1134,20 @@
 <p>First, we will clone the data-caterer-example repo which will already have the base project setup required.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-example.git
 </code></pre></div>
+<h3 id="kafka-setup">Kafka Setup</h3>
+<p>If you don't have your own Kafka up and running, you can set up and run an instance configured in the <code>docker</code>
+folder via.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docker
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>kafka
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-kafkaserver-1<span class="w"> </span>kafka-topics<span class="w"> </span>--bootstrap-server<span class="w"> </span>localhost:9092<span class="w"> </span>--list
+</code></pre></div>
+<p>Let's create a task for inserting data into the <code>account-topic</code> that is already defined
+under<code>docker/data/kafka/setup_kafka.sh</code>.</p>
 <h3 id="plan-setup">Plan Setup</h3>
 <p>Create a new Java or Scala class.</p>
 <ul>
-<li>Java: <code>src/main/java/com/github/pflooky/plan/MyAdvancedAutomatedJavaPlanRun.java</code></li>
-<li>Scala: <code>src/main/scala/com/github/pflooky/plan/MyAdvancedAutomatedPlanRun.scala</code></li>
+<li>Java: <code>src/main/java/com/github/pflooky/plan/MyAdvancedBatchEventJavaPlanRun.java</code></li>
+<li>Scala: <code>src/main/scala/com/github/pflooky/plan/MyAdvancedBatchEventPlanRun.scala</code></li>
 </ul>
 <p>Make sure your class extends <code>PlanRun</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label></div>
@@ -1134,16 +1156,9 @@
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">com.github.pflooky.datacaterer.java.api.PlanRun</span><span class="p">;</span>
 <span class="p">...</span>
 
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyAdvancedAutomatedJavaPlanRun</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyAdvancedBatchEventJavaPlanRun</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">autoRun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">()</span>
-<span class="w">                </span><span class="p">.</span><span class="na">postgres</span><span class="p">(</span><span class="s">&quot;my_postgres&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;jdbc:postgresql://host.docker.internal:5432/customer&quot;</span><span class="p">)</span><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">enableGeneratePlanAndTasks</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">                                                 </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">generatedPlanAndTaskFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/generated&quot;</span><span class="p">)</span><span class="w">                        </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">enableUniqueCheck</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">                                                          </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="w">                </span><span class="p">.</span><span class="na">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">);</span>
-
-<span class="w">        </span><span class="n">execute</span><span class="p">(</span><span class="n">autoRun</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">kafkaTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AdvancedKafkaJavaPlanRun</span><span class="p">().</span><span class="na">getKafkaTask</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1152,123 +1167,125 @@
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">pflooky</span><span class="p">.</span><span class="nn">datacaterer</span><span class="p">.</span><span class="nn">api</span><span class="p">.</span><span class="nc">PlanRun</span>
 <span class="p">...</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">MyAdvancedAutomatedPlanRun</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
-
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">autoRun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span>
-<span class="w">    </span><span class="p">.</span><span class="n">postgres</span><span class="p">(</span><span class="s">&quot;my_postgres&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;jdbc:postgresql://host.docker.internal:5432/customer&quot;</span><span class="p">)</span><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">enableGeneratePlanAndTasks</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">                                                 </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">generatedPlanAndTaskFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/generated&quot;</span><span class="p">)</span><span class="w">                        </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">enableUniqueCheck</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">                                                          </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">)</span>
-
-<span class="w">  </span><span class="n">execute</span><span class="p">(</span><span class="n">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">autoRun</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyAdvancedBatchEventPlanRun</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">kafkaTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">AdvancedKafkaPlanRun</span><span class="p">().</span><span class="n">kafkaTask</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
 </div>
-<p>In the above code, we note the following:</p>
-<ol>
-<li>Data source configuration to a Postgres data source called <code>my_postgres</code></li>
-<li>We have enabled the flag <code>enableGeneratePlanAndTasks</code> which tells Data Caterer to go to <code>my_postgres</code> and generate
-   data for all the tables found under the database <code>customer</code> (which is defined in the connection string).</li>
-<li>The config <code>generatedPlanAndTaskFolderPath</code> defines where the metadata that is gathered from <code>my_postgres</code> should be
-   saved at so that we could re-use it later.</li>
-<li><code>enableUniqueCheck</code> is set to true to ensure that generated data is unique based on primary key or foreign key
-   definitions.</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Unique check will only ensure generated data is unique. Any existing data in your data source is not taken into 
-account, so generated data may fail to insert depending on the data source restrictions</p>
-</div>
-<h3 id="postgres-setup">Postgres Setup</h3>
-<p>If you don't have your own Postgres up and running, you can set up and run an instance configured in the <code>docker</code>
-folder via.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>docker
-docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>postgres
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;\dt+ account.*&#39;</span>
+<p>We will borrow the Kafka task that is already defined under the class <code>AdvancedKafkaPlanRun</code>
+or <code>AdvancedKafkaJavaPlanRun</code>. You can go through the Kafka guide <a href="../../data-source/kafka/"><strong>here</strong></a> for more details.</p>
+<h4 id="schema">Schema</h4>
+<p>Let us set up the corresponding schema for the CSV file where we want to match the values that are generated for the
+Kafka messages.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">kafkaTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AdvancedKafkaJavaPlanRun</span><span class="p">().</span><span class="na">getKafkaTask</span><span class="p">();</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">csvTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;my_csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/csv/account&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span>
+<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;account_number&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;payload&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">);</span>
 </code></pre></div>
-<p>This will create the tables found under <code>docker/data/sql/postgres/customer.sql</code>. You can change this file to contain
-your own tables. We can see there are 4 tables created for us, <code>accounts, balances, transactions and mapping</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">kafkaTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nc">AdvancedKafkaPlanRun</span><span class="p">().</span><span class="n">kafkaTask</span>
+
+<span class="kd">val</span><span class="w"> </span><span class="n">csvTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;my_csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/csv/account&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_number&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;payload&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>This is a simple schema where we want to use the values and metadata that is already defined in the <code>kafkaTask</code> to
+determine what the data will look like for the CSV file. Even if we defined some metadata here, it would be overridden
+when we define our foreign key relationships.</p>
+<h4 id="foreign-keys">Foreign Keys</h4>
+<p>From the above CSV schema, we see note the following against the Kafka schema:</p>
+<ul>
+<li><code>account_number</code> in CSV needs to match with the <code>account_id</code> in Kafka</li>
+<li>We see that <code>account_id</code> is referred to in the <code>key</code> column as <code>field.name("key").sql("content.account_id")</code></li>
+<li><code>year</code> needs to match with <code>content.year</code> in Kafka, which is a nested field</li>
+<li>We can only do foreign key relationships with top level fields, not nested fields. So we define a new column
+    called <code>tmp_year</code> which will not appear in the final output for the Kafka messages but is used as an intermediate
+    step <code>field.name("tmp_year").sql("content.year").omit(true)</code></li>
+<li><code>name</code> needs to match with <code>content.details.name</code> in Kafka, also a nested field</li>
+<li>Using the same logic as above, we define a temporary column called <code>tmp_name</code> which will take the value of the
+    nested field but will be omitted <code>field.name("tmp_name").sql("content.details.name").omit(true)</code></li>
+<li><code>payload</code> represents the whole JSON message sent to Kafka, which matches to <code>value</code> column</li>
+</ul>
+<p>Our foreign keys are therefore defined like below. Order is important when defining the list of columns. The index needs
+to match with the corresponding column in the other data source.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">myPlan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plan</span><span class="p">().</span><span class="na">addForeignKeyRelationship</span><span class="p">(</span>
+<span class="w">        </span><span class="n">kafkaTask</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">entry</span><span class="p">(</span><span class="n">csvTask</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;account_number&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;payload&quot;</span><span class="p">)))</span>
+<span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">myPlan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plan</span><span class="p">.</span><span class="n">addForeignKeyRelationship</span><span class="p">(</span>
+<span class="w">    </span><span class="n">kafkaTask</span><span class="p">,</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="nc">List</span><span class="p">(</span><span class="n">csvTask</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_number&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;payload&quot;</span><span class="p">))</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="run">Run</h3>
 <p>Let's try run.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
 ./run.sh
-<span class="c1">#input class MyAdvancedAutomatedJavaPlanRun or MyAdvancedAutomatedPlanRun</span>
+<span class="c1">#input class MyAdvancedBatchEventJavaPlanRun or MyAdvancedBatchEventPlanRun</span>
 <span class="c1">#after completing</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;select * from account.accounts limit 1;&#39;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-kafkaserver-1<span class="w"> </span>kafka-console-consumer<span class="w"> </span>--bootstrap-server<span class="w"> </span>localhost:9092<span class="w"> </span>--topic<span class="w"> </span>account-topic<span class="w"> </span>--from-beginning
 </code></pre></div>
 <p>It should look something like this.</p>
-<div class="highlight"><pre><span></span><code><span class="w">   </span>id<span class="w">   </span><span class="p">|</span><span class="w"> </span>account_number<span class="w">  </span><span class="p">|</span><span class="w"> </span>account_status<span class="w"> </span><span class="p">|</span><span class="w"> </span>created_by<span class="w"> </span><span class="p">|</span><span class="w"> </span>created_by_fixed_length<span class="w"> </span><span class="p">|</span><span class="w"> </span>customer_id_int<span class="w"> </span><span class="p">|</span><span class="w"> </span>customer_id_smallint<span class="w"> </span><span class="p">|</span><span class="w"> </span>customer_id_bigint<span class="w"> </span><span class="p">|</span><span class="w">   </span>customer_id_decimal<span class="w">    </span><span class="p">|</span><span class="w"> </span>customer_id_real<span class="w"> </span><span class="p">|</span><span class="w"> </span>customer_id_double<span class="w"> </span><span class="p">|</span><span class="w"> </span>open_date<span class="w">  </span><span class="p">|</span><span class="w">     </span>open_timestamp<span class="w">      </span><span class="p">|</span><span class="w"> </span>last_opened_time<span class="w"> </span><span class="p">|</span><span class="w">                                                           </span>payload_bytes
---------+-----------------+----------------+------------+-------------------------+-----------------+----------------------+--------------------+--------------------------+------------------+--------------------+------------+-------------------------+------------------+------------------------------------------------------------------------------------------------------------------------------------
-<span class="w"> </span><span class="m">100414</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>5uROOVOUyQUbubN<span class="w"> </span><span class="p">|</span><span class="w"> </span>h3H<span class="w">            </span><span class="p">|</span><span class="w"> </span>SfA0eZJcTm<span class="w"> </span><span class="p">|</span><span class="w"> </span>CuRw<span class="w">                    </span><span class="p">|</span><span class="w">              </span><span class="m">13</span><span class="w"> </span><span class="p">|</span><span class="w">                   </span><span class="m">42</span><span class="w"> </span><span class="p">|</span><span class="w">               </span><span class="m">6041</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">76987</span>.745612542900000000<span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">91866</span>.78<span class="w"> </span><span class="p">|</span><span class="w">  </span><span class="m">66400</span>.37433202339<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2023</span>-03-05<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2023</span>-08-14<span class="w"> </span><span class="m">11</span>:33:11.343<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">23</span>:58:01.736<span class="w">     </span><span class="p">|</span><span class="w"> </span><span class="se">\x</span>604d315d4547616e6a233050415373317274736f5e682d516132524f3d23233c37463463322f342d34376d597e665d6b3d395b4238284028622b7d6d2b4f5042
-<span class="o">(</span><span class="m">1</span><span class="w"> </span>row<span class="o">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">{</span><span class="s2">&quot;account_id&quot;</span>:<span class="s2">&quot;ACC03093143&quot;</span>,<span class="s2">&quot;year&quot;</span>:2023,<span class="s2">&quot;amount&quot;</span>:87990.37196728592,<span class="s2">&quot;details&quot;</span>:<span class="o">{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;Nadine Heidenreich Jr.&quot;</span>,<span class="s2">&quot;first_txn_date&quot;</span>:<span class="s2">&quot;2021-11-09&quot;</span>,<span class="s2">&quot;updated_by&quot;</span>:<span class="o">{</span><span class="s2">&quot;user&quot;</span>:<span class="s2">&quot;YfEyJCe8ohrl0j IfyT&quot;</span>,<span class="s2">&quot;time&quot;</span>:<span class="s2">&quot;2022-09-26T20:47:53.404Z&quot;</span><span class="o">}}</span>,<span class="s2">&quot;transactions&quot;</span>:<span class="o">[{</span><span class="s2">&quot;txn_date&quot;</span>:<span class="s2">&quot;2021-11-09&quot;</span>,<span class="s2">&quot;amount&quot;</span>:97073.7914706189<span class="o">}]}</span>
+<span class="o">{</span><span class="s2">&quot;account_id&quot;</span>:<span class="s2">&quot;ACC08764544&quot;</span>,<span class="s2">&quot;year&quot;</span>:2021,<span class="s2">&quot;amount&quot;</span>:28675.58758765888,<span class="s2">&quot;details&quot;</span>:<span class="o">{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;Delila Beer&quot;</span>,<span class="s2">&quot;first_txn_date&quot;</span>:<span class="s2">&quot;2021-05-19&quot;</span>,<span class="s2">&quot;updated_by&quot;</span>:<span class="o">{</span><span class="s2">&quot;user&quot;</span>:<span class="s2">&quot;IzB5ksXu&quot;</span>,<span class="s2">&quot;time&quot;</span>:<span class="s2">&quot;2023-01-26T20:47:26.389Z&quot;</span><span class="o">}}</span>,<span class="s2">&quot;transactions&quot;</span>:<span class="o">[{</span><span class="s2">&quot;txn_date&quot;</span>:<span class="s2">&quot;2021-10-01&quot;</span>,<span class="s2">&quot;amount&quot;</span>:80995.23818711648<span class="o">}</span>,<span class="o">{</span><span class="s2">&quot;txn_date&quot;</span>:<span class="s2">&quot;2021-05-19&quot;</span>,<span class="s2">&quot;amount&quot;</span>:92572.40049217848<span class="o">}</span>,<span class="o">{</span><span class="s2">&quot;txn_date&quot;</span>:<span class="s2">&quot;2021-12-11&quot;</span>,<span class="s2">&quot;amount&quot;</span>:99398.79832225188<span class="o">}]}</span>
+<span class="o">{</span><span class="s2">&quot;account_id&quot;</span>:<span class="s2">&quot;ACC62505420&quot;</span>,<span class="s2">&quot;year&quot;</span>:2023,<span class="s2">&quot;amount&quot;</span>:96125.3125884202,<span class="s2">&quot;details&quot;</span>:<span class="o">{</span><span class="s2">&quot;name&quot;</span>:<span class="s2">&quot;Shawn Goodwin&quot;</span>,<span class="s2">&quot;updated_by&quot;</span>:<span class="o">{</span><span class="s2">&quot;user&quot;</span>:<span class="s2">&quot;F3dqIvYp2pFtena4&quot;</span>,<span class="s2">&quot;time&quot;</span>:<span class="s2">&quot;2023-02-11T04:38:29.832Z&quot;</span><span class="o">}}</span>,<span class="s2">&quot;transactions&quot;</span>:<span class="o">[]}</span>
 </code></pre></div>
-<p>The data that gets inserted will follow the foreign keys that are defined within Postgres and also ensure the insertion
-order is correct.</p>
-<p>Also check the HTML report that gets generated under <code>docker/sample/report/index.html</code>. You can see a summary of what
-was generated along with other metadata.</p>
-<p>You can now look to play around with other tables or data sources and auto generate for them.</p>
+<p>Let's also check if there is a corresponding record in the CSV file.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>docker/sample/csv/account/part-0000*<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ACC03093143
+ACC03093143,2023,Nadine<span class="w"> </span>Heidenreich<span class="w"> </span>Jr.,<span class="s2">&quot;{\&quot;account_id\&quot;:\&quot;ACC03093143\&quot;,\&quot;year\&quot;:2023,\&quot;amount\&quot;:87990.37196728592,\&quot;details\&quot;:{\&quot;name\&quot;:\&quot;Nadine Heidenreich Jr.\&quot;,\&quot;first_txn_date\&quot;:\&quot;2021-11-09\&quot;,\&quot;updated_by\&quot;:{\&quot;user\&quot;:\&quot;YfEyJCe8ohrl0j IfyT\&quot;,\&quot;time\&quot;:\&quot;2022-09-26T20:47:53.404Z\&quot;}},\&quot;transactions\&quot;:[{\&quot;txn_date\&quot;:\&quot;2021-11-09\&quot;,\&quot;amount\&quot;:97073.7914706189}]}&quot;</span>
+</code></pre></div>
+<p>Great! The account, year, name and payload look to all match up.</p>
+<h3 id="delete">Delete</h3>
+<p>We are now at a stage where we want to delete the data that was generated. All we need to do is flip two flags.</p>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<p>Enable delete generated records and disable generating data.</p>
+<p>Before we run again, let us insert a record manually to see if that data will survive after running the job to delete
+the generated data.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;insert into account.accounts (account_number) values (&#39;my_account_number&#39;)&quot;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;select count(1) from account.accounts&quot;</span>
+</code></pre></div>
+<p>We now should have 1001 records in our <code>account.accounts</code> table. Let's delete the generated data now.</p>
+<div class="highlight"><pre><span></span><code>./run.sh
+<span class="c1">#input class MyAdvancedBatchEventJavaPlanRun or MyAdvancedBatchEventPlanRun</span>
+<span class="c1">#after completing</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;select * from account.accounts limit 1&#39;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-postgresserver-1<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>customer<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;select count(1) from account.accounts&#39;</span>
+</code></pre></div>
+<p>You should see that only 1 record is left, the one that we manually inserted. Great, now we can generate data reliably
+and also be able to clean it up.</p>
 <h3 id="additional-topics">Additional Topics</h3>
-<h4 id="learn-from-existing-data">Learn From Existing Data</h4>
-<p>If you have any existing data within your data source, Data Caterer will gather metadata about the existing data to
-help guide it when generating new data. There are configurations that can help tune the metadata analysis found
-<a href="../../../configuration/#metadata"><strong>here</strong></a>.</p>
-<h4 id="filter-out-schematables">Filter Out Schema/Tables</h4>
-<p>As part of your connection definition, you can define any schemas and/or tables your don't want to generate data for. In
-the example below, it will not generate any data for any tables under the <code>history</code> and <code>audit</code> schemas. Also, any
-table with the name <code>balances</code> or <code>transactions</code> in any schema will also not have data generated.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">autoRun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">()</span>
-<span class="w">        </span><span class="p">.</span><span class="na">postgres</span><span class="p">(</span>
-<span class="w">              </span><span class="s">&quot;my_postgres&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">              </span><span class="s">&quot;jdbc:postgresql://host.docker.internal:5432/customer&quot;</span><span class="p">,</span>
-<span class="w">              </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span>
-<span class="w">                  </span><span class="s">&quot;filterOutSchema&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;history, audit&quot;</span><span class="p">,</span>
-<span class="w">                  </span><span class="s">&quot;filterOutTable&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;balances, transactions&quot;</span><span class="p">)</span>
-<span class="w">              </span><span class="p">)</span>
-<span class="w">        </span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">autoRun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span>
-<span class="w">  </span><span class="p">.</span><span class="n">postgres</span><span class="p">(</span>
-<span class="w">    </span><span class="s">&quot;my_postgres&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s">&quot;jdbc:postgresql://host.docker.internal:5432/customer&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nc">Map</span><span class="p">(</span>
-<span class="w">      </span><span class="s">&quot;filterOutSchema&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;history, audit&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s">&quot;filterOutTable&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;balances, transactions&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">)</span>
-<span class="w">  </span><span class="p">)</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h4 id="define-record-count">Define record count</h4>
-<p>You can control the record count per sub data source via <code>numRecordsPerStep</code>.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Scala</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">autoRun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">()</span>
-<span class="w">      </span><span class="p">...</span>
-<span class="w">      </span><span class="p">.</span><span class="na">numRecordsPerStep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-
-<span class="n">execute</span><span class="p">(</span><span class="n">autoRun</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">autoRun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span>
-<span class="w">  </span><span class="p">...</span>
-<span class="w">  </span><span class="p">.</span><span class="n">numRecordsPerStep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-
-<span class="n">execute</span><span class="p">(</span><span class="n">configuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">autoRun</span><span class="p">)</span>
-</code></pre></div>
-</div>
-</div>
-</div>
+<h4 id="order-of-execution">Order of execution</h4>
+<p>You may notice that the events are generated first, then the parquet file. This is because as part of the <code>execute</code>
+function, we passed in the <code>kafkaTask</code> first, before the <code>parquetTask</code>. You can change the order of execution by
+passing in <code>parquetTask</code> before <code>kafkaTask</code> into the <code>execute</code> function.</p>
 
 
 

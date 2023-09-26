@@ -49,7 +49,7 @@ To find examples of a task for each type of data source, please check out [this 
 
 ### File
 
-Linked [here](https://spark.apache.org/docs/latest/sql-data-sources-generic-options.html) is a list of generic options
+Linked [**here**](https://spark.apache.org/docs/latest/sql-data-sources-generic-options.html) is a list of generic options
 that can be included as part of your file data source configuration if required. Links to specific file type
 configurations can be found below.
 
@@ -189,7 +189,7 @@ configurations can be found below.
 ### JDBC
 
 Follows the same configuration used by Spark as
-found [here](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html#data-source-option).  
+found [**here**](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html#data-source-option).  
 Sample can be found below
 
 === "Java"
@@ -308,7 +308,7 @@ Following permissions are required when generating plan and tasks:
 ### Cassandra
 
 Follows same configuration as defined by the Spark Cassandra Connector as
-found [here](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md)
+found [**here**](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md)
 
 === "Java"
 
@@ -376,7 +376,7 @@ metadata information about tables and columns from the below tables.
 Define your Kafka bootstrap server to connect and send generated data to corresponding topics. Topic gets set at a step
 level.  
 Further details can be
-found [here](https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka)
+found [**here**](https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka)
 
 === "Java"
 
@@ -409,7 +409,7 @@ found [here](https://spark.apache.org/docs/latest/structured-streaming-kafka-int
 
 When defining your schema for pushing data to Kafka, it follows a specific top level schema.  
 An example can be
-found [here](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/kafka/kafka-account-task.yaml)
+found [**here**](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/kafka/kafka-account-task.yaml)
 . You can define the key, value, headers, partition or topic by following the linked schema.
 
 ### JMS

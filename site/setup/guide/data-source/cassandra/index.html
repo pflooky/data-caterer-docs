@@ -12,7 +12,7 @@
         <link rel="prev" href="../../scenario/first-data-generation/">
       
       
-        <link rel="next" href="../../../configuration/">
+        <link rel="next" href="../kafka/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
@@ -534,6 +534,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scenario/batch-and-event/" class="md-nav__link">
+        Generate Batch and Event Data
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -770,6 +784,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kafka/" class="md-nav__link">
+        Kafka
+      </a>
     </li>
   
 
@@ -1188,8 +1216,8 @@ metadata information about tables and columns from the below tables.</p>
 <h3 id="plan-setup">Plan Setup</h3>
 <p>Create a new Java or Scala class.</p>
 <ul>
-<li>Java: <code>src/main/java/com/github/pflooky/plan/MyCassandraJavaPlan.java</code></li>
-<li>Scala: <code>src/main/scala/com/github/pflooky/plan/MyCassandraPlan.scala</code></li>
+<li>Java: <code>src/main/java/com/github/pflooky/plan/MyAdvancedCassandraJavaPlan.java</code></li>
+<li>Scala: <code>src/main/scala/com/github/pflooky/plan/MyAdvancedCassandraPlan.scala</code></li>
 </ul>
 <p>Make sure your class extends <code>PlanRun</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label></div>
@@ -1197,14 +1225,14 @@ metadata information about tables and columns from the below tables.</p>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">com.github.pflooky.datacaterer.java.api.PlanRun</span><span class="p">;</span>
 
-<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyCassandraJavaPlan</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyAdvancedCassandraJavaPlan</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">pflooky</span><span class="p">.</span><span class="nn">datacaterer</span><span class="p">.</span><span class="nn">api</span><span class="p">.</span><span class="nc">PlanRun</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">MyCassandraPlan</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyAdvancedCassandraPlan</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -1213,7 +1241,7 @@ metadata information about tables and columns from the below tables.</p>
 <p>This class defines where we need to define all of our configurations for generating data. There are helper variables and
 methods defined to make it simple and easy to use.</p>
 <h4 id="connection-configuration">Connection Configuration</h4>
-<p>Within our <code>MyCassandraPlan</code> class, we can start by defining the connection properties to connect to Cassandra.</p>
+<p>Within our class, we can start by defining the connection properties to connect to Cassandra.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1225,7 +1253,7 @@ methods defined to make it simple and easy to use.</p>
 <span class="w">    </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">()</span><span class="w">                </span><span class="c1">//optional additional connection options</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Additional options such as SSL configuration, etc can be found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md">here</a>.</p>
+<p>Additional options such as SSL configuration, etc can be found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md"><strong>here</strong></a>.</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cassandra</span><span class="p">(</span>
@@ -1236,7 +1264,7 @@ methods defined to make it simple and easy to use.</p>
 <span class="w">    </span><span class="nc">Map</span><span class="p">()</span><span class="w">                   </span><span class="c1">//optional additional connection options</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Additional options such as SSL configuration, etc can be found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md">here</a>.</p>
+<p>Additional options such as SSL configuration, etc can be found <a href="https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md"><strong>here</strong></a>.</p>
 </div>
 </div>
 </div>
@@ -1341,7 +1369,7 @@ unique values are generated.</p>
 <h5 id="name">name</h5>
 <p><code>name</code> is a string that also follows a certain pattern, so we could also define a regex but here we will choose to
 leverage the DataFaker library and create an <code>expression</code> to generate real looking name. All possible faker expressions
-can be found <a href="../../../../sample/datafaker/expressions.txt">here</a></p>
+can be found <a href="../../../../sample/datafaker/expressions.txt"><strong>here</strong></a></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1455,7 +1483,7 @@ have unique values generated.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Java</label><label for="__tabbed_12_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AdvancedCassandraJavaPlanRun</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyAdvancedCassandraJavaPlan</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cassandra</span><span class="p">(</span><span class="s">&quot;customer_cassandra&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;host.docker.internal:9042&quot;</span><span class="p">)</span>
 <span class="w">                </span><span class="p">.</span><span class="na">table</span><span class="p">(</span><span class="s">&quot;account&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;accounts&quot;</span><span class="p">)</span>
@@ -1478,7 +1506,7 @@ have unique values generated.</p>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AdvancedCassandraPlanRun</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">MyAdvancedCassandraPlan</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cassandra</span><span class="p">(</span><span class="s">&quot;customer_cassandra&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;host.docker.internal:9042&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">table</span><span class="p">(</span><span class="s">&quot;account&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;accounts&quot;</span><span class="p">)</span>
 <span class="w">    </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
@@ -1504,7 +1532,7 @@ have unique values generated.</p>
 <p>Now we can run via the script <code>./run.sh</code> that is in the top level directory of the <code>data-caterer-example</code> to run the class we just
 created.</p>
 <div class="highlight"><pre><span></span><code>./run.sh
-<span class="c1">#input class AdvancedCassandraJavaPlanRun or AdvancedCassandraPlanRun</span>
+<span class="c1">#input class MyAdvancedCassandraJavaPlan or MyAdvancedCassandraPlan</span>
 <span class="c1">#after completing</span>
 docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-cassandraserver-1<span class="w"> </span>cqlsh<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;select count(1) from account.accounts;select * from account.accounts limit 10;&#39;</span>
 </code></pre></div>

@@ -21,6 +21,9 @@
     - Ordering (transactions are ordered by date)
     - Relationship (at least one account entry in history table per account in accounts table)
     - Data profile (how close the generated data profile is compared to the expected data profile)
+- Extend count
+    - Cover all possible cases (i.e. record for each combination of oneOf values, positive/negative values etc.)
+    - Similar to edge cases
 - Alerting
 - Overriding tasks
     - Can customise tasks without copying whole schema definitions

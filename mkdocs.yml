@@ -39,9 +39,11 @@ nav:
           - Multiple Records Per Column Value: 'setup/guide/scenario/records-per-column.md'
           - Auto Generate From Data Connection: 'setup/guide/scenario/auto-generate-connection.md'
           - Delete Generated Data: 'setup/guide/scenario/delete-generated-data.md'
+          - Generate Batch and Event Data: 'setup/guide/scenario/batch-and-event.md'
       - Data Sources:
           - Files (CSV, JSON, ORC, Parquet): 'setup/guide/scenario/first-data-generation.md'
           - Cassandra: 'setup/guide/data-source/cassandra.md'
+          - Kafka: 'setup/guide/data-source/kafka.md'
     - Configuration: 'setup/configuration.md'
     - Connection: 'setup/connection/connection.md'
     - Generator:

@@ -4,7 +4,7 @@ All the configurations and customisation related to Data Caterer can be found un
 
 ## Guide
 
-If you want a guided tour of using the Java or Scala API, you can follow one of the guides found [here](guide/index.md).
+If you want a guided tour of using the Java or Scala API, you can follow one of the guides found [**here**](guide/index.md).
 
 ## Specific Configuration
 

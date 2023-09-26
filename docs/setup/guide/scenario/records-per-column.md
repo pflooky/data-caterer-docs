@@ -162,4 +162,4 @@ ACC29117767,Willodean Sauer,84.99145871948083,2023-05-14T09:55:51.439Z,2023-05-1
 ACC29117767,Willodean Sauer,58.89345733567232,2022-11-22T07:38:20.143Z,2022-11-22
 ```
 
-You can now look to play around with other count configurations found [here](../../generator/count.md).
+You can now look to play around with other count configurations found [**here**](../../generator/count.md).
