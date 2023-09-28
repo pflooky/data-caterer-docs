@@ -8,6 +8,8 @@
 - :white_check_mark: Report for data generated and validation rules
 - Metadata stored in database
 - Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry)
+    - Populate metadata back to metadata services
+    - Can follow OpenLineage Spec found [**here**](https://github.com/OpenLineage/OpenLineage/blob/main/spec/OpenLineage.md#standard-facets)
 - Data dictionary
     - Business definitions of fields that can be referenced for metadata across all data sources
 - :white_check_mark: Verification rules after data generation
@@ -32,9 +34,10 @@
     - Data validations can reference expectations
 - Gradle plugin
 - Metadata improvements
-    - PII detection
+    - PII detection (can integrate with [Presidio](https://microsoft.github.io/presidio/analyzer/))
     - Relationship detection across data sources
     - SQL generation
+    - Ordering information
 - Code generation
 - Schema generation from Scala/Java class
-
+- Ordering within data sources that support order for insertion

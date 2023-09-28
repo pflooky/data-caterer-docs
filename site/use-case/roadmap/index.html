@@ -1012,7 +1012,11 @@
 <li>UI for metadata and data generation</li>
 <li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Report for data generated and validation rules</li>
 <li>Metadata stored in database</li>
-<li>Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry)</li>
+<li>Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry)<ul>
+<li>Populate metadata back to metadata services</li>
+<li>Can follow OpenLineage Spec found <a href="https://github.com/OpenLineage/OpenLineage/blob/main/spec/OpenLineage.md#standard-facets"><strong>here</strong></a></li>
+</ul>
+</li>
 <li>Data dictionary<ul>
 <li>Business definitions of fields that can be referenced for metadata across all data sources</li>
 </ul>
@@ -1049,13 +1053,15 @@
 </li>
 <li>Gradle plugin</li>
 <li>Metadata improvements<ul>
-<li>PII detection</li>
+<li>PII detection (can integrate with <a href="https://microsoft.github.io/presidio/analyzer/">Presidio</a>)</li>
 <li>Relationship detection across data sources</li>
 <li>SQL generation</li>
+<li>Ordering information</li>
 </ul>
 </li>
 <li>Code generation</li>
 <li>Schema generation from Scala/Java class</li>
+<li>Ordering within data sources that support order for insertion</li>
 </ul>
 
 
