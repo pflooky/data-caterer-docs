@@ -7,9 +7,13 @@
 - UI for metadata and data generation
 - :white_check_mark: Report for data generated and validation rules
 - Metadata stored in database
-- Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry)
+- Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry, DBT)
     - Populate metadata back to metadata services
     - Can follow OpenLineage Spec found [**here**](https://github.com/OpenLineage/OpenLineage/blob/main/spec/OpenLineage.md#standard-facets)
+- Integration with existing data validations
+    - [DBT constraints](https://docs.getdbt.com/reference/resource-properties/constraints)
+    - [SodaCL](https://docs.soda.io/soda-cl/soda-cl-overview.html)
+    - [MonteCarlo](https://docs.getmontecarlo.com/docs/monitors-as-code)
 - Data dictionary
     - Business definitions of fields that can be referenced for metadata across all data sources
 - :white_check_mark: Verification rules after data generation
