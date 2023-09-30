@@ -17,6 +17,7 @@ If you want a guided tour of using the Java or Scala API, you can follow one of 
   fields
 - :material-check: __[Validations]__ - How to validate data to ensure your system is performing as expected
 - :material-key: __[Foreign Keys]__ - Define links between data elements across data sources
+- :material-file-move: __[Deployment]__ - Deploy Data Caterer as a job to your chosen environment
 - :material-eyedropper-variant: __[Advanced]__ - Advanced usage of Data Caterer
 
 </div>
@@ -26,4 +27,5 @@ If you want a guided tour of using the Java or Scala API, you can follow one of 
   [Generators]: generator/generator.md
   [Validations]: validation/validation.md
   [Foreign Keys]: foreign-key/foreign-key.md
+  [Deployment]: deployment/deployment.md
   [Advanced]: advanced/advanced.md

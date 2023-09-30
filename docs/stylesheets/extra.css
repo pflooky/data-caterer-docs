@@ -1,0 +1,13 @@
+.center-content {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.content-spaced {
+    margin: 48px !important;
+}
+
+.button-spaced {
+    margin: 32px;
+}

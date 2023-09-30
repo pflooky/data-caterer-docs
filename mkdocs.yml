@@ -1,9 +1,15 @@
-site_name: Data Caterer Documentation
+site_name: Data Catering
+site_url: https://data.catering/
 repo_url: https://github.com/pflooky/data-caterer-docs
 repo_name: data-caterer-docs
 
+extra_css:
+  - stylesheets/extra.css
+
 theme:
   name: material
+  logo: diagrams/data_catering_icon_transparent.drawio.png
+  favicon: diagrams/data_catering_icon_transparent.drawio.png
   features:
     - navigation.tabs
     - navigation.sections
@@ -52,6 +58,7 @@ nav:
       - Report: 'setup/generator/report.md'
     - Validation: 'setup/validation/validation.md'
     - Foreign Keys: 'setup/foreign-key/foreign-key.md'
+    - Deployment: 'setup/deployment/deployment.md'
     - Advanced: 'setup/advanced/advanced.md'
   - Use Case and Comparison:
     - 'use-case/use-case.md'

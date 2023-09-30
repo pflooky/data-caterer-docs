@@ -146,7 +146,7 @@ more information about how Stripe collects and handles your personal information
 
 We are committed to providing you with understandable and easily available information about our policy and practices
 related to management of your personal information. This policy and any related information is available at all times on
-our website, https://pflooky.github.io/data-caterer-docs/ under Privacy or on request. To contact us, refer to the “How
+our website, https://data.catering/about/ under Privacy or on request. To contact us, refer to the “How
 to contact us” section below.
 
 ## We provide access to your personal information stored by Peter John Flook
