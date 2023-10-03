@@ -3,6 +3,17 @@ site_url: https://data.catering/
 repo_url: https://github.com/pflooky/data-caterer-docs
 repo_name: data-caterer-docs
 
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/pflooky
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/@pflooky
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/peter-flook/
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:peter.flook@data.catering
+
 extra_css:
   - stylesheets/extra.css
 
@@ -16,20 +27,33 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.top
+    - navigation.footer
     - content.code.copy
+    - content.code.select
     - toc.integrate
     - toc.follow
   palette:
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: teal
+      accent: indigo
       toggle:
-        icon: material/brightness-4
+        icon: material/brightness-auto
         name: Switch to light mode
+    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
   icon:
     repo: fontawesome/brands/git-alt
 
@@ -46,6 +70,7 @@ nav:
           - Auto Generate From Data Connection: 'setup/guide/scenario/auto-generate-connection.md'
           - Delete Generated Data: 'setup/guide/scenario/delete-generated-data.md'
           - Generate Batch and Event Data: 'setup/guide/scenario/batch-and-event.md'
+          - Metadata Source: 'setup/guide/scenario/metadata-source.md'
       - Data Sources:
           - Files (CSV, JSON, ORC, Parquet): 'setup/guide/scenario/first-data-generation.md'
           - Cassandra: 'setup/guide/data-source/cassandra.md'
@@ -56,7 +81,10 @@ nav:
       - Data Generator: 'setup/generator/generator.md'
       - Record Count: 'setup/generator/count.md'
       - Report: 'setup/generator/report.md'
-    - Validation: 'setup/validation/validation.md'
+    - Validation:
+      - 'setup/validation/validation.md'
+      - Basic: 'setup/validation/basic-validation.md'
+      - Group by/Aggregate: 'setup/validation/group-by-validation.md'
     - Foreign Keys: 'setup/foreign-key/foreign-key.md'
     - Deployment: 'setup/deployment/deployment.md'
     - Advanced: 'setup/advanced/advanced.md'
@@ -90,4 +118,5 @@ markdown_extensions:
 plugins:
   - search
   - open-in-new-tab
+  - optimize
 

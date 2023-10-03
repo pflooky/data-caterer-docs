@@ -4,7 +4,8 @@
 
     Generating data based on an external metadata source is a paid feature.
 
-Creating a data generator for Postgres tables and CSV file based on metadata stored in Marquez.
+Creating a data generator for Postgres tables and CSV file based on metadata stored in Marquez (
+follows [OpenLineage API](https://openlineage.io/)).
 
 ## Requirements
 
@@ -21,26 +22,34 @@ First, we will clone the data-caterer-example repo which will already have the b
 git clone git@github.com:pflooky/data-caterer-example.git
 ```
 
-### Postgres Setup
+### Marquez Setup
 
-If you don't have your own Postgres up and running, you can set up and run an instance configured in the `docker`
-folder via.
+Can follow the README found [**here**](https://github.com/MarquezProject/marquez) to help with setting up Marquez in
+your local environment. This comes with an instance of Postgres which we will also be using as a data store for
+generated data.
+
+The command that was run for this example to help with setup of dummy data was `./docker/up.sh -a 5001 -m 5002 --seed`.
+
+Check that the following [url](http://localhost:3000) shows some data like below once you click on `food_delivery`
+from the `ns` drop down in the top right corner.
+
+![Marquez dashboard](../../../diagrams/marquez_dashboard.png)
+
+#### Postgres Setup
+
+Since we will also be using the Marquez Postgres instance as a data source, we will set up a separate database to store 
+the generated data in via:
 
 ```shell
-cd docker
-docker-compose up -d postgres
-docker exec docker-postgresserver-1 psql -Upostgres -d customer -c '\dt+ account.*'
+docker exec marquez-db psql -Upostgres -c 'CREATE DATABASE food_delivery'
 ```
-
-This will create the tables found under `docker/data/sql/postgres/customer.sql`. You can change this file to contain
-your own tables. We can see there are 4 tables created for us, `accounts, balances, transactions and mapping`.
 
 ### Plan Setup
 
 Create a new Java or Scala class.
 
-- Java: `src/main/java/com/github/pflooky/plan/MyAdvancedBatchEventJavaPlanRun.java`
-- Scala: `src/main/scala/com/github/pflooky/plan/MyAdvancedBatchEventPlanRun.scala`
+- Java: `src/main/java/com/github/pflooky/plan/MyAdvancedMetadataSourceJavaPlanRun.java`
+- Scala: `src/main/scala/com/github/pflooky/plan/MyAdvancedMetadataSourcePlanRun.scala`
 
 Make sure your class extends `PlanRun`.
 
@@ -50,10 +59,7 @@ Make sure your class extends `PlanRun`.
     import com.github.pflooky.datacaterer.java.api.PlanRun;
     ...
     
-    public class MyAdvancedBatchEventJavaPlanRun extends PlanRun {
-        {
-            var kafkaTask = new AdvancedKafkaJavaPlanRun().getKafkaTask();
-        }
+    public class MyAdvancedMetadataSourceJavaPlanRun extends PlanRun {
     }
     ```
 
@@ -63,114 +69,80 @@ Make sure your class extends `PlanRun`.
     import com.github.pflooky.datacaterer.api.PlanRun
     ...
     
-    class MyAdvancedBatchEventPlanRun extends PlanRun {
-      val kafkaTask = new AdvancedKafkaPlanRun().kafkaTask
+    class MyAdvancedMetadataSourcePlanRun extends PlanRun {
     }
     ```
 
-We will borrow the Kafka task that is already defined under the class `AdvancedKafkaPlanRun`
-or `AdvancedKafkaJavaPlanRun`. You can go through the Kafka guide [**here**](../data-source/kafka.md) for more details.
-
 #### Schema
 
-Let us set up the corresponding schema for the CSV file where we want to match the values that are generated for the
-Kafka messages.
+We can point the schema of a data source to our Marquez instance. For the Postgres data source, we will point to a
+`namespace`, which in Marquez or OpenLineage, represents a set of datasets. For the CSV data source, we will point to
+a specific `namespace` and `dataset`.
+
+##### Single Schema
 
 === "Java"
 
     ```java
-    var kafkaTask = new AdvancedKafkaJavaPlanRun().getKafkaTask();
-    
-    var csvTask = csv("my_csv", "/opt/app/data/csv/account")
-            .schema(
-                    field().name("account_number"),
-                    field().name("year"),
-                    field().name("name"),
-                    field().name("payload")
-            );
+    var csvTask = csv("my_csv", "/tmp/data/csv", Map.of("saveMode", "overwrite", "header", "true"))
+            .schema(metadataSource().marquez("http://localhost:5001", "food_delivery", "public.categories"))
+            .count(count().records(100));
     ```
 
 === "Scala"
 
     ```scala
-    val kafkaTask = new AdvancedKafkaPlanRun().kafkaTask
-
-    val csvTask = csv("my_csv", "/opt/app/data/csv/account")
-      .schema(
-        field.name("account_number"),
-        field.name("year"),
-        field.name("name"),
-        field.name("payload")
-    )
+    val csvTask = csv("my_csv", "/tmp/data/csv")
+      .schema(metadataSource.marquez("http://localhost:5001", "food_delivery", "public.categories"))
+      .count(count.records(100))
     ```
 
-This is a simple schema where we want to use the values and metadata that is already defined in the `kafkaTask` to
-determine what the data will look like for the CSV file. Even if we defined some metadata here, it would be overridden
-when we define our foreign key relationships.
+The above defines that the schema will come from Marquez, which is a type of metadata source that contains information
+about schemas. Specifically, it points to the `food_delivery` namespace and `public.categories` dataset to retrieve the
+schema information from.
 
-#### Foreign Keys
-
-From the above CSV schema, we see note the following against the Kafka schema:
-
-- `account_number` in CSV needs to match with the `account_id` in Kafka
-    - We see that `account_id` is referred to in the `key` column as `field.name("key").sql("content.account_id")`
-- `year` needs to match with `content.year` in Kafka, which is a nested field
-    - We can only do foreign key relationships with top level fields, not nested fields. So we define a new column
-      called `tmp_year` which will not appear in the final output for the Kafka messages but is used as an intermediate
-      step `field.name("tmp_year").sql("content.year").omit(true)`
-- `name` needs to match with `content.details.name` in Kafka, also a nested field
-    - Using the same logic as above, we define a temporary column called `tmp_name` which will take the value of the
-      nested field but will be omitted `field.name("tmp_name").sql("content.details.name").omit(true)`
-- `payload` represents the whole JSON message sent to Kafka, which matches to `value` column
-
-Our foreign keys are therefore defined like below. Order is important when defining the list of columns. The index needs
-to match with the corresponding column in the other data source.
+##### Multiple Schemas
 
 === "Java"
 
     ```java
-    var myPlan = plan().addForeignKeyRelationship(
-            kafkaTask, List.of("key", "tmp_year", "tmp_name", "value"),
-            List.of(Map.entry(csvTask, List.of("account_number", "year", "name", "payload")))
-    );
-  
-    var conf = configuration()
-          .generatedReportsFolderPath("/opt/app/data/report");
-
-    execute(myPlan, conf, kafkaTask, csvTask);
+    var postgresTask = postgres("my_postgres", "jdbc:postgresql://host.docker.internal:5432/food_delivery", "postgres", "password", Map.of())
+        .schema(metadataSource().marquez("http://localhost:5001", "food_delivery"))
+        .count(count().records(10));
     ```
 
 === "Scala"
 
     ```scala
-    val myPlan = plan.addForeignKeyRelationship(
-        kafkaTask, List("key", "tmp_year", "tmp_name", "value"),
-        List(csvTask -> List("account_number", "year", "name", "payload"))
-    )
-  
-    val conf = configuration.generatedReportsFolderPath("/opt/app/data/report")
-
-    execute(myPlan, conf, kafkaTask, csvTask)
+    val postgresTask = postgres("my_postgres", "jdbc:postgresql://localhost:5432/food_delivery", "postgres", "password")
+      .schema(metadataSource.marquez("http://localhost:5001", "food_delivery"))
+      .count(count.records(10))
     ```
+
+We now have pointed this Postgres instance to produce multiple schemas that are defined under the `food_delivery`
+namespace. Also note that we are using database `food_delivery` in Postgres to push our generated data to.
 
 ### Run
 
-Let's try run.
+Let's try run and see what happens.
 
 ```shell
 cd ..
 ./run.sh
-#input class MyAdvancedBatchEventJavaPlanRun or MyAdvancedBatchEventPlanRun
+#input class MyAdvancedMetadataSourceJavaPlanRun or MyAdvancedMetadataSourcePlanRun
 #after completing
-docker exec docker-kafkaserver-1 kafka-console-consumer --bootstrap-server localhost:9092 --topic account-topic --from-beginning
+docker exec marquez-db psql -Upostgres -d food_delivery -c 'SELECT * FROM public.categories'
 ```
 
 It should look something like this.
 
 ```shell
-{"account_id":"ACC03093143","year":2023,"amount":87990.37196728592,"details":{"name":"Nadine Heidenreich Jr.","first_txn_date":"2021-11-09","updated_by":{"user":"YfEyJCe8ohrl0j IfyT","time":"2022-09-26T20:47:53.404Z"}},"transactions":[{"txn_date":"2021-11-09","amount":97073.7914706189}]}
-{"account_id":"ACC08764544","year":2021,"amount":28675.58758765888,"details":{"name":"Delila Beer","first_txn_date":"2021-05-19","updated_by":{"user":"IzB5ksXu","time":"2023-01-26T20:47:26.389Z"}},"transactions":[{"txn_date":"2021-10-01","amount":80995.23818711648},{"txn_date":"2021-05-19","amount":92572.40049217848},{"txn_date":"2021-12-11","amount":99398.79832225188}]}
-{"account_id":"ACC62505420","year":2023,"amount":96125.3125884202,"details":{"name":"Shawn Goodwin","updated_by":{"user":"F3dqIvYp2pFtena4","time":"2023-02-11T04:38:29.832Z"}},"transactions":[]}
+  id   |         name         | menu_id |     description
+-------+----------------------+---------+----------------------
+ 73632 | mmq1ABUtoippzP       |   69948 | ZwDt0dE3OzaBsa
+ 18399 | E 4ZhXIzXaFs         |   99659 | 43iaicgG
+ 34623 | 6k                   |   99392 | XccwCcedDnz
+ 37476 | 6CJUhQTN             |    9518 | EIALimD
 ```
 
 Let's also check if there is a corresponding record in the CSV file.
