@@ -17,6 +17,11 @@ extra:
 extra_css:
   - stylesheets/extra.css
 
+plugins:
+  - open-in-new-tab
+  - search
+  - optimize
+
 theme:
   name: material
   logo: diagrams/data_catering_icon_transparent.drawio.png
@@ -114,9 +119,4 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
-
-plugins:
-  - open-in-new-tab
-  - search
-  - optimize
 
