@@ -37,7 +37,7 @@ from the `ns` drop down in the top right corner.
 
 #### Postgres Setup
 
-Since we will also be using the Marquez Postgres instance as a data source, we will set up a separate database to store 
+Since we will also be using the Marquez Postgres instance as a data source, we will set up a separate database to store
 the generated data in via:
 
 ```shell
@@ -60,6 +60,10 @@ Make sure your class extends `PlanRun`.
     ...
     
     public class MyAdvancedMetadataSourceJavaPlanRun extends PlanRun {
+        {
+            var conf = configuration().enableGeneratePlanAndTasks(true)
+                .generatedReportsFolderPath("/opt/app/data/report");
+        }
     }
     ```
 
@@ -70,8 +74,13 @@ Make sure your class extends `PlanRun`.
     ...
     
     class MyAdvancedMetadataSourcePlanRun extends PlanRun {
+      val conf = configuration.enableGeneratePlanAndTasks(true)
+        .generatedReportsFolderPath("/opt/app/data/report")
     }
     ```
+
+We will enable generate plan and tasks so that we can read from external sources for metadata and save the reports
+under a folder we can easily access.
 
 #### Schema
 
@@ -85,7 +94,7 @@ a specific `namespace` and `dataset`.
 
     ```java
     var csvTask = csv("my_csv", "/tmp/data/csv", Map.of("saveMode", "overwrite", "header", "true"))
-            .schema(metadataSource().marquez("http://localhost:5001", "food_delivery", "public.categories"))
+            .schema(metadataSource().marquez("http://localhost:5001", "food_delivery", "public.delivery_7_days"))
             .count(count().records(100));
     ```
 
@@ -120,7 +129,8 @@ schema information from.
     ```
 
 We now have pointed this Postgres instance to produce multiple schemas that are defined under the `food_delivery`
-namespace. Also note that we are using database `food_delivery` in Postgres to push our generated data to.
+namespace. Also note that we are using database `food_delivery` in Postgres to push our generated data to, and we have
+set the number of records per sub data source (in this case, per table) to be 10.
 
 ### Run
 
@@ -131,28 +141,73 @@ cd ..
 ./run.sh
 #input class MyAdvancedMetadataSourceJavaPlanRun or MyAdvancedMetadataSourcePlanRun
 #after completing
-docker exec marquez-db psql -Upostgres -d food_delivery -c 'SELECT * FROM public.categories'
+docker exec marquez-db psql -Upostgres -d food_delivery -c 'SELECT * FROM public.delivery_7_days'
 ```
 
 It should look something like this.
 
 ```shell
-  id   |         name         | menu_id |     description
--------+----------------------+---------+----------------------
- 73632 | mmq1ABUtoippzP       |   69948 | ZwDt0dE3OzaBsa
- 18399 | E 4ZhXIzXaFs         |   99659 | 43iaicgG
- 34623 | 6k                   |   99392 | XccwCcedDnz
- 37476 | 6CJUhQTN             |    9518 | EIALimD
+ order_id |     order_placed_on     |   order_dispatched_on   |   order_delivered_on    | customer_email  |   customer_address   | menu_id | restaurant_id | restaurant_address | m
+enu_item_id | category_id | discount_id | city_id | driver_id
+----------+-------------------------+-------------------------+-------------------------+-----------------+----------------------+---------+---------------+--------------------+--
+------------+-------------+-------------+---------+-----------
+    43312 | 2022-12-20 18:42:51.025 | 2022-10-24 16:51:19.467 | 2022-12-23 12:12:36.858 | 1HD5Z519uao     | 9pQm111aRlOQNJjh9lAf |   32756 |         35740 | X                  |
+      53374 |       60607 |       28921 |   83340 |     69539
+    39250 | 2022-12-14 23:35:28.755 | 2022-11-05 00:27:28.985 | 2022-10-09 23:33:55.34  | m               | 2YcYHWt              |   57670 |         81243 | XKJrChD01dYCbY     |
+      73260 |       75010 |       23278 |   22306 |       583
+     9529 | 2023-03-05 18:39:42.775 | 2023-05-26 11:04:10.575 | 2023-08-17 09:19:02.468 | 1WaX7egq43Ud    | nYWj                 |   89439 |         35574 | kryxHDCijV         |
+      47228 |       62248 |       32982 |    3130 |     54184
+    42316 | 2023-03-27 08:14:00.242 | 2023-08-05 16:31:08.861 | 2023-04-19 16:34:29.116 |  aDeuBZKNVeeBP0 | 7d30pOq9NW1708Ic9i   |   65897 |         19110 | CQ                 |
+      42543 |       84808 |       90898 |   66637 |     34130
+    86933 | 2022-12-02 20:02:48.408 | 2023-02-15 13:01:34.69  | 2022-10-04 13:01:11.823 | C1N             | 2KhPD7A2brO          |   21623 |         94672 | Iay3Xqbrrc         |
+      13435 |       32628 |       39540 |   34245 |     30558
+(5 rows)
 ```
 
-Let's also check if there is a corresponding record in the CSV file.
+You can also try query some other tables. Let's also check what is in the CSV file.
 
 ```shell
-$ cat docker/sample/csv/account/part-0000* | grep ACC03093143
-ACC03093143,2023,Nadine Heidenreich Jr.,"{\"account_id\":\"ACC03093143\",\"year\":2023,\"amount\":87990.37196728592,\"details\":{\"name\":\"Nadine Heidenreich Jr.\",\"first_txn_date\":\"2021-11-09\",\"updated_by\":{\"user\":\"YfEyJCe8ohrl0j IfyT\",\"time\":\"2022-09-26T20:47:53.404Z\"}},\"transactions\":[{\"txn_date\":\"2021-11-09\",\"amount\":97073.7914706189}]}"
+$ head docker/sample/csv/part-00000-*
+order_id,order_placed_on,order_dispatched_on,order_delivered_on,customer_email,customer_address,menu_id,restaurant_id,restaurant_address,menu_item_id,category_id,discount_id,city_id,driver_id
+56473,2022-12-21T05:22:53.888Z,2023-08-24T22:05:12.857Z,2023-05-02T04:03:26.572Z,wtcijFoAxTzS4a,CHMKz78lxkXzj6jlV7x,87430,43666,kJkwZr,73563,89456,13805,29140,78574
+48786,2023-06-05T17:57:38.667Z,2023-09-04T00:32:54.046Z,2023-01-13T11:24:29.054Z,w7Y0JUw,D5,5085,92659,Jeu6bBQ8O,13285,61853,7666,16112,67186
+74240,2023-06-22T23:25:50.735Z,2023-09-14T08:50:38.726Z,2022-11-01T13:27:22.477Z,Sb42FlQNgswhZJ38Af6,gOkhnPSn,40127,39554,DSglsvoh,37710,39245,20278,16301,55736
+80202,2022-12-18T12:32:14.304Z,2022-11-18T05:13:17.201Z,2023-09-18T16:58:01.327Z,t2,ioGiA2r8InRn,34493,10128,JZ7lM0zpR7sQNgZAb0,53393,85223,77023,6562,30888
 ```
 
-Great! The account, year, name and payload look to all match up.
+Looks like we have some data now. But we can do better and add some enhancements to it.
+  
+What if we wanted the same records in Postgres `public.categories` to also show up in the CSV file? That's where we
+can use a foreign key definition.
+
+### Foreign Key
+
+
+=== "Java"
+
+    ```java
+    var myPlan = plan().addForeignKeyRelationship(
+            postgresTask, List.of("key", "tmp_year", "tmp_name", "value"),
+            List.of(Map.entry(csvTask, List.of("account_number", "year", "name", "payload")))
+    );
+  
+    var conf = ...
+
+    execute(myPlan, conf, postgresTask, csvTask);
+    ```
+
+=== "Scala"
+
+    ```scala
+    val myPlan = plan.addForeignKeyRelationship(
+        kafkaTask, List("key", "tmp_year", "tmp_name", "value"),
+        List(csvTask -> List("account_number", "year", "name", "payload"))
+    )
+  
+    val conf = ...
+
+    execute(myPlan, conf, postgresTask, csvTask)
+    ```
 
 ### Additional Topics
 

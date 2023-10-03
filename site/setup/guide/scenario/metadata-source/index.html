@@ -940,6 +940,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#foreign-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foreign Key
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additional-topics" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1901,7 +1912,7 @@ generated data.</p>
 from the <code>ns</code> drop down in the top right corner.</p>
 <p><img alt="Marquez dashboard" src="../../../../diagrams/marquez_dashboard.png" /></p>
 <h4 id="postgres-setup">Postgres Setup</h4>
-<p>Since we will also be using the Marquez Postgres instance as a data source, we will set up a separate database to store 
+<p>Since we will also be using the Marquez Postgres instance as a data source, we will set up a separate database to store
 the generated data in via:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>marquez-db<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;CREATE DATABASE food_delivery&#39;</span>
 </code></pre></div>
@@ -1919,6 +1930,10 @@ the generated data in via:</p>
 <span class="p">...</span>
 
 <span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyAdvancedMetadataSourceJavaPlanRun</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">().</span><span class="na">enableGeneratePlanAndTasks</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="na">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
@@ -1927,11 +1942,15 @@ the generated data in via:</p>
 <span class="p">...</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">MyAdvancedMetadataSourcePlanRun</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">.</span><span class="n">enableGeneratePlanAndTasks</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">    </span><span class="p">.</span><span class="n">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
 </div>
+<p>We will enable generate plan and tasks so that we can read from external sources for metadata and save the reports
+under a folder we can easily access.</p>
 <h4 id="schema">Schema</h4>
 <p>We can point the schema of a data source to our Marquez instance. For the Postgres data source, we will point to a
 <code>namespace</code>, which in Marquez or OpenLineage, represents a set of datasets. For the CSV data source, we will point to
@@ -1941,7 +1960,7 @@ a specific <code>namespace</code> and <code>dataset</code>.</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">csvTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;my_csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/tmp/data/csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;saveMode&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;overwrite&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
-<span class="w">        </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span><span class="n">metadataSource</span><span class="p">().</span><span class="na">marquez</span><span class="p">(</span><span class="s">&quot;http://localhost:5001&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;food_delivery&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;public.categories&quot;</span><span class="p">))</span>
+<span class="w">        </span><span class="p">.</span><span class="na">schema</span><span class="p">(</span><span class="n">metadataSource</span><span class="p">().</span><span class="na">marquez</span><span class="p">(</span><span class="s">&quot;http://localhost:5001&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;food_delivery&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;public.delivery_7_days&quot;</span><span class="p">))</span>
 <span class="w">        </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">count</span><span class="p">().</span><span class="na">records</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
 </code></pre></div>
 </div>
@@ -1974,28 +1993,71 @@ schema information from.</p>
 </div>
 </div>
 <p>We now have pointed this Postgres instance to produce multiple schemas that are defined under the <code>food_delivery</code>
-namespace. Also note that we are using database <code>food_delivery</code> in Postgres to push our generated data to.</p>
+namespace. Also note that we are using database <code>food_delivery</code> in Postgres to push our generated data to, and we have
+set the number of records per sub data source (in this case, per table) to be 10.</p>
 <h3 id="run">Run</h3>
 <p>Let's try run and see what happens.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
 ./run.sh
 <span class="c1">#input class MyAdvancedMetadataSourceJavaPlanRun or MyAdvancedMetadataSourcePlanRun</span>
 <span class="c1">#after completing</span>
-docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>marquez-db<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>food_delivery<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;SELECT * FROM public.categories&#39;</span>
+docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>marquez-db<span class="w"> </span>psql<span class="w"> </span>-Upostgres<span class="w"> </span>-d<span class="w"> </span>food_delivery<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;SELECT * FROM public.delivery_7_days&#39;</span>
 </code></pre></div>
 <p>It should look something like this.</p>
-<div class="highlight"><pre><span></span><code><span class="w">  </span>id<span class="w">   </span><span class="p">|</span><span class="w">         </span>name<span class="w">         </span><span class="p">|</span><span class="w"> </span>menu_id<span class="w"> </span><span class="p">|</span><span class="w">     </span>description
--------+----------------------+---------+----------------------
-<span class="w"> </span><span class="m">73632</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>mmq1ABUtoippzP<span class="w">       </span><span class="p">|</span><span class="w">   </span><span class="m">69948</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>ZwDt0dE3OzaBsa
-<span class="w"> </span><span class="m">18399</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>E<span class="w"> </span>4ZhXIzXaFs<span class="w">         </span><span class="p">|</span><span class="w">   </span><span class="m">99659</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>43iaicgG
-<span class="w"> </span><span class="m">34623</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>6k<span class="w">                   </span><span class="p">|</span><span class="w">   </span><span class="m">99392</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>XccwCcedDnz
-<span class="w"> </span><span class="m">37476</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>6CJUhQTN<span class="w">             </span><span class="p">|</span><span class="w">    </span><span class="m">9518</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>EIALimD
+<div class="highlight"><pre><span></span><code><span class="w"> </span>order_id<span class="w"> </span><span class="p">|</span><span class="w">     </span>order_placed_on<span class="w">     </span><span class="p">|</span><span class="w">   </span>order_dispatched_on<span class="w">   </span><span class="p">|</span><span class="w">   </span>order_delivered_on<span class="w">    </span><span class="p">|</span><span class="w"> </span>customer_email<span class="w">  </span><span class="p">|</span><span class="w">   </span>customer_address<span class="w">   </span><span class="p">|</span><span class="w"> </span>menu_id<span class="w"> </span><span class="p">|</span><span class="w"> </span>restaurant_id<span class="w"> </span><span class="p">|</span><span class="w"> </span>restaurant_address<span class="w"> </span><span class="p">|</span><span class="w"> </span>m
+enu_item_id<span class="w"> </span><span class="p">|</span><span class="w"> </span>category_id<span class="w"> </span><span class="p">|</span><span class="w"> </span>discount_id<span class="w"> </span><span class="p">|</span><span class="w"> </span>city_id<span class="w"> </span><span class="p">|</span><span class="w"> </span>driver_id
+----------+-------------------------+-------------------------+-------------------------+-----------------+----------------------+---------+---------------+--------------------+--
+------------+-------------+-------------+---------+-----------
+<span class="w">    </span><span class="m">43312</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2022</span>-12-20<span class="w"> </span><span class="m">18</span>:42:51.025<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2022</span>-10-24<span class="w"> </span><span class="m">16</span>:51:19.467<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2022</span>-12-23<span class="w"> </span><span class="m">12</span>:12:36.858<span class="w"> </span><span class="p">|</span><span class="w"> </span>1HD5Z519uao<span class="w">     </span><span class="p">|</span><span class="w"> </span>9pQm111aRlOQNJjh9lAf<span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="m">32756</span><span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">35740</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>X<span class="w">                  </span><span class="p">|</span>
+<span class="w">      </span><span class="m">53374</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="m">60607</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="m">28921</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="m">83340</span><span class="w"> </span><span class="p">|</span><span class="w">     </span><span class="m">69539</span>
+<span class="w">    </span><span class="m">39250</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2022</span>-12-14<span class="w"> </span><span class="m">23</span>:35:28.755<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2022</span>-11-05<span class="w"> </span><span class="m">00</span>:27:28.985<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2022</span>-10-09<span class="w"> </span><span class="m">23</span>:33:55.34<span class="w">  </span><span class="p">|</span><span class="w"> </span>m<span class="w">               </span><span class="p">|</span><span class="w"> </span>2YcYHWt<span class="w">              </span><span class="p">|</span><span class="w">   </span><span class="m">57670</span><span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">81243</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>XKJrChD01dYCbY<span class="w">     </span><span class="p">|</span>
+<span class="w">      </span><span class="m">73260</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="m">75010</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="m">23278</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="m">22306</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="m">583</span>
+<span class="w">     </span><span class="m">9529</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2023</span>-03-05<span class="w"> </span><span class="m">18</span>:39:42.775<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2023</span>-05-26<span class="w"> </span><span class="m">11</span>:04:10.575<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2023</span>-08-17<span class="w"> </span><span class="m">09</span>:19:02.468<span class="w"> </span><span class="p">|</span><span class="w"> </span>1WaX7egq43Ud<span class="w">    </span><span class="p">|</span><span class="w"> </span>nYWj<span class="w">                 </span><span class="p">|</span><span class="w">   </span><span class="m">89439</span><span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">35574</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>kryxHDCijV<span class="w">         </span><span class="p">|</span>
+<span class="w">      </span><span class="m">47228</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="m">62248</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="m">32982</span><span class="w"> </span><span class="p">|</span><span class="w">    </span><span class="m">3130</span><span class="w"> </span><span class="p">|</span><span class="w">     </span><span class="m">54184</span>
+<span class="w">    </span><span class="m">42316</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2023</span>-03-27<span class="w"> </span><span class="m">08</span>:14:00.242<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2023</span>-08-05<span class="w"> </span><span class="m">16</span>:31:08.861<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2023</span>-04-19<span class="w"> </span><span class="m">16</span>:34:29.116<span class="w"> </span><span class="p">|</span><span class="w">  </span>aDeuBZKNVeeBP0<span class="w"> </span><span class="p">|</span><span class="w"> </span>7d30pOq9NW1708Ic9i<span class="w">   </span><span class="p">|</span><span class="w">   </span><span class="m">65897</span><span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">19110</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>CQ<span class="w">                 </span><span class="p">|</span>
+<span class="w">      </span><span class="m">42543</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="m">84808</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="m">90898</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="m">66637</span><span class="w"> </span><span class="p">|</span><span class="w">     </span><span class="m">34130</span>
+<span class="w">    </span><span class="m">86933</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2022</span>-12-02<span class="w"> </span><span class="m">20</span>:02:48.408<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">2023</span>-02-15<span class="w"> </span><span class="m">13</span>:01:34.69<span class="w">  </span><span class="p">|</span><span class="w"> </span><span class="m">2022</span>-10-04<span class="w"> </span><span class="m">13</span>:01:11.823<span class="w"> </span><span class="p">|</span><span class="w"> </span>C1N<span class="w">             </span><span class="p">|</span><span class="w"> </span>2KhPD7A2brO<span class="w">          </span><span class="p">|</span><span class="w">   </span><span class="m">21623</span><span class="w"> </span><span class="p">|</span><span class="w">         </span><span class="m">94672</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Iay3Xqbrrc<span class="w">         </span><span class="p">|</span>
+<span class="w">      </span><span class="m">13435</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="m">32628</span><span class="w"> </span><span class="p">|</span><span class="w">       </span><span class="m">39540</span><span class="w"> </span><span class="p">|</span><span class="w">   </span><span class="m">34245</span><span class="w"> </span><span class="p">|</span><span class="w">     </span><span class="m">30558</span>
+<span class="o">(</span><span class="m">5</span><span class="w"> </span>rows<span class="o">)</span>
 </code></pre></div>
-<p>Let's also check if there is a corresponding record in the CSV file.</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>docker/sample/csv/account/part-0000*<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ACC03093143
-ACC03093143,2023,Nadine<span class="w"> </span>Heidenreich<span class="w"> </span>Jr.,<span class="s2">&quot;{\&quot;account_id\&quot;:\&quot;ACC03093143\&quot;,\&quot;year\&quot;:2023,\&quot;amount\&quot;:87990.37196728592,\&quot;details\&quot;:{\&quot;name\&quot;:\&quot;Nadine Heidenreich Jr.\&quot;,\&quot;first_txn_date\&quot;:\&quot;2021-11-09\&quot;,\&quot;updated_by\&quot;:{\&quot;user\&quot;:\&quot;YfEyJCe8ohrl0j IfyT\&quot;,\&quot;time\&quot;:\&quot;2022-09-26T20:47:53.404Z\&quot;}},\&quot;transactions\&quot;:[{\&quot;txn_date\&quot;:\&quot;2021-11-09\&quot;,\&quot;amount\&quot;:97073.7914706189}]}&quot;</span>
+<p>You can also try query some other tables. Let's also check what is in the CSV file.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>head<span class="w"> </span>docker/sample/csv/part-00000-*
+order_id,order_placed_on,order_dispatched_on,order_delivered_on,customer_email,customer_address,menu_id,restaurant_id,restaurant_address,menu_item_id,category_id,discount_id,city_id,driver_id
+<span class="m">56473</span>,2022-12-21T05:22:53.888Z,2023-08-24T22:05:12.857Z,2023-05-02T04:03:26.572Z,wtcijFoAxTzS4a,CHMKz78lxkXzj6jlV7x,87430,43666,kJkwZr,73563,89456,13805,29140,78574
+<span class="m">48786</span>,2023-06-05T17:57:38.667Z,2023-09-04T00:32:54.046Z,2023-01-13T11:24:29.054Z,w7Y0JUw,D5,5085,92659,Jeu6bBQ8O,13285,61853,7666,16112,67186
+<span class="m">74240</span>,2023-06-22T23:25:50.735Z,2023-09-14T08:50:38.726Z,2022-11-01T13:27:22.477Z,Sb42FlQNgswhZJ38Af6,gOkhnPSn,40127,39554,DSglsvoh,37710,39245,20278,16301,55736
+<span class="m">80202</span>,2022-12-18T12:32:14.304Z,2022-11-18T05:13:17.201Z,2023-09-18T16:58:01.327Z,t2,ioGiA2r8InRn,34493,10128,JZ7lM0zpR7sQNgZAb0,53393,85223,77023,6562,30888
 </code></pre></div>
-<p>Great! The account, year, name and payload look to all match up.</p>
+<p>Looks like we have some data now. But we can do better and add some enhancements to it.</p>
+<p>What if we wanted the same records in Postgres <code>public.categories</code> to also show up in the CSV file? That's where we
+can use a foreign key definition.</p>
+<h3 id="foreign-key">Foreign Key</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">myPlan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plan</span><span class="p">().</span><span class="na">addForeignKeyRelationship</span><span class="p">(</span>
+<span class="w">        </span><span class="n">postgresTask</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Map</span><span class="p">.</span><span class="na">entry</span><span class="p">(</span><span class="n">csvTask</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;account_number&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;payload&quot;</span><span class="p">)))</span>
+<span class="p">);</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="n">conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+
+<span class="n">execute</span><span class="p">(</span><span class="n">myPlan</span><span class="p">,</span><span class="w"> </span><span class="n">conf</span><span class="p">,</span><span class="w"> </span><span class="n">postgresTask</span><span class="p">,</span><span class="w"> </span><span class="n">csvTask</span><span class="p">);</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">myPlan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plan</span><span class="p">.</span><span class="n">addForeignKeyRelationship</span><span class="p">(</span>
+<span class="w">    </span><span class="n">kafkaTask</span><span class="p">,</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tmp_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="nc">List</span><span class="p">(</span><span class="n">csvTask</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nc">List</span><span class="p">(</span><span class="s">&quot;account_number&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;payload&quot;</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="kd">val</span><span class="w"> </span><span class="n">conf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+
+<span class="n">execute</span><span class="p">(</span><span class="n">myPlan</span><span class="p">,</span><span class="w"> </span><span class="n">conf</span><span class="p">,</span><span class="w"> </span><span class="n">postgresTask</span><span class="p">,</span><span class="w"> </span><span class="n">csvTask</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="additional-topics">Additional Topics</h3>
 <h4 id="order-of-execution">Order of execution</h4>
 <p>You may notice that the events are generated first, then the CSV file. This is because as part of the <code>execute</code>
@@ -2132,7 +2194,7 @@ passing in <code>csvTask</code> before <code>kafkaTask</code> into the <code>exe
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy", "toc.integrate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.f2da59ea.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy", "content.code.select", "toc.integrate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.f2da59ea.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.ef51cdc3.min.js"></script>
