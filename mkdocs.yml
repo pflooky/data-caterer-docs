@@ -61,38 +61,38 @@ nav:
   - Home: 'index.md'
   - Get Started: 'get-started/docker.md'
   - Setup:
-    - 'setup/index.md'
-    - Guide:
-      - 'setup/guide/index.md'
-      - Scenario:
-          - First Data Generation: 'setup/guide/scenario/first-data-generation.md'
-          - Multiple Records Per Column Value: 'setup/guide/scenario/records-per-column.md'
-          - Auto Generate From Data Connection: 'setup/guide/scenario/auto-generate-connection.md'
-          - Delete Generated Data: 'setup/guide/scenario/delete-generated-data.md'
-          - Generate Batch and Event Data: 'setup/guide/scenario/batch-and-event.md'
-          - Metadata Source: 'setup/guide/scenario/metadata-source.md'
-      - Data Sources:
-          - Files (CSV, JSON, ORC, Parquet): 'setup/guide/scenario/first-data-generation.md'
-          - Cassandra: 'setup/guide/data-source/cassandra.md'
-          - Kafka: 'setup/guide/data-source/kafka.md'
-    - Configuration: 'setup/configuration.md'
-    - Connection: 'setup/connection/connection.md'
-    - Generator:
-      - Data Generator: 'setup/generator/generator.md'
-      - Record Count: 'setup/generator/count.md'
-      - Report: 'setup/generator/report.md'
-    - Validation:
-      - 'setup/validation/validation.md'
-      - Basic: 'setup/validation/basic-validation.md'
-      - Group by/Aggregate: 'setup/validation/group-by-validation.md'
-    - Foreign Keys: 'setup/foreign-key/foreign-key.md'
-    - Deployment: 'setup/deployment/deployment.md'
-    - Advanced: 'setup/advanced/advanced.md'
+      - 'setup/index.md'
+      - Guide:
+          - 'setup/guide/index.md'
+          - Scenario:
+              - First Data Generation: 'setup/guide/scenario/first-data-generation.md'
+              - Multiple Records Per Column Value: 'setup/guide/scenario/records-per-column.md'
+              - Auto Generate From Data Connection: 'setup/guide/scenario/auto-generate-connection.md'
+              - Delete Generated Data: 'setup/guide/scenario/delete-generated-data.md'
+              - Generate Batch and Event Data: 'setup/guide/scenario/batch-and-event.md'
+              - Metadata Source: 'setup/guide/scenario/metadata-source.md'
+          - Data Sources:
+              - Files (CSV, JSON, ORC, Parquet): 'setup/guide/scenario/first-data-generation.md'
+              - Cassandra: 'setup/guide/data-source/cassandra.md'
+              - Kafka: 'setup/guide/data-source/kafka.md'
+      - Configuration: 'setup/configuration.md'
+      - Connection: 'setup/connection/connection.md'
+      - Generator:
+          - Data Generator: 'setup/generator/generator.md'
+          - Record Count: 'setup/generator/count.md'
+          - Report: 'setup/generator/report.md'
+      - Validation:
+          - 'setup/validation/validation.md'
+          - Basic: 'setup/validation/basic-validation.md'
+          - Group by/Aggregate: 'setup/validation/group-by-validation.md'
+      - Foreign Keys: 'setup/foreign-key/foreign-key.md'
+      - Deployment: 'setup/deployment/deployment.md'
+      - Advanced: 'setup/advanced/advanced.md'
   - Use Case and Comparison:
-    - 'use-case/use-case.md'
-    - Business Value: 'use-case/business-value.md'
-    - Comparison: 'use-case/comparison.md'
-    - Roadmap: 'use-case/roadmap.md'
+      - 'use-case/use-case.md'
+      - Business Value: 'use-case/business-value.md'
+      - Comparison: 'use-case/comparison.md'
+      - Roadmap: 'use-case/roadmap.md'
   - Pricing: 'pricing.md'
   - About:
       - 'about.md'
@@ -116,7 +116,7 @@ markdown_extensions:
       custom_checkbox: true
 
 plugins:
-  - search
   - open-in-new-tab
+  - search
   - optimize
 
