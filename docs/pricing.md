@@ -10,6 +10,7 @@ bug fixes and features get published.
 - :material-connection: All data sources (see [here for all data sources](setup/connection/connection.md))
 - :material-file: Batch and :material-circle-multiple: Event generation
 - :material-auto-fix: Auto generation from data connections or metadata sources
+- :material-test-tube: Suggest data validations
 - :material-delete-sweep: Clean up generated data
 - :material-animation-play-outline: Run as many times as you want, not charged by usage
 

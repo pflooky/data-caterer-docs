@@ -29,3 +29,7 @@ If you want a guided tour of using the Java or Scala API, you can follow one of 
   [Foreign Keys]: foreign-key/foreign-key.md
   [Deployment]: deployment/deployment.md
   [Advanced]: advanced/advanced.md
+
+## High Level Run Configurations
+
+![High level run configurations](../diagrams/high_level_run_configuration.drawio.svg)

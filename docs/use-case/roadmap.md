@@ -2,28 +2,35 @@
 
 - Support for other data sources
     - GCP and Azure related data services, Delta, RabbitMQ, ActiveMQ
-- Metadata discovery for HTTP, JMS
+- Further support for metadata discovery
+    - HTTP (OpenAPI spec)
+    - JMS
+    - Read from samples
 - :white_check_mark: API for developers and testers
+    - :white_check_mark: Scala
+    - :white_check_mark: Java
 - UI for metadata and data generation
 - :white_check_mark: Report for data generated and validation rules
 - Metadata stored in database
 - Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry, DBT)
     - Populate metadata back to metadata services
-    - Can follow OpenLineage Spec found [**here**](https://github.com/OpenLineage/OpenLineage/blob/main/spec/OpenLineage.md#standard-facets)
+    - :white_check_mark: OpenLineage metadata (tested with Marquez)
 - Integration with existing data validations
+    - [Great Expectation](https://greatexpectations.io/)
     - [DBT constraints](https://docs.getdbt.com/reference/resource-properties/constraints)
     - [SodaCL](https://docs.soda.io/soda-cl/soda-cl-overview.html)
     - [MonteCarlo](https://docs.getmontecarlo.com/docs/monitors-as-code)
+- Suggest data validations
 - Data dictionary
     - Business definitions of fields that can be referenced for metadata across all data sources
 - :white_check_mark: Verification rules after data generation
 - :white_check_mark: Validation waiting conditions
-    - Webhook
-    - File exists
-    - Data exists via SQL expression
-    - Pause
+    - :white_check_mark: Webhook
+    - :white_check_mark: File exists
+    - :white_check_mark: Data exists via SQL expression
+    - :white_check_mark: Pause
 - Extend validation types
-    - Aggregates (sum of amount per account is > 500)
+    - :white_check_mark: Aggregates (sum of amount per account is > 500)
     - Ordering (transactions are ordered by date)
     - Relationship (at least one account entry in history table per account in accounts table)
     - Data profile (how close the generated data profile is compared to the expected data profile)
@@ -34,8 +41,6 @@
 - Overriding tasks
     - Can customise tasks without copying whole schema definitions
     - Easier to create scenarios
-- Integration with Great Expectations
-    - Data validations can reference expectations
 - Gradle plugin
 - Metadata improvements
     - PII detection (can integrate with [Presidio](https://microsoft.github.io/presidio/analyzer/))

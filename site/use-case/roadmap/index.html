@@ -1689,36 +1689,47 @@
 <li>GCP and Azure related data services, Delta, RabbitMQ, ActiveMQ</li>
 </ul>
 </li>
-<li>Metadata discovery for HTTP, JMS</li>
-<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> API for developers and testers</li>
+<li>Further support for metadata discovery<ul>
+<li>HTTP (OpenAPI spec)</li>
+<li>JMS</li>
+<li>Read from samples</li>
+</ul>
+</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> API for developers and testers<ul>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Scala</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Java</li>
+</ul>
+</li>
 <li>UI for metadata and data generation</li>
 <li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Report for data generated and validation rules</li>
 <li>Metadata stored in database</li>
 <li>Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry, DBT)<ul>
 <li>Populate metadata back to metadata services</li>
-<li>Can follow OpenLineage Spec found <a href="https://github.com/OpenLineage/OpenLineage/blob/main/spec/OpenLineage.md#standard-facets"><strong>here</strong></a></li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> OpenLineage metadata (tested with Marquez)</li>
 </ul>
 </li>
 <li>Integration with existing data validations<ul>
+<li><a href="https://greatexpectations.io/">Great Expectation</a></li>
 <li><a href="https://docs.getdbt.com/reference/resource-properties/constraints">DBT constraints</a></li>
 <li><a href="https://docs.soda.io/soda-cl/soda-cl-overview.html">SodaCL</a></li>
 <li><a href="https://docs.getmontecarlo.com/docs/monitors-as-code">MonteCarlo</a></li>
 </ul>
 </li>
+<li>Suggest data validations</li>
 <li>Data dictionary<ul>
 <li>Business definitions of fields that can be referenced for metadata across all data sources</li>
 </ul>
 </li>
 <li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Verification rules after data generation</li>
 <li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Validation waiting conditions<ul>
-<li>Webhook</li>
-<li>File exists</li>
-<li>Data exists via SQL expression</li>
-<li>Pause</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Webhook</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> File exists</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Data exists via SQL expression</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Pause</li>
 </ul>
 </li>
 <li>Extend validation types<ul>
-<li>Aggregates (sum of amount per account is &gt; 500)</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Aggregates (sum of amount per account is &gt; 500)</li>
 <li>Ordering (transactions are ordered by date)</li>
 <li>Relationship (at least one account entry in history table per account in accounts table)</li>
 <li>Data profile (how close the generated data profile is compared to the expected data profile)</li>
@@ -1733,10 +1744,6 @@
 <li>Overriding tasks<ul>
 <li>Can customise tasks without copying whole schema definitions</li>
 <li>Easier to create scenarios</li>
-</ul>
-</li>
-<li>Integration with Great Expectations<ul>
-<li>Data validations can reference expectations</li>
 </ul>
 </li>
 <li>Gradle plugin</li>

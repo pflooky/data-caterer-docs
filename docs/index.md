@@ -11,24 +11,29 @@ validate all your data changes.</h2>
 
 - Data being sent via messages, HTTP requests or files and getting stored in databases, file systems, etc.
 - Maintaining and updating tests with the latest schemas and business definitions
-- Different testing tools for different data sources
+- Different testing tools for services, jobs or data sources
 - Complex relationships between datasets and fields
 - Different scenarios, permutations, combinations and edge cases to cover
 
 <h1 class="content-spaced" align="center"> Current solutions only cover half the story </h1>
 
-- Specific testing frameworks that support one or limited number of data sources
+- Specific testing frameworks that support one or limited number of data sources or transport protocol
 - Under utilizing metadata from data catalogs or metadata discovery services
-- Testing teams having difficulties understanding when failures occur as they do not have domain knowledge
-- Integration tests relying on external teams/services which may not have reliable availability in test environments
+- Testing teams having difficulties understanding when failures occur
+- Integration tests relying on external teams/services
 - Manually generating data, or worse, copying production data into lower environments
 
 <h1 class="content-spaced" align="center"> What you need is a reliable tool that can handle changes to your data landscape. A clear and common 
 approach that covers your whole ecosystem</h1> 
 
+<figure markdown>
+  ![High level overview of Data Caterer](diagrams/high_level_flow.drawio.png#only-light)
+  ![High level overview of Data Caterer](diagrams/high_level_flow_dark.drawio.png#only-dark)
+</figure>
+
 With Data Caterer, you get:
 
-- Ability to connect to any type of data source: SQL or no-SQL databases, files, messaging systems, HTTP requests
+- Ability to connect to any type of data source: files, SQL or no-SQL databases, messaging systems, HTTP
 - Discover metadata from your existing infrastructure and services
 - Gain confidence that potential bugs do not propagate to production
 - Be proactive in ensuring changes do not affect other data producers or consumers
@@ -52,6 +57,7 @@ Main features include:
 - :material-projector-screen-variant-outline: Create custom data generation scenarios
 - :material-delete-sweep: Clean up generated data
 - :material-check: Validate data
+- :material-test-tube: Suggest data validations
 
 <span class="center-content">
 [Try now](get-started/docker.md){ .md-button .md-button--primary }[See pricing](pricing.md){ .md-button .button-spaced }

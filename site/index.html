@@ -1735,25 +1735,29 @@ validate all your data changes.</h2>
 <ul>
 <li>Data being sent via messages, HTTP requests or files and getting stored in databases, file systems, etc.</li>
 <li>Maintaining and updating tests with the latest schemas and business definitions</li>
-<li>Different testing tools for different data sources</li>
+<li>Different testing tools for services, jobs or data sources</li>
 <li>Complex relationships between datasets and fields</li>
 <li>Different scenarios, permutations, combinations and edge cases to cover</li>
 </ul>
 <h1 class="content-spaced" align="center"> Current solutions only cover half the story </h1>
 
 <ul>
-<li>Specific testing frameworks that support one or limited number of data sources</li>
+<li>Specific testing frameworks that support one or limited number of data sources or transport protocol</li>
 <li>Under utilizing metadata from data catalogs or metadata discovery services</li>
-<li>Testing teams having difficulties understanding when failures occur as they do not have domain knowledge</li>
-<li>Integration tests relying on external teams/services which may not have reliable availability in test environments</li>
+<li>Testing teams having difficulties understanding when failures occur</li>
+<li>Integration tests relying on external teams/services</li>
 <li>Manually generating data, or worse, copying production data into lower environments</li>
 </ul>
 <h1 class="content-spaced" align="center"> What you need is a reliable tool that can handle changes to your data landscape. A clear and common 
 approach that covers your whole ecosystem</h1>
 
+<figure>
+<p><img alt="High level overview of Data Caterer" src="diagrams/high_level_flow.drawio.png#only-light" />
+  <img alt="High level overview of Data Caterer" src="diagrams/high_level_flow_dark.drawio.png#only-dark" /></p>
+</figure>
 <p>With Data Caterer, you get:</p>
 <ul>
-<li>Ability to connect to any type of data source: SQL or no-SQL databases, files, messaging systems, HTTP requests</li>
+<li>Ability to connect to any type of data source: files, SQL or no-SQL databases, messaging systems, HTTP</li>
 <li>Discover metadata from your existing infrastructure and services</li>
 <li>Gain confidence that potential bugs do not propagate to production</li>
 <li>Be proactive in ensuring changes do not affect other data producers or consumers</li>
@@ -1774,6 +1778,7 @@ as expected. Use the Java, Scala API, or YAML files to help with setup or custom
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6H4c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h1v9h14V9h1c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1m-3 10H7V9h10v7Z"/></svg></span> Create custom data generation scenarios</li>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 16h4v2h-4v-2m0-8h7v2h-7V8m0 4h6v2h-6v-2M3 18a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V8H3v10M14 5h-3l-1-1H6L5 5H2v2h12V5Z"/></svg></span> Clean up generated data</li>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span> Validate data</li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 4 4 4 4 0 0 0 4-4V4h1V2H7m4 14c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m2-4c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m1-5h-4V4h4v3Z"/></svg></span> Suggest data validations</li>
 </ul>
 <p><span class="center-content">
 <a class="md-button md-button--primary" href="get-started/docker/">Try now</a><a class="md-button button-spaced" href="pricing/">See pricing</a>
