@@ -1,6 +1,6 @@
 <h1 align="center">Simplify your data testing</h1>
 
-<h2 align="center">Take away the pain and complexity of your data landscape and let Data Caterer handle it to reliably 
+<h2 align="center">Take away the pain and complexity of your data landscape and let Data Caterer handle it to reliably
 validate all your data changes.</h2>
 
 <span class="center-content">
@@ -46,7 +46,8 @@ With Data Caterer, you get:
 
 ## Tech Summary
 
-Data Caterer is a metadata driven data generation/testing tool that aids in creating production like data across batch and event
+Data Caterer is a metadata driven data generation/testing tool that aids in creating production like data across batch
+and event
 data systems. You can then clean up the generated data or run data validations to ensure your systems have ingested it
 as expected. Use the Java, Scala API, or YAML files to help with setup or customisation that are all run via Docker.
 
@@ -64,39 +65,60 @@ Main features include:
 
 <div class="grid cards" markdown>
 
--   __Data generation and testing tool__
+-   :material-tools: __Data generation and testing tool__
 
     ---
 
-    Generate production like data to be consumed and validated
+    Generate production like data to be consumed and validated.
 
--   __Designed for any data source__
+-   :material-connection: __Designed for any data source__
 
     ---
 
     We aim to support pushing data to any data source, in any format.
 
--   __Low/no code solution__
+-   :material-code-tags-check: __Low/no code solution__
 
     ---
 
-    Provide optionality for users on their preferred usage of the tool via either Scala, Java or YAML.
+    Provide optionality for users on their preferred usage of the tool via either Scala, Java or YAML. Connect to data or
+    metadata sources to generate data and validate.
 
--   __Developer productivity tool__
+-   :material-run-fast: __Developer productivity tool__
 
     ---
 
-    
+    If you are a new developer or seasoned veteran, cut down on your feedback loop when developing with data.
 
 </div>
 
 ## What it is not
 
+<div class="grid cards" markdown>
 
+-   :material-cloud-download-outline: __Load testing tool__
 
-## FAQ
+    ---
 
+    Although large amounts of data can be generated, there is limited capabilities in terms of load testing and metric 
+    capturing.
 
+-   :material-brain: __Metadata storage/platform__
+
+    ---
+
+    You could store and use metadata within the data generation/validation tasks but is not the recommended approach.
+    Rather, this metadata should be gathered from existing services who handle metadata on behalf of Data Caterer.
+
+-   :fontawesome-solid-handshake: __Data contract__
+
+    ---
+
+    The focus of Data Caterer is on the data generation and testing, which can include details about how the data looks
+    like and how it behaves. But it does not encompass all the additional metadata that comes with a data contract such
+    as SLAs, security, etc.
+
+</div>
 
 <span class="center-content">
 [Try now](get-started/docker.md){ .md-button .md-button--primary }[See pricing](pricing.md){ .md-button .button-spaced }
