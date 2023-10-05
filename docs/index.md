@@ -17,11 +17,12 @@ validate all your data changes.</h2>
 
 <h1 class="content-spaced" align="center"> Current solutions only cover half the story </h1>
 
-- Specific testing frameworks that support one or limited number of data sources or transport protocol
+- Specific testing frameworks that support one or limited number of data sources or transport protocols
 - Under utilizing metadata from data catalogs or metadata discovery services
 - Testing teams having difficulties understanding when failures occur
 - Integration tests relying on external teams/services
-- Manually generating data, or worse, copying production data into lower environments
+- Manually generating data, or worse, copying/masking production data into lower environments
+- Observability pushes towards being reactive rather than proactive
 
 <h1 class="content-spaced" align="center"> What you need is a reliable tool that can handle changes to your data landscape. A clear and common 
 approach that covers your whole ecosystem</h1> 
@@ -35,9 +36,9 @@ With Data Caterer, you get:
 
 - Ability to connect to any type of data source: files, SQL or no-SQL databases, messaging systems, HTTP
 - Discover metadata from your existing infrastructure and services
-- Gain confidence that potential bugs do not propagate to production
+- Gain confidence that bugs do not propagate to production
 - Be proactive in ensuring changes do not affect other data producers or consumers
-- Configurability to run tests the way you want
+- Configurability to run the way you want
 
 <span class="center-content">
 [Try now](get-started/docker.md){ .md-button .md-button--primary }[See pricing](pricing.md){ .md-button .button-spaced }

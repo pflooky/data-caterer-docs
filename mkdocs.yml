@@ -6,7 +6,7 @@ repo_name: data-caterer-docs
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/pflooky
+      link: https://github.com/pflooky/data-caterer-example
     - icon: fontawesome/brands/medium
       link: https://medium.com/@pflooky
     - icon: fontawesome/brands/linkedin
@@ -24,8 +24,8 @@ plugins:
 
 theme:
   name: material
-  logo: diagrams/data_catering_icon_transparent.drawio.png
-  favicon: diagrams/data_catering_icon_transparent.drawio.png
+  logo: diagrams/logo/logo_transparent.svg
+  favicon: diagrams/logo/logo_transparent.svg
   features:
     - navigation.tabs
     - navigation.sections
@@ -40,22 +40,24 @@ theme:
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
-      primary: teal
-      accent: green
+      primary: deep orange
+      accent: orange
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: deep orange
+      accent: orange
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: teal
-      accent: green
+      primary: deep orange
+      accent: orange
       toggle:
         icon: material/brightness-4
         name: Switch to system preference

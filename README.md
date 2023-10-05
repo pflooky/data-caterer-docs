@@ -1,4 +1,7 @@
 # data-caterer-docs
+
+![Data Catering](docs/diagrams/logo/logo_landscape_banner.svg)
+
 Documentation for Data Caterer
 
 ## Helm
