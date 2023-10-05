@@ -22,8 +22,9 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-open-in-new-tab
+      - run: pip install "mkdocs-material[imaging]"
+      - run: apt-get install pngquant
       - run: pip install git+https://${GH_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
-      - run: pip install pngquant
       - run: mkdocs gh-deploy --force
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
