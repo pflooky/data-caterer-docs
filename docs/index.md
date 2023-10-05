@@ -28,8 +28,8 @@ validate all your data changes.</h2>
 approach that covers your whole ecosystem</h1> 
 
 <figure markdown>
-  ![High level overview of Data Caterer](diagrams/high_level_flow.drawio.png#only-light)
-  ![High level overview of Data Caterer](diagrams/high_level_flow_dark.drawio.png#only-dark)
+  ![High level overview of Data Caterer](diagrams/high_level_flow-high-level.drawio.svg#only-light)
+  ![High level overview of Data Caterer](diagrams/high_level_flow-high-level-dark.drawio.svg#only-dark)
 </figure>
 
 With Data Caterer, you get:
@@ -59,6 +59,44 @@ Main features include:
 - :material-delete-sweep: Clean up generated data
 - :material-check: Validate data
 - :material-test-tube: Suggest data validations
+
+## What is it
+
+<div class="grid cards" markdown>
+
+-   __Data generation and testing tool__
+
+    ---
+
+    Generate production like data to be consumed and validated
+
+-   __Designed for any data source__
+
+    ---
+
+    We aim to support pushing data to any data source, in any format.
+
+-   __Low/no code solution__
+
+    ---
+
+    Provide optionality for users on their preferred usage of the tool via either Scala, Java or YAML.
+
+-   __Developer productivity tool__
+
+    ---
+
+    
+
+</div>
+
+## What it is not
+
+
+
+## FAQ
+
+
 
 <span class="center-content">
 [Try now](get-started/docker.md){ .md-button .md-button--primary }[See pricing](pricing.md){ .md-button .button-spaced }
