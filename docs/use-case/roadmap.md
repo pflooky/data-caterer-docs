@@ -1,7 +1,13 @@
 # Roadmap
 
 - Support for other data sources
-    - GCP and Azure related data services, Delta, RabbitMQ, ActiveMQ
+    - GCP and Azure related data services (:white_check_mark: cloud storage)
+    - Deltalake
+    - RabbitMQ
+    - ActiveMQ
+    - MongoDB
+    - Airflow
+    - DBT
 - Further support for metadata discovery
     - HTTP (OpenAPI spec)
     - JMS
@@ -20,7 +26,7 @@
     - [DBT constraints](https://docs.getdbt.com/reference/resource-properties/constraints)
     - [SodaCL](https://docs.soda.io/soda-cl/soda-cl-overview.html)
     - [MonteCarlo](https://docs.getmontecarlo.com/docs/monitors-as-code)
-- Suggest data validations
+- :white_check_mark: Suggest data validations
 - Data dictionary
     - Business definitions of fields that can be referenced for metadata across all data sources
 - :white_check_mark: Verification rules after data generation
@@ -50,3 +56,4 @@
 - Code generation
 - Schema generation from Scala/Java class
 - Ordering within data sources that support order for insertion
+- Clean up data in consumer data sinks

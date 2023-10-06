@@ -95,15 +95,15 @@ a specific `namespace` and `dataset`.
     ```java
     var csvTask = csv("my_csv", "/tmp/data/csv", Map.of("saveMode", "overwrite", "header", "true"))
             .schema(metadataSource().marquez("http://localhost:5001", "food_delivery", "public.delivery_7_days"))
-            .count(count().records(100));
+            .count(count().records(10));
     ```
 
 === "Scala"
 
     ```scala
     val csvTask = csv("my_csv", "/tmp/data/csv")
-      .schema(metadataSource.marquez("http://localhost:5001", "food_delivery", "public.categories"))
-      .count(count.records(100))
+      .schema(metadataSource.marquez("http://localhost:5001", "food_delivery", "public.delivery_7_days"))
+      .count(count.records(10))
     ```
 
 The above defines that the schema will come from Marquez, which is a type of metadata source that contains information
@@ -147,41 +147,46 @@ docker exec marquez-db psql -Upostgres -d food_delivery -c 'SELECT * FROM public
 It should look something like this.
 
 ```shell
- order_id |     order_placed_on     |   order_dispatched_on   |   order_delivered_on    | customer_email  |   customer_address   | menu_id | restaurant_id | restaurant_address | m
-enu_item_id | category_id | discount_id | city_id | driver_id
-----------+-------------------------+-------------------------+-------------------------+-----------------+----------------------+---------+---------------+--------------------+--
-------------+-------------+-------------+---------+-----------
-    43312 | 2022-12-20 18:42:51.025 | 2022-10-24 16:51:19.467 | 2022-12-23 12:12:36.858 | 1HD5Z519uao     | 9pQm111aRlOQNJjh9lAf |   32756 |         35740 | X                  |
-      53374 |       60607 |       28921 |   83340 |     69539
-    39250 | 2022-12-14 23:35:28.755 | 2022-11-05 00:27:28.985 | 2022-10-09 23:33:55.34  | m               | 2YcYHWt              |   57670 |         81243 | XKJrChD01dYCbY     |
-      73260 |       75010 |       23278 |   22306 |       583
-     9529 | 2023-03-05 18:39:42.775 | 2023-05-26 11:04:10.575 | 2023-08-17 09:19:02.468 | 1WaX7egq43Ud    | nYWj                 |   89439 |         35574 | kryxHDCijV         |
-      47228 |       62248 |       32982 |    3130 |     54184
-    42316 | 2023-03-27 08:14:00.242 | 2023-08-05 16:31:08.861 | 2023-04-19 16:34:29.116 |  aDeuBZKNVeeBP0 | 7d30pOq9NW1708Ic9i   |   65897 |         19110 | CQ                 |
-      42543 |       84808 |       90898 |   66637 |     34130
-    86933 | 2022-12-02 20:02:48.408 | 2023-02-15 13:01:34.69  | 2022-10-04 13:01:11.823 | C1N             | 2KhPD7A2brO          |   21623 |         94672 | Iay3Xqbrrc         |
-      13435 |       32628 |       39540 |   34245 |     30558
-(5 rows)
+ order_id |     order_placed_on     |   order_dispatched_on   |   order_delivered_on    |         customer_email         |                     customer_address                     | menu_id | restaurant_id |                        restaurant_address
+   | menu_item_id | category_id | discount_id | city_id | driver_id
+----------+-------------------------+-------------------------+-------------------------+--------------------------------+----------------------------------------------------------+---------+---------------+---------------------------------------------------------------
+---+--------------+-------------+-------------+---------+-----------
+    38736 | 2023-02-05 06:05:23.755 | 2023-09-08 04:29:10.878 | 2023-09-03 23:58:34.285 | april.skiles@hotmail.com       | 5018 Lang Dam, Gaylordfurt, MO 35172                     |   59841 |         30971 | Suite 439 51366 Bartoletti Plains, West Lashawndamouth, CA 242
+42 |        55697 |       36370 |       21574 |   88022 |     16569
+     4376 | 2022-12-19 14:39:53.442 | 2023-08-30 07:40:06.948 | 2023-03-15 20:38:26.11  | adelina.balistreri@hotmail.com | Apt. 340 9146 Novella Motorway, East Troyhaven, UT 34773 |   66195 |         42765 | Suite 670 8956 Rob Fork, Rennershire, CA 04524
+   |        26516 |       81335 |       87615 |   27433 |     45649
+    11083 | 2022-10-30 12:46:38.692 | 2023-06-02 13:05:52.493 | 2022-11-27 18:38:07.873 | johnny.gleason@gmail.com       | Apt. 385 99701 Lemke Place, New Irvin, RI 73305          |   66427 |         44438 | 1309 Danny Cape, Weimanntown, AL 15865
+   |        41686 |       36508 |       34498 |   24191 |     92405
+    58759 | 2023-07-26 14:32:30.883 | 2022-12-25 11:04:08.561 | 2023-04-21 17:43:05.86  | isabelle.ohara@hotmail.com     | 2225 Evie Lane, South Ardella, SD 90805                  |   27106 |         25287 | Suite 678 3731 Dovie Park, Port Luigi, ID 08250
+   |        94205 |       66207 |       81051 |   52553 |     27483
 ```
 
 You can also try query some other tables. Let's also check what is in the CSV file.
 
 ```shell
-$ head docker/sample/csv/part-00000-*
-order_id,order_placed_on,order_dispatched_on,order_delivered_on,customer_email,customer_address,menu_id,restaurant_id,restaurant_address,menu_item_id,category_id,discount_id,city_id,driver_id
-56473,2022-12-21T05:22:53.888Z,2023-08-24T22:05:12.857Z,2023-05-02T04:03:26.572Z,wtcijFoAxTzS4a,CHMKz78lxkXzj6jlV7x,87430,43666,kJkwZr,73563,89456,13805,29140,78574
-48786,2023-06-05T17:57:38.667Z,2023-09-04T00:32:54.046Z,2023-01-13T11:24:29.054Z,w7Y0JUw,D5,5085,92659,Jeu6bBQ8O,13285,61853,7666,16112,67186
-74240,2023-06-22T23:25:50.735Z,2023-09-14T08:50:38.726Z,2022-11-01T13:27:22.477Z,Sb42FlQNgswhZJ38Af6,gOkhnPSn,40127,39554,DSglsvoh,37710,39245,20278,16301,55736
-80202,2022-12-18T12:32:14.304Z,2022-11-18T05:13:17.201Z,2023-09-18T16:58:01.327Z,t2,ioGiA2r8InRn,34493,10128,JZ7lM0zpR7sQNgZAb0,53393,85223,77023,6562,30888
+$ head docker/sample/csv/part-0000*
+menu_item_id,category_id,discount_id,city_id,driver_id,order_id,order_placed_on,order_dispatched_on,order_delivered_on,customer_email,customer_address,menu_id,restaurant_id,restaurant_address
+72248,37098,80135,45888,5036,11090,2023-09-20T05:33:08.036+08:00,2023-05-16T23:10:57.119+08:00,2023-05-01T22:02:23.272+08:00,demetrice.rohan@hotmail.com,"406 Harmony Rue, Wisozkburgh, MD 12282",33762,9042,"Apt. 751 0796 Ellan Flats, Lake Chetville, WI 81957"
+41644,40029,48565,83373,89919,58359,2023-04-18T06:28:26.194+08:00,2022-10-15T18:17:48.998+08:00,2023-02-06T17:02:04.104+08:00,joannie.okuneva@yahoo.com,"Suite 889 022 Susan Lane, Zemlakport, OR 56996",27467,6216,"Suite 016 286 Derick Grove, Dooleytown, NY 14664"
+49299,53699,79675,40821,61764,72234,2023-07-16T21:33:48.739+08:00,2023-02-14T21:23:10.265+08:00,2023-09-18T02:08:51.433+08:00,ina.heller@yahoo.com,"Suite 600 86844 Heller Island, New Celestinestad, DE 42622",48002,12462,"5418 Okuneva Mountain, East Blairchester, MN 04060"
+83197,86141,11085,29944,81164,65382,2023-01-20T06:08:25.981+08:00,2023-01-11T13:24:32.968+08:00,2023-09-09T02:30:16.890+08:00,lakisha.bashirian@yahoo.com,"Suite 938 534 Theodore Lock, Port Caitlynland, LA 67308",69109,47727,"4464 Stewart Tunnel, Marguritemouth, AR 56791"
 ```
 
 Looks like we have some data now. But we can do better and add some enhancements to it.
   
-What if we wanted the same records in Postgres `public.categories` to also show up in the CSV file? That's where we
+What if we wanted the same records in Postgres `public.delivery_7_days` to also show up in the CSV file? That's where we
 can use a foreign key definition.
 
 ### Foreign Key
 
+We can take a look at the report (under `docker/sample/report/index.html`) to see what we need to do to create the 
+foreign key. From the overview, you should see under `Tasks` there is a `my_postgres` task which has 
+`food_delivery_public.delivery_7_days` as a step. Click on the link for `food_delivery_public.delivery_7_days` and it 
+will take us to a page where we can find out about the columns used in this table. Click on the `Fields` button on the 
+far right to see.
+  
+We can copy all of a subset of fields that we want matched across the CSV file and Postgres. For this example, we will 
+take all the fields.
 
 === "Java"
 
@@ -199,9 +204,13 @@ can use a foreign key definition.
 === "Scala"
 
     ```scala
-    val myPlan = plan.addForeignKeyRelationship(
-        kafkaTask, List("key", "tmp_year", "tmp_name", "value"),
-        List(csvTask -> List("account_number", "year", "name", "payload"))
+    val foreignCols = List("order_id", "order_placed_on", "order_dispatched_on", "order_delivered_on", "customer_email",
+      "customer_address", "menu_id", "restaurant_id", "restaurant_address", "menu_item_id", "category_id", "discount_id",
+      "city_id", "driver_id")
+
+    val myPlan = plan.addForeignKeyRelationships(
+      csvTask, foreignCols,
+      List(foreignField(postgresTask, "food_delivery_public.delivery_7_days", foreignCols))
     )
   
     val conf = ...
@@ -209,10 +218,40 @@ can use a foreign key definition.
     execute(myPlan, conf, postgresTask, csvTask)
     ```
 
-### Additional Topics
+Notice how we have defined the `csvTask` and `foreignCols` as the main foreign key but for `postgresTask`, we had to 
+define it as a `foreignField`. This is because `postgresTask` has multiple tables within it, and we only want to define
+our foreign key with respect to the `public.delivery_7_days` table. We use the step name (can be seen from the report) 
+to specify the table to target. 
 
-#### Order of execution
+To test this out, we will truncate the `public.delivery_7_days` table in Postgres first, and then try run again.
 
-You may notice that the events are generated first, then the CSV file. This is because as part of the `execute`
-function, we passed in the `kafkaTask` first, before the `csvTask`. You can change the order of execution by
-passing in `csvTask` before `kafkaTask` into the `execute` function.
+```shell
+docker exec marquez-db psql -Upostgres -d food_delivery -c 'TRUNCATE public.delivery_7_days'
+./run.sh
+#input class MyAdvancedMetadataSourceJavaPlanRun or MyAdvancedMetadataSourcePlanRun
+docker exec marquez-db psql -Upostgres -d food_delivery -c 'SELECT * FROM public.delivery_7_days'
+```
+
+```shell
+ order_id |     order_placed_on     |   order_dispatched_on   |   order_delivered_on    |        customer_email        |
+       customer_address                     | menu_id | restaurant_id |                   restaurant_address                   | menu
+_item_id | category_id | discount_id | city_id | driver_id
+----------+-------------------------+-------------------------+-------------------------+------------------------------+-------------
+--------------------------------------------+---------+---------------+--------------------------------------------------------+-----
+---------+-------------+-------------+---------+-----------
+    53333 | 2022-10-15 08:40:23.394 | 2023-01-23 09:42:48.397 | 2023-08-12 08:50:52.397 | normand.aufderhar@gmail.com  | Apt. 036 449
+27 Wilderman Forge, Marvinchester, CT 15952 |   40412 |         70130 | Suite 146 98176 Schaden Village, Grahammouth, SD 12354 |
+   90141 |       44210 |       83966 |   78614 |     77449
+```
+
+Let's grab the first email from the Postgres table and check whether the same record exists in the CSV file.
+
+```shell
+$ cat docker/sample/csv/part-0000*
+90141,44210,83966,78614,77449,53333,2022-10-15T08:40:23.394+08:00,2023-01-23T09:42:48.397+08:00,2023-08-12T08:50:52.397+08:00,normand.aufderhar@gmail.com,"Apt. 036 44927 Wilderman Forge, Marvinchester, CT 15952",40412,70130,"Suite 146 98176 Schaden Village, Grahammouth, SD 12354"
+```
+
+Great! Now we have the ability to get schema information from an external source, add our own foreign keys and generate 
+data.
+  
+Check out the full example under `AdvancedMetadataSourcePlanRun` in the example repo.

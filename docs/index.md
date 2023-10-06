@@ -1,3 +1,7 @@
+<meta property="og:title" content="Data Catering">
+<meta property="og:description" content="A data generation and testing tool that can automatically discover, generate and validate your data ecosystem">
+<meta property="og:image" content="https://data.catering/diagrams/logo/data_catering_logo.svg">
+
 <h1 align="center">Simplify your data testing</h1>
 
 <h2 align="center">Take away the pain and complexity of your data landscape and let Data Caterer handle it to reliably
@@ -100,7 +104,7 @@ Main features include:
 
     ---
 
-    Although large amounts of data can be generated, there is limited capabilities in terms of load testing and metric 
+    Although millions of records can be generated, there are limited capabilities in terms of load testing and metric 
     capturing.
 
 -   :material-brain: __Metadata storage/platform__

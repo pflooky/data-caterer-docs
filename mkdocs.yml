@@ -24,8 +24,8 @@ plugins:
 
 theme:
   name: material
-  logo: diagrams/logo/logo_transparent.svg
-  favicon: diagrams/logo/logo_transparent.svg
+  logo: diagrams/logo/data_catering_transparent.svg
+  favicon: diagrams/logo/data_catering_transparent.svg
   features:
     - navigation.tabs
     - navigation.sections
