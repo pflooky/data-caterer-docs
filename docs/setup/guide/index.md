@@ -12,12 +12,12 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
 
     - __[First Data Generation]__ - If you are new, this is the place to start
     - __[Multiple Records Per Column Value]__ - How you can generate multiple records per set of columns
-    - __[Foreign Keys Across Data Sources]__ - (Soon to document) Generate matching values across generated data sets
+    - __[Foreign Keys Across Data Sources]__ - Generate matching values across generated data sets
     - __[Data Validations]__ - (Soon to document) Run data validations after generating data
 
       [First Data Generation]: scenario/first-data-generation.md
       [Multiple Records Per Column Value]: scenario/records-per-column.md
-      [Foreign Keys Across Data Sources]: scenario/first-data-generation.md
+      [Foreign Keys Across Data Sources]: scenario/batch-and-event.md
       [Data Validations]: scenario/first-data-generation.md
 
 !!! example "Paid tier scenarios"
@@ -37,7 +37,7 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
     <div class="grid cards" markdown>
 
     - __[Files (CSV, JSON, ORC, Parquet)]__ - Generate data for files with separator (comma separated by default)
-    - __[Files (Fixed width)]__ - A variant of CSV but with no separator
+    - __[Files (Fixed width)]__ - (Soon to document) A variant of CSV but with no separator
     - __[Postgres]__ - JDBC Postgres tables
 
     </div>

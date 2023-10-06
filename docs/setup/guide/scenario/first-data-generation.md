@@ -158,7 +158,7 @@ attributes that add guidelines that the data generator will understand when gene
   leverage the DataFaker library and create an `expression` to generate real looking name. All possible faker
   expressions
   can be found [**here**](../../../sample/datafaker/expressions.txt)
-  
+
 === "Java"
 
     ```java
@@ -254,7 +254,7 @@ Putting it all the fields together, our class should now look like this.
 
 #### Record Count
 
-We only want to generate 100 records, so that we can see what the output looks like. This is controlled at the 
+We only want to generate 100 records, so that we can see what the output looks like. This is controlled at the
 `accountTask` level like below. If you want to generate more records, set it to the value you want.
 
 === "Java"
@@ -385,9 +385,9 @@ was executed.
 
 ### Join With Another CSV
 
-Now that we have generated some accounts, let's also try to generate a set of transactions for those accounts in CSV 
+Now that we have generated some accounts, let's also try to generate a set of transactions for those accounts in CSV
 format as well. The transactions could be in any other format, but to keep this simple, we will continue using CSV.
-  
+
 We can define our schema the same way along with any additional metadata.
 
 === "Java"
@@ -419,7 +419,7 @@ We can define our schema the same way along with any additional metadata.
 #### Records Per Column
 
 Usually, for a given `account_id, full_name`, there should be multiple records for it as we want to simulate a customer
-having multiple transactions. We can achieve this through defining the number of records to generate in the `count` 
+having multiple transactions. We can achieve this through defining the number of records to generate in the `count`
 function.
 
 === "Java"
@@ -444,8 +444,8 @@ function.
 
 ##### Random Records Per Column
 
-Here, you will notice that we are generating 5 records per `account_id, full_name`. This is okay but still not quite 
-reflective of the real world. Sometimes, people have accounts with no transactions in them, or they could have many. We 
+Above, you will notice that we are generating 5 records per `account_id, full_name`. This is okay but still not quite
+reflective of the real world. Sometimes, people have accounts with no transactions in them, or they could have many. We
 can accommodate for this via defining a random number of records per column.
 
 === "Java"
@@ -472,8 +472,8 @@ Here we set the minimum number of records per column to be 0 and the maximum to 
 
 #### Foreign Key
 
-In this scenario, we want to match the `account_id` in `account` to match the same column values in `transaction`. We 
-also want to match `name` in `account` to `full_name` in `transaction`. This can be done via plan configuration like 
+In this scenario, we want to match the `account_id` in `account` to match the same column values in `transaction`. We
+also want to match `name` in `account` to `full_name` in `transaction`. This can be done via plan configuration like
 below.
 
 === "Java"
@@ -596,8 +596,111 @@ ACC29117767,Willodean Sauer,84.99145871948083,2023-05-14T09:55:51.439Z,2023-05-1
 ACC29117767,Willodean Sauer,58.89345733567232,2022-11-22T07:38:20.143Z,2022-11-22
 ```
 
-Congratulations! You have now made a data generator that has simulated a real world data scenario. You can check the 
-`CsvJavaPlan.java` or `CsvPlan.scala` files as well to check that your plan is the same.
+Congratulations! You have now made a data generator that has simulated a real world data scenario. You can check the
+`DocumentationJavaPlanRun.java` or `DocumentationPlanRun.scala` files as well to check that your plan is the same.
+
+We can now look to consume this CSV data from a job or service. Usually, once we have consumed the data, we would also
+want to check and validate that our consumer has correctly ingested the data.
+
+### Validate
+
+In this scenario, our consumer will read in the CSV file, do some transformations, and then save the data to Postgres.
+Let's try to configure data validations for the data that gets pushed into Postgres.
+
+#### Postgres setup
+
+First, we define our connection properties for Postgres. You can check out the full options available
+[**here**](../../connection/connection.md).
+
+=== "Java"
+
+    ```java
+    var postgresValidateTask = postgres(
+        "my_postgres",                                          //connection name
+        "jdbc:postgresql://host.docker.internal:5432/customer", //url
+        "postgres",                                             //username
+        "password"                                              //password
+    ).table("account", "transactions");
+    ```
+
+=== "Scala"
+
+    ```scala
+    val postgresValidateTask = postgres(
+      "my_postgres",                                          //connection name
+      "jdbc:postgresql://host.docker.internal:5432/customer", //url
+      "postgres",                                             //username
+      "password"                                              //password
+    ).table("account", "transactions")
+    ```
+
+We can connect and access the data inside the table `account.transactions`. Now to define our data validations.
+
+#### Validations
+
+For full information about validation options and configurations, check [**here**](../../validation/validation.md).
+Below, we have an example that should give you a good understanding of what validations are possible.
+
+=== "Java"
+
+    ```java
+    var postgresValidateTask = postgres(...)
+            .table("account", "transactions")
+            .validations(
+                    validation().col("account_id").isNotNull(),
+                    validation().col("name").matches("[A-Z][a-z]+ [A-Z][a-z]+").errorThreshold(0.2).description("Some names have different formats"),
+                    validation().col("balance").greaterThanOrEqual(0).errorThreshold(10).description("Account can have negative balance if overdraft"),
+                    validation().expr("CASE WHEN status == 'closed' THEN isNotNull(close_date) ELSE isNull(close_date) END"),
+                    validation().unique("account_id", "name"),
+                    validation().groupBy("account_id", "name").max("login_retry").lessThan(10)
+            );
+    ```
+
+=== "Scala"
+
+    ```scala
+    val postgresValidateTask = postgres(...)
+      .table("account", "transactions")
+      .validations(
+        validation.col("account_id").isNotNull,
+        validation.col("name").matches("[A-Z][a-z]+ [A-Z][a-z]+").errorThreshold(0.2).description("Some names have different formats"),
+        validation.col("balance").greaterThanOrEqual(0).errorThreshold(10).description("Account can have negative balance if overdraft"),
+        validation.expr("CASE WHEN status == 'closed' THEN isNotNull(close_date) ELSE isNull(close_date) END"),
+        validation.unique("account_id", "name"),
+        validation.groupBy("account_id", "name").max("login_retry").lessThan(10)
+      )
+    ```
+
+##### name
+
+For all values in the `name` column, we check if they match the regex `[A-Z][a-z]+ [A-Z][a-z]+`. As we know in the real
+world, names do not always follow the same pattern, so we allow for an `errorThreshold` before marking the validation
+as failed. Here, we define the `errorThreshold` to be `0.2`, which means, if the error percentage is greater than 20%,
+then fail the validation. We also append on a helpful description so other developers/users can understand the context
+of the validation.
+
+##### balance
+
+We check that all `balance` values are greater than or equal to 0. This time, we have a slightly different
+`errorThreshold` as it is set to `10`, which means, if the number of errors is greater than 10, then fail the
+validation.
+
+##### expr
+
+Sometimes, we may need to include the values of multiple columns to validate a certain condition. This is where we can
+use `expr` to define a SQL expression that returns a boolean. In this scenario, we are checking if the `status` column
+has value `closed`, then the `close_date` should be not null, otherwise, `close_date` is null.
+
+##### unique
+
+We check whether the combination of `account_id` and `name` are unique within the dataset. You can define one or more
+columns for `unique` validations.
+
+##### groupBy
+
+There may be some business rule that states the number of `login_retry` should be less than 10 for each account. We can
+check this via a group by validation where we group by the `account_id, name`, take the maximum value
+for `login_retry` per `account_id,name` combination, then check if it is less than 10.
 
 You can now look to play around with other configurations or data sources to meet your needs. Also, make sure to explore
 the docs further as it can guide you on what can be configured.

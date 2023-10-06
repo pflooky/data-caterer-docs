@@ -116,15 +116,15 @@ schema information from.
 
     ```java
     var postgresTask = postgres("my_postgres", "jdbc:postgresql://host.docker.internal:5432/food_delivery", "postgres", "password", Map.of())
-        .schema(metadataSource().marquez("http://localhost:5001", "food_delivery"))
+        .schema(metadataSource().marquez("http://host.docker.internal:5001", "food_delivery"))
         .count(count().records(10));
     ```
 
 === "Scala"
 
     ```scala
-    val postgresTask = postgres("my_postgres", "jdbc:postgresql://localhost:5432/food_delivery", "postgres", "password")
-      .schema(metadataSource.marquez("http://localhost:5001", "food_delivery"))
+    val postgresTask = postgres("my_postgres", "jdbc:postgresql://host.docker.internal:5432/food_delivery", "postgres", "password")
+      .schema(metadataSource.marquez("http://host.docker.internal:5001", "food_delivery"))
       .count(count.records(10))
     ```
 
@@ -247,7 +247,7 @@ _item_id | category_id | discount_id | city_id | driver_id
 Let's grab the first email from the Postgres table and check whether the same record exists in the CSV file.
 
 ```shell
-$ cat docker/sample/csv/part-0000*
+$ cat docker/sample/csv/part-0000* | grep normand.aufderhar
 90141,44210,83966,78614,77449,53333,2022-10-15T08:40:23.394+08:00,2023-01-23T09:42:48.397+08:00,2023-08-12T08:50:52.397+08:00,normand.aufderhar@gmail.com,"Apt. 036 44927 Wilderman Forge, Marvinchester, CT 15952",40412,70130,"Suite 146 98176 Schaden Village, Grahammouth, SD 12354"
 ```
 
