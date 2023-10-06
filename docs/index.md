@@ -1,6 +1,8 @@
-<meta property="og:title" content="Data Catering">
-<meta property="og:description" content="A data generation and testing tool that can automatically discover, generate and validate your data ecosystem">
-<meta property="og:image" content="https://data.catering/diagrams/logo/data_catering_logo.svg">
+---
+title: "Data Catering"
+description: "A data generation and testing tool that can automatically discover, generate and validate your data ecosystem"
+image: "https://data.catering/diagrams/logo/data_catering_logo.svg"
+---
 
 <h1 align="center">Simplify your data testing</h1>
 
