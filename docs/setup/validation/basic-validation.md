@@ -165,6 +165,34 @@ Ensure all data in column does not contain certain string. Column has to have ty
           - expr: "!CONTAINS(name, 'peter')"
     ```
 
+## Unqiue
+
+Ensure all data in column is unique.
+
+
+=== "Java"
+
+    ```java
+    validation().unique("account_id", "name")
+    ```
+
+=== "Scala"
+
+    ```scala
+    validation.unique("account_id", "name")
+    ```
+
+=== "YAML"
+
+    ```yaml
+    ---
+    name: "account_checks"
+    dataSources:
+      ...
+        validations:
+          - unique: ["account_id", "name"]
+    ```
+
 ## Less Than
 
 Ensure all data in column is less than certain value.

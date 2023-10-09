@@ -32,9 +32,10 @@ All connection details follow the same pattern.
 ```
 
 !!! info "Overriding configuration"
-When defining a configuration value that can be defined by a system property or environment variable at runtime, you can
-define that via the following:
 
+    When defining a configuration value that can be defined by a system property or environment variable at runtime, you can
+    define that via the following:
+    
     ```
     url = "localhost"
     url = ${?POSTGRES_URL}

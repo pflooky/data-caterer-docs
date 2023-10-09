@@ -86,8 +86,7 @@ Main features include:
 
     ---
 
-    Provide optionality for users on their preferred usage of the tool via either Scala, Java or YAML. Connect to data or
-    metadata sources to generate data and validate.
+    Can use the tool via either Scala, Java or YAML. Connect to data or metadata sources to generate data and validate.
 
 -   :material-run-fast: __Developer productivity tool__
 

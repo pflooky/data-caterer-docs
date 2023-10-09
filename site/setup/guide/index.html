@@ -734,6 +734,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker-compose
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1845,6 +1856,7 @@
 <h3 id="scenarios">Scenarios</h3>
 <div class="admonition note">
 <p class="admonition-title">Free tier scenarios</p>
+<div class="grid cards" markdown>
 <ul>
 <li><strong><a href="scenario/first-data-generation/">First Data Generation</a></strong> - If you are new, this is the place to start</li>
 <li><strong><a href="scenario/records-per-column/">Multiple Records Per Column Value</a></strong> - How you can generate multiple records per set of columns</li>
@@ -1852,13 +1864,16 @@
 <li><strong><a href="scenario/first-data-generation/">Data Validations</a></strong> - (Soon to document) Run data validations after generating data</li>
 </ul>
 </div>
+</div>
 <div class="admonition example">
 <p class="admonition-title">Paid tier scenarios</p>
+<div class="grid cards" markdown>
 <ul>
 <li><strong><a href="scenario/auto-generate-connection/">Auto Generate From Data Connection</a></strong> - Automatically generating data from just defining data sources</li>
 <li><strong><a href="scenario/delete-generated-data/">Delete Generated Data</a></strong> - Delete the generated data whilst leaving other data</li>
 <li><strong><a href="scenario/batch-and-event/">Generate Batch and Event Data</a></strong> - Generate matching batch and event data</li>
 </ul>
+</div>
 </div>
 <h3 id="data-sources">Data Sources</h3>
 <div class="admonition note">
@@ -1885,10 +1900,13 @@
 </div>
 <h2 id="yaml-files">YAML Files</h2>
 <h3 id="base-concept">Base Concept</h3>
-<p>The execution of the data generator is based on the concept of plans and tasks. A plan represent the set of tasks that need to be executed, 
+<p>The execution of the data generator is based on the concept of plans and tasks. A plan represent the set of tasks that
+need to be executed,
 along with other information that spans across tasks, such as foreign keys between data sources.<br />
-A task represent the component(s) of a data source and its associated metadata so that it understands what the data should look like 
-and how many steps (sub data sources) there are (i.e. tables in a database, topics in Kafka). Tasks can define one or more steps.</p>
+A task represent the component(s) of a data source and its associated metadata so that it understands what the data
+should look like
+and how many steps (sub data sources) there are (i.e. tables in a database, topics in Kafka). Tasks can define one or
+more steps.</p>
 <h3 id="plan">Plan</h3>
 <h4 id="foreign-keys">Foreign Keys</h4>
 <p><a href="https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/plan/foreign-key-example.yaml">Define foreign keys across data sources in your plan to ensure generated data can match</a><br />
@@ -1963,6 +1981,21 @@ and how many steps (sub data sources) there are (i.e. tables in a database, topi
 </table>
 <h3 id="configuration">Configuration</h3>
 <p><a href="https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/application.conf">Basic configuration</a></p>
+<h2 id="docker-compose">Docker-compose</h2>
+<p>To see how it runs against different data sources, you can run using <code>docker-compose</code> and set <code>DATA_SOURCE</code> like below</p>
+<div class="highlight"><pre><span></span><code>./gradlew<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>docker
+<span class="nv">DATA_SOURCE</span><span class="o">=</span>postgres<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>datacaterer
+</code></pre></div>
+<p>Can set it to one of the following:</p>
+<ul>
+<li>postgres</li>
+<li>mysql</li>
+<li>cassandra</li>
+<li>solace</li>
+<li>kafka</li>
+<li>http</li>
+</ul>
 
 
 

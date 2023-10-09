@@ -1,7 +1,7 @@
 # Guides
 
 Below are a list of guides you can follow to create your data generation for your use case.
-  
+
 Checkout this [repo](https://github.com/pflooky/data-caterer-example) for example Java and Scala API usage.
 
 ## Java/Scala API
@@ -10,10 +10,14 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
 
 !!! note "Free tier scenarios"
 
+    <div class="grid cards" markdown>
+
     - __[First Data Generation]__ - If you are new, this is the place to start
     - __[Multiple Records Per Column Value]__ - How you can generate multiple records per set of columns
     - __[Foreign Keys Across Data Sources]__ - Generate matching values across generated data sets
     - __[Data Validations]__ - (Soon to document) Run data validations after generating data
+
+    </div>
 
       [First Data Generation]: scenario/first-data-generation.md
       [Multiple Records Per Column Value]: scenario/records-per-column.md
@@ -22,14 +26,18 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
 
 !!! example "Paid tier scenarios"
 
+    <div class="grid cards" markdown>
+
     - __[Auto Generate From Data Connection]__ - Automatically generating data from just defining data sources
     - __[Delete Generated Data]__ - Delete the generated data whilst leaving other data
     - __[Generate Batch and Event Data]__ - Generate matching batch and event data
 
+    </div>
+
       [Auto Generate From Data Connection]: scenario/auto-generate-connection.md
       [Delete Generated Data]: scenario/delete-generated-data.md
       [Generate Batch and Event Data]: scenario/batch-and-event.md
-  
+
 ### Data Sources
 
 !!! note "Free tier data sources"
@@ -68,10 +76,13 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
 
 ### Base Concept
 
-The execution of the data generator is based on the concept of plans and tasks. A plan represent the set of tasks that need to be executed, 
+The execution of the data generator is based on the concept of plans and tasks. A plan represent the set of tasks that
+need to be executed,
 along with other information that spans across tasks, such as foreign keys between data sources.  
-A task represent the component(s) of a data source and its associated metadata so that it understands what the data should look like 
-and how many steps (sub data sources) there are (i.e. tables in a database, topics in Kafka). Tasks can define one or more steps.
+A task represent the component(s) of a data source and its associated metadata so that it understands what the data
+should look like
+and how many steps (sub data sources) there are (i.e. tables in a database, topics in Kafka). Tasks can define one or
+more steps.
 
 ### Plan
 
@@ -95,7 +106,25 @@ and how many steps (sub data sources) there are (i.e. tables in a database, topi
 | JMS              | Solace      | [Sample](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/jms/solace/jms-account-task.yaml)           | JSON formatted message                                            |
 | HTTP             | PUT         | [Sample](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/task/http/http-account-task.yaml)                | JSON formatted PUT body                                           |
 
-
 ### Configuration
 
 [Basic configuration](https://github.com/pflooky/data-caterer-example/blob/main/docker/data/custom/application.conf)
+
+## Docker-compose
+
+To see how it runs against different data sources, you can run using `docker-compose` and set `DATA_SOURCE` like below
+
+```shell
+./gradlew build
+cd docker
+DATA_SOURCE=postgres docker-compose up -d datacaterer
+```
+
+Can set it to one of the following:
+
+- postgres
+- mysql
+- cassandra
+- solace
+- kafka
+- http

@@ -1322,6 +1322,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#unqiue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unqiue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#less-than" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2170,9 +2181,32 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 </div>
 </div>
+<h2 id="unqiue">Unqiue</h2>
+<p>Ensure all data in column is unique.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Java</label><label for="__tabbed_7_2">Scala</label><label for="__tabbed_7_3">YAML</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">unique</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">unique</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;account_checks&quot;</span>
+<span class="nt">dataSources</span><span class="p">:</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">validations</span><span class="p p-Indicator">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">unique</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;account_id&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="less-than">Less Than</h2>
 <p>Ensure all data in column is less than certain value.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Java</label><label for="__tabbed_7_2">Scala</label><label for="__tabbed_7_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">Scala</label><label for="__tabbed_8_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">lessThan</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -2195,7 +2229,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="less-than-or-equal">Less Than Or Equal</h2>
 <p>Ensure all data in column is less than or equal to certain value.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">Scala</label><label for="__tabbed_8_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Java</label><label for="__tabbed_9_2">Scala</label><label for="__tabbed_9_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">lessThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -2218,7 +2252,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="greater-than">Greater Than</h2>
 <p>Ensure all data in column is greater than certain value.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Java</label><label for="__tabbed_9_2">Scala</label><label for="__tabbed_9_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Java</label><label for="__tabbed_10_2">Scala</label><label for="__tabbed_10_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">greaterThan</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -2241,7 +2275,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="greater-than-or-equal">Greater Than Or Equal</h2>
 <p>Ensure all data in column is greater than or equal to certain value.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Java</label><label for="__tabbed_10_2">Scala</label><label for="__tabbed_10_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Java</label><label for="__tabbed_11_2">Scala</label><label for="__tabbed_11_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">greaterThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -2264,7 +2298,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="between">Between</h2>
 <p>Ensure all data in column is between two values.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Java</label><label for="__tabbed_11_2">Scala</label><label for="__tabbed_11_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Java</label><label for="__tabbed_12_2">Scala</label><label for="__tabbed_12_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">between</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span>
@@ -2287,7 +2321,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="not-between">Not Between</h2>
 <p>Ensure all data in column is not between two values.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Java</label><label for="__tabbed_12_2">Scala</label><label for="__tabbed_12_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Java</label><label for="__tabbed_13_2">Scala</label><label for="__tabbed_13_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">notBetween</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span>
@@ -2310,7 +2344,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="in">In</h2>
 <p>Ensure all data in column is in set of defined values.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Java</label><label for="__tabbed_13_2">Scala</label><label for="__tabbed_13_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Java</label><label for="__tabbed_14_2">Scala</label><label for="__tabbed_14_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;status&quot;</span><span class="p">).</span><span class="na">in</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;closed&quot;</span><span class="p">)</span>
@@ -2333,7 +2367,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="matches">Matches</h2>
 <p>Ensure all data in column matches certain regex expression.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Java</label><label for="__tabbed_14_2">Scala</label><label for="__tabbed_14_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:3"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">Java</label><label for="__tabbed_15_2">Scala</label><label for="__tabbed_15_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">matches</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">)</span>
@@ -2356,7 +2390,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="not-matches">Not Matches</h2>
 <p>Ensure all data in column does not match certain regex expression.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="15:3"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">Java</label><label for="__tabbed_15_2">Scala</label><label for="__tabbed_15_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:3"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><input id="__tabbed_16_3" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">Java</label><label for="__tabbed_16_2">Scala</label><label for="__tabbed_16_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">notMatches</span><span class="p">(</span><span class="s">&quot;^acc.*&quot;</span><span class="p">)</span>
@@ -2379,7 +2413,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="starts-with">Starts With</h2>
 <p>Ensure all data in column starts with certain string. Column has to have type string.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="16:3"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><input id="__tabbed_16_3" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">Java</label><label for="__tabbed_16_2">Scala</label><label for="__tabbed_16_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:3"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><input id="__tabbed_17_3" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">Java</label><label for="__tabbed_17_2">Scala</label><label for="__tabbed_17_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">startsWith</span><span class="p">(</span><span class="s">&quot;ACC&quot;</span><span class="p">)</span>
@@ -2402,7 +2436,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="not-starts-with">Not Starts With</h2>
 <p>Ensure all data in column does not start with certain string. Column has to have type string.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="17:3"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><input id="__tabbed_17_3" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">Java</label><label for="__tabbed_17_2">Scala</label><label for="__tabbed_17_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:3"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><input id="__tabbed_18_2" name="__tabbed_18" type="radio" /><input id="__tabbed_18_3" name="__tabbed_18" type="radio" /><div class="tabbed-labels"><label for="__tabbed_18_1">Java</label><label for="__tabbed_18_2">Scala</label><label for="__tabbed_18_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">notStartsWith</span><span class="p">(</span><span class="s">&quot;ACC&quot;</span><span class="p">)</span>
@@ -2425,7 +2459,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="ends-with">Ends With</h2>
 <p>Ensure all data in column ends with certain string. Column has to have type string.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="18:3"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><input id="__tabbed_18_2" name="__tabbed_18" type="radio" /><input id="__tabbed_18_3" name="__tabbed_18" type="radio" /><div class="tabbed-labels"><label for="__tabbed_18_1">Java</label><label for="__tabbed_18_2">Scala</label><label for="__tabbed_18_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:3"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><input id="__tabbed_19_3" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">Java</label><label for="__tabbed_19_2">Scala</label><label for="__tabbed_19_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">endsWith</span><span class="p">(</span><span class="s">&quot;ACC&quot;</span><span class="p">)</span>
@@ -2448,7 +2482,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="not-ends-with">Not Ends With</h2>
 <p>Ensure all data in column does not end with certain string. Column has to have type string.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="19:3"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><input id="__tabbed_19_3" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">Java</label><label for="__tabbed_19_2">Scala</label><label for="__tabbed_19_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:3"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><input id="__tabbed_20_3" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">Java</label><label for="__tabbed_20_2">Scala</label><label for="__tabbed_20_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">notEndsWith</span><span class="p">(</span><span class="s">&quot;ACC&quot;</span><span class="p">)</span>
@@ -2471,7 +2505,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="size">Size</h2>
 <p>Ensure all data in column has certain size. Column has to have type array or map.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="20:3"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><input id="__tabbed_20_3" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">Java</label><label for="__tabbed_20_2">Scala</label><label for="__tabbed_20_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:3"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><input id="__tabbed_21_2" name="__tabbed_21" type="radio" /><input id="__tabbed_21_3" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">Java</label><label for="__tabbed_21_2">Scala</label><label for="__tabbed_21_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">).</span><span class="na">size</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -2494,7 +2528,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="not-size">Not Size</h2>
 <p>Ensure all data in column does not have certain size. Column has to have type array or map.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="21:3"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><input id="__tabbed_21_2" name="__tabbed_21" type="radio" /><input id="__tabbed_21_3" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">Java</label><label for="__tabbed_21_2">Scala</label><label for="__tabbed_21_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:3"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><input id="__tabbed_22_2" name="__tabbed_22" type="radio" /><input id="__tabbed_22_3" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">Java</label><label for="__tabbed_22_2">Scala</label><label for="__tabbed_22_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">).</span><span class="na">notSize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -2517,7 +2551,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="less-than-size">Less Than Size</h2>
 <p>Ensure all data in column has size less than certain value. Column has to have type array or map.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="22:3"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><input id="__tabbed_22_2" name="__tabbed_22" type="radio" /><input id="__tabbed_22_3" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">Java</label><label for="__tabbed_22_2">Scala</label><label for="__tabbed_22_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="23:3"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><input id="__tabbed_23_2" name="__tabbed_23" type="radio" /><input id="__tabbed_23_3" name="__tabbed_23" type="radio" /><div class="tabbed-labels"><label for="__tabbed_23_1">Java</label><label for="__tabbed_23_2">Scala</label><label for="__tabbed_23_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">).</span><span class="na">lessThanSize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -2540,7 +2574,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="less-than-or-equal-size">Less Than Or Equal Size</h2>
 <p>Ensure all data in column has size less than or equal to certain value. Column has to have type array or map.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="23:3"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><input id="__tabbed_23_2" name="__tabbed_23" type="radio" /><input id="__tabbed_23_3" name="__tabbed_23" type="radio" /><div class="tabbed-labels"><label for="__tabbed_23_1">Java</label><label for="__tabbed_23_2">Scala</label><label for="__tabbed_23_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="24:3"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><input id="__tabbed_24_2" name="__tabbed_24" type="radio" /><input id="__tabbed_24_3" name="__tabbed_24" type="radio" /><div class="tabbed-labels"><label for="__tabbed_24_1">Java</label><label for="__tabbed_24_2">Scala</label><label for="__tabbed_24_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">).</span><span class="na">lessThanOrEqualSize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -2563,7 +2597,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="greater-than-size">Greater Than Size</h2>
 <p>Ensure all data in column has size greater than certain value. Column has to have type array or map.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="24:3"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><input id="__tabbed_24_2" name="__tabbed_24" type="radio" /><input id="__tabbed_24_3" name="__tabbed_24" type="radio" /><div class="tabbed-labels"><label for="__tabbed_24_1">Java</label><label for="__tabbed_24_2">Scala</label><label for="__tabbed_24_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="25:3"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><input id="__tabbed_25_2" name="__tabbed_25" type="radio" /><input id="__tabbed_25_3" name="__tabbed_25" type="radio" /><div class="tabbed-labels"><label for="__tabbed_25_1">Java</label><label for="__tabbed_25_2">Scala</label><label for="__tabbed_25_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">).</span><span class="na">greaterThanSize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -2586,7 +2620,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 <h2 id="greater-than-or-equal-size">Greater Than Or Equal Size</h2>
 <p>Ensure all data in column has size greater than or equal to certain value. Column has to have type array or map.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="25:3"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><input id="__tabbed_25_2" name="__tabbed_25" type="radio" /><input id="__tabbed_25_3" name="__tabbed_25" type="radio" /><div class="tabbed-labels"><label for="__tabbed_25_1">Java</label><label for="__tabbed_25_2">Scala</label><label for="__tabbed_25_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="26:3"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio" /><input id="__tabbed_26_2" name="__tabbed_26" type="radio" /><input id="__tabbed_26_3" name="__tabbed_26" type="radio" /><div class="tabbed-labels"><label for="__tabbed_26_1">Java</label><label for="__tabbed_26_2">Scala</label><label for="__tabbed_26_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">).</span><span class="na">greaterThanOrEqualSize</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -2610,7 +2644,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 <h2 id="luhn-check">Luhn Check</h2>
 <p>Ensure all data in column passes luhn check. Luhn check is used to validate credit card numbers and certain
 identification numbers (see <a href="https://en.wikipedia.org/wiki/Luhn_algorithm">here</a> for more details).</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="26:3"><input checked="checked" id="__tabbed_26_1" name="__tabbed_26" type="radio" /><input id="__tabbed_26_2" name="__tabbed_26" type="radio" /><input id="__tabbed_26_3" name="__tabbed_26" type="radio" /><div class="tabbed-labels"><label for="__tabbed_26_1">Java</label><label for="__tabbed_26_2">Scala</label><label for="__tabbed_26_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="27:3"><input checked="checked" id="__tabbed_27_1" name="__tabbed_27" type="radio" /><input id="__tabbed_27_2" name="__tabbed_27" type="radio" /><input id="__tabbed_27_3" name="__tabbed_27" type="radio" /><div class="tabbed-labels"><label for="__tabbed_27_1">Java</label><label for="__tabbed_27_2">Scala</label><label for="__tabbed_27_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;credit_card&quot;</span><span class="p">).</span><span class="na">luhnCheck</span><span class="p">()</span>
@@ -2633,7 +2667,7 @@ identification numbers (see <a href="https://en.wikipedia.org/wiki/Luhn_algorith
 </div>
 <h2 id="has-type">Has Type</h2>
 <p>Ensure all data in column has certain data type.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="27:3"><input checked="checked" id="__tabbed_27_1" name="__tabbed_27" type="radio" /><input id="__tabbed_27_2" name="__tabbed_27" type="radio" /><input id="__tabbed_27_3" name="__tabbed_27" type="radio" /><div class="tabbed-labels"><label for="__tabbed_27_1">Java</label><label for="__tabbed_27_2">Scala</label><label for="__tabbed_27_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="28:3"><input checked="checked" id="__tabbed_28_1" name="__tabbed_28" type="radio" /><input id="__tabbed_28_2" name="__tabbed_28" type="radio" /><input id="__tabbed_28_3" name="__tabbed_28" type="radio" /><div class="tabbed-labels"><label for="__tabbed_28_1">Java</label><label for="__tabbed_28_2">Scala</label><label for="__tabbed_28_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;id&quot;</span><span class="p">).</span><span class="na">hasType</span><span class="p">(</span><span class="s">&quot;string&quot;</span><span class="p">)</span>
@@ -2659,7 +2693,7 @@ identification numbers (see <a href="https://en.wikipedia.org/wiki/Luhn_algorith
 here that could combine multiple columns.</p>
 <p>For example, <code>CASE WHEN status == 'open' THEN balance &gt; 0 ELSE balance == 0 END</code> would check all rows with <code>status</code>
 open to have <code>balance</code> greater than 0, otherwise, check the <code>balance</code> is 0.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="28:3"><input checked="checked" id="__tabbed_28_1" name="__tabbed_28" type="radio" /><input id="__tabbed_28_2" name="__tabbed_28" type="radio" /><input id="__tabbed_28_3" name="__tabbed_28" type="radio" /><div class="tabbed-labels"><label for="__tabbed_28_1">Java</label><label for="__tabbed_28_2">Scala</label><label for="__tabbed_28_3">YAML</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="29:3"><input checked="checked" id="__tabbed_29_1" name="__tabbed_29" type="radio" /><input id="__tabbed_29_2" name="__tabbed_29" type="radio" /><input id="__tabbed_29_3" name="__tabbed_29" type="radio" /><div class="tabbed-labels"><label for="__tabbed_29_1">Java</label><label for="__tabbed_29_2">Scala</label><label for="__tabbed_29_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">csvTxns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/tmp/csv&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>

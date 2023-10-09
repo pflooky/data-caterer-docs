@@ -2034,17 +2034,14 @@ by the driver or connector for connecting to the data source.</p>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Overriding configuration</p>
-</div>
 <p>When defining a configuration value that can be defined by a system property or environment variable at runtime, you can
 define that via the following:</p>
-<pre><code>```
-url = "localhost"
+<div class="highlight"><pre><span></span><code>url = &quot;localhost&quot;
 url = ${?POSTGRES_URL}
-```
-
-The above defines that if there is a system property or environment variable named `POSTGRES_URL`, then that value will
-be used for the `url`, otherwise, it will default to `localhost`.
-</code></pre>
+</code></pre></div>
+<p>The above defines that if there is a system property or environment variable named <code>POSTGRES_URL</code>, then that value will
+be used for the <code>url</code>, otherwise, it will default to <code>localhost</code>.</p>
+</div>
 <h2 id="data-sources">Data sources</h2>
 <p>To find examples of a task for each type of data source, please check out <a href="../../guide/">this page</a>.</p>
 <h3 id="file">File</h3>

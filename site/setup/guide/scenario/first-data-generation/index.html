@@ -2622,7 +2622,7 @@ ACC29117767,Willodean<span class="w"> </span>Sauer,84.99145871948083,2023-05-14T
 ACC29117767,Willodean<span class="w"> </span>Sauer,58.89345733567232,2022-11-22T07:38:20.143Z,2022-11-22
 </code></pre></div>
 <p>Congratulations! You have now made a data generator that has simulated a real world data scenario. You can check the
-<code>CsvJavaPlan.java</code> or <code>CsvPlan.scala</code> files as well to check that your plan is the same.</p>
+<code>DocumentationJavaPlanRun.java</code> or <code>DocumentationPlanRun.scala</code> files as well to check that your plan is the same.</p>
 <p>We can now look to consume this CSV data from a job or service. Usually, once we have consumed the data, we would also
 want to check and validate that our consumer has correctly ingested the data.</p>
 <h3 id="validate">Validate</h3>
@@ -2661,6 +2661,7 @@ Below, we have an example that should give you a good understanding of what vali
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">postgresValidateTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">postgres</span><span class="p">(...)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">table</span><span class="p">(</span><span class="s">&quot;account&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span><span class="p">)</span>
 <span class="w">        </span><span class="p">.</span><span class="na">validations</span><span class="p">(</span>
 <span class="w">                </span><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="na">isNotNull</span><span class="p">(),</span>
 <span class="w">                </span><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="na">matches</span><span class="p">(</span><span class="s">&quot;[A-Z][a-z]+ [A-Z][a-z]+&quot;</span><span class="p">).</span><span class="na">errorThreshold</span><span class="p">(</span><span class="mf">0.2</span><span class="p">).</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;Some names have different formats&quot;</span><span class="p">),</span>
@@ -2673,6 +2674,7 @@ Below, we have an example that should give you a good understanding of what vali
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">postgresValidateTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">postgres</span><span class="p">(...)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">table</span><span class="p">(</span><span class="s">&quot;account&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;transactions&quot;</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="n">validations</span><span class="p">(</span>
 <span class="w">    </span><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="n">isNotNull</span><span class="p">,</span>
 <span class="w">    </span><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">).</span><span class="n">matches</span><span class="p">(</span><span class="s">&quot;[A-Z][a-z]+ [A-Z][a-z]+&quot;</span><span class="p">).</span><span class="n">errorThreshold</span><span class="p">(</span><span class="mf">0.2</span><span class="p">).</span><span class="n">description</span><span class="p">(</span><span class="s">&quot;Some names have different formats&quot;</span><span class="p">),</span>
