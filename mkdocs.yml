@@ -3,17 +3,6 @@ site_url: https://data.catering/
 repo_url: https://github.com/pflooky/data-caterer-docs
 repo_name: data-caterer-docs
 
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/pflooky/data-caterer-example
-    - icon: fontawesome/brands/medium
-      link: https://medium.com/@pflooky
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/peter-flook/
-    - icon: fontawesome/solid/paper-plane
-      link: mailto:peter.flook@data.catering
-
 extra_css:
   - stylesheets/extra.css
 
@@ -105,6 +94,20 @@ nav:
       - 'about.md'
       - Terms of service: 'legal/terms-of-service.md'
       - Privacy policy: 'legal/privacy-policy.md'
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/pflooky/data-caterer-example
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/@pflooky
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/peter-flook/
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:peter.flook@data.catering
+  analytics:
+    provider: google
+    property: G-4098CTH5TX
 
 markdown_extensions:
   - attr_list
