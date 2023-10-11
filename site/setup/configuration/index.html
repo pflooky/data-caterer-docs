@@ -1856,6 +1856,12 @@ metadata gets saved.</p>
 <td>Y</td>
 <td>Delete all generated records based off record tracking (if <code>enableRecordTracking</code> has been set to true)</td>
 </tr>
+<tr>
+<td><code>enableGenerateValidations</code></td>
+<td>false</td>
+<td>Y</td>
+<td>If enabled, it will generate validations based on the data sources defined.</td>
+</tr>
 </tbody>
 </table>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label><label for="__tabbed_1_3">application.conf</label></div>
@@ -1870,7 +1876,8 @@ metadata gets saved.</p>
 <span class="w">  </span><span class="p">.</span><span class="na">enableValidation</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="na">enableGeneratePlanAndTasks</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="na">enableRecordTracking</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
-<span class="w">  </span><span class="p">.</span><span class="na">enableDeleteGeneratedRecords</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">  </span><span class="p">.</span><span class="na">enableDeleteGeneratedRecords</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="na">enableGenerateValidations</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1884,6 +1891,7 @@ metadata gets saved.</p>
 <span class="w">  </span><span class="p">.</span><span class="n">enableGeneratePlanAndTasks</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="n">enableRecordTracking</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
 <span class="w">  </span><span class="p">.</span><span class="n">enableDeleteGeneratedRecords</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">  </span><span class="p">.</span><span class="n">enableGenerateValidations</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1900,6 +1908,8 @@ metadata gets saved.</p>
   enableRecordTracking = ${?ENABLE_RECORD_TRACKING}
   enableDeleteGeneratedRecords = false
   enableDeleteGeneratedRecords = ${?ENABLE_DELETE_GENERATED_RECORDS}
+  enableGenerateValidations = false
+  enableGenerateValidations = ${?ENABLE_GENERATE_VALIDATIONS}
 }
 </code></pre></div>
 </div>

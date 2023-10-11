@@ -22,6 +22,7 @@ Flags are used to control which processes are executed when you run Data Caterer
 | `enableGeneratePlanAndTasks`   | false   | Y    | Enable/disable plan and task auto generation based off data source connections                                                                                                                                            |
 | `enableRecordTracking`         | false   | Y    | Enable/disable which data records have been generated for any data source                                                                                                                                                 |
 | `enableDeleteGeneratedRecords` | false   | Y    | Delete all generated records based off record tracking (if `enableRecordTracking` has been set to true)                                                                                                                   |
+| `enableGenerateValidations`    | false   | Y    | If enabled, it will generate validations based on the data sources defined.                                                                                                                                               |
 
 === "Java"
 
@@ -35,7 +36,8 @@ Flags are used to control which processes are executed when you run Data Caterer
       .enableValidation(false)
       .enableGeneratePlanAndTasks(false)
       .enableRecordTracking(false)
-      .enableDeleteGeneratedRecords(false);
+      .enableDeleteGeneratedRecords(false)
+      .enableGenerateValidations(false);
     ```
 
 === "Scala"
@@ -51,6 +53,7 @@ Flags are used to control which processes are executed when you run Data Caterer
       .enableGeneratePlanAndTasks(false)
       .enableRecordTracking(false)
       .enableDeleteGeneratedRecords(false)
+      .enableGenerateValidations(false)
     ```
 
 === "application.conf"
@@ -69,6 +72,8 @@ Flags are used to control which processes are executed when you run Data Caterer
       enableRecordTracking = ${?ENABLE_RECORD_TRACKING}
       enableDeleteGeneratedRecords = false
       enableDeleteGeneratedRecords = ${?ENABLE_DELETE_GENERATED_RECORDS}
+      enableGenerateValidations = false
+      enableGenerateValidations = ${?ENABLE_GENERATE_VALIDATIONS}
     }
     ```
 

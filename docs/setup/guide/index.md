@@ -2,11 +2,7 @@
 
 Below are a list of guides you can follow to create your data generation for your use case.
 
-Checkout this [repo](https://github.com/pflooky/data-caterer-example) for example Java and Scala API usage.
-
-## Java/Scala API
-
-### Scenarios
+## Scenarios
 
 !!! note "Free tier scenarios"
 
@@ -38,7 +34,7 @@ Checkout this [repo](https://github.com/pflooky/data-caterer-example) for exampl
       [Delete Generated Data]: scenario/delete-generated-data.md
       [Generate Batch and Event Data]: scenario/batch-and-event.md
 
-### Data Sources
+## Data Sources
 
 !!! note "Free tier data sources"
 
