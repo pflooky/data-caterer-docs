@@ -1,6 +1,6 @@
 # data-caterer-docs
 
-![Data Catering](docs/diagrams/logo/logo_landscape_banner.svg)
+![Data Catering](docs/diagrams/logo/data_catering_landscape_banner.svg)
 
 Documentation for Data Caterer
 
