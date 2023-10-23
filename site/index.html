@@ -1758,13 +1758,12 @@
 
 <h1 align="center">Simplify your data testing</h1>
 
-<h2 align="center">Take away the pain and complexity of your data landscape and let Data Caterer handle it to reliably
-validate all your data changes.</h2>
+<h2 align="center">Take away the pain and complexity of your data landscape and let Data Caterer handle it</h2>
 
 <p><span class="center-content">
 <a class="md-button md-button--primary" href="get-started/docker/">Try now</a><a class="md-button button-spaced" href="pricing/">See pricing</a>
 </span></p>
-<h1 class="content-spaced" align="center"> Data testing is difficult and fragmented</h1>
+<h1 class="content-spaced" align="center">Data testing is difficult and fragmented</h1>
 
 <ul>
 <li>Data being sent via messages, HTTP requests or files and getting stored in databases, file systems, etc.</li>
@@ -1773,7 +1772,7 @@ validate all your data changes.</h2>
 <li>Complex relationships between datasets and fields</li>
 <li>Different scenarios, permutations, combinations and edge cases to cover</li>
 </ul>
-<h1 class="content-spaced" align="center"> Current solutions only cover half the story </h1>
+<h1 class="content-spaced" align="center">Current solutions only cover half the story</h1>
 
 <ul>
 <li>Specific testing frameworks that support one or limited number of data sources or transport protocols</li>
@@ -1783,12 +1782,54 @@ validate all your data changes.</h2>
 <li>Manually generating data, or worse, copying/masking production data into lower environments</li>
 <li>Observability pushes towards being reactive rather than proactive</li>
 </ul>
-<h1 class="content-spaced" align="center"> What you need is a reliable tool that can handle changes to your data landscape. A clear and common 
-approach that covers your whole ecosystem</h1>
+<h1 class="content-spaced" align="center">Data Catering vs Other tools vs In-house</h1>
+
+<p><span class="center-content"></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Data Catering</th>
+<th>Other tools</th>
+<th>In-house</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><b>Data flow</b></td>
+<td>Batch and events generation with validation</td>
+<td>Batch generation only or validation only</td>
+<td>Depends on architecture and design</td>
+</tr>
+<tr>
+<td><b>Cost</b></td>
+<td>$500 per month</td>
+<td>$1,000+ per month, Pay for usage</td>
+<td>Build and maintenance engineering time cost</td>
+</tr>
+<tr>
+<td><b>Time to results</b></td>
+<td>1 day</td>
+<td>1+ month to integrate, deploy and onboard</td>
+<td>1+ month to build and deploy</td>
+</tr>
+<tr>
+<td><b>Solution</b></td>
+<td>Connect with your existing data ecosystem, automatic generation and validation</td>
+<td>Manual UI data entry or via SDK</td>
+<td>Depends on engineer(s) building it</td>
+</tr>
+</tbody>
+</table>
+<p></span></p>
+<p><span class="center-content">
+<a class="md-button md-button--primary" href="get-started/docker/">Try now</a><a class="md-button button-spaced" href="pricing/">See pricing</a>
+</span></p>
+<h1 class="content-spaced" align="center">What you need is a reliable tool that can handle changes to your data landscape</h1>
 
 <figure>
-<p><img alt="High level overview of Data Caterer" src="diagrams/high_level_flow-high-level.drawio.svg#only-light" />
-  <img alt="High level overview of Data Caterer" src="diagrams/high_level_flow-high-level-dark.drawio.svg#only-dark" /></p>
+<p><img alt="High level overview of Data Caterer" src="diagrams/high_level_flow-high-level.svg#only-light" />
+  <img alt="High level overview of Data Caterer" src="diagrams/high_level_flow-high-level-dark.svg#only-dark" /></p>
 </figure>
 <p>With Data Caterer, you get:</p>
 <ul>
@@ -1803,19 +1844,23 @@ approach that covers your whole ecosystem</h1>
 </span></p>
 <h2 id="tech-summary">Tech Summary</h2>
 <p>Data Caterer is a metadata driven data generation/testing tool that aids in creating production like data across batch
-and event
-data systems. You can then clean up the generated data or run data validations to ensure your systems have ingested it
-as expected. Use the Java, Scala API, or YAML files to help with setup or customisation that are all run via Docker.</p>
+and event data systems. You can then clean up the generated data or run data validations to ensure your systems have 
+ingested it as expected. Use the Java, Scala API, or YAML files to help with setup or customisation that are all run 
+via Docker.</p>
 <p>Main features include:</p>
 <ul>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.5 9a2.5 2.5 0 0 0 0 5 2.5 2.5 0 0 0 0-5M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m-3.21 14.21-2.91-2.91c-.69.44-1.51.7-2.38.7C9 16 7 14 7 11.5S9 7 11.5 7a4.481 4.481 0 0 1 3.8 6.89l2.91 2.9-1.42 1.42Z"/></svg></span> Metadata discovery</li>
-<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span> Batch or <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 4a8 8 0 1 1-8 8 8 8 0 0 1 8-8M3 12a6 6 0 0 0 4 5.65v2.09A8 8 0 0 1 7 4.26v2.09A6 6 0 0 0 3 12Z"/></svg></span> event data generation</li>
+<li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6Z"/></svg></span> Batch and <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 4a8 8 0 1 1-8 8 8 8 0 0 1 8-8M3 12a6 6 0 0 0 4 5.65v2.09A8 8 0 0 1 7 4.26v2.09A6 6 0 0 0 3 12Z"/></svg></span> event data generation</li>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 22c1.11 0 2-.89 2-2v-2h-2v2h-2v2h2m-4 0v-2h-3v2h3m-5 0v-2H9v-2H7v2c0 1.11.89 2 2 2h2m11-6v-3h-2v3h2M9 16V9h7V3c0-1.11-.89-2-2-2H3c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h6m-2-2H3V3h11v4H9c-1.11 0-2 .89-2 2v5m15-3V9c0-1.11-.89-2-2-2h-2v2h2v2h2Z"/></svg></span> Maintain referential integrity across any dataset</li>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6H4c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h1v9h14V9h1c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1m-3 10H7V9h10v7Z"/></svg></span> Create custom data generation scenarios</li>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 16h4v2h-4v-2m0-8h7v2h-7V8m0 4h6v2h-6v-2M3 18a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V8H3v10M14 5h-3l-1-1H6L5 5H2v2h12V5Z"/></svg></span> Clean up generated data</li>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 7 9 19l-5.5-5.5 1.41-1.41L9 16.17 19.59 5.59 21 7Z"/></svg></span> Validate data</li>
 <li><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 4 4 4 4 0 0 0 4-4V4h1V2H7m4 14c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m2-4c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m1-5h-4V4h4v3Z"/></svg></span> Suggest data validations</li>
 </ul>
+<figure>
+<p><img alt="Basic flow" src="diagrams/high_level_flow-basic-flow.svg" /></p>
+</figure>
+<p><a href="setup/#high-level-run-configurations">Check other run configurations here.</a></p>
 <h2 id="what-is-it">What is it</h2>
 <div class="grid cards">
 <ul>

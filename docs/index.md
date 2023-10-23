@@ -5,14 +5,13 @@ image: "https://data.catering/diagrams/logo/data_catering_logo.svg"
 
 <h1 align="center">Simplify your data testing</h1>
 
-<h2 align="center">Take away the pain and complexity of your data landscape and let Data Caterer handle it to reliably
-validate all your data changes.</h2>
+<h2 align="center">Take away the pain and complexity of your data landscape and let Data Caterer handle it</h2>
 
 <span class="center-content">
 [Try now](get-started/docker.md){ .md-button .md-button--primary }[See pricing](pricing.md){ .md-button .button-spaced }
 </span>
 
-<h1 class="content-spaced" align="center"> Data testing is difficult and fragmented</h1>
+<h1 class="content-spaced" align="center">Data testing is difficult and fragmented</h1>
 
 - Data being sent via messages, HTTP requests or files and getting stored in databases, file systems, etc.
 - Maintaining and updating tests with the latest schemas and business definitions
@@ -20,7 +19,7 @@ validate all your data changes.</h2>
 - Complex relationships between datasets and fields
 - Different scenarios, permutations, combinations and edge cases to cover
 
-<h1 class="content-spaced" align="center"> Current solutions only cover half the story </h1>
+<h1 class="content-spaced" align="center">Current solutions only cover half the story</h1>
 
 - Specific testing frameworks that support one or limited number of data sources or transport protocols
 - Under utilizing metadata from data catalogs or metadata discovery services
@@ -29,12 +28,28 @@ validate all your data changes.</h2>
 - Manually generating data, or worse, copying/masking production data into lower environments
 - Observability pushes towards being reactive rather than proactive
 
-<h1 class="content-spaced" align="center"> What you need is a reliable tool that can handle changes to your data landscape. A clear and common 
-approach that covers your whole ecosystem</h1> 
+<h1 class="content-spaced" align="center">Data Catering vs Other tools vs In-house</h1>
+
+<span class="center-content">
+
+|                        | Data Catering                                                                  | Other tools                               | In-house                                    |
+|------------------------|--------------------------------------------------------------------------------|-------------------------------------------|---------------------------------------------|
+| <b>Data flow</b>       | Batch and events generation with validation                                    | Batch generation only or validation only  | Depends on architecture and design          |
+| <b>Cost</b>            | $500 per month                                                                 | $1,000+ per month, Pay for usage          | Build and maintenance engineering time cost |
+| <b>Time to results</b> | 1 day                                                                          | 1+ month to integrate, deploy and onboard | 1+ month to build and deploy                |
+| <b>Solution</b>        | Connect with your existing data ecosystem, automatic generation and validation | Manual UI data entry or via SDK           | Depends on engineer(s) building it          |
+
+</span>
+
+<span class="center-content">
+[Try now](get-started/docker.md){ .md-button .md-button--primary }[See pricing](pricing.md){ .md-button .button-spaced }
+</span>
+
+<h1 class="content-spaced" align="center">What you need is a reliable tool that can handle changes to your data landscape</h1> 
 
 <figure markdown>
-  ![High level overview of Data Caterer](diagrams/high_level_flow-high-level.drawio.svg#only-light)
-  ![High level overview of Data Caterer](diagrams/high_level_flow-high-level-dark.drawio.svg#only-dark)
+  ![High level overview of Data Caterer](diagrams/high_level_flow-high-level.svg#only-light)
+  ![High level overview of Data Caterer](diagrams/high_level_flow-high-level-dark.svg#only-dark)
 </figure>
 
 With Data Caterer, you get:
@@ -52,19 +67,25 @@ With Data Caterer, you get:
 ## Tech Summary
 
 Data Caterer is a metadata driven data generation/testing tool that aids in creating production like data across batch
-and event
-data systems. You can then clean up the generated data or run data validations to ensure your systems have ingested it
-as expected. Use the Java, Scala API, or YAML files to help with setup or customisation that are all run via Docker.
+and event data systems. You can then clean up the generated data or run data validations to ensure your systems have 
+ingested it as expected. Use the Java, Scala API, or YAML files to help with setup or customisation that are all run 
+via Docker.
 
 Main features include:
 
 - :material-card-search: Metadata discovery
-- :material-file: Batch or :material-circle-multiple: event data generation
+- :material-file: Batch and :material-circle-multiple: event data generation
 - :material-vector-difference-ba: Maintain referential integrity across any dataset
 - :material-projector-screen-variant-outline: Create custom data generation scenarios
 - :material-delete-sweep: Clean up generated data
 - :material-check: Validate data
 - :material-test-tube: Suggest data validations
+
+<figure markdown>
+  ![Basic flow](diagrams/high_level_flow-basic-flow.svg)
+</figure>
+
+[Check other run configurations here.](setup/index.md#high-level-run-configurations)
 
 ## What is it
 

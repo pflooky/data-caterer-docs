@@ -11,7 +11,7 @@ the following:
 3. Validate data to ensure your system runs as expected
 4. Clean up data to avoid build up of generated data
 
-![Replicate production flow](../diagrams/use_case_replicate_production.drawio.svg "Get latest schemas, generate data, validate and clean data")
+![Replicate production flow](../diagrams/use_case_replicate_production.svg "Get latest schemas, generate data, validate and clean data")
 
 ## Local development
 

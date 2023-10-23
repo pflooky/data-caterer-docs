@@ -1461,6 +1461,23 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparison
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1476,6 +1493,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Generation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-of-ml-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use of ML models
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1694,77 +1752,139 @@
 
 
 <h1 id="comparison-to-similar-tools">Comparison to similar tools</h1>
-<p>We have not been able to assess all the below tools which is why some are missing pros and cons. We have collected all
-information that is publicly available.</p>
+<p>I have tried to include all the companies found in the list
+<a href="https://mostly.ai/blog/synthetic-data-companies">here from Mostly AI blog post</a> and used information that is publicly
+available.</p>
+<p>The companies/products not shown below either have:</p>
+<ul>
+<li>a website with insufficient information about the technology side of data generation/validation</li>
+<li>no/little documentation</li>
+<li>don't have a free, no sign-up version of their app to use</li>
+</ul>
+<h2 id="data-generation">Data Generation</h2>
 <table>
 <thead>
 <tr>
 <th>Tool</th>
 <th>Description</th>
-<th>Features</th>
+<th>Cost</th>
 <th>Pros</th>
 <th>Cons</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/databrickslabs/dbldatagen">DBLDatagen</a></td>
-<td>Python based data generation tool</td>
-<td>- Scalable and predictable data generation across data scenarios<br>- Plugin third-party libraries<br>- Generate from existing data<br>- Generate based on combination of other fields</td>
-<td>- Open source<br>- Good documentation<br>- Customisable and scalable<br>- Generate from existing data/schemas</td>
-<td>- Limited support if issues<br>- Code required<br>- No clean up<br>- No validation</td>
+<td><a href="https://www.clearbox.ai/">Clearbox AI</a></td>
+<td>Python based data generation tool via ML</td>
+<td><a href="https://www.clearbox.ai/pricing">Unclear</a></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Python SDK<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> UI interface<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Detect private data<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Report generation</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Batch data only<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data clean up<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Limited/no documentation</td>
+</tr>
+<tr>
+<td><a href="https://www.curiositysoftware.ie/">Curiosity Software</a></td>
+<td>Platform solution for test data management</td>
+<td><a href="https://www.curiositysoftware.ie/test-modeller-test-data-automation-pricing">Unclear</a></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Extensive documentation<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Generate data based off test cases<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> UI interface<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Web/API/UI/mobile testing</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No quick start<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No SDK<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Many components that may not be required<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No event generation support</td>
 </tr>
 <tr>
 <td><a href="https://docs.sdv.dev/sdv/">DataCebo Synthetic Data Vault</a></td>
-<td>Python based data generation tool with focus on ML generation, evaluating generated data</td>
-<td>- Create synthetic data using machine learning<br>- Evaluate and visualize synthetic data<br>- Preprocess, anonymize and define constraints</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.tonic.ai/">Tonic</a></td>
-<td>Platform solution for generating data</td>
-<td>- Integration with many data sources<br>- UI with RBAC<br>- Quality and security checks<br>- Auditing and alerting<br>- Dashboards and reporting</td>
-<td></td>
-<td></td>
+<td>Python based data generation tool via ML</td>
+<td>Unclear</td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Python SDK<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Report generation<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Data quality checks<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Business logic constraints</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data connection support<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data clean up<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No foreign key support</td>
 </tr>
 <tr>
 <td><a href="https://www.datafaker.net/documentation/getting-started/">Datafaker</a></td>
 <td>Realistic data generation library</td>
-<td>- Generate realistic data<br>- Push to CSV/JSON format<br>- Create your own data providers<br>- Performant</td>
-<td>- Simple, easy to use<br>- Extensible<br>- Open source<br>- Realistic values</td>
-<td>- Have to code for and manage data source connections<br>- No data clean up<br>- No validation<br>- No foreign keys support</td>
+<td>Free</td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> SDK for many languages<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Simple, easy to use<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Extensible<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Open source<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Generate realistic values</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data connection support<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data clean up<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No validation<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No foreign key support</td>
+</tr>
+<tr>
+<td><a href="https://github.com/databrickslabs/dbldatagen">DBLDatagen</a></td>
+<td>Python based data generation tool</td>
+<td>Free</td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Python SDK<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Open source<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Good documentation<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Customisable scenarios<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Customisable column generation<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Generate from existing data/schemas<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Plugin third-party libraries</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Limited support if issues<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Code required<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data clean up<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data validation</td>
 </tr>
 <tr>
 <td><a href="https://gatling.io/">Gatling</a></td>
 <td>HTTP API load testing tool</td>
-<td>- Load testing<br>- Validating data and responses<br>- Scenario testing<br>- Reporting<br>- Extensive API support<br>- Integration with CI/CD tools</td>
-<td>- Widely used<br>- Clear documentation<br>- Extensive testing/validation support<br>- Customisable scenarios</td>
-<td>- Only supports HTTP, JMS and JDBC<br>- No data clean up<br>- Data feeders not based off metadata</td>
+<td>Free (Open Source)<br><a href="https://gatling.io/pricing/">Gatling Enterprise, usage based, starts from €89 per month, 1 user, 6.25 hours of testing</a></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Kotlin, Java &amp; Scala SDK<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Widely used<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Open source<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Clear documentation<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Extensive testing/validation support<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Customisable scenarios<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Report generation</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Only supports HTTP, JMS and JDBC<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data clean up<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Data feeders not based off metadata</td>
+</tr>
+<tr>
+<td><a href="https://gretel.ai/">Gretel</a></td>
+<td>Python based data generation tool via ML</td>
+<td><a href="https://gretel.ai/pricing">Usage based, starts from $295 per month, $2.20 per credit, assumed USD</a></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> CLI &amp; Python SDK<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> UI interface<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Training and re-use of models<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Detect private data<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Customisable scenarios</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Batch data only<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No relationships between data sources<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Only simple foreign key relations defined<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data clean up<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Charge by usage</td>
+</tr>
+<tr>
+<td><a href="https://www.howso.com/synthesizer/">Howso</a></td>
+<td>Python based data generation tool via ML</td>
+<td>Unclear</td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Python SDK<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Playground to try<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Open source library<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Customisable scenarios</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No support for data sources<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data validation<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data clean up</td>
+</tr>
+<tr>
+<td><a href="https://mostly.ai/">Mostly AI</a></td>
+<td>Python based data generation tool via ML</td>
+<td><a href="https://mostly.ai/pricing">Usage based, Enterprise 1 user, 100 columns, 100K rows $3,100 per month, assumed USD</a></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Report generation<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Non-technical users can use UI<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Customisable scenarios</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Charge by usage<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Batch data only<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data clean up<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Confusing use of 'smart select' for multiple foreign keys<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Limited custom column generation logic<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Multiple deployment components<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No SDK</td>
+</tr>
+<tr>
+<td><a href="https://www.octopize.io/?locale=en">Octopize</a></td>
+<td>Python based data generation tool via ML</td>
+<td>Unclear</td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Python &amp; R SDK<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Report generation<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> API for metadata<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Customisable scenarios</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Input data source is only CSV<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Multiple manual steps before starting<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Quickstart is not a quickstart<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Documentation lacks code examples</td>
+</tr>
+<tr>
+<td><a href="https://www.synthesized.io/">Synthesized</a></td>
+<td>Python based data generation tool via ML</td>
+<td><a href="https://www.synthesized.io/pricing">Unclear</a></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> CLI &amp; Python SDK<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> API for metadata<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> IDE setup<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Data quality checks</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Not sure what is SDK &amp; TDK<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Charge by usage<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No report of what was generated<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No relationships between data sources</td>
+</tr>
+<tr>
+<td><a href="https://www.tonic.ai/">Tonic</a></td>
+<td>Platform solution for generating data</td>
+<td><a href="https://www.tonic.ai/pricing">Unclear</a></td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> UI interface<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Good documentation<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Detect private data<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Support for encrypted columns<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Report generation<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Alerting</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Batch data only<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Multiple deployment components<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No relationships between data sources<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data validation<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data clean up<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No SDK (only API)<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Difficult to embed complex business logic</td>
 </tr>
 <tr>
 <td><a href="https://ydata.ai/">YData</a></td>
-<td>Python based generation tool with adjoining data catalog and data science features</td>
-<td>- ML model based learning<br>- UI to explore and create datasets, experiments, reports<br>- PII/sensitive data detection<br>- Dataset comparison</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.tricentis.com/products/data-integrity">Tricentis - Data integrity</a></td>
-<td>Testing tool that focuses on data integrity</td>
-<td>- Data testing<br>- Pre-screening data<br>- Reconciliation, profiling and report testing<br>- Support SQL DB, noSQL DB, files, API</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="https://www.broadcom.com/products/software/continuous-testing/test-data-manager">Broadcom - Test data manager</a></td>
-<td>Test data provisioning tool with PII detection and reusable datasets</td>
-<td>- Identify sensitive data<br>- Generate synthetic data<br>- Store and reuse existing data<br>- Create virtual copies of data</td>
-<td></td>
-<td></td>
+<td>Python based data generation tool via ML. Platform solution as well</td>
+<td>Unclear</td>
+<td><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Python SDK<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Open source<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Detect private data<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Compare datasets<br><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Report generation</td>
+<td><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data connection support<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Batch data only<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No data clean up<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> Separate data generation and data validation<br><span class="twemoji red-cross"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M1.757 10.243a6.001 6.001 0 1 1 8.488-8.486 6.001 6.001 0 0 1-8.488 8.486ZM6 4.763l-2-2L2.763 4l2 2-2 2L4 9.237l2-2 2 2L9.237 8l-2-2 2-2L8 2.763Z"/></svg></span> No foreign key support</td>
 </tr>
 </tbody>
 </table>
+<h2 id="use-of-ml-models">Use of ML models</h2>
+<p>You may notice that the majority of data generators use machine learning (ML) models to learn from your existing
+datasets to generate new data. Below are some pros and cons to the approach.</p>
+<p>Pros</p>
+<ul>
+<li>Simple setup</li>
+<li>Ability to reproduce complex logic</li>
+<li>Flexible to accept all types of data</li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>Long time for model learning</li>
+<li>Black box of logic</li>
+<li>Maintain, store and update of ML models</li>
+<li>Restriction on input data lengths</li>
+<li>May not maintain referential integrity</li>
+<li>Require deeper understanding of ML models for fine-tuning</li>
+<li>Accuracy may be worse than non-ML models</li>
+</ul>
 
 
 
