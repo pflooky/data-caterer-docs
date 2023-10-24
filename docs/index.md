@@ -35,7 +35,7 @@ image: "https://data.catering/diagrams/logo/data_catering_logo.svg"
 |                        | Data Catering                                                                  | Other tools                               | In-house                                    |
 |------------------------|--------------------------------------------------------------------------------|-------------------------------------------|---------------------------------------------|
 | <b>Data flow</b>       | Batch and events generation with validation                                    | Batch generation only or validation only  | Depends on architecture and design          |
-| <b>Cost</b>            | $500 per month                                                                 | $1,000+ per month, Pay for usage          | Build and maintenance engineering time cost |
+| <b>Cost</b>            | $1,000 per month                                                               | $1,000+ per month, Pay for usage          | Build and maintenance engineering time cost |
 | <b>Time to results</b> | 1 day                                                                          | 1+ month to integrate, deploy and onboard | 1+ month to build and deploy                |
 | <b>Solution</b>        | Connect with your existing data ecosystem, automatic generation and validation | Manual UI data entry or via SDK           | Depends on engineer(s) building it          |
 
