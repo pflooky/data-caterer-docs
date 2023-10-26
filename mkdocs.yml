@@ -24,6 +24,7 @@ theme:
     - navigation.footer
     - content.code.copy
     - content.code.select
+    - content.tabs.link
     - toc.integrate
     - toc.follow
   palette:
@@ -89,7 +90,6 @@ nav:
       - Business Value: 'use-case/business-value.md'
       - Comparison: 'use-case/comparison.md'
       - Roadmap: 'use-case/roadmap.md'
-  - Pricing: 'pricing.md'
   - About:
       - 'about.md'
       - Terms of service: 'legal/terms-of-service.md'

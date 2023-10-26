@@ -8,7 +8,7 @@ image: "https://data.catering/diagrams/logo/data_catering_logo.svg"
 <h2 align="center">Take away the pain and complexity of your data landscape and let Data Caterer handle it</h2>
 
 <span class="center-content">
-[Try now](get-started/docker.md){ .md-button .md-button--primary }[See pricing](pricing.md){ .md-button .button-spaced }
+[Try now](get-started/docker.md){ .md-button .md-button--primary }
 </span>
 
 <h1 class="content-spaced" align="center">Data testing is difficult and fragmented</h1>
@@ -28,21 +28,8 @@ image: "https://data.catering/diagrams/logo/data_catering_logo.svg"
 - Manually generating data, or worse, copying/masking production data into lower environments
 - Observability pushes towards being reactive rather than proactive
 
-<h1 class="content-spaced" align="center">Data Catering vs Other tools vs In-house</h1>
-
 <span class="center-content">
-
-|                        | Data Catering                                                                  | Other tools                               | In-house                                    |
-|------------------------|--------------------------------------------------------------------------------|-------------------------------------------|---------------------------------------------|
-| <b>Data flow</b>       | Batch and events generation with validation                                    | Batch generation only or validation only  | Depends on architecture and design          |
-| <b>Cost</b>            | $1,000 per month                                                               | $1,000+ per month, Pay for usage          | Build and maintenance engineering time cost |
-| <b>Time to results</b> | 1 day                                                                          | 1+ month to integrate, deploy and onboard | 1+ month to build and deploy                |
-| <b>Solution</b>        | Connect with your existing data ecosystem, automatic generation and validation | Manual UI data entry or via SDK           | Depends on engineer(s) building it          |
-
-</span>
-
-<span class="center-content">
-[Try now](get-started/docker.md){ .md-button .md-button--primary }[See pricing](pricing.md){ .md-button .button-spaced }
+[Try now](get-started/docker.md){ .md-button .md-button--primary }
 </span>
 
 <h1 class="content-spaced" align="center">What you need is a reliable tool that can handle changes to your data landscape</h1> 
@@ -61,7 +48,7 @@ With Data Caterer, you get:
 - Configurability to run the way you want
 
 <span class="center-content">
-[Try now](get-started/docker.md){ .md-button .md-button--primary }[See pricing](pricing.md){ .md-button .button-spaced }
+[Try now](get-started/docker.md){ .md-button .md-button--primary }
 </span>
 
 ## Tech Summary
@@ -146,5 +133,17 @@ Main features include:
 </div>
 
 <span class="center-content">
-[Try now](get-started/docker.md){ .md-button .md-button--primary }[See pricing](pricing.md){ .md-button .button-spaced }
+[Try now](get-started/docker.md){ .md-button .md-button--primary }
+</span>
+
+<h1 class="content-spaced" align="center">Data Catering vs Other tools vs In-house</h1>
+
+<span class="center-content">
+
+|                        | Data Catering                                                                  | Other tools                               | In-house                                    |
+|------------------------|--------------------------------------------------------------------------------|-------------------------------------------|---------------------------------------------|
+| <b>Data flow</b>       | Batch and events generation with validation                                    | Batch generation only or validation only  | Depends on architecture and design          |
+| <b>Time to results</b> | 1 day                                                                          | 1+ month to integrate, deploy and onboard | 1+ month to build and deploy                |
+| <b>Solution</b>        | Connect with your existing data ecosystem, automatic generation and validation | Manual UI data entry or via SDK           | Depends on engineer(s) building it          |
+
 </span>
