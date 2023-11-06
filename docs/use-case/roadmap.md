@@ -9,7 +9,7 @@
     - Airflow
     - DBT
 - Further support for metadata discovery
-    - HTTP (OpenAPI spec)
+    - :white_check_mark: HTTP (OpenAPI spec)
     - JMS
     - Read from samples
 - :white_check_mark: API for developers and testers
@@ -20,7 +20,8 @@
 - Metadata stored in database
 - Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry, DBT)
     - Populate metadata back to metadata services
-    - :white_check_mark: OpenLineage metadata (tested with Marquez)
+    - :white_check_mark: OpenLineage metadata (Marquez)
+    - :white_check_mark: OpenMetadata
 - Integration with existing data validations
     - [Great Expectation](https://greatexpectations.io/)
     - [DBT constraints](https://docs.getdbt.com/reference/resource-properties/constraints)
@@ -44,6 +45,8 @@
     - Cover all possible cases (i.e. record for each combination of oneOf values, positive/negative values etc.)
     - Similar to edge cases
 - Alerting
+    - Slack
+    - Email
 - Overriding tasks
     - Can customise tasks without copying whole schema definitions
     - Easier to create scenarios
@@ -57,3 +60,4 @@
 - Schema generation from Scala/Java class
 - Ordering within data sources that support order for insertion
 - Clean up data in consumer data sinks
+- :white_check_mark: Trial app to try out all features

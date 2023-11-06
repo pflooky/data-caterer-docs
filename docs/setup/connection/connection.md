@@ -13,6 +13,7 @@ These configurations can be done via API or from configuration. Examples of both
 | Kafka            | Kafka                                               | Y                      |
 | JMS              | Solace                                              | Y                      |
 | HTTP             | GET, PUT, POST, DELETE, PATCH, HEAD, TRACE, OPTIONS | Y                      |
+| Metadata         | Marquez, OpenMetadata, OpenAPI/Swagger              | Y                      |
 
 ### API
 

@@ -3,6 +3,10 @@ description: "A data generation and testing tool that can automatically discover
 image: "https://data.catering/diagrams/logo/data_catering_logo.svg"
 ---
 
+<h1 align="center" style="padding-top: 100px; padding-bottom: 100px">Data Caterer is a metadata-driven data generation and 
+testing tool that aids in creating production-like data across both batch and event data systems. Run data validations 
+to ensure your systems have ingested it as expected, then clean up the data afterwards.</h1>
+
 <h1 align="center">Simplify your data testing</h1>
 
 <h2 align="center">Take away the pain and complexity of your data landscape and let Data Caterer handle it</h2>
@@ -53,10 +57,9 @@ With Data Caterer, you get:
 
 ## Tech Summary
 
-Data Caterer is a metadata driven data generation/testing tool that aids in creating production like data across batch
-and event data systems. You can then clean up the generated data or run data validations to ensure your systems have 
-ingested it as expected. Use the Java, Scala API, or YAML files to help with setup or customisation that are all run 
-via Docker.
+Use the Java, Scala API, or YAML files to help with setup or customisation that are all run via a Docker image. Want to 
+get into details? [Checkout the setup pages here](setup/index.md) to get code examples and guides that will take you 
+through scenarios and data sources.
 
 Main features include:
 

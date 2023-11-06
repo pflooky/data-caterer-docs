@@ -1,6 +1,14 @@
+---
+description: "Guide to create Data Catering jobs. Generate batch and/or event data, validate data, read metadata"
+
+---
+
 # Guides
 
 Below are a list of guides you can follow to create your data generation for your use case.
+
+For any of the paid tier guides, you can use the trial version fo the app to try it out. Details on how to get
+the trial can be found [**here**](../../get-started/docker.md#paid-version-trial).
 
 ## Scenarios
 
@@ -56,17 +64,21 @@ Below are a list of guides you can follow to create your data generation for you
 
     - __[Cassandra]__ - Cassandra tables
     - __[Kafka]__ - Kafka topics
+    - __[Marquez]__ - Generate data based on metadata in Marquez
+    - __[OpenMetadata]__ - Generate data based on metadata in OpenMetadata
+    - __[HTTP]__ - HTTP requests
     - __[MySql]__ - (Soon to document) JDBC MySql tables
     - __[Solace]__ - (Soon to document) Solace messages
-    - __[HTTP]__ - (Soon to document) HTTP requests
 
     </div>
 
       [Cassandra]: data-source/cassandra.md
       [Kafka]: data-source/kafka.md
+      [Marquez]: data-source/marquez-metadata-source.md
+      [OpenMetadata]: data-source/open-metadata-source.md
+      [HTTP]: data-source/http.md
       [MySql]: data-source/cassandra.md
       [Solace]: data-source/cassandra.md
-      [Http]: data-source/cassandra.md
 
 ## YAML Files
 

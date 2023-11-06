@@ -13,7 +13,9 @@ help the product grow into a sustainable and feature-full service.
 
 ## Contact
 
-Please contact me at `peter.flook@data.catering` if you have any questions or queries.
+Please contact Peter Flook
+via [Slack](https://join.slack.com/t/data-catering/shared_invite/zt-2664ylbpi-w3n7lWAO~PHeOG9Ujpm~~w)
+or via email `peter.flook@data.catering` if you have any questions or queries.
 
 ## Terms of service
 

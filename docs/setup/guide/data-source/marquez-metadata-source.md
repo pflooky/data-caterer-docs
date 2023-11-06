@@ -24,7 +24,7 @@ git clone git@github.com:pflooky/data-caterer-example.git
 
 ### Marquez Setup
 
-Can follow the README found [**here**](https://github.com/MarquezProject/marquez) to help with setting up Marquez in
+You can follow the README found [**here**](https://github.com/MarquezProject/marquez) to help with setting up Marquez in
 your local environment. This comes with an instance of Postgres which we will also be using as a data store for
 generated data.
 
@@ -101,7 +101,7 @@ a specific `namespace` and `dataset`.
 === "Scala"
 
     ```scala
-    val csvTask = csv("my_csv", "/tmp/data/csv")
+    val csvTask = csv("my_csv", "/tmp/data/csv", Map("saveMode" -> "overwrite", "header" -> "true"))
       .schema(metadataSource.marquez("http://localhost:5001", "food_delivery", "public.delivery_7_days"))
       .count(count.records(10))
     ```

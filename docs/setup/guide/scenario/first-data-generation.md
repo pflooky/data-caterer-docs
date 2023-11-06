@@ -169,6 +169,7 @@ attributes that add guidelines that the data generator will understand when gene
 
     ```scala
     field.name("name").expression("#{Name.name}"),
+    ```
 
 ##### open_time
 

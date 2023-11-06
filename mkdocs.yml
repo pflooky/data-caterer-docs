@@ -67,11 +67,13 @@ nav:
               - Auto Generate From Data Connection: 'setup/guide/scenario/auto-generate-connection.md'
               - Delete Generated Data: 'setup/guide/scenario/delete-generated-data.md'
               - Generate Batch and Event Data: 'setup/guide/scenario/batch-and-event.md'
-              - Metadata Source: 'setup/guide/scenario/metadata-source.md'
           - Data Sources:
               - Files (CSV, JSON, ORC, Parquet): 'setup/guide/scenario/first-data-generation.md'
               - Cassandra: 'setup/guide/data-source/cassandra.md'
               - Kafka: 'setup/guide/data-source/kafka.md'
+              - Marquez Metadata Source: 'setup/guide/data-source/marquez-metadata-source.md'
+              - OpenMetadata Source: 'setup/guide/data-source/open-metadata-source.md'
+              - HTTP: 'setup/guide/data-source/http.md'
       - Configuration: 'setup/configuration.md'
       - Connection: 'setup/connection/connection.md'
       - Generator:
@@ -94,9 +96,12 @@ nav:
       - 'about.md'
       - Terms of service: 'legal/terms-of-service.md'
       - Privacy policy: 'legal/privacy-policy.md'
+      - Pricing: 'pricing.md'
 
 extra:
   social:
+    - icon: fontawesome/brands/slack
+      link: https://join.slack.com/t/data-catering/shared_invite/zt-2664ylbpi-w3n7lWAO~PHeOG9Ujpm~~w
     - icon: fontawesome/brands/github
       link: https://github.com/pflooky/data-caterer-example
     - icon: fontawesome/brands/medium

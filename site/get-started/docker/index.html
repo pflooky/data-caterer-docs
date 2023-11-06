@@ -486,6 +486,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#paid-version-trial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paid Version Trial
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#guided-tour" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -830,32 +841,6 @@
 
               
             
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../setup/guide/scenario/metadata-source/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Metadata Source
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -975,6 +960,84 @@
     
   
     Kafka
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/guide/data-source/marquez-metadata-source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Marquez Metadata Source
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/guide/data-source/open-metadata-source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenMetadata Source
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/guide/data-source/http/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP
   
 
     
@@ -1698,6 +1761,32 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pricing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1728,12 +1817,25 @@
 <h2 id="quick-start">Quick start</h2>
 <p>Ensure you have <code>docker</code> installed and running.</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:pflooky/data-caterer-example.git
-./run.sh
+<span class="nb">cd</span><span class="w"> </span>data-caterer-example<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./run.sh
 <span class="c1">#check results under docker/sample/report/index.html folder</span>
 </code></pre></div>
 <h3 id="report">Report</h3>
 <p>Check the report generated under <code>docker/data/custom/report/index.html</code>.</p>
 <p>Sample report can also be seen <a href="../../sample/report/html/"><strong>here</strong></a></p>
+<h2 id="paid-version-trial">Paid Version Trial</h2>
+<p>30 day trial of the paid version can be accessed via these steps:</p>
+<ol>
+<li>Join the <a href="https://join.slack.com/t/data-catering/shared_invite/zt-2664ylbpi-w3n7lWAO~PHeOG9Ujpm~~w">Slack Data Catering Slack group here</a></li>
+<li>Get an API_KEY by using slash command <code>/token</code> in the Slack group (will only be visible to you)</li>
+<li>
+<pre><code>git clone git@github.com:pflooky/data-caterer-example.git
+cd data-caterer-example &amp;&amp; export DATA_CATERING_API_KEY=&lt;insert api key&gt;
+./run.sh
+</code></pre>
+</li>
+</ol>
+<p>If you want to check how long your trial has left, you can check back in the Slack group or type <code>/token</code> again.</p>
 <h2 id="guided-tour">Guided tour</h2>
 <p>Check out the starter guide <a href="../../setup/guide/scenario/first-data-generation/"><strong>here</strong></a> that will take your through
 step by step. You can also check the other guides <a href="../../setup/guide/"><strong>here</strong></a> to see the other possibilities of
@@ -1819,6 +1921,17 @@ what Data Caterer can achieve for you.</p>
 </div>
       
         <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://join.slack.com/t/data-catering/shared_invite/zt-2664ylbpi-w3n7lWAO~PHeOG9Ujpm~~w" target="_blank" rel="noopener" title="join.slack.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"/></svg>
+    </a>
   
     
     
