@@ -2,167 +2,167 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://data.catering/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/about/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/pricing/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/get-started/docker/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/legal/privacy-policy/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/legal/terms-of-service/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/configuration/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/advanced/advanced/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/connection/connection/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/deployment/deployment/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/foreign-key/foreign-key/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/generator/count/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/generator/generator/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/generator/report/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/guide/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/guide/data-source/cassandra/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/guide/data-source/http/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/guide/data-source/kafka/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/guide/data-source/marquez-metadata-source/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/guide/data-source/open-metadata-source/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/guide/scenario/auto-generate-connection/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/guide/scenario/batch-and-event/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/guide/scenario/delete-generated-data/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/guide/scenario/first-data-generation/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/guide/scenario/records-per-column/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/validation/basic-validation/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/validation/group-by-validation/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/setup/validation/validation/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/use-case/business-value/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/use-case/comparison/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/use-case/roadmap/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://data.catering/use-case/use-case/</loc>
-         <lastmod>2023-11-06</lastmod>
+         <lastmod>2023-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
