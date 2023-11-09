@@ -71,6 +71,7 @@ nav:
               - Files (CSV, JSON, ORC, Parquet): 'setup/guide/scenario/first-data-generation.md'
               - Cassandra: 'setup/guide/data-source/cassandra.md'
               - Kafka: 'setup/guide/data-source/kafka.md'
+              - Solace: 'setup/guide/data-source/solace.md'
               - Marquez Metadata Source: 'setup/guide/data-source/marquez-metadata-source.md'
               - OpenMetadata Source: 'setup/guide/data-source/open-metadata-source.md'
               - HTTP: 'setup/guide/data-source/http.md'

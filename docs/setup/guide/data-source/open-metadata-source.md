@@ -2,7 +2,7 @@
 
 !!! example "Info"
 
-    Generating data based on an external metadata source is a paid feature.
+    Generating data based on an external metadata source is a paid feature. Try the free trial [here](../../../get-started/docker.md).
 
 Creating a data generator for a JSON file based on metadata stored
 in [OpenMetadata](https://github.com/open-metadata/OpenMetadata).
@@ -312,5 +312,31 @@ cat docker/sample/json/part-00000-*
 
 Great! Now we have the ability to get schema information from an external source, add our own metadata and generate 
 data.
+
+### Data validation
+
+Another aspect of OpenMetadata that can be leveraged is the definition of data quality rules. These rules can be 
+incorporated into your Data Caterer job as well by enabling data validations via `enableGenerateValidations` in 
+`configuration`.
+
+=== "Java"
+
+    ```java
+    var conf = configuration().enableGeneratePlanAndTasks(true)
+        .enableGenerateValidations(true)
+        .generatedReportsFolderPath("/opt/app/data/report");
+
+    execute(conf, jsonTask);
+    ```
+
+=== "Scala"
+
+    ```scala
+    val conf = configuration.enableGeneratePlanAndTasks(true)
+      .enableGenerateValidations(true)
+      .generatedReportsFolderPath("/opt/app/data/report")
+    
+    execute(conf, jsonTask)
+    ```
 
 Check out the full example under `AdvancedOpenMetadataSourcePlanRun` in the example repo.

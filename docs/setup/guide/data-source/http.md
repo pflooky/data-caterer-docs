@@ -7,7 +7,7 @@ description: "Automatically generate data for OpenAPI/Swagger to HTTP endpoints.
 
 !!! example "Info"
 
-    Generating data based on OpenAPI/Swagger document and pushing to HTTP endpoint is a paid feature.
+    Generating data based on OpenAPI/Swagger document and pushing to HTTP endpoint is a paid feature. Try the free trial [here](../../../get-started/docker.md).
 
 Creating a data generator based on an [OpenAPI/Swagger](https://spec.openapis.org/oas/latest.html) document.
 
@@ -88,8 +88,6 @@ We have kept the following endpoints to test out:
 - POST /pets - create a new pet
 - GET /pets/{id} - get a pet by id
 - DELETE /pets/{id} - delete a pet by id
-
-##### Single Schema
 
 === "Java"
 
@@ -200,15 +198,14 @@ docker logs -f docker-http-1
 172.21.0.1 [06/Nov/2023:01:34:14 +0000] GET /anything/pets/5e HTTP/1.1 200 Host: host.docker.internal}
 ```
 
-Now we have the same `id` values being produced across the POST, DELETE and GET requests! What if we knew that the `id` 
+Now we have the same `id` values being produced across the POST, DELETE and GET requests! What if we knew that the `id`
 values should follow a particular pattern?
 
 ### Custom metadata
 
-So given that we have defined a foreign key where the root of the foreign key values is from the POST request, we can 
-update the metadata of the `id` column for the POST request and it will proliferate to the other endpoints as well. 
+So given that we have defined a foreign key where the root of the foreign key values is from the POST request, we can
+update the metadata of the `id` column for the POST request and it will proliferate to the other endpoints as well.
 Given the `id` column is a nested column as noted in the foreign key, we can alter its metadata via the following:
-
 
 === "Java"
 
@@ -231,7 +228,7 @@ Given the `id` column is a nested column as noted in the foreign key, we can alt
 We first get the column `bodyContent`, then get the nested schema and get the column `id` and add metadata stating that
 `id` should follow the patter `ID[0-9]{8}`.
 
-Let's try run again and hopefully we should see some proper ID values.
+Let's try run again, and hopefully we should see some proper ID values.
 
 ```shell
 ./run.sh
@@ -250,6 +247,31 @@ docker logs -f docker-http-1
 172.21.0.1 [06/Nov/2023:01:45:57 +0000] GET /anything/pets/ID20618951 HTTP/1.1 200 Host: host.docker.internal}
 ```
 
-Great! Now we have replicated a production-like flow of HTTP requests.
+Great! Now we have replicated a production-like flow of HTTP requests. 
+
+### Ordering
+
+If you wanted to change the ordering of the requests, you can alter the order from within the OpenAPI/Swagger document.
+
+### Rows per second
+
+By default, Data Caterer will push requests per method and endpoint at a rate of around 5 requests per second. If you 
+want to alter this value, you can do so via the below configuration.
+
+=== "Java"
+
+    ```java
+    var httpTask = http("my_http")
+            ...
+            .count(count().records(2));
+    ```
+
+=== "Scala"
+
+    ```scala
+    val httpTask = http("my_http")
+      ...
+      .count(count.records(2))
+    ```
 
 Check out the full example under `AdvancedHttpPlanRun` in the example repo.

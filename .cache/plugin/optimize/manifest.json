@@ -14,5 +14,7 @@
   "diagrams/2.png": "fb7c91f780ae0cced15fafdc19b27f44842d86c3",
   "diagrams/1.png": "5745cd2e81dcac8eeae63116d21224828e12541a",
   "diagrams/3.png": "c869b89258b4a0a6c2b66abb3ab416db925a56bf",
-  "diagrams/openmetadata_dashboard.png": "81ff2755f6a7d7fe12680d2ba77427aa4b0a85ef"
+  "diagrams/openmetadata_dashboard.png": "81ff2755f6a7d7fe12680d2ba77427aa4b0a85ef",
+  "diagrams/solace_dashboard.png": "aed876e82473b0a4c10dc714bfabdcc4d252ee19",
+  "diagrams/solace_messages_queued.png": "1ee16a1829114c52ef05234d46f0c487669fd6a3"
 }

@@ -14,7 +14,7 @@
         <link rel="prev" href="../cassandra/">
       
       
-        <link rel="next" href="../marquez-metadata-source/">
+        <link rel="next" href="../solace/">
       
       
         
@@ -1096,6 +1096,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../solace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Solace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../marquez-metadata-source/" class="md-nav__link">
         
   
@@ -1933,7 +1959,7 @@
 <h1 id="kafka">Kafka</h1>
 <div class="admonition example">
 <p class="admonition-title">Info</p>
-<p>Writing data to Kafka is a paid feature.</p>
+<p>Writing data to Kafka is a paid feature. Try the free trial <a href="../../../../get-started/docker/">here</a>.</p>
 </div>
 <p>Creating a data generator for Kafka. You will build a Docker image that will be able to populate data in kafka
 for the topics you configure.</p>
@@ -1984,7 +2010,7 @@ docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w
 <p>This class defines where we need to define all of our configurations for generating data. There are helper variables and
 methods defined to make it simple and easy to use.</p>
 <h4 id="connection-configuration">Connection Configuration</h4>
-<p>Within our class, we can start by defining the connection properties to connect to Cassandra.</p>
+<p>Within our class, we can start by defining the connection properties to connect to Kafka.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1997,7 +2023,7 @@ methods defined to make it simple and easy to use.</p>
 <p>Additional options can be found <a href="https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html#writing-data-to-kafka"><strong>here</strong></a>.</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cassandra</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">accountTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kafka</span><span class="p">(</span>
 <span class="w">    </span><span class="s">&quot;my_kafka&quot;</span><span class="p">,</span><span class="w">       </span><span class="c1">//name</span>
 <span class="w">    </span><span class="s">&quot;localhost:9092&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//url</span>
 <span class="w">    </span><span class="nc">Map</span><span class="p">()</span><span class="w">             </span><span class="c1">//optional additional connection options</span>
@@ -2223,7 +2249,7 @@ output folder of that report via configurations.</p>
 <p>Now we can run via the script <code>./run.sh</code> that is in the top level directory of the <code>data-caterer-example</code> to run the class we just
 created.</p>
 <div class="highlight"><pre><span></span><code>./run.sh
-<span class="c1">#input class AdvancedCassandraJavaPlanRun or AdvancedCassandraPlanRun</span>
+<span class="c1">#input class AdvancedKafkaJavaPlanRun or AdvancedKafkaPlanRun</span>
 <span class="c1">#after completing</span>
 docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>docker-kafkaserver-1<span class="w"> </span>kafka-console-consumer<span class="w"> </span>--bootstrap-server<span class="w"> </span>localhost:9092<span class="w"> </span>--topic<span class="w"> </span>account-topic<span class="w"> </span>--from-beginning
 </code></pre></div>
@@ -2285,13 +2311,13 @@ was executed.</p>
         
         
           
-          <a href="../marquez-metadata-source/" class="md-footer__link md-footer__link--next" aria-label="Next: Marquez Metadata Source">
+          <a href="../solace/" class="md-footer__link md-footer__link--next" aria-label="Next: Solace">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Marquez Metadata Source
+                Solace
               </div>
             </div>
             <div class="md-footer__button md-icon">

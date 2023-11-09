@@ -2,7 +2,7 @@
 
 !!! example "Info"
 
-    Auto data generation from data connection is a paid feature.
+    Auto data generation from data connection is a paid feature. Try the free trial [here](../../../get-started/docker.md).
 
 Creating a data generator based on only a data connection to Postgres.
 

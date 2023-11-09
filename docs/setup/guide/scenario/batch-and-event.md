@@ -2,7 +2,7 @@
 
 !!! example "Info"
 
-    Generating event data is a paid feature.
+    Generating event data is a paid feature. Try the free trial [here](../../../get-started/docker.md).
 
 Creating a data generator for Kafka topic with matching records in a CSV file.
 

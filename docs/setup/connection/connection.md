@@ -6,14 +6,13 @@ These configurations can be done via API or from configuration. Examples of both
 
 ## Supported Data Connections
 
-| Data Source Type | Data Source                                         | Paid                   |
-|------------------|-----------------------------------------------------|------------------------|
-| Database         | Postgres, MySQL, Cassandra                          | N (Postgres), Y (rest) |
-| File             | CSV, JSON, ORC, Parquet                             | N                      |
-| Kafka            | Kafka                                               | Y                      |
-| JMS              | Solace                                              | Y                      |
-| HTTP             | GET, PUT, POST, DELETE, PATCH, HEAD, TRACE, OPTIONS | Y                      |
-| Metadata         | Marquez, OpenMetadata, OpenAPI/Swagger              | Y                      |
+| Data Source Type | Data Source                            | Paid                   |
+|------------------|----------------------------------------|------------------------|
+| Database         | Postgres, MySQL, Cassandra             | N (Postgres), Y (rest) |
+| File             | CSV, JSON, ORC, Parquet                | N                      |
+| Messaging        | Kafka, Solace                          | Y                      |
+| HTTP             | REST API                               | Y                      |
+| Metadata         | Marquez, OpenMetadata, OpenAPI/Swagger | Y                      |
 
 ### API
 
@@ -188,7 +187,7 @@ configurations can be found below.
     }
     ```
 
-### JDBC
+### RMDBS
 
 Follows the same configuration used by Spark as
 found [**here**](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html#data-source-option).  

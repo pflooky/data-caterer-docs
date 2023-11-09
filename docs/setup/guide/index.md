@@ -64,21 +64,21 @@ the trial can be found [**here**](../../get-started/docker.md#paid-version-trial
 
     - __[Cassandra]__ - Cassandra tables
     - __[Kafka]__ - Kafka topics
+    - __[Solace]__ - Solace messages
     - __[Marquez]__ - Generate data based on metadata in Marquez
     - __[OpenMetadata]__ - Generate data based on metadata in OpenMetadata
     - __[HTTP]__ - HTTP requests
     - __[MySql]__ - (Soon to document) JDBC MySql tables
-    - __[Solace]__ - (Soon to document) Solace messages
 
     </div>
 
       [Cassandra]: data-source/cassandra.md
       [Kafka]: data-source/kafka.md
+      [Solace]: data-source/solace.md
       [Marquez]: data-source/marquez-metadata-source.md
       [OpenMetadata]: data-source/open-metadata-source.md
       [HTTP]: data-source/http.md
       [MySql]: data-source/cassandra.md
-      [Solace]: data-source/cassandra.md
 
 ## YAML Files
 

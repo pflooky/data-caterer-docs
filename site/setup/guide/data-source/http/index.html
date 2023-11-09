@@ -891,6 +891,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../solace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Solace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../marquez-metadata-source/" class="md-nav__link">
         
   
@@ -1055,23 +1081,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Schema">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#single-schema" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Single Schema
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -1106,6 +1115,28 @@
     <span class="md-ellipsis">
       
         Custom metadata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ordering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ordering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rows-per-second" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rows per second
       
     </span>
   </a>
@@ -1891,7 +1922,7 @@
 <h1 id="http-source">HTTP Source</h1>
 <div class="admonition example">
 <p class="admonition-title">Info</p>
-<p>Generating data based on OpenAPI/Swagger document and pushing to HTTP endpoint is a paid feature.</p>
+<p>Generating data based on OpenAPI/Swagger document and pushing to HTTP endpoint is a paid feature. Try the free trial <a href="../../../../get-started/docker/">here</a>.</p>
 </div>
 <p>Creating a data generator based on an <a href="https://spec.openapis.org/oas/latest.html">OpenAPI/Swagger</a> document.</p>
 <h2 id="requirements">Requirements</h2>
@@ -1958,7 +1989,6 @@ the original OpenAPI spec that can be found <a href="https://petstore.swagger.io
 <li>GET /pets/{id} - get a pet by id</li>
 <li>DELETE /pets/{id} - delete a pet by id</li>
 </ul>
-<h5 id="single-schema">Single Schema</h5>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2070,11 +2100,11 @@ docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </s
 <span class="m">172</span>.21.0.1<span class="w"> </span><span class="o">[</span><span class="m">06</span>/Nov/2023:01:34:14<span class="w"> </span>+0000<span class="o">]</span><span class="w"> </span>GET<span class="w"> </span>/anything/pets/IHPm2<span class="w"> </span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>Host:<span class="w"> </span>host.docker.internal<span class="o">}</span>
 <span class="m">172</span>.21.0.1<span class="w"> </span><span class="o">[</span><span class="m">06</span>/Nov/2023:01:34:14<span class="w"> </span>+0000<span class="o">]</span><span class="w"> </span>GET<span class="w"> </span>/anything/pets/5e<span class="w"> </span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>Host:<span class="w"> </span>host.docker.internal<span class="o">}</span>
 </code></pre></div>
-<p>Now we have the same <code>id</code> values being produced across the POST, DELETE and GET requests! What if we knew that the <code>id</code> 
+<p>Now we have the same <code>id</code> values being produced across the POST, DELETE and GET requests! What if we knew that the <code>id</code>
 values should follow a particular pattern?</p>
 <h3 id="custom-metadata">Custom metadata</h3>
-<p>So given that we have defined a foreign key where the root of the foreign key values is from the POST request, we can 
-update the metadata of the <code>id</code> column for the POST request and it will proliferate to the other endpoints as well. 
+<p>So given that we have defined a foreign key where the root of the foreign key values is from the POST request, we can
+update the metadata of the <code>id</code> column for the POST request and it will proliferate to the other endpoints as well.
 Given the <code>id</code> column is a nested column as noted in the foreign key, we can alter its metadata via the following:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">Scala</label></div>
 <div class="tabbed-content">
@@ -2096,7 +2126,7 @@ Given the <code>id</code> column is a nested column as noted in the foreign key,
 </div>
 <p>We first get the column <code>bodyContent</code>, then get the nested schema and get the column <code>id</code> and add metadata stating that
 <code>id</code> should follow the patter <code>ID[0-9]{8}</code>.</p>
-<p>Let's try run again and hopefully we should see some proper ID values.</p>
+<p>Let's try run again, and hopefully we should see some proper ID values.</p>
 <div class="highlight"><pre><span></span><code>./run.sh
 <span class="c1">#input class MyAdvancedHttpJavaPlanRun or MyAdvancedHttpPlanRun</span>
 docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>docker-http-1
@@ -2110,7 +2140,28 @@ docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </s
 <span class="m">172</span>.21.0.1<span class="w"> </span><span class="o">[</span><span class="m">06</span>/Nov/2023:01:45:57<span class="w"> </span>+0000<span class="o">]</span><span class="w"> </span>GET<span class="w"> </span>/anything/pets/ID55185420<span class="w"> </span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>Host:<span class="w"> </span>host.docker.internal<span class="o">}</span>
 <span class="m">172</span>.21.0.1<span class="w"> </span><span class="o">[</span><span class="m">06</span>/Nov/2023:01:45:57<span class="w"> </span>+0000<span class="o">]</span><span class="w"> </span>GET<span class="w"> </span>/anything/pets/ID20618951<span class="w"> </span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>Host:<span class="w"> </span>host.docker.internal<span class="o">}</span>
 </code></pre></div>
-<p>Great! Now we have replicated a production-like flow of HTTP requests.</p>
+<p>Great! Now we have replicated a production-like flow of HTTP requests. </p>
+<h3 id="ordering">Ordering</h3>
+<p>If you wanted to change the ordering of the requests, you can alter the order from within the OpenAPI/Swagger document.</p>
+<h3 id="rows-per-second">Rows per second</h3>
+<p>By default, Data Caterer will push requests per method and endpoint at a rate of around 5 requests per second. If you 
+want to alter this value, you can do so via the below configuration.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">httpTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">...</span>
+<span class="w">        </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">count</span><span class="p">().</span><span class="na">records</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">httpTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">...</span>
+<span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">records</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>Check out the full example under <code>AdvancedHttpPlanRun</code> in the example repo.</p>
 
   

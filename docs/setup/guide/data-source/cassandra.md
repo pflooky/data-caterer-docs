@@ -2,7 +2,7 @@
 
 !!! example "Info"
 
-    Writing data to Cassandra is a paid feature.
+    Writing data to Cassandra is a paid feature. Try the free trial [here](../../../get-started/docker.md).
 
 Creating a data generator for Cassandra. You will build a Docker image that will be able to populate data in Cassandra
 for the tables you configure.

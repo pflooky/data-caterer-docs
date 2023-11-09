@@ -2,7 +2,7 @@
 
 !!! example "Info"
 
-    Generating data based on an external metadata source is a paid feature.
+    Generating data based on an external metadata source is a paid feature. Try the free trial [here](../../../get-started/docker.md).
 
 Creating a data generator for Postgres tables and CSV file based on metadata stored in Marquez (
 follows [OpenLineage API](https://openlineage.io/)).

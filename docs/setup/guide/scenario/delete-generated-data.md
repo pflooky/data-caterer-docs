@@ -2,7 +2,7 @@
 
 !!! example "Info"
 
-    Delete generated data is a paid feature.
+    Delete generated data is a paid feature. Try the free trial [here](../../../get-started/docker.md).
 
 Creating a data generator for Postgres and delete the generated data after using it.
 
