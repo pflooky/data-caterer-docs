@@ -11,6 +11,8 @@ description: "Automatically generate data for OpenAPI/Swagger to HTTP endpoints.
 
 Creating a data generator based on an [OpenAPI/Swagger](https://spec.openapis.org/oas/latest.html) document.
 
+![Generate HTTP requests](../../../diagrams/http_generation_run.gif)
+
 ## Requirements
 
 - 10 minutes
@@ -145,11 +147,12 @@ Then it gets used as a path parameter in the DELETE and GET requests.
 To link them all together, we must follow a particular pattern when referring to request body, query parameter or path
 parameter columns.
 
-| HTTP Type       | Column Prefix | Example          |
-|-----------------|---------------|------------------|
-| Request Body    | `bodyContent` | `bodyContent.id` |
-| Path Parameter  | `pathParam`   | `pathParamid`    |
-| Query Parameter | `queryParam`  | `queryParamid`   |
+| HTTP Type       | Column Prefix | Example              |
+|-----------------|---------------|----------------------|
+| Request Body    | `bodyContent` | `bodyContent.id`     |
+| Path Parameter  | `pathParam`   | `pathParamid`        |
+| Query Parameter | `queryParam`  | `queryParamid`       |
+| Header          | `header`      | `headerContent_Type` |
 
 Also note, that when creating a foreign field definition for a HTTP data source, to refer to a specific endpoint and
 method, we have to follow the pattern of `{http method}{http path}`. For example, `POST/pets`. Let's apply this
@@ -159,9 +162,9 @@ knowledge to link all the `id` values together.
 
     ```java
     var myPlan = plan().addForeignKeyRelationship(
-            foreignField("my_http", "POST/pets", "bodyContent.id"),
-            foreignField("my_http", "GET/pets/{id}", "pathParamid"),
-            foreignField("my_http", "DELETE/pets/{id}", "pathParamid")
+            foreignField("my_http", "POST/pets", "bodyContent.id"),     //source of foreign key value
+            foreignField("my_http", "DELETE/pets/{id}", "pathParamid"),
+            foreignField("my_http", "GET/pets/{id}", "pathParamid")
     );
 
     execute(myPlan, conf, httpTask);
@@ -171,9 +174,9 @@ knowledge to link all the `id` values together.
 
     ```scala
     val myPlan = plan.addForeignKeyRelationship(
-      foreignField("my_http", "POST/pets", "bodyContent.id"),
-      foreignField("my_http", "GET/pets/{id}", "pathParamid"),
-      foreignField("my_http", "DELETE/pets/{id}", "pathParamid")
+      foreignField("my_http", "POST/pets", "bodyContent.id"),     //source of foreign key value
+      foreignField("my_http", "DELETE/pets/{id}", "pathParamid"),
+      foreignField("my_http", "GET/pets/{id}", "pathParamid")
     )
 
     execute(myPlan, conf, httpTask)
@@ -247,31 +250,37 @@ docker logs -f docker-http-1
 172.21.0.1 [06/Nov/2023:01:45:57 +0000] GET /anything/pets/ID20618951 HTTP/1.1 200 Host: host.docker.internal}
 ```
 
-Great! Now we have replicated a production-like flow of HTTP requests. 
+Great! Now we have replicated a production-like flow of HTTP requests.
 
 ### Ordering
 
 If you wanted to change the ordering of the requests, you can alter the order from within the OpenAPI/Swagger document.
+This is particularly useful when you want to simulate the same flow that users would take when utilising your
+application (i.e. create account, query account, update account).
 
 ### Rows per second
 
-By default, Data Caterer will push requests per method and endpoint at a rate of around 5 requests per second. If you 
-want to alter this value, you can do so via the below configuration.
+By default, Data Caterer will push requests per method and endpoint at a rate of around 5 requests per second. If you
+want to alter this value, you can do so via the below configuration. The lowest supported requests per second is 1.
 
 === "Java"
 
     ```java
-    var httpTask = http("my_http")
+    import com.github.pflooky.datacaterer.api.model.Constants;
+    
+    ...
+    var httpTask = http("my_http", Map.of(Constants.ROWS_PER_SECOND(), "1"))
             ...
-            .count(count().records(2));
     ```
 
 === "Scala"
 
     ```scala
-    val httpTask = http("my_http")
+    import com.github.pflooky.datacaterer.api.model.Constants.ROWS_PER_SECOND
+
+    ...
+    val httpTask = http("my_http", options = Map(ROWS_PER_SECOND -> "1"))
       ...
-      .count(count.records(2))
     ```
 
 Check out the full example under `AdvancedHttpPlanRun` in the example repo.

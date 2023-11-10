@@ -1925,6 +1925,7 @@
 <p>Generating data based on OpenAPI/Swagger document and pushing to HTTP endpoint is a paid feature. Try the free trial <a href="../../../../get-started/docker/">here</a>.</p>
 </div>
 <p>Creating a data generator based on an <a href="https://spec.openapis.org/oas/latest.html">OpenAPI/Swagger</a> document.</p>
+<p><img alt="Generate HTTP requests" src="../../../../diagrams/http_generation_run.gif" /></p>
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li>10 minutes</li>
@@ -2057,6 +2058,11 @@ parameter columns.</p>
 <td><code>queryParam</code></td>
 <td><code>queryParamid</code></td>
 </tr>
+<tr>
+<td>Header</td>
+<td><code>header</code></td>
+<td><code>headerContent_Type</code></td>
+</tr>
 </tbody>
 </table>
 <p>Also note, that when creating a foreign field definition for a HTTP data source, to refer to a specific endpoint and
@@ -2066,9 +2072,9 @@ knowledge to link all the <code>id</code> values together.</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">myPlan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plan</span><span class="p">().</span><span class="na">addForeignKeyRelationship</span><span class="p">(</span>
-<span class="w">        </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;POST/pets&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bodyContent.id&quot;</span><span class="p">),</span>
-<span class="w">        </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GET/pets/{id}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pathParamid&quot;</span><span class="p">),</span>
-<span class="w">        </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DELETE/pets/{id}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pathParamid&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;POST/pets&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bodyContent.id&quot;</span><span class="p">),</span><span class="w">     </span><span class="c1">//source of foreign key value</span>
+<span class="w">        </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DELETE/pets/{id}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pathParamid&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GET/pets/{id}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pathParamid&quot;</span><span class="p">)</span>
 <span class="p">);</span>
 
 <span class="n">execute</span><span class="p">(</span><span class="n">myPlan</span><span class="p">,</span><span class="w"> </span><span class="n">conf</span><span class="p">,</span><span class="w"> </span><span class="n">httpTask</span><span class="p">);</span>
@@ -2076,9 +2082,9 @@ knowledge to link all the <code>id</code> values together.</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">myPlan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">plan</span><span class="p">.</span><span class="n">addForeignKeyRelationship</span><span class="p">(</span>
-<span class="w">  </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;POST/pets&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bodyContent.id&quot;</span><span class="p">),</span>
-<span class="w">  </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GET/pets/{id}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pathParamid&quot;</span><span class="p">),</span>
-<span class="w">  </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DELETE/pets/{id}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pathParamid&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;POST/pets&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;bodyContent.id&quot;</span><span class="p">),</span><span class="w">     </span><span class="c1">//source of foreign key value</span>
+<span class="w">  </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;DELETE/pets/{id}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pathParamid&quot;</span><span class="p">),</span>
+<span class="w">  </span><span class="n">foreignField</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GET/pets/{id}&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pathParamid&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">execute</span><span class="p">(</span><span class="n">myPlan</span><span class="p">,</span><span class="w"> </span><span class="n">conf</span><span class="p">,</span><span class="w"> </span><span class="n">httpTask</span><span class="p">)</span>
@@ -2140,24 +2146,30 @@ docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </s
 <span class="m">172</span>.21.0.1<span class="w"> </span><span class="o">[</span><span class="m">06</span>/Nov/2023:01:45:57<span class="w"> </span>+0000<span class="o">]</span><span class="w"> </span>GET<span class="w"> </span>/anything/pets/ID55185420<span class="w"> </span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>Host:<span class="w"> </span>host.docker.internal<span class="o">}</span>
 <span class="m">172</span>.21.0.1<span class="w"> </span><span class="o">[</span><span class="m">06</span>/Nov/2023:01:45:57<span class="w"> </span>+0000<span class="o">]</span><span class="w"> </span>GET<span class="w"> </span>/anything/pets/ID20618951<span class="w"> </span>HTTP/1.1<span class="w"> </span><span class="m">200</span><span class="w"> </span>Host:<span class="w"> </span>host.docker.internal<span class="o">}</span>
 </code></pre></div>
-<p>Great! Now we have replicated a production-like flow of HTTP requests. </p>
+<p>Great! Now we have replicated a production-like flow of HTTP requests.</p>
 <h3 id="ordering">Ordering</h3>
-<p>If you wanted to change the ordering of the requests, you can alter the order from within the OpenAPI/Swagger document.</p>
+<p>If you wanted to change the ordering of the requests, you can alter the order from within the OpenAPI/Swagger document.
+This is particularly useful when you want to simulate the same flow that users would take when utilising your
+application (i.e. create account, query account, update account).</p>
 <h3 id="rows-per-second">Rows per second</h3>
-<p>By default, Data Caterer will push requests per method and endpoint at a rate of around 5 requests per second. If you 
-want to alter this value, you can do so via the below configuration.</p>
+<p>By default, Data Caterer will push requests per method and endpoint at a rate of around 5 requests per second. If you
+want to alter this value, you can do so via the below configuration. The lowest supported requests per second is 1.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="n">httpTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">com.github.pflooky.datacaterer.api.model.Constants</span><span class="p">;</span>
+
+<span class="p">...</span>
+<span class="kd">var</span><span class="w"> </span><span class="n">httpTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">Constants</span><span class="p">.</span><span class="na">ROWS_PER_SECOND</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">))</span>
 <span class="w">        </span><span class="p">...</span>
-<span class="w">        </span><span class="p">.</span><span class="na">count</span><span class="p">(</span><span class="n">count</span><span class="p">().</span><span class="na">records</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="n">httpTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nn">com</span><span class="p">.</span><span class="nn">github</span><span class="p">.</span><span class="nn">pflooky</span><span class="p">.</span><span class="nn">datacaterer</span><span class="p">.</span><span class="nn">api</span><span class="p">.</span><span class="nn">model</span><span class="p">.</span><span class="nc">Constants</span><span class="p">.</span><span class="nc">ROWS_PER_SECOND</span>
+
+<span class="p">...</span>
+<span class="kd">val</span><span class="w"> </span><span class="n">httpTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">http</span><span class="p">(</span><span class="s">&quot;my_http&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="nc">ROWS_PER_SECOND</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">))</span>
 <span class="w">  </span><span class="p">...</span>
-<span class="w">  </span><span class="p">.</span><span class="n">count</span><span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">records</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </code></pre></div>
 </div>
 </div>
