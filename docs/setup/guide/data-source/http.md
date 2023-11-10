@@ -1,6 +1,6 @@
 ---
 description: "Automatically generate data for OpenAPI/Swagger to HTTP endpoints."
-
+image: "https://data.catering/diagrams/logo/data_catering_logo.svg"
 ---
 
 # HTTP Source
