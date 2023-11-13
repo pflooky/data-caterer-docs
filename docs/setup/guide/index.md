@@ -12,73 +12,53 @@ the trial can be found [**here**](../../get-started/docker.md#paid-version-trial
 
 ## Scenarios
 
-!!! note "Free tier scenarios"
+<div class="grid cards" markdown>
 
-    <div class="grid cards" markdown>
+- __[First Data Generation]__ - If you are new, this is the place to start
+- __[Multiple Records Per Column Value]__ - How you can generate multiple records per set of columns
+- __[Foreign Keys Across Data Sources]__ - Generate matching values across generated data sets
+- __[Data Validations]__ - (Soon to document) Run data validations after generating data
+- __[Auto Generate From Data Connection]__ - Automatically generating data from just defining data sources
+- __[Delete Generated Data]__ - Delete the generated data whilst leaving other data
+- __[Generate Batch and Event Data]__ - Generate matching batch and event data
 
-    - __[First Data Generation]__ - If you are new, this is the place to start
-    - __[Multiple Records Per Column Value]__ - How you can generate multiple records per set of columns
-    - __[Foreign Keys Across Data Sources]__ - Generate matching values across generated data sets
-    - __[Data Validations]__ - (Soon to document) Run data validations after generating data
+</div>
 
-    </div>
-
-      [First Data Generation]: scenario/first-data-generation.md
-      [Multiple Records Per Column Value]: scenario/records-per-column.md
-      [Foreign Keys Across Data Sources]: scenario/batch-and-event.md
-      [Data Validations]: scenario/first-data-generation.md
-
-!!! example "Paid tier scenarios"
-
-    <div class="grid cards" markdown>
-
-    - __[Auto Generate From Data Connection]__ - Automatically generating data from just defining data sources
-    - __[Delete Generated Data]__ - Delete the generated data whilst leaving other data
-    - __[Generate Batch and Event Data]__ - Generate matching batch and event data
-
-    </div>
-
-      [Auto Generate From Data Connection]: scenario/auto-generate-connection.md
-      [Delete Generated Data]: scenario/delete-generated-data.md
-      [Generate Batch and Event Data]: scenario/batch-and-event.md
+  [First Data Generation]: scenario/first-data-generation.md
+  [Multiple Records Per Column Value]: scenario/records-per-column.md
+  [Foreign Keys Across Data Sources]: scenario/batch-and-event.md
+  [Data Validations]: scenario/first-data-generation.md
+  [Auto Generate From Data Connection]: scenario/auto-generate-connection.md
+  [Delete Generated Data]: scenario/delete-generated-data.md
+  [Generate Batch and Event Data]: scenario/batch-and-event.md
 
 ## Data Sources
 
-!!! note "Free tier data sources"
+<div class="grid cards" markdown>
 
-    <div class="grid cards" markdown>
+- __[Files (CSV, JSON, ORC, Parquet)]__ - Generate data for popular file formats
+- __[Postgres]__ - JDBC Postgres tables
+- __[Cassandra]__ - Cassandra tables
+- __[Kafka]__ - Kafka topics
+- __[Solace]__ - Solace messages
+- __[Marquez]__ - Generate data based on metadata in Marquez
+- __[OpenMetadata]__ - Generate data based on metadata in OpenMetadata
+- __[HTTP]__ - HTTP requests
+- __[Files (Fixed width)]__ - (Soon to document) A variant of CSV but with no separator
+- __[MySql]__ - (Soon to document) JDBC MySql tables
 
-    - __[Files (CSV, JSON, ORC, Parquet)]__ - Generate data for files with separator (comma separated by default)
-    - __[Files (Fixed width)]__ - (Soon to document) A variant of CSV but with no separator
-    - __[Postgres]__ - JDBC Postgres tables
+</div>
 
-    </div>
-
-      [Files (CSV, JSON, ORC, Parquet)]: scenario/first-data-generation.md
-      [Files (Fixed width)]: scenario/first-data-generation.md
-      [Postgres]: scenario/first-data-generation.md
-
-!!! example "Paid tier data sources"
-
-    <div class="grid cards" markdown>
-
-    - __[Cassandra]__ - Cassandra tables
-    - __[Kafka]__ - Kafka topics
-    - __[Solace]__ - Solace messages
-    - __[Marquez]__ - Generate data based on metadata in Marquez
-    - __[OpenMetadata]__ - Generate data based on metadata in OpenMetadata
-    - __[HTTP]__ - HTTP requests
-    - __[MySql]__ - (Soon to document) JDBC MySql tables
-
-    </div>
-
-      [Cassandra]: data-source/cassandra.md
-      [Kafka]: data-source/kafka.md
-      [Solace]: data-source/solace.md
-      [Marquez]: data-source/marquez-metadata-source.md
-      [OpenMetadata]: data-source/open-metadata-source.md
-      [HTTP]: data-source/http.md
-      [MySql]: data-source/cassandra.md
+  [Files (CSV, JSON, ORC, Parquet)]: scenario/first-data-generation.md
+  [Files (Fixed width)]: scenario/first-data-generation.md
+  [Postgres]: scenario/first-data-generation.md
+  [Cassandra]: data-source/cassandra.md
+  [Kafka]: data-source/kafka.md
+  [Solace]: data-source/solace.md
+  [Marquez]: data-source/marquez-metadata-source.md
+  [OpenMetadata]: data-source/open-metadata-source.md
+  [HTTP]: data-source/http.md
+  [MySql]: data-source/cassandra.md
 
 ## YAML Files
 
