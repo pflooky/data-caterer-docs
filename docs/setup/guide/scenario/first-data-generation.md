@@ -1,6 +1,13 @@
+---
+description: "Generate linked data between two CSV files. Then validating data saved in Postgres."
+image: "https://data.catering/diagrams/logo/data_catering_logo.svg"
+---
+
 # First Data Generation
 
 Creating a data generator for a CSV file.
+
+![Generate CSV files](../../../diagrams/csv_generation_run.gif)
 
 ## Requirements
 

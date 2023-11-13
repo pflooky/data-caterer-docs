@@ -1,3 +1,8 @@
+---
+description: "Generate data for Solace queue/topic"
+image: "https://data.catering/diagrams/logo/data_catering_logo.svg"
+---
+
 # Solace
 
 !!! example "Info"
@@ -6,6 +11,8 @@
 
 Creating a data generator for Solace. You will build a Docker image that will be able to populate data in Solace
 for the queues/topics you configure.
+
+![Generate Solace messages](../../../diagrams/solace_generation_run.gif)
 
 ## Requirements
 

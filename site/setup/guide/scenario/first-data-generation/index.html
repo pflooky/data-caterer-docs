@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Generate linked data between two CSV files. Then validating data saved in Postgres.">
+      
       
       
         <link rel="canonical" href="https://data.catering/setup/guide/scenario/first-data-generation/">
@@ -2147,6 +2149,7 @@
 
 <h1 id="first-data-generation">First Data Generation</h1>
 <p>Creating a data generator for a CSV file.</p>
+<p><img alt="Generate CSV files" src="../../../../diagrams/csv_generation_run.gif" /></p>
 <h2 id="requirements">Requirements</h2>
 <ul>
 <li>20 minutes</li>
@@ -2782,6 +2785,9 @@ check this via a group by validation where we group by the <code>account_id, nam
 for <code>login_retry</code> per <code>account_id,name</code> combination, then check if it is less than 10.</p>
 <p>You can now look to play around with other configurations or data sources to meet your needs. Also, make sure to explore
 the docs further as it can guide you on what can be configured.</p>
+
+  
+  
 
 
 
