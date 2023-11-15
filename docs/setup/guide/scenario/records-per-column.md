@@ -41,7 +41,7 @@ Make sure your class extends `PlanRun`.
                             field().name("amount").type(DoubleType.instance()).min(1).max(100),
                             field().name("time").type(TimestampType.instance()).min(java.sql.Date.valueOf("2022-01-01")),
                             field().name("date").type(DateType.instance()).sql("DATE(time)")
-                    )
+                    );
     
             var config = configuration()
                     .generatedReportsFolderPath("/opt/app/data/report")
@@ -60,7 +60,7 @@ Make sure your class extends `PlanRun`.
     
     class MyMultipleRecordsPerColPlan extends PlanRun {
 
-      val transactionTask: ConnectionTaskBuilder[FileBuilder] = csv("customer_transactions", "/opt/app/data/customer/transaction", Map("header" -> "true"))
+      val transactionTask = csv("customer_transactions", "/opt/app/data/customer/transaction", Map("header" -> "true"))
         .schema(
           field.name("account_id").regex("ACC[0-9]{8}"), 
           field.name("full_name").expression("#{Name.name}"), 

@@ -675,6 +675,58 @@
   
   
     <li class="md-nav__item">
+      <a href="../../guide/scenario/batch-and-event/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Foreign Keys Across Data Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/scenario/data-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Validations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../guide/scenario/auto-generate-connection/" class="md-nav__link">
         
   
@@ -1353,6 +1405,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#record-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Record count
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#record-count-per-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Record count per group
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sum" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1401,6 +1475,17 @@
     <span class="md-ellipsis">
       
         Average
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standard-deviation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard deviation
       
     </span>
   </a>
@@ -1849,12 +1934,40 @@
 
 
 <h1 id="group-by-validation">Group By Validation</h1>
-<p>If you want to run aggregations based on a particular set of columns, you can do so via group by validations. An example
-would be checking that the sum of <code>amount</code> is less than 1000 per <code>account_id, year</code>. The validations applied can
-be one of the validations from above.</p>
+<p>If you want to run aggregations based on a particular set of columns or just the whole dataset, you can do so via group
+by validations. An example would be checking that the sum of <code>amount</code> is less than 1000 per <code>account_id, year</code>. The
+validations applied can be one of the validations from the <a href="../basic-validation/">basic validation set found here</a>.</p>
+<h2 id="record-count">Record count</h2>
+<p>Check the number of records across the whole dataset.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">groupBy</span><span class="p">().</span><span class="na">count</span><span class="p">().</span><span class="na">lessThan</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">groupBy</span><span class="p">().</span><span class="n">count</span><span class="p">().</span><span class="n">lessThan</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="record-count-per-group">Record count per group</h2>
+<p>Check the number of records for each group.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">groupBy</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">count</span><span class="p">().</span><span class="na">lessThan</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="n">count</span><span class="p">().</span><span class="n">lessThan</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="sum">Sum</h2>
 <p>Check the sum of a columns values for each group adheres to validation.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">groupBy</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">sum</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">lessThan</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
@@ -1868,7 +1981,7 @@ be one of the validations from above.</p>
 </div>
 <h2 id="count">Count</h2>
 <p>Check the count for each group adheres to validation.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">groupBy</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">count</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">lessThan</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -1882,7 +1995,7 @@ be one of the validations from above.</p>
 </div>
 <h2 id="min">Min</h2>
 <p>Check the min for each group adheres to validation.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Java</label><label for="__tabbed_3_2">Scala</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">groupBy</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">min</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">greaterThan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -1896,7 +2009,7 @@ be one of the validations from above.</p>
 </div>
 <h2 id="max">Max</h2>
 <p>Check the max for each group adheres to validation.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Java</label><label for="__tabbed_4_2">Scala</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Java</label><label for="__tabbed_6_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">groupBy</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">lessThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -1910,7 +2023,7 @@ be one of the validations from above.</p>
 </div>
 <h2 id="average">Average</h2>
 <p>Check the average for each group adheres to validation.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Java</label><label for="__tabbed_5_2">Scala</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Java</label><label for="__tabbed_7_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">groupBy</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">avg</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">between</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">)</span>
@@ -1918,6 +2031,20 @@ be one of the validations from above.</p>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="n">avg</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">between</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="standard-deviation">Standard deviation</h2>
+<p>Check the standard deviation for each group adheres to validation.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">Scala</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">groupBy</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">stddev</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">between</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.6</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="n">stddev</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">between</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.6</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>

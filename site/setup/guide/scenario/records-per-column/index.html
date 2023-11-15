@@ -14,7 +14,7 @@
         <link rel="prev" href="../first-data-generation/">
       
       
-        <link rel="next" href="../auto-generate-connection/">
+        <link rel="next" href="../batch-and-event/">
       
       
         
@@ -803,6 +803,58 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../batch-and-event/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Foreign Keys Across Data Sources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Validations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1919,7 +1971,7 @@
 <span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DoubleType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="na">max</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
 <span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;time&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">TimestampType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">min</span><span class="p">(</span><span class="n">java</span><span class="p">.</span><span class="na">sql</span><span class="p">.</span><span class="na">Date</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="s">&quot;2022-01-01&quot;</span><span class="p">)),</span>
 <span class="w">                        </span><span class="n">field</span><span class="p">().</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;date&quot;</span><span class="p">).</span><span class="na">type</span><span class="p">(</span><span class="n">DateType</span><span class="p">.</span><span class="na">instance</span><span class="p">()).</span><span class="na">sql</span><span class="p">(</span><span class="s">&quot;DATE(time)&quot;</span><span class="p">)</span>
-<span class="w">                </span><span class="p">)</span>
+<span class="w">                </span><span class="p">);</span>
 
 <span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">configuration</span><span class="p">()</span>
 <span class="w">                </span><span class="p">.</span><span class="na">generatedReportsFolderPath</span><span class="p">(</span><span class="s">&quot;/opt/app/data/report&quot;</span><span class="p">)</span>
@@ -1936,7 +1988,7 @@
 
 <span class="k">class</span><span class="w"> </span><span class="nc">MyMultipleRecordsPerColPlan</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="nc">PlanRun</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">transactionTask</span><span class="p">:</span><span class="w"> </span><span class="nc">ConnectionTaskBuilder</span><span class="p">[</span><span class="nc">FileBuilder</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="kd">val</span><span class="w"> </span><span class="n">transactionTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csv</span><span class="p">(</span><span class="s">&quot;customer_transactions&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/opt/app/data/customer/transaction&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Map</span><span class="p">(</span><span class="s">&quot;header&quot;</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;true&quot;</span><span class="p">))</span>
 <span class="w">    </span><span class="p">.</span><span class="n">schema</span><span class="p">(</span>
 <span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;account_id&quot;</span><span class="p">).</span><span class="n">regex</span><span class="p">(</span><span class="s">&quot;ACC[0-9]{8}&quot;</span><span class="p">),</span><span class="w"> </span>
 <span class="w">      </span><span class="n">field</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="s">&quot;full_name&quot;</span><span class="p">).</span><span class="n">expression</span><span class="p">(</span><span class="s">&quot;#{Name.name}&quot;</span><span class="p">),</span><span class="w"> </span>
@@ -2076,13 +2128,13 @@ ACC29117767,Willodean<span class="w"> </span>Sauer,58.89345733567232,2022-11-22T
         
         
           
-          <a href="../auto-generate-connection/" class="md-footer__link md-footer__link--next" aria-label="Next: Auto Generate From Data Connection">
+          <a href="../batch-and-event/" class="md-footer__link md-footer__link--next" aria-label="Next: Foreign Keys Across Data Sources">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Auto Generate From Data Connection
+                Foreign Keys Across Data Sources
               </div>
             </div>
             <div class="md-footer__button md-icon">

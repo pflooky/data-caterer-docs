@@ -17,7 +17,7 @@ the trial can be found [**here**](../../get-started/docker.md#paid-version-trial
 - __[First Data Generation]__ - If you are new, this is the place to start
 - __[Multiple Records Per Column Value]__ - How you can generate multiple records per set of columns
 - __[Foreign Keys Across Data Sources]__ - Generate matching values across generated data sets
-- __[Data Validations]__ - (Soon to document) Run data validations after generating data
+- __[Data Validations]__ - Run data validations after generating data
 - __[Auto Generate From Data Connection]__ - Automatically generating data from just defining data sources
 - __[Delete Generated Data]__ - Delete the generated data whilst leaving other data
 - __[Generate Batch and Event Data]__ - Generate matching batch and event data
@@ -27,7 +27,7 @@ the trial can be found [**here**](../../get-started/docker.md#paid-version-trial
   [First Data Generation]: scenario/first-data-generation.md
   [Multiple Records Per Column Value]: scenario/records-per-column.md
   [Foreign Keys Across Data Sources]: scenario/batch-and-event.md
-  [Data Validations]: scenario/first-data-generation.md
+  [Data Validations]: scenario/data-validation.md
   [Auto Generate From Data Connection]: scenario/auto-generate-connection.md
   [Delete Generated Data]: scenario/delete-generated-data.md
   [Generate Batch and Event Data]: scenario/batch-and-event.md

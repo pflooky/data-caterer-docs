@@ -61,3 +61,4 @@
 - Ordering within data sources that support order for insertion
 - Clean up data in consumer data sinks
 - :white_check_mark: Trial app to try out all features
+- HTTP response data validation
