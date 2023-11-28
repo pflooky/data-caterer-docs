@@ -1,0 +1,23 @@
+/*
+#fbcccc -> hsl(0, 85%, 89%)
+#36699F
+#2d659e
+#7786a7
+*/
+.center-content {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.content-spaced {
+    margin: 48px !important;
+}
+
+.button-spaced {
+    margin: 32px;
+}
+
+.red-cross {
+    color: #d9534f;
+}
