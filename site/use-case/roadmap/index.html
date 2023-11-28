@@ -294,7 +294,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../use-case/" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   Use Case and Comparison
@@ -320,6 +320,23 @@
         </a>
       </li>
     
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sponsor/" class="md-tabs__link">
+        
+  
+    
+  
+  Sponsor
+
+      </a>
+    </li>
   
 
       
@@ -1081,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/connection/connection/" class="md-nav__link">
+      <a href="../../setup/connection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1156,7 +1173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/generator/generator/" class="md-nav__link">
+      <a href="../../setup/generator/data-generator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1291,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/validation/validation/" class="md-nav__link">
+      <a href="../../setup/validation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1363,6 +1380,32 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/validation/upstream-data-source-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Upstream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1377,7 +1420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/foreign-key/foreign-key/" class="md-nav__link">
+      <a href="../../setup/foreign-key/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1403,7 +1446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/deployment/deployment/" class="md-nav__link">
+      <a href="../../setup/deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1429,7 +1472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/advanced/advanced/" class="md-nav__link">
+      <a href="../../setup/advanced/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1513,7 +1556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../use-case/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1755,19 +1798,26 @@
 
               
             
-              
-                
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
   
   
   
     <li class="md-nav__item">
-      <a href="../../pricing/" class="md-nav__link">
+      <a href="../../sponsor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Pricing
+    Sponsor
   
 
     
@@ -1776,14 +1826,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -1799,6 +1841,52 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Use Case and Comparison
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -1810,33 +1898,44 @@
 <h1 id="roadmap">Roadmap</h1>
 <ul>
 <li>Support for other data sources<ul>
-<li>GCP and Azure related data services (<img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> cloud storage)</li>
+<li>AWS, GCP and Azure related data services (<img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> <a href="../../setup/advanced/#cloud-storage">cloud storage</a>)</li>
 <li>Deltalake</li>
 <li>RabbitMQ</li>
 <li>ActiveMQ</li>
 <li>MongoDB</li>
-<li>Airflow</li>
-<li>DBT</li>
+<li>Elasticsearch</li>
+<li>Snowflake</li>
+<li>Databricks</li>
+<li>Pulsar</li>
 </ul>
 </li>
 <li>Further support for metadata discovery<ul>
-<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> HTTP (OpenAPI spec)</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> <a href="../../setup/guide/data-source/http/">HTTP (OpenAPI spec)</a></li>
 <li>JMS</li>
 <li>Read from samples</li>
 </ul>
 </li>
-<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> API for developers and testers<ul>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> <a href="https://github.com/pflooky/data-caterer-example">API for developers and testers</a><ul>
 <li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Scala</li>
 <li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Java</li>
 </ul>
 </li>
-<li>UI for metadata and data generation</li>
-<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Report for data generated and validation rules</li>
+<li>UI Portal for metadata and data generation<ul>
 <li>Metadata stored in database</li>
-<li>Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry, DBT)<ul>
+<li>Store data generation/validation run information in file/database</li>
+</ul>
+</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> <a href="../../sample/report/html/">Report for data generated and validation rules</a></li>
+<li>Integration with existing metadata services<ul>
 <li>Populate metadata back to metadata services</li>
-<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> OpenLineage metadata (Marquez)</li>
-<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> OpenMetadata</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> <a href="../../setup/guide/data-source/marquez-metadata-source/">OpenLineage metadata (Marquez)</a></li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> <a href="../../setup/guide/data-source/open-metadata-source/">OpenMetadata</a></li>
+<li>ODCS (Open Data Contract Standard)</li>
+<li>Amundsen</li>
+<li>Datahub</li>
+<li>Solace Event Portal</li>
+<li>Airflow</li>
+<li>DBT</li>
 </ul>
 </li>
 <li>Integration with existing data validations<ul>
@@ -1852,7 +1951,7 @@
 </ul>
 </li>
 <li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Verification rules after data generation</li>
-<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Validation waiting conditions<ul>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> <a href="../../setup/validation/#wait-condition">Validation waiting conditions</a><ul>
 <li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Webhook</li>
 <li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> File exists</li>
 <li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Data exists via SQL expression</li>
@@ -1860,15 +1959,16 @@
 </ul>
 </li>
 <li>Extend validation types<ul>
-<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Aggregates (sum of amount per account is &gt; 500)</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> <a href="../../setup/validation/group-by-validation/">Aggregates</a> (sum of amount per account is &gt; 500)</li>
 <li>Ordering (transactions are ordered by date)</li>
-<li>Relationship (at least one account entry in history table per account in accounts table)</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> <a href="../../setup/validation/upstream-data-source-validation/">Relationship</a> (at least one account entry in history table per account in accounts table)</li>
 <li>Data profile (how close the generated data profile is compared to the expected data profile)</li>
 </ul>
 </li>
 <li>Extend count<ul>
 <li>Cover all possible cases (i.e. record for each combination of oneOf values, positive/negative values etc.)</li>
 <li>Similar to edge cases</li>
+<li>Ability to override edge cases</li>
 </ul>
 </li>
 <li>Alerting<ul>
@@ -1877,8 +1977,7 @@
 </ul>
 </li>
 <li>Overriding tasks<ul>
-<li>Can customise tasks without copying whole schema definitions</li>
-<li>Easier to create scenarios</li>
+<li>Can customise tasks without copying whole schema definitions, easier to create scenarios</li>
 </ul>
 </li>
 <li>Gradle plugin</li>
@@ -1892,8 +1991,12 @@
 <li>Code generation</li>
 <li>Schema generation from Scala/Java class</li>
 <li>Ordering within data sources that support order for insertion</li>
+<li>Further data cleanup<ul>
 <li>Clean up data in consumer data sinks</li>
-<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> Trial app to try out all features</li>
+<li>Clean up data from real time sources (i.e. DELETE HTTP endpoint, delete events in JMS)</li>
+</ul>
+</li>
+<li><img alt="✅" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/2705.svg" title=":white_check_mark:" /> <a href="../../get-started/docker/#paid-version-trial">Trial app to try out all features</a></li>
 <li>HTTP response data validation</li>
 </ul>
 
@@ -2116,7 +2219,7 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy", "content.code.select", "content.tabs.link", "toc.integrate", "toc.follow"], "search": "../../assets/javascripts/workers/search.f2da59ea.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.path", "content.code.copy", "content.code.select", "content.tabs.link", "toc.integrate", "toc.follow"], "search": "../../assets/javascripts/workers/search.f2da59ea.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.ef51cdc3.min.js"></script>

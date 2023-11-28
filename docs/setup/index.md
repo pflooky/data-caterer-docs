@@ -23,12 +23,12 @@ If you want a guided tour of using the Java or Scala API, you can follow one of 
 </div>
 
   [Configurations]: configuration.md
-  [Connections]: connection/connection.md
-  [Generators]: generator/generator.md
-  [Validations]: validation/validation.md
-  [Foreign Keys]: foreign-key/foreign-key.md
-  [Deployment]: deployment/deployment.md
-  [Advanced]: advanced/advanced.md
+  [Connections]: connection.md
+  [Generators]: generator/data-generator.md
+  [Validations]: validation.md
+  [Foreign Keys]: foreign-key.md
+  [Deployment]: deployment.md
+  [Advanced]: advanced.md
 
 ## High Level Run Configurations
 

@@ -296,7 +296,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../use-case/use-case/" class="md-tabs__link">
+        <a href="../../../../use-case/" class="md-tabs__link">
           
   
   Use Case and Comparison
@@ -322,6 +322,23 @@
         </a>
       </li>
     
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../sponsor/" class="md-tabs__link">
+        
+  
+    
+  
+  Sponsor
+
+      </a>
+    </li>
   
 
       
@@ -1485,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../connection/connection/" class="md-nav__link">
+      <a href="../../../connection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1560,7 +1577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../generator/generator/" class="md-nav__link">
+      <a href="../../../generator/data-generator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1695,7 +1712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../validation/validation/" class="md-nav__link">
+      <a href="../../../validation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1767,6 +1784,32 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../validation/upstream-data-source-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Upstream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1781,7 +1824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../foreign-key/foreign-key/" class="md-nav__link">
+      <a href="../../../foreign-key/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1807,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deployment/deployment/" class="md-nav__link">
+      <a href="../../../deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1833,7 +1876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/advanced/" class="md-nav__link">
+      <a href="../../../advanced/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1915,7 +1958,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../use-case/use-case/" class="md-nav__link">
+      <a href="../../../../use-case/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2147,19 +2190,26 @@
 
               
             
-              
-                
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
   
   
   
     <li class="md-nav__item">
-      <a href="../../../../pricing/" class="md-nav__link">
+      <a href="../../../../sponsor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Pricing
+    Sponsor
   
 
     
@@ -2168,14 +2218,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -2190,6 +2232,86 @@
           
           
             <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Setup
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Guide
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Data Sources
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
@@ -2757,7 +2879,7 @@ want to check and validate that our consumer has correctly ingested the data.</p
 Let's try to configure data validations for the data that gets pushed into Postgres.</p>
 <h4 id="postgres-setup">Postgres setup</h4>
 <p>First, we define our connection properties for Postgres. You can check out the full options available
-<a href="../../../connection/connection/"><strong>here</strong></a>.</p>
+<a href="../../../connection/"><strong>here</strong></a>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="19:2"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">Java</label><label for="__tabbed_19_2">Scala</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2782,7 +2904,7 @@ Let's try to configure data validations for the data that gets pushed into Postg
 </div>
 <p>We can connect and access the data inside the table <code>account.transactions</code>. Now to define our data validations.</p>
 <h4 id="validations">Validations</h4>
-<p>For full information about validation options and configurations, check <a href="../../../validation/validation/"><strong>here</strong></a>.
+<p>For full information about validation options and configurations, check <a href="../../../validation/"><strong>here</strong></a>.
 Below, we have an example that should give you a good understanding of what validations are possible.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="20:2"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">Java</label><label for="__tabbed_20_2">Scala</label></div>
 <div class="tabbed-content">
@@ -3060,7 +3182,7 @@ the docs further as it can guide you on what can be configured.</p>
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy", "content.code.select", "content.tabs.link", "toc.integrate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.f2da59ea.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.path", "content.code.copy", "content.code.select", "content.tabs.link", "toc.integrate", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.f2da59ea.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.ef51cdc3.min.js"></script>

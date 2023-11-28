@@ -1,27 +1,36 @@
 # Roadmap
 
 - Support for other data sources
-    - GCP and Azure related data services (:white_check_mark: cloud storage)
+    - AWS, GCP and Azure related data services (:white_check_mark: [cloud storage](../setup/advanced.md#cloud-storage))
     - Deltalake
     - RabbitMQ
     - ActiveMQ
     - MongoDB
-    - Airflow
-    - DBT
+    - Elasticsearch
+    - Snowflake
+    - Databricks
+    - Pulsar
 - Further support for metadata discovery
-    - :white_check_mark: HTTP (OpenAPI spec)
+    - :white_check_mark: [HTTP (OpenAPI spec)](../setup/guide/data-source/http.md)
     - JMS
     - Read from samples
-- :white_check_mark: API for developers and testers
+- :white_check_mark: [API for developers and testers](https://github.com/pflooky/data-caterer-example)
     - :white_check_mark: Scala
     - :white_check_mark: Java
-- UI for metadata and data generation
-- :white_check_mark: Report for data generated and validation rules
-- Metadata stored in database
-- Integration with existing metadata services (i.e. Amundsen, Datahub, Schema Registry, DBT)
+- UI Portal for metadata and data generation
+    - Metadata stored in database
+    - Store data generation/validation run information in file/database
+- :white_check_mark: [Report for data generated and validation rules](../sample/report/html/index.html)
+- Integration with existing metadata services
     - Populate metadata back to metadata services
-    - :white_check_mark: OpenLineage metadata (Marquez)
-    - :white_check_mark: OpenMetadata
+    - :white_check_mark: [OpenLineage metadata (Marquez)](../setup/guide/data-source/marquez-metadata-source.md)
+    - :white_check_mark: [OpenMetadata](../setup/guide/data-source/open-metadata-source.md)
+    - ODCS (Open Data Contract Standard)
+    - Amundsen
+    - Datahub
+    - Solace Event Portal
+    - Airflow
+    - DBT
 - Integration with existing data validations
     - [Great Expectation](https://greatexpectations.io/)
     - [DBT constraints](https://docs.getdbt.com/reference/resource-properties/constraints)
@@ -31,25 +40,25 @@
 - Data dictionary
     - Business definitions of fields that can be referenced for metadata across all data sources
 - :white_check_mark: Verification rules after data generation
-- :white_check_mark: Validation waiting conditions
+- :white_check_mark: [Validation waiting conditions](../setup/validation.md#wait-condition)
     - :white_check_mark: Webhook
     - :white_check_mark: File exists
     - :white_check_mark: Data exists via SQL expression
     - :white_check_mark: Pause
 - Extend validation types
-    - :white_check_mark: Aggregates (sum of amount per account is > 500)
+    - :white_check_mark: [Aggregates](../setup/validation/group-by-validation.md) (sum of amount per account is > 500)
     - Ordering (transactions are ordered by date)
-    - Relationship (at least one account entry in history table per account in accounts table)
+    - :white_check_mark: [Relationship](../setup/validation/upstream-data-source-validation.md) (at least one account entry in history table per account in accounts table)
     - Data profile (how close the generated data profile is compared to the expected data profile)
 - Extend count
     - Cover all possible cases (i.e. record for each combination of oneOf values, positive/negative values etc.)
     - Similar to edge cases
+    - Ability to override edge cases
 - Alerting
     - Slack
     - Email
 - Overriding tasks
-    - Can customise tasks without copying whole schema definitions
-    - Easier to create scenarios
+    - Can customise tasks without copying whole schema definitions, easier to create scenarios
 - Gradle plugin
 - Metadata improvements
     - PII detection (can integrate with [Presidio](https://microsoft.github.io/presidio/analyzer/))
@@ -59,6 +68,8 @@
 - Code generation
 - Schema generation from Scala/Java class
 - Ordering within data sources that support order for insertion
-- Clean up data in consumer data sinks
-- :white_check_mark: Trial app to try out all features
+- Further data cleanup
+    - Clean up data in consumer data sinks
+    - Clean up data from real time sources (i.e. DELETE HTTP endpoint, delete events in JMS)
+- :white_check_mark: [Trial app to try out all features](../get-started/docker.md#paid-version-trial)
 - HTTP response data validation

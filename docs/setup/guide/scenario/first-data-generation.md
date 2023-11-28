@@ -618,7 +618,7 @@ Let's try to configure data validations for the data that gets pushed into Postg
 #### Postgres setup
 
 First, we define our connection properties for Postgres. You can check out the full options available
-[**here**](../../connection/connection.md).
+[**here**](../../connection.md).
 
 === "Java"
 
@@ -646,7 +646,7 @@ We can connect and access the data inside the table `account.transactions`. Now 
 
 #### Validations
 
-For full information about validation options and configurations, check [**here**](../../validation/validation.md).
+For full information about validation options and configurations, check [**here**](../../validation.md).
 Below, we have an example that should give you a good understanding of what validations are possible.
 
 === "Java"

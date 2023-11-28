@@ -5,18 +5,21 @@ via SQL expression as well if needed (see [**here**](#expression)).
 
 ## Equal
 
-Ensure all data in column is equal to certain value. Value can be of any data type.
+Ensure all data in column is equal to certain value. Value can be of any data type. Can use `isEqualCol` to define SQL
+expression that can reference other columns.
 
 === "Java"
 
     ```java
-    validation().col("year").isEqual(2021)
+    validation().col("year").isEqual(2021),
+    validation().col("year").isEqualCol("YEAR(date)"),
     ```
 
 === "Scala"
 
     ```scala
-    validation.col("year").isEqual(2021)
+    validation.col("year").isEqual(2021),
+    validation.col("year").isEqualCol("YEAR(date)"),
     ```
 
 === "YAML"
@@ -32,18 +35,21 @@ Ensure all data in column is equal to certain value. Value can be of any data ty
 
 ## Not Equal
 
-Ensure all data in column is not equal to certain value. Value can be of any data type.
+Ensure all data in column is not equal to certain value. Value can be of any data type. Can use `isNotEqualCol` to 
+define SQL expression that can reference other columns.
 
 === "Java"
 
     ```java
-    validation().col("year").isNotEqual(2021)
+    validation().col("year").isNotEqual(2021),
+    validation().col("year").isNotEqualCol("YEAR(date)"),
     ```
 
 === "Scala"
 
     ```scala
     validation.col("year").isNotEqual(2021)
+    validation.col("year").isEqualCol("YEAR(date)"),
     ```
 
 === "YAML"
@@ -165,7 +171,7 @@ Ensure all data in column does not contain certain string. Column has to have ty
           - expr: "!CONTAINS(name, 'peter')"
     ```
 
-## Unqiue
+## Unique
 
 Ensure all data in column is unique.
 
@@ -195,18 +201,21 @@ Ensure all data in column is unique.
 
 ## Less Than
 
-Ensure all data in column is less than certain value.
+Ensure all data in column is less than certain value. Can use `lessThanCol` to define SQL expression that can reference 
+other columns.
 
 === "Java"
 
     ```java
-    validation().col("amount").lessThan(100)
+    validation().col("amount").lessThan(100),
+    validation().col("amount").lessThanCol("balance + 1"),
     ```
 
 === "Scala"
 
     ```scala
-    validation.col("amount").lessThan(100)
+    validation.col("amount").lessThan(100),
+    validation.col("amount").lessThanCol("balance + 1"),
     ```
 
 === "YAML"
@@ -218,22 +227,26 @@ Ensure all data in column is less than certain value.
       ...
         validations:
           - expr: "amount < 100"
+          - expr: "amount < balance + 1"
     ```
 
 ## Less Than Or Equal
 
-Ensure all data in column is less than or equal to certain value.
+Ensure all data in column is less than or equal to certain value. Can use `lessThanOrEqualCol` to define SQL expression 
+that can reference other columns.
 
 === "Java"
 
     ```java
-    validation().col("amount").lessThanOrEqual(100)
+    validation().col("amount").lessThanOrEqual(100),
+    validation().col("amount").lessThanOrEqualCol("balance + 1"),
     ```
 
 === "Scala"
 
     ```scala
-    validation.col("amount").lessThanOrEqual(100)
+    validation.col("amount").lessThanOrEqual(100),
+    validation.col("amount").lessThanCol("balance + 1"),
     ```
 
 === "YAML"
@@ -245,22 +258,26 @@ Ensure all data in column is less than or equal to certain value.
       ...
         validations:
           - expr: "amount <= 100"
+          - expr: "amount <= balance + 1"
     ```
 
 ## Greater Than
 
-Ensure all data in column is greater than certain value.
+Ensure all data in column is greater than certain value. Can use `greaterThanCol` to define SQL expression
+that can reference other columns.
 
 === "Java"
 
     ```java
-    validation().col("amount").greaterThan(100)
+    validation().col("amount").greaterThan(100),
+    validation().col("amount").greaterThanCol("balance"),
     ```
 
 === "Scala"
 
     ```scala
-    validation.col("amount").greaterThan(100)
+    validation.col("amount").greaterThan(100),
+    validation.col("amount").greaterThanCol("balance"),
     ```
 
 === "YAML"
@@ -272,22 +289,26 @@ Ensure all data in column is greater than certain value.
       ...
         validations:
           - expr: "amount > 100"
+          - expr: "amount > balance"
     ```
 
 ## Greater Than Or Equal
 
-Ensure all data in column is greater than or equal to certain value.
+Ensure all data in column is greater than or equal to certain value. Can use `greaterThanOrEqualCol` to define SQL 
+expression that can reference other columns.
 
 === "Java"
 
     ```java
-    validation().col("amount").greaterThanOrEqual(100)
+    validation().col("amount").greaterThanOrEqual(100),
+    validation().col("amount").greaterThanOrEqualCol("balance"),
     ```
 
 === "Scala"
 
     ```scala
-    validation.col("amount").greaterThanOrEqual(100)
+    validation.col("amount").greaterThanOrEqual(100),
+    validation.col("amount").greaterThanOrEqualCol("balance"),
     ```
 
 === "YAML"
@@ -299,22 +320,26 @@ Ensure all data in column is greater than or equal to certain value.
       ...
         validations:
           - expr: "amount >= 100"
+          - expr: "amount >= balance"
     ```
 
 ## Between
 
-Ensure all data in column is between two values.
+Ensure all data in column is between two values. Can use `betweenCol` to define SQL expression that references other 
+columns.
 
 === "Java"
 
     ```java
-    validation().col("amount").between(100, 200)
+    validation().col("amount").between(100, 200),
+    validation().col("amount").betweenCol("balance * 0.9", "balance * 1.1"),
     ```
 
 === "Scala"
 
     ```scala
-    validation.col("amount").between(100, 200)
+    validation.col("amount").between(100, 200),
+    validation.col("amount").betweenCol("balance * 0.9", "balance * 1.1"),
     ```
 
 === "YAML"
@@ -326,22 +351,26 @@ Ensure all data in column is between two values.
       ...
         validations:
           - expr: "amount BETWEEN 100 AND 200"
+          - expr: "amount BETWEEN balance * 0.9 AND balance * 1.1"
     ```
 
 ## Not Between
 
-Ensure all data in column is not between two values.
+Ensure all data in column is not between two values. Can use `notBetweenCol` to define SQL expression that references 
+other columns.
 
 === "Java"
 
     ```java
-    validation().col("amount").notBetween(100, 200)
+    validation().col("amount").notBetween(100, 200),
+    validation().col("amount").notBetweenCol("balance * 0.9", "balance * 1.1"),
     ```
 
 === "Scala"
 
     ```scala
     validation.col("amount").notBetween(100, 200)
+    validation.col("amount").notBetweenCol("balance * 0.9", "balance * 1.1"),
     ```
 
 === "YAML"
@@ -353,6 +382,7 @@ Ensure all data in column is not between two values.
       ...
         validations:
           - expr: "amount NOT BETWEEN 100 AND 200"
+          - expr: "amount NOT BETWEEN balance * 0.9 AND balance * 1.1"
     ```
 
 ## In

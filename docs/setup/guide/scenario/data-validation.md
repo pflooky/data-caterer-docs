@@ -1,5 +1,5 @@
 ---
-description: "Validate data via basic checks and group by aggregates across columns and the whole dataset."
+description: "Validate data via basic checks and group by aggregates, across columns or the whole dataset."
 image: "https://data.catering/diagrams/logo/data_catering_logo.svg"
 ---
 
@@ -199,7 +199,7 @@ Line 2: `validation.groupBy("account_id").max("balance").lessThan(900)`
 ##### Considerations
 
 - Adjust the `errorThreshold` or validation to your specification scenario. The full list
-  of [types of validations can be found here](../../../setup/validation/validation.md).
+  of [types of validations can be found here](../../validation.md).
 - For the full list of types of group by validations that can be
   used, [check this page](../../../setup/validation/group-by-validation.md).
 

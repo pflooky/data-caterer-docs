@@ -6,13 +6,13 @@ These configurations can be done via API or from configuration. Examples of both
 
 ## Supported Data Connections
 
-| Data Source Type | Data Source                            | Paid                   |
-|------------------|----------------------------------------|------------------------|
-| Database         | Postgres, MySQL, Cassandra             | N (Postgres), Y (rest) |
-| File             | CSV, JSON, ORC, Parquet                | N                      |
-| Messaging        | Kafka, Solace                          | Y                      |
-| HTTP             | REST API                               | Y                      |
-| Metadata         | Marquez, OpenMetadata, OpenAPI/Swagger | Y                      |
+| Data Source Type | Data Source                            | Sponsor |
+|------------------|----------------------------------------|---------|
+| Database         | Postgres, MySQL, Cassandra             | N       |
+| File             | CSV, JSON, ORC, Parquet                | N       |
+| Messaging        | Kafka, Solace                          | Y       |
+| HTTP             | REST API                               | Y       |
+| Metadata         | Marquez, OpenMetadata, OpenAPI/Swagger | Y       |
 
 ### API
 
@@ -46,7 +46,7 @@ All connection details follow the same pattern.
 
 ## Data sources
 
-To find examples of a task for each type of data source, please check out [this page](../guide/index.md).
+To find examples of a task for each type of data source, please check out [this page](guide/index.md).
 
 ### File
 

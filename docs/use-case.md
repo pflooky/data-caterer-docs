@@ -11,7 +11,7 @@ the following:
 3. Validate data to ensure your system runs as expected
 4. Clean up data to avoid build up of generated data
 
-![Replicate production flow](../diagrams/use_case_replicate_production.svg "Get latest schemas, generate data, validate and clean data")
+![Replicate production flow](diagrams/use_case_replicate_production.svg "Get latest schemas, generate data, validate and clean data")
 
 ## Local development
 
@@ -40,7 +40,7 @@ data gets generated and is consumed, you can also run validations to ensure your
 These scenarios can be put together from existing tasks or data sources can be enabled/disabled based on your
 requirement. Built into Data Caterer and controlled via feature flags, is the ability to test edge cases based on the
 data type of the fields used for data generation (`enableEdgeCases` flag within `<field>.generator.options`, see more
-[**here**](../setup/generator/generator.md)).
+[**here**](setup/generator/data-generator.md)).
 
 ## Data debugging
 
@@ -53,16 +53,16 @@ in whichever environment you want to test your changes against.
 ## Data profiling
 
 When using Data Caterer with the feature flag `enableGeneratePlanAndTasks` enabled
-(see [**here**](../setup/configuration.md)), metadata relating all the fields defined in the data sources you have
+(see [**here**](setup/configuration.md)), metadata relating all the fields defined in the data sources you have
 configured will be generated via data profiling. You can run this as a standalone job (can disable `enableGenerateData`) 
 so that you can focus on the profile of the data you are utilising. This can be run against your production data sources 
 to ensure the metadata can be used to accurately generate data in other environments. This is a key feature of Data 
 Caterer as no direct production connections need to be maintained to generate data in other environments (which can 
-lead to serious concerns about data security as seen [**here**](business-value.md)).
+lead to serious concerns about data security as seen [**here**](use-case/business-value.md)).
 
 ## Schema gathering
 
 When using Data Caterer with the feature flag `enableGeneratePlanAndTasks` enabled
-(see [**here**](../setup/configuration.md)), all schemas of the data sources defined will be tracked in a common format (as
+(see [**here**](setup/configuration.md)), all schemas of the data sources defined will be tracked in a common format (as
 tasks). This data, along with the data profiling metadata, could then feed back into your schema registries to help keep
 them up to date with your system.

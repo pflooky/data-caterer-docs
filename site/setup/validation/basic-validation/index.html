@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://data.catering/setup/validation/basic-validation/">
       
       
-        <link rel="prev" href="../validation/">
+        <link rel="prev" href="../">
       
       
         <link rel="next" href="../group-by-validation/">
@@ -294,7 +294,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../use-case/use-case/" class="md-tabs__link">
+        <a href="../../../use-case/" class="md-tabs__link">
           
   
   Use Case and Comparison
@@ -320,6 +320,23 @@
         </a>
       </li>
     
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../sponsor/" class="md-tabs__link">
+        
+  
+    
+  
+  Sponsor
+
+      </a>
+    </li>
   
 
       
@@ -1083,7 +1100,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../connection/connection/" class="md-nav__link">
+      <a href="../../connection/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1158,7 +1175,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../generator/generator/" class="md-nav__link">
+      <a href="../../generator/data-generator/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1295,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../validation/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1445,10 +1462,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#unqiue" class="md-nav__link">
+  <a href="#unique" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unqiue
+        Unique
       
     </span>
   </a>
@@ -1732,6 +1749,32 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../upstream-data-source-validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Upstream
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1746,7 +1789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../foreign-key/foreign-key/" class="md-nav__link">
+      <a href="../../foreign-key/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1772,7 +1815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/deployment/" class="md-nav__link">
+      <a href="../../deployment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1798,7 +1841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/advanced/" class="md-nav__link">
+      <a href="../../advanced/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1880,7 +1923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../use-case/use-case/" class="md-nav__link">
+      <a href="../../../use-case/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2112,19 +2155,26 @@
 
               
             
-              
-                
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
   
   
   
     <li class="md-nav__item">
-      <a href="../../../pricing/" class="md-nav__link">
+      <a href="../../../sponsor/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     
   
-    Pricing
+    Sponsor
   
 
     
@@ -2133,14 +2183,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -2156,6 +2198,69 @@
           
             <div class="md-content" data-md-component="content">
               
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Setup
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Validation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -2168,15 +2273,18 @@
 <p>Run validations on a column to ensure the values adhere to your requirement. Can be set to complex validation logic
 via SQL expression as well if needed (see <a href="#expression"><strong>here</strong></a>).</p>
 <h2 id="equal">Equal</h2>
-<p>Ensure all data in column is equal to certain value. Value can be of any data type.</p>
+<p>Ensure all data in column is equal to certain value. Value can be of any data type. Can use <code>isEqualCol</code> to define SQL
+expression that can reference other columns.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Java</label><label for="__tabbed_1_2">Scala</label><label for="__tabbed_1_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">isEqual</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">isEqual</span><span class="p">(</span><span class="mi">2021</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">isEqualCol</span><span class="p">(</span><span class="s">&quot;YEAR(date)&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="n">isEqual</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="n">isEqual</span><span class="p">(</span><span class="mi">2021</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="n">isEqualCol</span><span class="p">(</span><span class="s">&quot;YEAR(date)&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2191,15 +2299,18 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 </div>
 <h2 id="not-equal">Not Equal</h2>
-<p>Ensure all data in column is not equal to certain value. Value can be of any data type.</p>
+<p>Ensure all data in column is not equal to certain value. Value can be of any data type. Can use <code>isNotEqualCol</code> to 
+define SQL expression that can reference other columns.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">Scala</label><label for="__tabbed_2_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">isNotEqual</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">isNotEqual</span><span class="p">(</span><span class="mi">2021</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="na">isNotEqualCol</span><span class="p">(</span><span class="s">&quot;YEAR(date)&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="n">isNotEqual</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span>
+<span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;year&quot;</span><span class="p">).</span><span class="n">isEqualCol</span><span class="p">(</span><span class="s">&quot;YEAR(date)&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2305,7 +2416,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 </div>
 </div>
-<h2 id="unqiue">Unqiue</h2>
+<h2 id="unique">Unique</h2>
 <p>Ensure all data in column is unique.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Java</label><label for="__tabbed_7_2">Scala</label><label for="__tabbed_7_3">YAML</label></div>
 <div class="tabbed-content">
@@ -2329,15 +2440,18 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 </div>
 </div>
 <h2 id="less-than">Less Than</h2>
-<p>Ensure all data in column is less than certain value.</p>
+<p>Ensure all data in column is less than certain value. Can use <code>lessThanCol</code> to define SQL expression that can reference 
+other columns.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Java</label><label for="__tabbed_8_2">Scala</label><label for="__tabbed_8_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">lessThan</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">lessThan</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">lessThanCol</span><span class="p">(</span><span class="s">&quot;balance + 1&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">lessThan</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">lessThan</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">lessThanCol</span><span class="p">(</span><span class="s">&quot;balance + 1&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2347,20 +2461,24 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">validations</span><span class="p p-Indicator">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">100&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">&lt;</span><span class="nv"> </span><span class="s">balance</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">1&quot;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <h2 id="less-than-or-equal">Less Than Or Equal</h2>
-<p>Ensure all data in column is less than or equal to certain value.</p>
+<p>Ensure all data in column is less than or equal to certain value. Can use <code>lessThanOrEqualCol</code> to define SQL expression 
+that can reference other columns.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Java</label><label for="__tabbed_9_2">Scala</label><label for="__tabbed_9_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">lessThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">lessThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">lessThanOrEqualCol</span><span class="p">(</span><span class="s">&quot;balance + 1&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">lessThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">lessThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">lessThanCol</span><span class="p">(</span><span class="s">&quot;balance + 1&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2370,20 +2488,24 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">validations</span><span class="p p-Indicator">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">&lt;=</span><span class="nv"> </span><span class="s">100&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">&lt;=</span><span class="nv"> </span><span class="s">balance</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">1&quot;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <h2 id="greater-than">Greater Than</h2>
-<p>Ensure all data in column is greater than certain value.</p>
+<p>Ensure all data in column is greater than certain value. Can use <code>greaterThanCol</code> to define SQL expression
+that can reference other columns.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Java</label><label for="__tabbed_10_2">Scala</label><label for="__tabbed_10_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">greaterThan</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">greaterThan</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">greaterThanCol</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">greaterThan</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">greaterThan</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">greaterThanCol</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2393,20 +2515,24 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">validations</span><span class="p p-Indicator">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">100&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">balance&quot;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <h2 id="greater-than-or-equal">Greater Than Or Equal</h2>
-<p>Ensure all data in column is greater than or equal to certain value.</p>
+<p>Ensure all data in column is greater than or equal to certain value. Can use <code>greaterThanOrEqualCol</code> to define SQL 
+expression that can reference other columns.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Java</label><label for="__tabbed_11_2">Scala</label><label for="__tabbed_11_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">greaterThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">greaterThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">greaterThanOrEqualCol</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">greaterThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">greaterThanOrEqual</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">greaterThanOrEqualCol</span><span class="p">(</span><span class="s">&quot;balance&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2416,20 +2542,24 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">validations</span><span class="p p-Indicator">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">&gt;=</span><span class="nv"> </span><span class="s">100&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">&gt;=</span><span class="nv"> </span><span class="s">balance&quot;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <h2 id="between">Between</h2>
-<p>Ensure all data in column is between two values.</p>
+<p>Ensure all data in column is between two values. Can use <code>betweenCol</code> to define SQL expression that references other 
+columns.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Java</label><label for="__tabbed_12_2">Scala</label><label for="__tabbed_12_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">between</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">between</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">betweenCol</span><span class="p">(</span><span class="s">&quot;balance * 0.9&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;balance * 1.1&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">between</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">between</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">betweenCol</span><span class="p">(</span><span class="s">&quot;balance * 0.9&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;balance * 1.1&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2439,20 +2569,24 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">validations</span><span class="p p-Indicator">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">BETWEEN</span><span class="nv"> </span><span class="s">100</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">200&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">BETWEEN</span><span class="nv"> </span><span class="s">balance</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">0.9</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">balance</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1.1&quot;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <h2 id="not-between">Not Between</h2>
-<p>Ensure all data in column is not between two values.</p>
+<p>Ensure all data in column is not between two values. Can use <code>notBetweenCol</code> to define SQL expression that references 
+other columns.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Java</label><label for="__tabbed_13_2">Scala</label><label for="__tabbed_13_3">YAML</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">notBetween</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">notBetween</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">),</span>
+<span class="n">validation</span><span class="p">().</span><span class="na">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="na">notBetweenCol</span><span class="p">(</span><span class="s">&quot;balance * 0.9&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;balance * 1.1&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">notBetween</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">)</span>
+<span class="n">validation</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="s">&quot;amount&quot;</span><span class="p">).</span><span class="n">notBetweenCol</span><span class="p">(</span><span class="s">&quot;balance * 0.9&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;balance * 1.1&quot;</span><span class="p">),</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2462,6 +2596,7 @@ via SQL expression as well if needed (see <a href="#expression"><strong>here</st
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 <span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">validations</span><span class="p p-Indicator">:</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">NOT</span><span class="nv"> </span><span class="s">BETWEEN</span><span class="nv"> </span><span class="s">100</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">200&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;amount</span><span class="nv"> </span><span class="s">NOT</span><span class="nv"> </span><span class="s">BETWEEN</span><span class="nv"> </span><span class="s">balance</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">0.9</span><span class="nv"> </span><span class="s">AND</span><span class="nv"> </span><span class="s">balance</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">1.1&quot;</span>
 </code></pre></div>
 </div>
 </div>
@@ -2894,7 +3029,7 @@ open to have <code>balance</code> greater than 0, otherwise, check the <code>bal
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../validation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Validations">
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Validations">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -3081,7 +3216,7 @@ open to have <code>balance</code> greater than 0, otherwise, check the <code>bal
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.footer", "content.code.copy", "content.code.select", "content.tabs.link", "toc.integrate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f2da59ea.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.instant", "navigation.instant.prefetch", "navigation.tracking", "navigation.top", "navigation.footer", "navigation.path", "content.code.copy", "content.code.select", "content.tabs.link", "toc.integrate", "toc.follow"], "search": "../../../assets/javascripts/workers/search.f2da59ea.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.ef51cdc3.min.js"></script>

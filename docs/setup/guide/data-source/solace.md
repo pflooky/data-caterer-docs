@@ -92,7 +92,7 @@ Within our class, we can start by defining the connection properties to connect 
     );
     ```
     
-    Additional connection options can be found [**here**](../../connection/connection.md#jms).
+    Additional connection options can be found [**here**](../../connection.md#jms).
 
 === "Scala"
 
@@ -104,7 +104,7 @@ Within our class, we can start by defining the connection properties to connect 
     )
     ```
     
-    Additional connection options can be found [**here**](../../connection/connection.md#jms).
+    Additional connection options can be found [**here**](../../connection.md#jms).
 
 #### Schema
 

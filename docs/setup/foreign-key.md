@@ -1,6 +1,6 @@
 # Foreign Keys
 
-![Multiple data source foreign key example](../../diagrams/foreign_keys.drawio.png "Multiple data source foreign keys")
+![Multiple data source foreign key example](../diagrams/foreign_keys.drawio.png "Multiple data source foreign keys")
 
 Foreign keys can be defined to represent the relationships between datasets where values are required to match for
 particular columns.

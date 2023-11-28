@@ -7,19 +7,14 @@ summarising the success or failure of the validations is produced and can be exa
 
 - __[Basic]__ - Basic column level validations
 - __[Group by/Aggregate]__ - Run aggregates over grouped data, then validate
-- __[Relationship (Coming soon)]__ - Ensure record values exist in other datasets based on relationships
+- __[Upstream data source]__ - Ensure record values exist in datasets based on other data sources or data generated
 - __[Data Profile (Coming soon)]__ - Score how close the data profile of generated data is against the target data profile
 
 </div>
 
-  [Basic]: basic-validation.md
-  [Group by/Aggregate]: group-by-validation.md
-
-Currently, SQL expression validations are supported (can see [**here**](https://spark.apache.org/docs/latest/api/sql/)
-for reference what other expressions are valid), but will later be extended out to supported other validations such as
-aggregates (group by account_number, sum of amounts should be greater than 100), ordering (transaction dates should be
-in descending order), relationships (at least one transaction per account_number) or data profiling (how close produced
-data profile is to expected data profile).
+  [Basic]: validation/basic-validation.md
+  [Group by/Aggregate]: validation/group-by-validation.md
+  [Upstream data source]: validation/upstream-data-source-validation.md
 
 ## Define Validations
 
@@ -249,4 +244,4 @@ validations. This can be via:
 
 ## Report
 
-Once run, it will produce a report like [this](../../sample/report/html/validations.html).
+Once run, it will produce a report like [this](../sample/report/html/validations.html).

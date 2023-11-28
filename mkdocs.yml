@@ -19,9 +19,11 @@ theme:
     - navigation.tabs
     - navigation.sections
     - navigation.instant
+    - navigation.instant.prefetch
     - navigation.tracking
     - navigation.top
     - navigation.footer
+    - navigation.path
     - content.code.copy
     - content.code.select
     - content.tabs.link
@@ -78,20 +80,21 @@ nav:
               - OpenMetadata Source: 'setup/guide/data-source/open-metadata-source.md'
               - HTTP: 'setup/guide/data-source/http.md'
       - Configuration: 'setup/configuration.md'
-      - Connection: 'setup/connection/connection.md'
+      - Connection: 'setup/connection.md'
       - Generator:
-          - Data Generator: 'setup/generator/generator.md'
+          - Data Generator: 'setup/generator/data-generator.md'
           - Record Count: 'setup/generator/count.md'
           - Report: 'setup/generator/report.md'
       - Validation:
-          - 'setup/validation/validation.md'
+          - 'setup/validation.md'
           - Basic: 'setup/validation/basic-validation.md'
           - Group by/Aggregate: 'setup/validation/group-by-validation.md'
-      - Foreign Keys: 'setup/foreign-key/foreign-key.md'
-      - Deployment: 'setup/deployment/deployment.md'
-      - Advanced: 'setup/advanced/advanced.md'
+          - Upstream: 'setup/validation/upstream-data-source-validation.md'
+      - Foreign Keys: 'setup/foreign-key.md'
+      - Deployment: 'setup/deployment.md'
+      - Advanced: 'setup/advanced.md'
   - Use Case and Comparison:
-      - 'use-case/use-case.md'
+      - 'use-case.md'
       - Business Value: 'use-case/business-value.md'
       - Comparison: 'use-case/comparison.md'
       - Roadmap: 'use-case/roadmap.md'
@@ -99,7 +102,7 @@ nav:
       - 'about.md'
       - Terms of service: 'legal/terms-of-service.md'
       - Privacy policy: 'legal/privacy-policy.md'
-      - Pricing: 'pricing.md'
+  - Sponsor: 'sponsor.md'
 
 extra:
   social:
