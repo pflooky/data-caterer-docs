@@ -1,7 +1,7 @@
 site_name: Data Catering
 site_url: https://data.catering/
-repo_url: https://github.com/pflooky/data-caterer-docs
-repo_name: data-caterer-docs
+repo_url: https://github.com/pflooky/data-caterer
+repo_name: data-caterer
 
 extra_css:
   - stylesheets/extra.css
